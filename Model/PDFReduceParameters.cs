@@ -111,37 +111,6 @@ namespace PassportPDF.Model
         [DataMember(Name="imageQuality", EmitDefaultValue=false)]
         public ImageQualityEnum? ImageQuality { get; set; }
         /// <summary>
-        /// Gets or Sets ScannerSource
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ScannerSourceEnum
-        {
-            
-            /// <summary>
-            /// Enum PDFScannerSourceYes for "PDFScannerSourceYes"
-            /// </summary>
-            [EnumMember(Value = "PDFScannerSourceYes")]
-            PDFScannerSourceYes = 1,
-            
-            /// <summary>
-            /// Enum PDFScannerSourceNo for "PDFScannerSourceNo"
-            /// </summary>
-            [EnumMember(Value = "PDFScannerSourceNo")]
-            PDFScannerSourceNo = 2,
-            
-            /// <summary>
-            /// Enum PDFScannerSourceUnknown for "PDFScannerSourceUnknown"
-            /// </summary>
-            [EnumMember(Value = "PDFScannerSourceUnknown")]
-            PDFScannerSourceUnknown = 3
-        }
-
-        /// <summary>
-        /// Gets or Sets ScannerSource
-        /// </summary>
-        [DataMember(Name="scannerSource", EmitDefaultValue=false)]
-        public ScannerSourceEnum? ScannerSource { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="PDFReduceParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -167,9 +136,8 @@ namespace PassportPDF.Model
         /// <param name="EnableJPEG2000">EnableJPEG2000 (default to true).</param>
         /// <param name="EnableJBIG2">EnableJBIG2 (default to true).</param>
         /// <param name="EnableCharRepair">EnableCharRepair (default to false).</param>
-        /// <param name="ScannerSource">ScannerSource (default to ScannerSourceEnum.PDFScannerSourceUnknown).</param>
         /// <param name="EnableMRC">EnableMRC (default to false).</param>
-        public PDFReduceParameters(string FileId = default(string), OutputVersionEnum? OutputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? ImageQuality = ImageQualityEnum.ImageQualityMedium, bool? RecompressImages = true, bool? EnableColorDetection = true, bool? PackDocument = true, bool? PackFonts = true, bool? DownscaleImages = true, int? DownscaleResolution = 150, bool? FastWebView = false, bool? RemoveFormFields = false, bool? RemoveAnnotations = false, bool? RemoveBookmarks = false, bool? RemoveHyperlinks = false, bool? RemoveEmbeddedFiles = false, bool? EnableJPEG2000 = true, bool? EnableJBIG2 = true, bool? EnableCharRepair = false, ScannerSourceEnum? ScannerSource = ScannerSourceEnum.PDFScannerSourceUnknown, bool? EnableMRC = false)
+        public PDFReduceParameters(string FileId = default(string), OutputVersionEnum? OutputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? ImageQuality = ImageQualityEnum.ImageQualityMedium, bool? RecompressImages = true, bool? EnableColorDetection = true, bool? PackDocument = true, bool? PackFonts = true, bool? DownscaleImages = true, int? DownscaleResolution = 150, bool? FastWebView = false, bool? RemoveFormFields = false, bool? RemoveAnnotations = false, bool? RemoveBookmarks = false, bool? RemoveHyperlinks = false, bool? RemoveEmbeddedFiles = false, bool? EnableJPEG2000 = true, bool? EnableJBIG2 = true, bool? EnableCharRepair = false, bool? EnableMRC = false)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -333,15 +301,6 @@ namespace PassportPDF.Model
             {
                 this.EnableCharRepair = EnableCharRepair;
             }
-            // use default value if no "ScannerSource" provided
-            if (ScannerSource == null)
-            {
-                this.ScannerSource = ScannerSourceEnum.PDFScannerSourceUnknown;
-            }
-            else
-            {
-                this.ScannerSource = ScannerSource;
-            }
             // use default value if no "EnableMRC" provided
             if (EnableMRC == null)
             {
@@ -451,7 +410,6 @@ namespace PassportPDF.Model
         [DataMember(Name="enableCharRepair", EmitDefaultValue=false)]
         public bool? EnableCharRepair { get; set; }
 
-
         /// <summary>
         /// Gets or Sets EnableMRC
         /// </summary>
@@ -484,7 +442,6 @@ namespace PassportPDF.Model
             sb.Append("  EnableJPEG2000: ").Append(EnableJPEG2000).Append("\n");
             sb.Append("  EnableJBIG2: ").Append(EnableJBIG2).Append("\n");
             sb.Append("  EnableCharRepair: ").Append(EnableCharRepair).Append("\n");
-            sb.Append("  ScannerSource: ").Append(ScannerSource).Append("\n");
             sb.Append("  EnableMRC: ").Append(EnableMRC).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -611,11 +568,6 @@ namespace PassportPDF.Model
                     this.EnableCharRepair.Equals(input.EnableCharRepair))
                 ) && 
                 (
-                    this.ScannerSource == input.ScannerSource ||
-                    (this.ScannerSource != null &&
-                    this.ScannerSource.Equals(input.ScannerSource))
-                ) && 
-                (
                     this.EnableMRC == input.EnableMRC ||
                     (this.EnableMRC != null &&
                     this.EnableMRC.Equals(input.EnableMRC))
@@ -667,8 +619,6 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.EnableJBIG2.GetHashCode();
                 if (this.EnableCharRepair != null)
                     hashCode = hashCode * 59 + this.EnableCharRepair.GetHashCode();
-                if (this.ScannerSource != null)
-                    hashCode = hashCode * 59 + this.ScannerSource.GetHashCode();
                 if (this.EnableMRC != null)
                     hashCode = hashCode * 59 + this.EnableMRC.GetHashCode();
                 return hashCode;

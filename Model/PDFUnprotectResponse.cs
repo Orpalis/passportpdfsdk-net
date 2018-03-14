@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to an unprotect action request.
+    /// Represents the response to an unprotect action request.
     /// </summary>
     [DataContract]
     public partial class PDFUnprotectResponse :  IEquatable<PDFUnprotectResponse>, IValidatableObject

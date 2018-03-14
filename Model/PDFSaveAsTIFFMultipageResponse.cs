@@ -25,17 +25,17 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to a move page action request.
+    /// Represents the response to a save as TIFF multipage action request.
     /// </summary>
     [DataContract]
-    public partial class PDFMovePageResponse :  IEquatable<PDFMovePageResponse>, IValidatableObject
+    public partial class PDFSaveAsTIFFMultipageResponse :  IEquatable<PDFSaveAsTIFFMultipageResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMovePageResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFSaveAsTIFFMultipageResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFMovePageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        public PDFSaveAsTIFFMultipageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
@@ -54,15 +54,23 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
+        /// Specifies the data of the produced multipage TIFF.
+        /// </summary>
+        /// <value>Specifies the data of the produced multipage TIFF.</value>
+        [DataMember(Name="imageData", EmitDefaultValue=false)]
+        public byte[] ImageData { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFMovePageResponse {\n");
+            sb.Append("class PDFSaveAsTIFFMultipageResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
+            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +91,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMovePageResponse);
+            return this.Equals(input as PDFSaveAsTIFFMultipageResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFMovePageResponse instances are equal
+        /// Returns true if PDFSaveAsTIFFMultipageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMovePageResponse to be compared</param>
+        /// <param name="input">Instance of PDFSaveAsTIFFMultipageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMovePageResponse input)
+        public bool Equals(PDFSaveAsTIFFMultipageResponse input)
         {
             if (input == null)
                 return false;
@@ -106,6 +114,11 @@ namespace PassportPDF.Model
                     this.RemainingTokens == input.RemainingTokens ||
                     (this.RemainingTokens != null &&
                     this.RemainingTokens.Equals(input.RemainingTokens))
+                ) && 
+                (
+                    this.ImageData == input.ImageData ||
+                    (this.ImageData != null &&
+                    this.ImageData.Equals(input.ImageData))
                 );
         }
 
@@ -122,6 +135,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
+                if (this.ImageData != null)
+                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
                 return hashCode;
             }
         }

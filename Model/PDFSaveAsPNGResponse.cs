@@ -25,20 +25,22 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to a move page action request.
+    /// Represents the response to a save as PNG action request.
     /// </summary>
     [DataContract]
-    public partial class PDFMovePageResponse :  IEquatable<PDFMovePageResponse>, IValidatableObject
+    public partial class PDFSaveAsPNGResponse :  IEquatable<PDFSaveAsPNGResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMovePageResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFSaveAsPNGResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFMovePageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        /// <param name="ImagesData">Specifies the data of all the images extracted from the PDF..</param>
+        public PDFSaveAsPNGResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<byte[]> ImagesData = default(List<byte[]>))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
+            this.ImagesData = ImagesData;
         }
         
         /// <summary>
@@ -54,15 +56,23 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
+        /// Specifies the data of all the images extracted from the PDF.
+        /// </summary>
+        /// <value>Specifies the data of all the images extracted from the PDF.</value>
+        [DataMember(Name="imagesData", EmitDefaultValue=false)]
+        public List<byte[]> ImagesData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFMovePageResponse {\n");
+            sb.Append("class PDFSaveAsPNGResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
+            sb.Append("  ImagesData: ").Append(ImagesData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +93,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMovePageResponse);
+            return this.Equals(input as PDFSaveAsPNGResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFMovePageResponse instances are equal
+        /// Returns true if PDFSaveAsPNGResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMovePageResponse to be compared</param>
+        /// <param name="input">Instance of PDFSaveAsPNGResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMovePageResponse input)
+        public bool Equals(PDFSaveAsPNGResponse input)
         {
             if (input == null)
                 return false;
@@ -106,6 +116,11 @@ namespace PassportPDF.Model
                     this.RemainingTokens == input.RemainingTokens ||
                     (this.RemainingTokens != null &&
                     this.RemainingTokens.Equals(input.RemainingTokens))
+                ) && 
+                (
+                    this.ImagesData == input.ImagesData ||
+                    this.ImagesData != null &&
+                    this.ImagesData.SequenceEqual(input.ImagesData)
                 );
         }
 
@@ -122,6 +137,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
+                if (this.ImagesData != null)
+                    hashCode = hashCode * 59 + this.ImagesData.GetHashCode();
                 return hashCode;
             }
         }

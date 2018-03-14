@@ -694,7 +694,7 @@ namespace PassportPDF.Model
         /// </summary>
         /// <param name="TextSearchMaxResults">TextSearchMaxResults.</param>
         /// <param name="Timeout">Timeout.</param>
-        /// <param name="ControlID">ControlID.</param>
+        /// <param name="ControlId">ControlId.</param>
         /// <param name="ShowLogo">ShowLogo.</param>
         /// <param name="DocumentAlignment">DocumentAlignment.</param>
         /// <param name="DocumentPosition">DocumentPosition.</param>
@@ -711,6 +711,7 @@ namespace PassportPDF.Model
         /// <param name="ForceScrollBars">ForceScrollBars.</param>
         /// <param name="PageViewMode">PageViewMode.</param>
         /// <param name="EnableTextSelection">EnableTextSelection.</param>
+        /// <param name="EnableTextSelectionAnnotation">EnableTextSelectionAnnotation.</param>
         /// <param name="Locale">Locale.</param>
         /// <param name="UserLanguages">UserLanguages.</param>
         /// <param name="ControlWidth">ControlWidth.</param>
@@ -800,11 +801,11 @@ namespace PassportPDF.Model
         /// <param name="DocumentFileName">DocumentFileName.</param>
         /// <param name="DisableDownloadProgress">DisableDownloadProgress.</param>
         /// <param name="EnableDocumentsDrop">EnableDocumentsDrop.</param>
-        public DocuViewareControlState(int? TextSearchMaxResults = default(int?), int? Timeout = default(int?), string ControlID = default(string), bool? ShowLogo = default(bool?), DocumentAlignmentEnum? DocumentAlignment = default(DocumentAlignmentEnum?), DocumentPositionEnum? DocumentPosition = default(DocumentPositionEnum?), bool? EnableGdPictureAnnotations = default(bool?), bool? EnableFormFieldsEdition = default(bool?), bool? AnnotationEditorMode = default(bool?), double? Zoom = default(double?), ZoomModeEnum? ZoomMode = default(ZoomModeEnum?), OpenZoomModeEnum? OpenZoomMode = default(OpenZoomModeEnum?), ViewRotationEnum? ViewRotation = default(ViewRotationEnum?), PageRotationEnum? PageRotation = default(PageRotationEnum?), int? ZoomStep = default(int?), bool? ScrollBars = default(bool?), bool? ForceScrollBars = default(bool?), PageViewModeEnum? PageViewMode = default(PageViewModeEnum?), bool? EnableTextSelection = default(bool?), LocaleEnum? Locale = default(LocaleEnum?), List<string> UserLanguages = default(List<string>), string ControlWidth = default(string), string ControlHeight = default(string), bool? AnnotationDropShadow = default(bool?), bool? AllowPrint = default(bool?), bool? AllowUpload = default(bool?), bool? EnableMultipleThumbnailSelection = default(bool?), bool? EnableThumbnailDragDrop = default(bool?), bool? EnableFileUploadButton = default(bool?), bool? EnableLoadFromUriButton = default(bool?), bool? EnableSaveButton = default(bool?), bool? EnablePagesNavigationButtons = default(bool?), bool? EnablePrintButton = default(bool?), bool? EnableFitWidthButton = default(bool?), bool? EnableZoom100Button = default(bool?), bool? EnableMouseModeButtons = default(bool?), bool? EnablePanModeButton = default(bool?), bool? EnableSelectModeButton = default(bool?), bool? EnableMarqueeZoomModeButton = default(bool?), bool? EnableFullScreenButton = default(bool?), bool? EnableFitPageButton = default(bool?), bool? EnableZoomButtons = default(bool?), bool? EnablePageViewButtons = default(bool?), RotateButtonsModeEnum? RotateButtonsMode = default(RotateButtonsModeEnum?), bool? EnableRotateButtons = default(bool?), bool? EnableAnnotationActionButtons = default(bool?), bool? EnableRectangleHighlighterAnnotationButton = default(bool?), bool? EnableFreehandHighlighterAnnotationButton = default(bool?), bool? EnableRubberStampAnnotationButton = default(bool?), bool? EnableRectangleAnnotationButton = default(bool?), bool? EnableEllipseAnnotationButton = default(bool?), bool? EnableLineAnnotationButton = default(bool?), bool? EnableConnectedLineAnnotationButton = default(bool?), bool? EnableFreehandAnnotationButton = default(bool?), bool? EnableLineArrowAnnotationButton = default(bool?), bool? EnableLinkAnnotationButton = default(bool?), bool? EnableRulerAnnotationButton = default(bool?), bool? EnablePolyRulerAnnotationButton = default(bool?), bool? EnableTextAnnotationButton = default(bool?), bool? EnableStickyNoteAnnotationButton = default(bool?), bool? EnableTwainAcquisitionButton = default(bool?), bool? TwainSourceEnableCustomConfiguration = default(bool?), bool? TwainSourceSelectFeeder = default(bool?), int? TwainSourceBitDepth = default(int?), int? TwainSourceResolution = default(int?), bool? TwainSourceEnableDuplex = default(bool?), bool? TwainSourceHideUI = default(bool?), bool? FreeHandContinuousDrawingMode = default(bool?), bool? ShowTextSearchSnapIn = default(bool?), bool? ShowThumbnailsSnapIn = default(bool?), bool? ShowBookmarksSnapIn = default(bool?), bool? ShowAnnotationsSnapIn = default(bool?), bool? ShowAnnotationsCommentsSnapIn = default(bool?), int? ThumbnailWidth = default(int?), int? ThumbnailHeight = default(int?), string SnapInPanelDefaultWidth = default(string), bool? CollapsedSnapIn = default(bool?), bool? CollapseSnapinOnDocumentClosed = default(bool?), bool? ShowSnapInCollapseButton = default(bool?), bool? ShowSnapInPanelHeader = default(bool?), bool? ShowSnapInButtonStrip = default(bool?), bool? ShowToolbar = default(bool?), ToolbarStyleEnum? ToolbarStyle = default(ToolbarStyleEnum?), int? ToolbarButtonsSpacing = default(int?), int? ToolbarHeight = default(int?), string StrokeColor = default(string), string MiscBorderColor = default(string), string HeaderColor = default(string), string PanelBackColor = default(string), string ViewerBackColor = default(string), string ActiveSelectedColor = default(string), string ToolbarBackColor = default(string), string CustomNotificationIconError = default(string), string CustomNotificationIconQuestion = default(string), string CustomNotificationIconWarning = default(string), string CustomNotificationIconInfo = default(string), string CustomNotificationIconOk = default(string), int? MaxUploadSize = default(int?), int? MaxDownloadSize = default(int?), int? MaxPages = default(int?), string AllowedExportFormats = default(string), bool? DisableAnnotationDrawingModePanel = default(bool?), PrintQualityEnum? PrintQuality = default(PrintQualityEnum?), string FileHostingURI = default(string), string DocumentURI = default(string), string DocumentFileName = default(string), bool? DisableDownloadProgress = default(bool?), bool? EnableDocumentsDrop = default(bool?))
+        public DocuViewareControlState(int? TextSearchMaxResults = default(int?), int? Timeout = default(int?), string ControlId = default(string), bool? ShowLogo = default(bool?), DocumentAlignmentEnum? DocumentAlignment = default(DocumentAlignmentEnum?), DocumentPositionEnum? DocumentPosition = default(DocumentPositionEnum?), bool? EnableGdPictureAnnotations = default(bool?), bool? EnableFormFieldsEdition = default(bool?), bool? AnnotationEditorMode = default(bool?), double? Zoom = default(double?), ZoomModeEnum? ZoomMode = default(ZoomModeEnum?), OpenZoomModeEnum? OpenZoomMode = default(OpenZoomModeEnum?), ViewRotationEnum? ViewRotation = default(ViewRotationEnum?), PageRotationEnum? PageRotation = default(PageRotationEnum?), int? ZoomStep = default(int?), bool? ScrollBars = default(bool?), bool? ForceScrollBars = default(bool?), PageViewModeEnum? PageViewMode = default(PageViewModeEnum?), bool? EnableTextSelection = default(bool?), bool? EnableTextSelectionAnnotation = default(bool?), LocaleEnum? Locale = default(LocaleEnum?), List<string> UserLanguages = default(List<string>), string ControlWidth = default(string), string ControlHeight = default(string), bool? AnnotationDropShadow = default(bool?), bool? AllowPrint = default(bool?), bool? AllowUpload = default(bool?), bool? EnableMultipleThumbnailSelection = default(bool?), bool? EnableThumbnailDragDrop = default(bool?), bool? EnableFileUploadButton = default(bool?), bool? EnableLoadFromUriButton = default(bool?), bool? EnableSaveButton = default(bool?), bool? EnablePagesNavigationButtons = default(bool?), bool? EnablePrintButton = default(bool?), bool? EnableFitWidthButton = default(bool?), bool? EnableZoom100Button = default(bool?), bool? EnableMouseModeButtons = default(bool?), bool? EnablePanModeButton = default(bool?), bool? EnableSelectModeButton = default(bool?), bool? EnableMarqueeZoomModeButton = default(bool?), bool? EnableFullScreenButton = default(bool?), bool? EnableFitPageButton = default(bool?), bool? EnableZoomButtons = default(bool?), bool? EnablePageViewButtons = default(bool?), RotateButtonsModeEnum? RotateButtonsMode = default(RotateButtonsModeEnum?), bool? EnableRotateButtons = default(bool?), bool? EnableAnnotationActionButtons = default(bool?), bool? EnableRectangleHighlighterAnnotationButton = default(bool?), bool? EnableFreehandHighlighterAnnotationButton = default(bool?), bool? EnableRubberStampAnnotationButton = default(bool?), bool? EnableRectangleAnnotationButton = default(bool?), bool? EnableEllipseAnnotationButton = default(bool?), bool? EnableLineAnnotationButton = default(bool?), bool? EnableConnectedLineAnnotationButton = default(bool?), bool? EnableFreehandAnnotationButton = default(bool?), bool? EnableLineArrowAnnotationButton = default(bool?), bool? EnableLinkAnnotationButton = default(bool?), bool? EnableRulerAnnotationButton = default(bool?), bool? EnablePolyRulerAnnotationButton = default(bool?), bool? EnableTextAnnotationButton = default(bool?), bool? EnableStickyNoteAnnotationButton = default(bool?), bool? EnableTwainAcquisitionButton = default(bool?), bool? TwainSourceEnableCustomConfiguration = default(bool?), bool? TwainSourceSelectFeeder = default(bool?), int? TwainSourceBitDepth = default(int?), int? TwainSourceResolution = default(int?), bool? TwainSourceEnableDuplex = default(bool?), bool? TwainSourceHideUI = default(bool?), bool? FreeHandContinuousDrawingMode = default(bool?), bool? ShowTextSearchSnapIn = default(bool?), bool? ShowThumbnailsSnapIn = default(bool?), bool? ShowBookmarksSnapIn = default(bool?), bool? ShowAnnotationsSnapIn = default(bool?), bool? ShowAnnotationsCommentsSnapIn = default(bool?), int? ThumbnailWidth = default(int?), int? ThumbnailHeight = default(int?), string SnapInPanelDefaultWidth = default(string), bool? CollapsedSnapIn = default(bool?), bool? CollapseSnapinOnDocumentClosed = default(bool?), bool? ShowSnapInCollapseButton = default(bool?), bool? ShowSnapInPanelHeader = default(bool?), bool? ShowSnapInButtonStrip = default(bool?), bool? ShowToolbar = default(bool?), ToolbarStyleEnum? ToolbarStyle = default(ToolbarStyleEnum?), int? ToolbarButtonsSpacing = default(int?), int? ToolbarHeight = default(int?), string StrokeColor = default(string), string MiscBorderColor = default(string), string HeaderColor = default(string), string PanelBackColor = default(string), string ViewerBackColor = default(string), string ActiveSelectedColor = default(string), string ToolbarBackColor = default(string), string CustomNotificationIconError = default(string), string CustomNotificationIconQuestion = default(string), string CustomNotificationIconWarning = default(string), string CustomNotificationIconInfo = default(string), string CustomNotificationIconOk = default(string), int? MaxUploadSize = default(int?), int? MaxDownloadSize = default(int?), int? MaxPages = default(int?), string AllowedExportFormats = default(string), bool? DisableAnnotationDrawingModePanel = default(bool?), PrintQualityEnum? PrintQuality = default(PrintQualityEnum?), string FileHostingURI = default(string), string DocumentURI = default(string), string DocumentFileName = default(string), bool? DisableDownloadProgress = default(bool?), bool? EnableDocumentsDrop = default(bool?))
         {
             this.TextSearchMaxResults = TextSearchMaxResults;
             this.Timeout = Timeout;
-            this.ControlID = ControlID;
+            this.ControlId = ControlId;
             this.ShowLogo = ShowLogo;
             this.DocumentAlignment = DocumentAlignment;
             this.DocumentPosition = DocumentPosition;
@@ -821,6 +822,7 @@ namespace PassportPDF.Model
             this.ForceScrollBars = ForceScrollBars;
             this.PageViewMode = PageViewMode;
             this.EnableTextSelection = EnableTextSelection;
+            this.EnableTextSelectionAnnotation = EnableTextSelectionAnnotation;
             this.Locale = Locale;
             this.UserLanguages = UserLanguages;
             this.ControlWidth = ControlWidth;
@@ -925,10 +927,10 @@ namespace PassportPDF.Model
         public int? Timeout { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlID
+        /// Gets or Sets ControlId
         /// </summary>
-        [DataMember(Name="controlID", EmitDefaultValue=false)]
-        public string ControlID { get; set; }
+        [DataMember(Name="controlId", EmitDefaultValue=false)]
+        public string ControlId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShowLogo
@@ -990,6 +992,12 @@ namespace PassportPDF.Model
         /// </summary>
         [DataMember(Name="enableTextSelection", EmitDefaultValue=false)]
         public bool? EnableTextSelection { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EnableTextSelectionAnnotation
+        /// </summary>
+        [DataMember(Name="enableTextSelectionAnnotation", EmitDefaultValue=false)]
+        public bool? EnableTextSelectionAnnotation { get; set; }
 
 
         /// <summary>
@@ -1515,7 +1523,7 @@ namespace PassportPDF.Model
             sb.Append("class DocuViewareControlState {\n");
             sb.Append("  TextSearchMaxResults: ").Append(TextSearchMaxResults).Append("\n");
             sb.Append("  Timeout: ").Append(Timeout).Append("\n");
-            sb.Append("  ControlID: ").Append(ControlID).Append("\n");
+            sb.Append("  ControlId: ").Append(ControlId).Append("\n");
             sb.Append("  ShowLogo: ").Append(ShowLogo).Append("\n");
             sb.Append("  DocumentAlignment: ").Append(DocumentAlignment).Append("\n");
             sb.Append("  DocumentPosition: ").Append(DocumentPosition).Append("\n");
@@ -1532,6 +1540,7 @@ namespace PassportPDF.Model
             sb.Append("  ForceScrollBars: ").Append(ForceScrollBars).Append("\n");
             sb.Append("  PageViewMode: ").Append(PageViewMode).Append("\n");
             sb.Append("  EnableTextSelection: ").Append(EnableTextSelection).Append("\n");
+            sb.Append("  EnableTextSelectionAnnotation: ").Append(EnableTextSelectionAnnotation).Append("\n");
             sb.Append("  Locale: ").Append(Locale).Append("\n");
             sb.Append("  UserLanguages: ").Append(UserLanguages).Append("\n");
             sb.Append("  ControlWidth: ").Append(ControlWidth).Append("\n");
@@ -1666,9 +1675,9 @@ namespace PassportPDF.Model
                     this.Timeout.Equals(input.Timeout))
                 ) && 
                 (
-                    this.ControlID == input.ControlID ||
-                    (this.ControlID != null &&
-                    this.ControlID.Equals(input.ControlID))
+                    this.ControlId == input.ControlId ||
+                    (this.ControlId != null &&
+                    this.ControlId.Equals(input.ControlId))
                 ) && 
                 (
                     this.ShowLogo == input.ShowLogo ||
@@ -1749,6 +1758,11 @@ namespace PassportPDF.Model
                     this.EnableTextSelection == input.EnableTextSelection ||
                     (this.EnableTextSelection != null &&
                     this.EnableTextSelection.Equals(input.EnableTextSelection))
+                ) && 
+                (
+                    this.EnableTextSelectionAnnotation == input.EnableTextSelectionAnnotation ||
+                    (this.EnableTextSelectionAnnotation != null &&
+                    this.EnableTextSelectionAnnotation.Equals(input.EnableTextSelectionAnnotation))
                 ) && 
                 (
                     this.Locale == input.Locale ||
@@ -2210,8 +2224,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.TextSearchMaxResults.GetHashCode();
                 if (this.Timeout != null)
                     hashCode = hashCode * 59 + this.Timeout.GetHashCode();
-                if (this.ControlID != null)
-                    hashCode = hashCode * 59 + this.ControlID.GetHashCode();
+                if (this.ControlId != null)
+                    hashCode = hashCode * 59 + this.ControlId.GetHashCode();
                 if (this.ShowLogo != null)
                     hashCode = hashCode * 59 + this.ShowLogo.GetHashCode();
                 if (this.DocumentAlignment != null)
@@ -2244,6 +2258,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.PageViewMode.GetHashCode();
                 if (this.EnableTextSelection != null)
                     hashCode = hashCode * 59 + this.EnableTextSelection.GetHashCode();
+                if (this.EnableTextSelectionAnnotation != null)
+                    hashCode = hashCode * 59 + this.EnableTextSelectionAnnotation.GetHashCode();
                 if (this.Locale != null)
                     hashCode = hashCode * 59 + this.Locale.GetHashCode();
                 if (this.UserLanguages != null)

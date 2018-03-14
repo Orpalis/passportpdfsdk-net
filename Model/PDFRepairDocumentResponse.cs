@@ -33,21 +33,21 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFRepairDocumentResponse" /> class.
         /// </summary>
-        /// <param name="FileID">FileID.</param>
+        /// <param name="FileId">FileId.</param>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFRepairDocumentResponse(string FileID = default(string), Error Error = default(Error), long? RemainingTokens = default(long?))
+        public PDFRepairDocumentResponse(string FileId = default(string), Error Error = default(Error), long? RemainingTokens = default(long?))
         {
-            this.FileID = FileID;
+            this.FileId = FileId;
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
         }
         
         /// <summary>
-        /// Gets or Sets FileID
+        /// Gets or Sets FileId
         /// </summary>
-        [DataMember(Name="fileID", EmitDefaultValue=false)]
-        public string FileID { get; set; }
+        [DataMember(Name="fileId", EmitDefaultValue=false)]
+        public string FileId { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -69,7 +69,7 @@ namespace PassportPDF.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PDFRepairDocumentResponse {\n");
-            sb.Append("  FileID: ").Append(FileID).Append("\n");
+            sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
             sb.Append("}\n");
@@ -107,9 +107,9 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.FileID == input.FileID ||
-                    (this.FileID != null &&
-                    this.FileID.Equals(input.FileID))
+                    this.FileId == input.FileId ||
+                    (this.FileId != null &&
+                    this.FileId.Equals(input.FileId))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -132,8 +132,8 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileID != null)
-                    hashCode = hashCode * 59 + this.FileID.GetHashCode();
+                if (this.FileId != null)
+                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)

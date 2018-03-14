@@ -75,7 +75,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>PDFCloseDocumentResponse</returns>
-        PDFCloseDocumentResponse CloseDocument (PDFCloseDocumentParameters closeDocumentParameters);
+        PDFCloseDocumentResponse ClosePDF (PDFCloseDocumentParameters closeDocumentParameters);
 
         /// <summary>
         /// Closes a previously uploaded document.
@@ -86,7 +86,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of PDFCloseDocumentResponse</returns>
-        ApiResponse<PDFCloseDocumentResponse> CloseDocumentWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters);
+        ApiResponse<PDFCloseDocumentResponse> ClosePDFWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters);
         /// <summary>
         /// Deletes a page range from a previously uploaded document.
         /// </summary>
@@ -130,6 +130,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFDigiSignResponse</returns>
         ApiResponse<PDFDigiSignResponse> DigiSignWithHttpInfo (PDFDigiSignParameters digiSignParameters);
         /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFExtractPageResponse</returns>
+        PDFExtractPageResponse ExtractPage (PDFExtractPageParameters extractPageParameters);
+
+        /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFExtractPageResponse</returns>
+        ApiResponse<PDFExtractPageResponse> ExtractPageWithHttpInfo (PDFExtractPageParameters extractPageParameters);
+        /// <summary>
         /// Flattens the formfields of a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -172,6 +193,25 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFGetInfoResponse</returns>
         ApiResponse<PDFGetInfoResponse> GetInfoWithHttpInfo (PDFGetInfoParameters getInfoParameters);
         /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>StringArrayResponse</returns>
+        StringArrayResponse GetPDFImportSupportedFileExtensions ();
+
+        /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of StringArrayResponse</returns>
+        ApiResponse<StringArrayResponse> GetPDFImportSupportedFileExtensionsWithHttpInfo ();
+        /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -192,25 +232,6 @@ namespace PassportPDF.Api
         /// <param name="getPageThumbnailParameters">A PDFGetPageThumbnailParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of PDFGetPageThumbnailResponse</returns>
         ApiResponse<PDFGetPageThumbnailResponse> GetPageThumbnailWithHttpInfo (PDFGetPageThumbnailParameters getPageThumbnailParameters);
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>StringArrayResponse</returns>
-        StringArrayResponse GetSupportedFileExtensions ();
-
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of StringArrayResponse</returns>
-        ApiResponse<StringArrayResponse> GetSupportedFileExtensionsWithHttpInfo ();
         /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
@@ -233,7 +254,7 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFLinearizeResponse</returns>
         ApiResponse<PDFLinearizeResponse> LinearizeWithHttpInfo (PDFLinearizeParameters linearizeParameters);
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -241,10 +262,10 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>PDFLoadDocumentResponse</returns>
-        PDFLoadDocumentResponse LoadDocument (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
+        PDFLoadDocumentResponse LoadDocumentAsPDF (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
 
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -252,9 +273,9 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of PDFLoadDocumentResponse</returns>
-        ApiResponse<PDFLoadDocumentResponse> LoadDocumentWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
+        ApiResponse<PDFLoadDocumentResponse> LoadDocumentAsPDFWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -266,10 +287,10 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>PDFLoadDocumentResponse</returns>
-        PDFLoadDocumentResponse LoadDocumentMultipart (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
+        PDFLoadDocumentResponse LoadDocumentAsPDFMultipart (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
 
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -281,7 +302,7 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>ApiResponse of PDFLoadDocumentResponse</returns>
-        ApiResponse<PDFLoadDocumentResponse> LoadDocumentMultipartWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
+        ApiResponse<PDFLoadDocumentResponse> LoadDocumentAsPDFMultipartWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
         /// <summary>
         /// Moves a page range from a previously uploaded document.
         /// </summary>
@@ -352,9 +373,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>PDFReadBarcodeResponse</returns>
-        PDFReadBarcodeResponse ReadBarcode (PDFReadBarcodeParameters readBarcodeParameters);
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>ReadBarcodesResponse</returns>
+        ReadBarcodesResponse ReadBarcodes (PDFReadBarcodesParameters readBarcodeParameters);
 
         /// <summary>
         /// Reads barcodes from a previously uploaded document.
@@ -363,9 +384,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>ApiResponse of PDFReadBarcodeResponse</returns>
-        ApiResponse<PDFReadBarcodeResponse> ReadBarcodeWithHttpInfo (PDFReadBarcodeParameters readBarcodeParameters);
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of ReadBarcodesResponse</returns>
+        ApiResponse<ReadBarcodesResponse> ReadBarcodesWithHttpInfo (PDFReadBarcodesParameters readBarcodeParameters);
         /// <summary>
         /// Reduces the size of a previously uploaded document.
         /// </summary>
@@ -472,6 +493,69 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFSaveAsJPEGResponse</returns>
         ApiResponse<PDFSaveAsJPEGResponse> SaveAsJPEGWithHttpInfo (PDFSaveAsJPEGParameters saveAsJPEGParameters);
         /// <summary>
+        /// Saves a previously uploaded document as PNG.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSaveAsPNGResponse</returns>
+        PDFSaveAsPNGResponse SaveAsPNG (PDFSaveAsPNGParameters saveAsPNGParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded document as PNG.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSaveAsPNGResponse</returns>
+        ApiResponse<PDFSaveAsPNGResponse> SaveAsPNGWithHttpInfo (PDFSaveAsPNGParameters saveAsPNGParameters);
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSaveAsTIFFResponse</returns>
+        PDFSaveAsTIFFResponse SaveAsTIFF (PDFSaveAsTIFFParameters saveAsTIFFParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSaveAsTIFFResponse</returns>
+        ApiResponse<PDFSaveAsTIFFResponse> SaveAsTIFFWithHttpInfo (PDFSaveAsTIFFParameters saveAsTIFFParameters);
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSaveAsTIFFMultipageResponse</returns>
+        PDFSaveAsTIFFMultipageResponse SaveAsTIFFMultipage (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSaveAsTIFFMultipageResponse</returns>
+        ApiResponse<PDFSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageWithHttpInfo (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
+        /// <summary>
         /// Saves a previously uploaded document as PDF.
         /// </summary>
         /// <remarks>
@@ -492,6 +576,48 @@ namespace PassportPDF.Api
         /// <param name="saveDocumentParameters">A PDFSaveDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of PDFSaveDocumentResponse</returns>
         ApiResponse<PDFSaveDocumentResponse> SaveDocumentWithHttpInfo (PDFSaveDocumentParameters saveDocumentParameters);
+        /// <summary>
+        /// Sets information to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSetInfoResponse</returns>
+        PDFSetInfoResponse SetInfo (PDFSetInfoParameters setInfoParameters);
+
+        /// <summary>
+        /// Sets information to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSetInfoResponse</returns>
+        ApiResponse<PDFSetInfoResponse> SetInfoWithHttpInfo (PDFSetInfoParameters setInfoParameters);
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFSetPageBoxResponse</returns>
+        PDFSetPageBoxResponse SetPageBox (PDFSetPageBoxParameters setPageBoxParameters = null);
+
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFSetPageBoxResponse</returns>
+        ApiResponse<PDFSetPageBoxResponse> SetPageBoxWithHttpInfo (PDFSetPageBoxParameters setPageBoxParameters = null);
         /// <summary>
         /// Swaps two pages from a previously uploaded document.
         /// </summary>
@@ -587,7 +713,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PDFCloseDocumentResponse</returns>
-        System.Threading.Tasks.Task<PDFCloseDocumentResponse> CloseDocumentAsync (PDFCloseDocumentParameters closeDocumentParameters);
+        System.Threading.Tasks.Task<PDFCloseDocumentResponse> ClosePDFAsync (PDFCloseDocumentParameters closeDocumentParameters);
 
         /// <summary>
         /// Closes a previously uploaded document.
@@ -598,7 +724,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFCloseDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PDFCloseDocumentResponse>> CloseDocumentAsyncWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters);
+        System.Threading.Tasks.Task<ApiResponse<PDFCloseDocumentResponse>> ClosePDFAsyncWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters);
         /// <summary>
         /// Deletes a page range from a previously uploaded document.
         /// </summary>
@@ -642,6 +768,27 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFDigiSignResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFDigiSignResponse>> DigiSignAsyncWithHttpInfo (PDFDigiSignParameters digiSignParameters);
         /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFExtractPageResponse</returns>
+        System.Threading.Tasks.Task<PDFExtractPageResponse> ExtractPageAsync (PDFExtractPageParameters extractPageParameters);
+
+        /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFExtractPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFExtractPageResponse>> ExtractPageAsyncWithHttpInfo (PDFExtractPageParameters extractPageParameters);
+        /// <summary>
         /// Flattens the formfields of a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -684,6 +831,25 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFGetInfoResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFGetInfoResponse>> GetInfoAsyncWithHttpInfo (PDFGetInfoParameters getInfoParameters);
         /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of StringArrayResponse</returns>
+        System.Threading.Tasks.Task<StringArrayResponse> GetPDFImportSupportedFileExtensionsAsync ();
+
+        /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (StringArrayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StringArrayResponse>> GetPDFImportSupportedFileExtensionsAsyncWithHttpInfo ();
+        /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -704,25 +870,6 @@ namespace PassportPDF.Api
         /// <param name="getPageThumbnailParameters">A PDFGetPageThumbnailParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFGetPageThumbnailResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFGetPageThumbnailResponse>> GetPageThumbnailAsyncWithHttpInfo (PDFGetPageThumbnailParameters getPageThumbnailParameters);
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of StringArrayResponse</returns>
-        System.Threading.Tasks.Task<StringArrayResponse> GetSupportedFileExtensionsAsync ();
-
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (StringArrayResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringArrayResponse>> GetSupportedFileExtensionsAsyncWithHttpInfo ();
         /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
@@ -745,7 +892,7 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFLinearizeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFLinearizeResponse>> LinearizeAsyncWithHttpInfo (PDFLinearizeParameters linearizeParameters);
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -753,10 +900,10 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PDFLoadDocumentResponse</returns>
-        System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentAsync (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
+        System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentAsPDFAsync (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
 
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -764,9 +911,9 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFLoadDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsyncWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
+        System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsPDFAsyncWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters);
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -778,10 +925,10 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>Task of PDFLoadDocumentResponse</returns>
-        System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentMultipartAsync (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
+        System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentAsPDFMultipartAsync (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
 
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action.
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
         /// <remarks>
         /// 
@@ -793,7 +940,7 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>Task of ApiResponse (PDFLoadDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentMultipartAsyncWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
+        System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsPDFMultipartAsyncWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
         /// <summary>
         /// Moves a page range from a previously uploaded document.
         /// </summary>
@@ -864,9 +1011,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>Task of PDFReadBarcodeResponse</returns>
-        System.Threading.Tasks.Task<PDFReadBarcodeResponse> ReadBarcodeAsync (PDFReadBarcodeParameters readBarcodeParameters);
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ReadBarcodesResponse</returns>
+        System.Threading.Tasks.Task<ReadBarcodesResponse> ReadBarcodesAsync (PDFReadBarcodesParameters readBarcodeParameters);
 
         /// <summary>
         /// Reads barcodes from a previously uploaded document.
@@ -875,9 +1022,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>Task of ApiResponse (PDFReadBarcodeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PDFReadBarcodeResponse>> ReadBarcodeAsyncWithHttpInfo (PDFReadBarcodeParameters readBarcodeParameters);
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (ReadBarcodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReadBarcodesResponse>> ReadBarcodesAsyncWithHttpInfo (PDFReadBarcodesParameters readBarcodeParameters);
         /// <summary>
         /// Reduces the size of a previously uploaded document.
         /// </summary>
@@ -984,6 +1131,69 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFSaveAsJPEGResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFSaveAsJPEGResponse>> SaveAsJPEGAsyncWithHttpInfo (PDFSaveAsJPEGParameters saveAsJPEGParameters);
         /// <summary>
+        /// Saves a previously uploaded document as PNG.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSaveAsPNGResponse</returns>
+        System.Threading.Tasks.Task<PDFSaveAsPNGResponse> SaveAsPNGAsync (PDFSaveAsPNGParameters saveAsPNGParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded document as PNG.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSaveAsPNGResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSaveAsPNGResponse>> SaveAsPNGAsyncWithHttpInfo (PDFSaveAsPNGParameters saveAsPNGParameters);
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSaveAsTIFFResponse</returns>
+        System.Threading.Tasks.Task<PDFSaveAsTIFFResponse> SaveAsTIFFAsync (PDFSaveAsTIFFParameters saveAsTIFFParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSaveAsTIFFResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSaveAsTIFFResponse>> SaveAsTIFFAsyncWithHttpInfo (PDFSaveAsTIFFParameters saveAsTIFFParameters);
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSaveAsTIFFMultipageResponse</returns>
+        System.Threading.Tasks.Task<PDFSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageAsync (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSaveAsTIFFMultipageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSaveAsTIFFMultipageResponse>> SaveAsTIFFMultipageAsyncWithHttpInfo (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
+        /// <summary>
         /// Saves a previously uploaded document as PDF.
         /// </summary>
         /// <remarks>
@@ -1004,6 +1214,48 @@ namespace PassportPDF.Api
         /// <param name="saveDocumentParameters">A PDFSaveDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFSaveDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFSaveDocumentResponse>> SaveDocumentAsyncWithHttpInfo (PDFSaveDocumentParameters saveDocumentParameters);
+        /// <summary>
+        /// Sets information to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSetInfoResponse</returns>
+        System.Threading.Tasks.Task<PDFSetInfoResponse> SetInfoAsync (PDFSetInfoParameters setInfoParameters);
+
+        /// <summary>
+        /// Sets information to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSetInfoResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSetInfoResponse>> SetInfoAsyncWithHttpInfo (PDFSetInfoParameters setInfoParameters);
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFSetPageBoxResponse</returns>
+        System.Threading.Tasks.Task<PDFSetPageBoxResponse> SetPageBoxAsync (PDFSetPageBoxParameters setPageBoxParameters = null);
+
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFSetPageBoxResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSetPageBoxResponse>> SetPageBoxAsyncWithHttpInfo (PDFSetPageBoxParameters setPageBoxParameters = null);
         /// <summary>
         /// Swaps two pages from a previously uploaded document.
         /// </summary>
@@ -1470,9 +1722,9 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>PDFCloseDocumentResponse</returns>
-        public PDFCloseDocumentResponse CloseDocument (PDFCloseDocumentParameters closeDocumentParameters)
+        public PDFCloseDocumentResponse ClosePDF (PDFCloseDocumentParameters closeDocumentParameters)
         {
-             ApiResponse<PDFCloseDocumentResponse> localVarResponse = CloseDocumentWithHttpInfo(closeDocumentParameters);
+             ApiResponse<PDFCloseDocumentResponse> localVarResponse = ClosePDFWithHttpInfo(closeDocumentParameters);
              return localVarResponse.Data;
         }
 
@@ -1482,13 +1734,13 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of PDFCloseDocumentResponse</returns>
-        public ApiResponse< PDFCloseDocumentResponse > CloseDocumentWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters)
+        public ApiResponse< PDFCloseDocumentResponse > ClosePDFWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters)
         {
             // verify the required parameter 'closeDocumentParameters' is set
             if (closeDocumentParameters == null)
-                throw new ApiException(400, "Missing required parameter 'closeDocumentParameters' when calling PDFApi->CloseDocument");
+                throw new ApiException(400, "Missing required parameter 'closeDocumentParameters' when calling PDFApi->ClosePDF");
 
-            var localVarPath = "/api/pdf/CloseDocument";
+            var localVarPath = "/api/pdf/ClosePDF";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1534,7 +1786,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CloseDocument", localVarResponse);
+                Exception exception = ExceptionFactory("ClosePDF", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1549,9 +1801,9 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PDFCloseDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<PDFCloseDocumentResponse> CloseDocumentAsync (PDFCloseDocumentParameters closeDocumentParameters)
+        public async System.Threading.Tasks.Task<PDFCloseDocumentResponse> ClosePDFAsync (PDFCloseDocumentParameters closeDocumentParameters)
         {
-             ApiResponse<PDFCloseDocumentResponse> localVarResponse = await CloseDocumentAsyncWithHttpInfo(closeDocumentParameters);
+             ApiResponse<PDFCloseDocumentResponse> localVarResponse = await ClosePDFAsyncWithHttpInfo(closeDocumentParameters);
              return localVarResponse.Data;
 
         }
@@ -1562,13 +1814,13 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeDocumentParameters">A PDFCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFCloseDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PDFCloseDocumentResponse>> CloseDocumentAsyncWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters)
+        public async System.Threading.Tasks.Task<ApiResponse<PDFCloseDocumentResponse>> ClosePDFAsyncWithHttpInfo (PDFCloseDocumentParameters closeDocumentParameters)
         {
             // verify the required parameter 'closeDocumentParameters' is set
             if (closeDocumentParameters == null)
-                throw new ApiException(400, "Missing required parameter 'closeDocumentParameters' when calling PDFApi->CloseDocument");
+                throw new ApiException(400, "Missing required parameter 'closeDocumentParameters' when calling PDFApi->ClosePDF");
 
-            var localVarPath = "/api/pdf/CloseDocument";
+            var localVarPath = "/api/pdf/ClosePDF";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1614,7 +1866,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CloseDocument", localVarResponse);
+                Exception exception = ExceptionFactory("ClosePDF", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1942,6 +2194,165 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFExtractPageResponse</returns>
+        public PDFExtractPageResponse ExtractPage (PDFExtractPageParameters extractPageParameters)
+        {
+             ApiResponse<PDFExtractPageResponse> localVarResponse = ExtractPageWithHttpInfo(extractPageParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFExtractPageResponse</returns>
+        public ApiResponse< PDFExtractPageResponse > ExtractPageWithHttpInfo (PDFExtractPageParameters extractPageParameters)
+        {
+            // verify the required parameter 'extractPageParameters' is set
+            if (extractPageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'extractPageParameters' when calling PDFApi->ExtractPage");
+
+            var localVarPath = "/api/pdf/ExtractPage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (extractPageParameters != null && extractPageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(extractPageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = extractPageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFExtractPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFExtractPageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFExtractPageResponse)));
+        }
+
+        /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFExtractPageResponse</returns>
+        public async System.Threading.Tasks.Task<PDFExtractPageResponse> ExtractPageAsync (PDFExtractPageParameters extractPageParameters)
+        {
+             ApiResponse<PDFExtractPageResponse> localVarResponse = await ExtractPageAsyncWithHttpInfo(extractPageParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Extracts a page range from a previously uploaded document into one or several new documents. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractPageParameters">A PDFExtractPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFExtractPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFExtractPageResponse>> ExtractPageAsyncWithHttpInfo (PDFExtractPageParameters extractPageParameters)
+        {
+            // verify the required parameter 'extractPageParameters' is set
+            if (extractPageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'extractPageParameters' when calling PDFApi->ExtractPage");
+
+            var localVarPath = "/api/pdf/ExtractPage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (extractPageParameters != null && extractPageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(extractPageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = extractPageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFExtractPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFExtractPageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFExtractPageResponse)));
+        }
+
+        /// <summary>
         /// Flattens the formfields of a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2260,6 +2671,131 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>StringArrayResponse</returns>
+        public StringArrayResponse GetPDFImportSupportedFileExtensions ()
+        {
+             ApiResponse<StringArrayResponse> localVarResponse = GetPDFImportSupportedFileExtensionsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of StringArrayResponse</returns>
+        public ApiResponse< StringArrayResponse > GetPDFImportSupportedFileExtensionsWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/pdf/GetPDFImportSupportedFileExtensions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPDFImportSupportedFileExtensions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<StringArrayResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (StringArrayResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringArrayResponse)));
+        }
+
+        /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of StringArrayResponse</returns>
+        public async System.Threading.Tasks.Task<StringArrayResponse> GetPDFImportSupportedFileExtensionsAsync ()
+        {
+             ApiResponse<StringArrayResponse> localVarResponse = await GetPDFImportSupportedFileExtensionsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Gets the supported file extensions by the LoadDocumentAsPDF action. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (StringArrayResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<StringArrayResponse>> GetPDFImportSupportedFileExtensionsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/pdf/GetPDFImportSupportedFileExtensions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPDFImportSupportedFileExtensions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<StringArrayResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (StringArrayResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringArrayResponse)));
+        }
+
+        /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2416,131 +2952,6 @@ namespace PassportPDF.Api
             return new ApiResponse<PDFGetPageThumbnailResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PDFGetPageThumbnailResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFGetPageThumbnailResponse)));
-        }
-
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action. 
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>StringArrayResponse</returns>
-        public StringArrayResponse GetSupportedFileExtensions ()
-        {
-             ApiResponse<StringArrayResponse> localVarResponse = GetSupportedFileExtensionsWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action. 
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of StringArrayResponse</returns>
-        public ApiResponse< StringArrayResponse > GetSupportedFileExtensionsWithHttpInfo ()
-        {
-
-            var localVarPath = "/api/pdf/GetSupportedFileExtensions";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetSupportedFileExtensions", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<StringArrayResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringArrayResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringArrayResponse)));
-        }
-
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action. 
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of StringArrayResponse</returns>
-        public async System.Threading.Tasks.Task<StringArrayResponse> GetSupportedFileExtensionsAsync ()
-        {
-             ApiResponse<StringArrayResponse> localVarResponse = await GetSupportedFileExtensionsAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Gets the supported file extensions by the LoadDocument action. 
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (StringArrayResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringArrayResponse>> GetSupportedFileExtensionsAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "/api/pdf/GetSupportedFileExtensions";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetSupportedFileExtensions", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<StringArrayResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (StringArrayResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringArrayResponse)));
         }
 
         /// <summary>
@@ -2703,28 +3114,28 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>PDFLoadDocumentResponse</returns>
-        public PDFLoadDocumentResponse LoadDocument (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
+        public PDFLoadDocumentResponse LoadDocumentAsPDF (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
         {
-             ApiResponse<PDFLoadDocumentResponse> localVarResponse = LoadDocumentWithHttpInfo(loadDocumentParameters);
+             ApiResponse<PDFLoadDocumentResponse> localVarResponse = LoadDocumentAsPDFWithHttpInfo(loadDocumentParameters);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of PDFLoadDocumentResponse</returns>
-        public ApiResponse< PDFLoadDocumentResponse > LoadDocumentWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
+        public ApiResponse< PDFLoadDocumentResponse > LoadDocumentAsPDFWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
         {
             // verify the required parameter 'loadDocumentParameters' is set
             if (loadDocumentParameters == null)
-                throw new ApiException(400, "Missing required parameter 'loadDocumentParameters' when calling PDFApi->LoadDocument");
+                throw new ApiException(400, "Missing required parameter 'loadDocumentParameters' when calling PDFApi->LoadDocumentAsPDF");
 
             var localVarPath = "/api/pdf/LoadDocument";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2772,7 +3183,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LoadDocument", localVarResponse);
+                Exception exception = ExceptionFactory("LoadDocumentAsPDF", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2782,29 +3193,29 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PDFLoadDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentAsync (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
+        public async System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentAsPDFAsync (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
         {
-             ApiResponse<PDFLoadDocumentResponse> localVarResponse = await LoadDocumentAsyncWithHttpInfo(loadDocumentParameters);
+             ApiResponse<PDFLoadDocumentResponse> localVarResponse = await LoadDocumentAsPDFAsyncWithHttpInfo(loadDocumentParameters);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadDocumentParameters">A PDFLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFLoadDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsyncWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
+        public async System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsPDFAsyncWithHttpInfo (PDFLoadDocumentFromByteArrayParameters loadDocumentParameters)
         {
             // verify the required parameter 'loadDocumentParameters' is set
             if (loadDocumentParameters == null)
-                throw new ApiException(400, "Missing required parameter 'loadDocumentParameters' when calling PDFApi->LoadDocument");
+                throw new ApiException(400, "Missing required parameter 'loadDocumentParameters' when calling PDFApi->LoadDocumentAsPDF");
 
             var localVarPath = "/api/pdf/LoadDocument";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2852,7 +3263,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LoadDocument", localVarResponse);
+                Exception exception = ExceptionFactory("LoadDocumentAsPDF", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2862,7 +3273,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">Specifies the stream of data of the file to be uploaded.</param>
@@ -2871,14 +3282,14 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>PDFLoadDocumentResponse</returns>
-        public PDFLoadDocumentResponse LoadDocumentMultipart (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
+        public PDFLoadDocumentResponse LoadDocumentAsPDFMultipart (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
         {
-             ApiResponse<PDFLoadDocumentResponse> localVarResponse = LoadDocumentMultipartWithHttpInfo(fileData, contentEncoding, fileName, password, conformance);
+             ApiResponse<PDFLoadDocumentResponse> localVarResponse = LoadDocumentAsPDFMultipartWithHttpInfo(fileData, contentEncoding, fileName, password, conformance);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">Specifies the stream of data of the file to be uploaded.</param>
@@ -2887,13 +3298,13 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>ApiResponse of PDFLoadDocumentResponse</returns>
-        public ApiResponse< PDFLoadDocumentResponse > LoadDocumentMultipartWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
+        public ApiResponse< PDFLoadDocumentResponse > LoadDocumentAsPDFMultipartWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
         {
             // verify the required parameter 'fileData' is set
             if (fileData == null)
-                throw new ApiException(400, "Missing required parameter 'fileData' when calling PDFApi->LoadDocumentMultipart");
+                throw new ApiException(400, "Missing required parameter 'fileData' when calling PDFApi->LoadDocumentAsPDFMultipart");
 
-            var localVarPath = "/api/pdf/LoadDocumentMultipart";
+            var localVarPath = "/api/pdf/LoadDocumentAsPDFMultipart";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2933,7 +3344,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LoadDocumentMultipart", localVarResponse);
+                Exception exception = ExceptionFactory("LoadDocumentAsPDFMultipart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2943,7 +3354,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">Specifies the stream of data of the file to be uploaded.</param>
@@ -2952,15 +3363,15 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>Task of PDFLoadDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentMultipartAsync (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
+        public async System.Threading.Tasks.Task<PDFLoadDocumentResponse> LoadDocumentAsPDFMultipartAsync (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
         {
-             ApiResponse<PDFLoadDocumentResponse> localVarResponse = await LoadDocumentMultipartAsyncWithHttpInfo(fileData, contentEncoding, fileName, password, conformance);
+             ApiResponse<PDFLoadDocumentResponse> localVarResponse = await LoadDocumentAsPDFMultipartAsyncWithHttpInfo(fileData, contentEncoding, fileName, password, conformance);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetSupportedFileExtensions action. 
+        /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">Specifies the stream of data of the file to be uploaded.</param>
@@ -2969,13 +3380,13 @@ namespace PassportPDF.Api
         /// <param name="password">Specifies the password for the file to be uploaded. (optional)</param>
         /// <param name="conformance">Specifies the level of PDF conformance to be used for loading the document. (optional, default to PDF)</param>
         /// <returns>Task of ApiResponse (PDFLoadDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentMultipartAsyncWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsPDFMultipartAsyncWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null)
         {
             // verify the required parameter 'fileData' is set
             if (fileData == null)
-                throw new ApiException(400, "Missing required parameter 'fileData' when calling PDFApi->LoadDocumentMultipart");
+                throw new ApiException(400, "Missing required parameter 'fileData' when calling PDFApi->LoadDocumentAsPDFMultipart");
 
-            var localVarPath = "/api/pdf/LoadDocumentMultipart";
+            var localVarPath = "/api/pdf/LoadDocumentAsPDFMultipart";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3015,7 +3426,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LoadDocumentMultipart", localVarResponse);
+                Exception exception = ExceptionFactory("LoadDocumentAsPDFMultipart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3505,11 +3916,11 @@ namespace PassportPDF.Api
         /// Reads barcodes from a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>PDFReadBarcodeResponse</returns>
-        public PDFReadBarcodeResponse ReadBarcode (PDFReadBarcodeParameters readBarcodeParameters)
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>ReadBarcodesResponse</returns>
+        public ReadBarcodesResponse ReadBarcodes (PDFReadBarcodesParameters readBarcodeParameters)
         {
-             ApiResponse<PDFReadBarcodeResponse> localVarResponse = ReadBarcodeWithHttpInfo(readBarcodeParameters);
+             ApiResponse<ReadBarcodesResponse> localVarResponse = ReadBarcodesWithHttpInfo(readBarcodeParameters);
              return localVarResponse.Data;
         }
 
@@ -3517,15 +3928,15 @@ namespace PassportPDF.Api
         /// Reads barcodes from a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>ApiResponse of PDFReadBarcodeResponse</returns>
-        public ApiResponse< PDFReadBarcodeResponse > ReadBarcodeWithHttpInfo (PDFReadBarcodeParameters readBarcodeParameters)
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of ReadBarcodesResponse</returns>
+        public ApiResponse< ReadBarcodesResponse > ReadBarcodesWithHttpInfo (PDFReadBarcodesParameters readBarcodeParameters)
         {
             // verify the required parameter 'readBarcodeParameters' is set
             if (readBarcodeParameters == null)
-                throw new ApiException(400, "Missing required parameter 'readBarcodeParameters' when calling PDFApi->ReadBarcode");
+                throw new ApiException(400, "Missing required parameter 'readBarcodeParameters' when calling PDFApi->ReadBarcodes");
 
-            var localVarPath = "/api/pdf/ReadBarcode";
+            var localVarPath = "/api/pdf/ReadBarcodes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3571,24 +3982,24 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReadBarcode", localVarResponse);
+                Exception exception = ExceptionFactory("ReadBarcodes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PDFReadBarcodeResponse>(localVarStatusCode,
+            return new ApiResponse<ReadBarcodesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PDFReadBarcodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFReadBarcodeResponse)));
+                (ReadBarcodesResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReadBarcodesResponse)));
         }
 
         /// <summary>
         /// Reads barcodes from a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>Task of PDFReadBarcodeResponse</returns>
-        public async System.Threading.Tasks.Task<PDFReadBarcodeResponse> ReadBarcodeAsync (PDFReadBarcodeParameters readBarcodeParameters)
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ReadBarcodesResponse</returns>
+        public async System.Threading.Tasks.Task<ReadBarcodesResponse> ReadBarcodesAsync (PDFReadBarcodesParameters readBarcodeParameters)
         {
-             ApiResponse<PDFReadBarcodeResponse> localVarResponse = await ReadBarcodeAsyncWithHttpInfo(readBarcodeParameters);
+             ApiResponse<ReadBarcodesResponse> localVarResponse = await ReadBarcodesAsyncWithHttpInfo(readBarcodeParameters);
              return localVarResponse.Data;
 
         }
@@ -3597,15 +4008,15 @@ namespace PassportPDF.Api
         /// Reads barcodes from a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="readBarcodeParameters">A PDFReadBarcodeParameters object specifying the parameters of the action.</param>
-        /// <returns>Task of ApiResponse (PDFReadBarcodeResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PDFReadBarcodeResponse>> ReadBarcodeAsyncWithHttpInfo (PDFReadBarcodeParameters readBarcodeParameters)
+        /// <param name="readBarcodeParameters">A PDFReadBarcodesParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (ReadBarcodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReadBarcodesResponse>> ReadBarcodesAsyncWithHttpInfo (PDFReadBarcodesParameters readBarcodeParameters)
         {
             // verify the required parameter 'readBarcodeParameters' is set
             if (readBarcodeParameters == null)
-                throw new ApiException(400, "Missing required parameter 'readBarcodeParameters' when calling PDFApi->ReadBarcode");
+                throw new ApiException(400, "Missing required parameter 'readBarcodeParameters' when calling PDFApi->ReadBarcodes");
 
-            var localVarPath = "/api/pdf/ReadBarcode";
+            var localVarPath = "/api/pdf/ReadBarcodes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3651,13 +4062,13 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReadBarcode", localVarResponse);
+                Exception exception = ExceptionFactory("ReadBarcodes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PDFReadBarcodeResponse>(localVarStatusCode,
+            return new ApiResponse<ReadBarcodesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PDFReadBarcodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFReadBarcodeResponse)));
+                (ReadBarcodesResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReadBarcodesResponse)));
         }
 
         /// <summary>
@@ -4450,6 +4861,483 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Saves a previously uploaded document as PNG. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSaveAsPNGResponse</returns>
+        public PDFSaveAsPNGResponse SaveAsPNG (PDFSaveAsPNGParameters saveAsPNGParameters)
+        {
+             ApiResponse<PDFSaveAsPNGResponse> localVarResponse = SaveAsPNGWithHttpInfo(saveAsPNGParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as PNG. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSaveAsPNGResponse</returns>
+        public ApiResponse< PDFSaveAsPNGResponse > SaveAsPNGWithHttpInfo (PDFSaveAsPNGParameters saveAsPNGParameters)
+        {
+            // verify the required parameter 'saveAsPNGParameters' is set
+            if (saveAsPNGParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsPNGParameters' when calling PDFApi->SaveAsPNG");
+
+            var localVarPath = "/api/pdf/SaveAsPNG";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsPNGParameters != null && saveAsPNGParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsPNGParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsPNGParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsPNG", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSaveAsPNGResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSaveAsPNGResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveAsPNGResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as PNG. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSaveAsPNGResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSaveAsPNGResponse> SaveAsPNGAsync (PDFSaveAsPNGParameters saveAsPNGParameters)
+        {
+             ApiResponse<PDFSaveAsPNGResponse> localVarResponse = await SaveAsPNGAsyncWithHttpInfo(saveAsPNGParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as PNG. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsPNGParameters">A PDFSaveAsPNGParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSaveAsPNGResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSaveAsPNGResponse>> SaveAsPNGAsyncWithHttpInfo (PDFSaveAsPNGParameters saveAsPNGParameters)
+        {
+            // verify the required parameter 'saveAsPNGParameters' is set
+            if (saveAsPNGParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsPNGParameters' when calling PDFApi->SaveAsPNG");
+
+            var localVarPath = "/api/pdf/SaveAsPNG";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsPNGParameters != null && saveAsPNGParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsPNGParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsPNGParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsPNG", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSaveAsPNGResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSaveAsPNGResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveAsPNGResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSaveAsTIFFResponse</returns>
+        public PDFSaveAsTIFFResponse SaveAsTIFF (PDFSaveAsTIFFParameters saveAsTIFFParameters)
+        {
+             ApiResponse<PDFSaveAsTIFFResponse> localVarResponse = SaveAsTIFFWithHttpInfo(saveAsTIFFParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSaveAsTIFFResponse</returns>
+        public ApiResponse< PDFSaveAsTIFFResponse > SaveAsTIFFWithHttpInfo (PDFSaveAsTIFFParameters saveAsTIFFParameters)
+        {
+            // verify the required parameter 'saveAsTIFFParameters' is set
+            if (saveAsTIFFParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsTIFFParameters' when calling PDFApi->SaveAsTIFF");
+
+            var localVarPath = "/api/pdf/SaveAsTIFF";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsTIFFParameters != null && saveAsTIFFParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsTIFFParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsTIFFParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsTIFF", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSaveAsTIFFResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSaveAsTIFFResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveAsTIFFResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSaveAsTIFFResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSaveAsTIFFResponse> SaveAsTIFFAsync (PDFSaveAsTIFFParameters saveAsTIFFParameters)
+        {
+             ApiResponse<PDFSaveAsTIFFResponse> localVarResponse = await SaveAsTIFFAsyncWithHttpInfo(saveAsTIFFParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFParameters">A PDFSaveAsTIFFParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSaveAsTIFFResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSaveAsTIFFResponse>> SaveAsTIFFAsyncWithHttpInfo (PDFSaveAsTIFFParameters saveAsTIFFParameters)
+        {
+            // verify the required parameter 'saveAsTIFFParameters' is set
+            if (saveAsTIFFParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsTIFFParameters' when calling PDFApi->SaveAsTIFF");
+
+            var localVarPath = "/api/pdf/SaveAsTIFF";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsTIFFParameters != null && saveAsTIFFParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsTIFFParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsTIFFParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsTIFF", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSaveAsTIFFResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSaveAsTIFFResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveAsTIFFResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSaveAsTIFFMultipageResponse</returns>
+        public PDFSaveAsTIFFMultipageResponse SaveAsTIFFMultipage (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+             ApiResponse<PDFSaveAsTIFFMultipageResponse> localVarResponse = SaveAsTIFFMultipageWithHttpInfo(saveAsTIFFMultipageParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSaveAsTIFFMultipageResponse</returns>
+        public ApiResponse< PDFSaveAsTIFFMultipageResponse > SaveAsTIFFMultipageWithHttpInfo (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+            // verify the required parameter 'saveAsTIFFMultipageParameters' is set
+            if (saveAsTIFFMultipageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsTIFFMultipageParameters' when calling PDFApi->SaveAsTIFFMultipage");
+
+            var localVarPath = "/api/pdf/SaveAsTIFFMultipage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsTIFFMultipageParameters != null && saveAsTIFFMultipageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsTIFFMultipageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsTIFFMultipageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsTIFFMultipage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSaveAsTIFFMultipageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSaveAsTIFFMultipageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveAsTIFFMultipageResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSaveAsTIFFMultipageResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageAsync (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+             ApiResponse<PDFSaveAsTIFFMultipageResponse> localVarResponse = await SaveAsTIFFMultipageAsyncWithHttpInfo(saveAsTIFFMultipageParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded document as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">A PDFSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSaveAsTIFFMultipageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSaveAsTIFFMultipageResponse>> SaveAsTIFFMultipageAsyncWithHttpInfo (PDFSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+            // verify the required parameter 'saveAsTIFFMultipageParameters' is set
+            if (saveAsTIFFMultipageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsTIFFMultipageParameters' when calling PDFApi->SaveAsTIFFMultipage");
+
+            var localVarPath = "/api/pdf/SaveAsTIFFMultipage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsTIFFMultipageParameters != null && saveAsTIFFMultipageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsTIFFMultipageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsTIFFMultipageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsTIFFMultipage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSaveAsTIFFMultipageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSaveAsTIFFMultipageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveAsTIFFMultipageResponse)));
+        }
+
+        /// <summary>
         /// Saves a previously uploaded document as PDF. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4606,6 +5494,318 @@ namespace PassportPDF.Api
             return new ApiResponse<PDFSaveDocumentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PDFSaveDocumentResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSaveDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Sets information to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSetInfoResponse</returns>
+        public PDFSetInfoResponse SetInfo (PDFSetInfoParameters setInfoParameters)
+        {
+             ApiResponse<PDFSetInfoResponse> localVarResponse = SetInfoWithHttpInfo(setInfoParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Sets information to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSetInfoResponse</returns>
+        public ApiResponse< PDFSetInfoResponse > SetInfoWithHttpInfo (PDFSetInfoParameters setInfoParameters)
+        {
+            // verify the required parameter 'setInfoParameters' is set
+            if (setInfoParameters == null)
+                throw new ApiException(400, "Missing required parameter 'setInfoParameters' when calling PDFApi->SetInfo");
+
+            var localVarPath = "/api/pdf/SetInfo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setInfoParameters != null && setInfoParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(setInfoParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setInfoParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSetInfoResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSetInfoResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetInfoResponse)));
+        }
+
+        /// <summary>
+        /// Sets information to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSetInfoResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSetInfoResponse> SetInfoAsync (PDFSetInfoParameters setInfoParameters)
+        {
+             ApiResponse<PDFSetInfoResponse> localVarResponse = await SetInfoAsyncWithHttpInfo(setInfoParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Sets information to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInfoParameters">A PDFSetInfoParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSetInfoResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSetInfoResponse>> SetInfoAsyncWithHttpInfo (PDFSetInfoParameters setInfoParameters)
+        {
+            // verify the required parameter 'setInfoParameters' is set
+            if (setInfoParameters == null)
+                throw new ApiException(400, "Missing required parameter 'setInfoParameters' when calling PDFApi->SetInfo");
+
+            var localVarPath = "/api/pdf/SetInfo";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setInfoParameters != null && setInfoParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(setInfoParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setInfoParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSetInfoResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSetInfoResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetInfoResponse)));
+        }
+
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFSetPageBoxResponse</returns>
+        public PDFSetPageBoxResponse SetPageBox (PDFSetPageBoxParameters setPageBoxParameters = null)
+        {
+             ApiResponse<PDFSetPageBoxResponse> localVarResponse = SetPageBoxWithHttpInfo(setPageBoxParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFSetPageBoxResponse</returns>
+        public ApiResponse< PDFSetPageBoxResponse > SetPageBoxWithHttpInfo (PDFSetPageBoxParameters setPageBoxParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/SetPageBox";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setPageBoxParameters != null && setPageBoxParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(setPageBoxParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setPageBoxParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetPageBox", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSetPageBoxResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSetPageBoxResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetPageBoxResponse)));
+        }
+
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFSetPageBoxResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSetPageBoxResponse> SetPageBoxAsync (PDFSetPageBoxParameters setPageBoxParameters = null)
+        {
+             ApiResponse<PDFSetPageBoxResponse> localVarResponse = await SetPageBoxAsyncWithHttpInfo(setPageBoxParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Sets pagebox to a page range from previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFSetPageBoxResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSetPageBoxResponse>> SetPageBoxAsyncWithHttpInfo (PDFSetPageBoxParameters setPageBoxParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/SetPageBox";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setPageBoxParameters != null && setPageBoxParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(setPageBoxParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setPageBoxParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetPageBox", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSetPageBoxResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSetPageBoxResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetPageBoxResponse)));
         }
 
         /// <summary>

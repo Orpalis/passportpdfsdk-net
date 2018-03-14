@@ -38,124 +38,124 @@ namespace PassportPDF.Model
         {
             
             /// <summary>
+            /// Enum Unknown for "Unknown"
+            /// </summary>
+            [EnumMember(Value = "Unknown")]
+            Unknown = 1,
+            
+            /// <summary>
             /// Enum PDF for "PDF"
             /// </summary>
             [EnumMember(Value = "PDF")]
-            PDF = 1,
+            PDF = 2,
             
             /// <summary>
             /// Enum PDFA1a for "PDF_A_1a"
             /// </summary>
             [EnumMember(Value = "PDF_A_1a")]
-            PDFA1a = 2,
+            PDFA1a = 3,
             
             /// <summary>
             /// Enum PDFA1b for "PDF_A_1b"
             /// </summary>
             [EnumMember(Value = "PDF_A_1b")]
-            PDFA1b = 3,
+            PDFA1b = 4,
             
             /// <summary>
             /// Enum PDFA2a for "PDF_A_2a"
             /// </summary>
             [EnumMember(Value = "PDF_A_2a")]
-            PDFA2a = 4,
+            PDFA2a = 5,
             
             /// <summary>
             /// Enum PDFA2u for "PDF_A_2u"
             /// </summary>
             [EnumMember(Value = "PDF_A_2u")]
-            PDFA2u = 5,
+            PDFA2u = 6,
             
             /// <summary>
             /// Enum PDFA2b for "PDF_A_2b"
             /// </summary>
             [EnumMember(Value = "PDF_A_2b")]
-            PDFA2b = 6,
+            PDFA2b = 7,
             
             /// <summary>
             /// Enum PDFA3a for "PDF_A_3a"
             /// </summary>
             [EnumMember(Value = "PDF_A_3a")]
-            PDFA3a = 7,
+            PDFA3a = 8,
             
             /// <summary>
             /// Enum PDFA3u for "PDF_A_3u"
             /// </summary>
             [EnumMember(Value = "PDF_A_3u")]
-            PDFA3u = 8,
+            PDFA3u = 9,
             
             /// <summary>
             /// Enum PDFA3b for "PDF_A_3b"
             /// </summary>
             [EnumMember(Value = "PDF_A_3b")]
-            PDFA3b = 9,
+            PDFA3b = 10,
             
             /// <summary>
             /// Enum PDF10 for "PDF1_0"
             /// </summary>
             [EnumMember(Value = "PDF1_0")]
-            PDF10 = 10,
+            PDF10 = 11,
             
             /// <summary>
             /// Enum PDF11 for "PDF1_1"
             /// </summary>
             [EnumMember(Value = "PDF1_1")]
-            PDF11 = 11,
+            PDF11 = 12,
             
             /// <summary>
             /// Enum PDF12 for "PDF1_2"
             /// </summary>
             [EnumMember(Value = "PDF1_2")]
-            PDF12 = 12,
+            PDF12 = 13,
             
             /// <summary>
             /// Enum PDF13 for "PDF1_3"
             /// </summary>
             [EnumMember(Value = "PDF1_3")]
-            PDF13 = 13,
+            PDF13 = 14,
             
             /// <summary>
             /// Enum PDF14 for "PDF1_4"
             /// </summary>
             [EnumMember(Value = "PDF1_4")]
-            PDF14 = 14,
+            PDF14 = 15,
             
             /// <summary>
             /// Enum PDF15 for "PDF1_5"
             /// </summary>
             [EnumMember(Value = "PDF1_5")]
-            PDF15 = 15,
+            PDF15 = 16,
             
             /// <summary>
             /// Enum PDF16 for "PDF1_6"
             /// </summary>
             [EnumMember(Value = "PDF1_6")]
-            PDF16 = 16,
+            PDF16 = 17,
             
             /// <summary>
             /// Enum PDF17 for "PDF1_7"
             /// </summary>
             [EnumMember(Value = "PDF1_7")]
-            PDF17 = 17,
+            PDF17 = 18,
             
             /// <summary>
             /// Enum PDF20 for "PDF2_0"
             /// </summary>
             [EnumMember(Value = "PDF2_0")]
-            PDF20 = 18,
+            PDF20 = 19,
             
             /// <summary>
             /// Enum PDFUA1 for "PDF_UA_1"
             /// </summary>
             [EnumMember(Value = "PDF_UA_1")]
-            PDFUA1 = 19,
-            
-            /// <summary>
-            /// Enum Unknown for "Unknown"
-            /// </summary>
-            [EnumMember(Value = "Unknown")]
-            Unknown = 20
+            PDFUA1 = 20
         }
 
         /// <summary>

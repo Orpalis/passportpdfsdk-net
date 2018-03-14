@@ -39,12 +39,12 @@ namespace PassportPDF.Model
         /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
         /// </summary>
         /// <param name="FileName">FileName (required).</param>
-        /// <param name="FileID">FileID.</param>
+        /// <param name="FileId">FileId.</param>
         /// <param name="FileData">FileData.</param>
         /// <param name="ThumbnailWidth">ThumbnailWidth (default to 140).</param>
         /// <param name="ThumbnailHeight">ThumbnailHeight (default to 220).</param>
         /// <param name="ThumbnailBackgroundColor">ThumbnailBackgroundColor (default to &quot;rgba(0,0,0,0)&quot;).</param>
-        public GetDocumentPreviewParameters(string FileName = default(string), string FileID = default(string), byte[] FileData = default(byte[]), int? ThumbnailWidth = 140, int? ThumbnailHeight = 220, string ThumbnailBackgroundColor = "rgba(0,0,0,0)")
+        public GetDocumentPreviewParameters(string FileName = default(string), string FileId = default(string), byte[] FileData = default(byte[]), int? ThumbnailWidth = 140, int? ThumbnailHeight = 220, string ThumbnailBackgroundColor = "rgba(0,0,0,0)")
         {
             // to ensure "FileName" is required (not null)
             if (FileName == null)
@@ -55,7 +55,7 @@ namespace PassportPDF.Model
             {
                 this.FileName = FileName;
             }
-            this.FileID = FileID;
+            this.FileId = FileId;
             this.FileData = FileData;
             // use default value if no "ThumbnailWidth" provided
             if (ThumbnailWidth == null)
@@ -93,10 +93,10 @@ namespace PassportPDF.Model
         public string FileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileID
+        /// Gets or Sets FileId
         /// </summary>
-        [DataMember(Name="fileID", EmitDefaultValue=false)]
-        public string FileID { get; set; }
+        [DataMember(Name="fileId", EmitDefaultValue=false)]
+        public string FileId { get; set; }
 
         /// <summary>
         /// Gets or Sets FileData
@@ -131,7 +131,7 @@ namespace PassportPDF.Model
             var sb = new StringBuilder();
             sb.Append("class GetDocumentPreviewParameters {\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
-            sb.Append("  FileID: ").Append(FileID).Append("\n");
+            sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  FileData: ").Append(FileData).Append("\n");
             sb.Append("  ThumbnailWidth: ").Append(ThumbnailWidth).Append("\n");
             sb.Append("  ThumbnailHeight: ").Append(ThumbnailHeight).Append("\n");
@@ -176,9 +176,9 @@ namespace PassportPDF.Model
                     this.FileName.Equals(input.FileName))
                 ) && 
                 (
-                    this.FileID == input.FileID ||
-                    (this.FileID != null &&
-                    this.FileID.Equals(input.FileID))
+                    this.FileId == input.FileId ||
+                    (this.FileId != null &&
+                    this.FileId.Equals(input.FileId))
                 ) && 
                 (
                     this.FileData == input.FileData ||
@@ -213,8 +213,8 @@ namespace PassportPDF.Model
                 int hashCode = 41;
                 if (this.FileName != null)
                     hashCode = hashCode * 59 + this.FileName.GetHashCode();
-                if (this.FileID != null)
-                    hashCode = hashCode * 59 + this.FileID.GetHashCode();
+                if (this.FileId != null)
+                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.FileData != null)
                     hashCode = hashCode * 59 + this.FileData.GetHashCode();
                 if (this.ThumbnailWidth != null)

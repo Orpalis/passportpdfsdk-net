@@ -25,32 +25,29 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for a save as JPEG acion.
+    /// Represents the parameters for a save as JPEG action.
     /// </summary>
     [DataContract]
-    public partial class PDFSaveAsJPEGParameters :  IEquatable<PDFSaveAsJPEGParameters>, IValidatableObject
+    public partial class ImageSaveAsJPEGParameters :  IEquatable<ImageSaveAsJPEGParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSaveAsJPEGParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageSaveAsJPEGParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFSaveAsJPEGParameters() { }
+        protected ImageSaveAsJPEGParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSaveAsJPEGParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageSaveAsJPEGParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
         /// <param name="Quality">Quality (default to 75).</param>
         /// <param name="Progressive">Progressive (default to false).</param>
         /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="Resolution">Resolution (default to 200.0F).</param>
-        /// <param name="RenderFormFields">RenderFormFields.</param>
-        /// <param name="KeepRasterPDFResolution">KeepRasterPDFResolution (default to true).</param>
-        public PDFSaveAsJPEGParameters(string FileId = default(string), int? Quality = 75, bool? Progressive = false, string PageRange = "*", float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
+        public ImageSaveAsJPEGParameters(string FileId = default(string), int? Quality = 75, bool? Progressive = false, string PageRange = "*")
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for PDFSaveAsJPEGParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for ImageSaveAsJPEGParameters and cannot be null");
             }
             else
             {
@@ -83,25 +80,6 @@ namespace PassportPDF.Model
             {
                 this.PageRange = PageRange;
             }
-            // use default value if no "Resolution" provided
-            if (Resolution == null)
-            {
-                this.Resolution = 200.0F;
-            }
-            else
-            {
-                this.Resolution = Resolution;
-            }
-            this.RenderFormFields = RenderFormFields;
-            // use default value if no "KeepRasterPDFResolution" provided
-            if (KeepRasterPDFResolution == null)
-            {
-                this.KeepRasterPDFResolution = true;
-            }
-            else
-            {
-                this.KeepRasterPDFResolution = KeepRasterPDFResolution;
-            }
         }
         
         /// <summary>
@@ -129,38 +107,17 @@ namespace PassportPDF.Model
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets Resolution
-        /// </summary>
-        [DataMember(Name="resolution", EmitDefaultValue=false)]
-        public float? Resolution { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RenderFormFields
-        /// </summary>
-        [DataMember(Name="renderFormFields", EmitDefaultValue=false)]
-        public bool? RenderFormFields { get; set; }
-
-        /// <summary>
-        /// Gets or Sets KeepRasterPDFResolution
-        /// </summary>
-        [DataMember(Name="keepRasterPDFResolution", EmitDefaultValue=false)]
-        public bool? KeepRasterPDFResolution { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFSaveAsJPEGParameters {\n");
+            sb.Append("class ImageSaveAsJPEGParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
             sb.Append("  Progressive: ").Append(Progressive).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  Resolution: ").Append(Resolution).Append("\n");
-            sb.Append("  RenderFormFields: ").Append(RenderFormFields).Append("\n");
-            sb.Append("  KeepRasterPDFResolution: ").Append(KeepRasterPDFResolution).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,15 +138,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFSaveAsJPEGParameters);
+            return this.Equals(input as ImageSaveAsJPEGParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFSaveAsJPEGParameters instances are equal
+        /// Returns true if ImageSaveAsJPEGParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFSaveAsJPEGParameters to be compared</param>
+        /// <param name="input">Instance of ImageSaveAsJPEGParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFSaveAsJPEGParameters input)
+        public bool Equals(ImageSaveAsJPEGParameters input)
         {
             if (input == null)
                 return false;
@@ -214,21 +171,6 @@ namespace PassportPDF.Model
                     this.PageRange == input.PageRange ||
                     (this.PageRange != null &&
                     this.PageRange.Equals(input.PageRange))
-                ) && 
-                (
-                    this.Resolution == input.Resolution ||
-                    (this.Resolution != null &&
-                    this.Resolution.Equals(input.Resolution))
-                ) && 
-                (
-                    this.RenderFormFields == input.RenderFormFields ||
-                    (this.RenderFormFields != null &&
-                    this.RenderFormFields.Equals(input.RenderFormFields))
-                ) && 
-                (
-                    this.KeepRasterPDFResolution == input.KeepRasterPDFResolution ||
-                    (this.KeepRasterPDFResolution != null &&
-                    this.KeepRasterPDFResolution.Equals(input.KeepRasterPDFResolution))
                 );
         }
 
@@ -249,12 +191,6 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Progressive.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.Resolution != null)
-                    hashCode = hashCode * 59 + this.Resolution.GetHashCode();
-                if (this.RenderFormFields != null)
-                    hashCode = hashCode * 59 + this.RenderFormFields.GetHashCode();
-                if (this.KeepRasterPDFResolution != null)
-                    hashCode = hashCode * 59 + this.KeepRasterPDFResolution.GetHashCode();
                 return hashCode;
             }
         }

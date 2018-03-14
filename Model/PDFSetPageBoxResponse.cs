@@ -25,17 +25,17 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to a move page action request.
+    /// Represents the response to a SetPageBox action request.
     /// </summary>
     [DataContract]
-    public partial class PDFMovePageResponse :  IEquatable<PDFMovePageResponse>, IValidatableObject
+    public partial class PDFSetPageBoxResponse :  IEquatable<PDFSetPageBoxResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMovePageResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFSetPageBoxResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFMovePageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        public PDFSetPageBoxResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
@@ -60,7 +60,7 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFMovePageResponse {\n");
+            sb.Append("class PDFSetPageBoxResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
             sb.Append("}\n");
@@ -83,15 +83,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMovePageResponse);
+            return this.Equals(input as PDFSetPageBoxResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFMovePageResponse instances are equal
+        /// Returns true if PDFSetPageBoxResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMovePageResponse to be compared</param>
+        /// <param name="input">Instance of PDFSetPageBoxResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMovePageResponse input)
+        public bool Equals(PDFSetPageBoxResponse input)
         {
             if (input == null)
                 return false;

@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a get page thumbnail action.
+    /// Represents the response to a get page thumbnail action request.
     /// </summary>
     [DataContract]
     public partial class PDFGetPageThumbnailResponse :  IEquatable<PDFGetPageThumbnailResponse>, IValidatableObject

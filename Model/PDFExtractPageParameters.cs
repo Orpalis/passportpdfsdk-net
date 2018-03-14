@@ -25,35 +25,59 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for a close document action.
+    /// Represents the parameters for an extract page action.
     /// </summary>
     [DataContract]
-    public partial class DocumentCloseParameters :  IEquatable<DocumentCloseParameters>, IValidatableObject
+    public partial class PDFExtractPageParameters :  IEquatable<PDFExtractPageParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentCloseParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFExtractPageParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DocumentCloseParameters() { }
+        protected PDFExtractPageParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentCloseParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFExtractPageParameters" /> class.
         /// </summary>
+        /// <param name="PageRange">PageRange (required).</param>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="Aa">Aa.</param>
-        public DocumentCloseParameters(string FileId = default(string), string Aa = default(string))
+        /// <param name="ExtractAsSeparate">ExtractAsSeparate (default to false).</param>
+        public PDFExtractPageParameters(string PageRange = default(string), string FileId = default(string), bool? ExtractAsSeparate = false)
         {
+            // to ensure "PageRange" is required (not null)
+            if (PageRange == null)
+            {
+                throw new InvalidDataException("PageRange is a required property for PDFExtractPageParameters and cannot be null");
+            }
+            else
+            {
+                this.PageRange = PageRange;
+            }
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for DocumentCloseParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for PDFExtractPageParameters and cannot be null");
             }
             else
             {
                 this.FileId = FileId;
             }
-            this.Aa = Aa;
+            // use default value if no "ExtractAsSeparate" provided
+            if (ExtractAsSeparate == null)
+            {
+                this.ExtractAsSeparate = false;
+            }
+            else
+            {
+                this.ExtractAsSeparate = ExtractAsSeparate;
+            }
         }
         
+        /// <summary>
+        /// Gets or Sets PageRange
+        /// </summary>
+        [DataMember(Name="pageRange", EmitDefaultValue=false)]
+        public string PageRange { get; set; }
+
         /// <summary>
         /// Gets or Sets FileId
         /// </summary>
@@ -61,10 +85,10 @@ namespace PassportPDF.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Aa
+        /// Gets or Sets ExtractAsSeparate
         /// </summary>
-        [DataMember(Name="aa", EmitDefaultValue=false)]
-        public string Aa { get; set; }
+        [DataMember(Name="extractAsSeparate", EmitDefaultValue=false)]
+        public bool? ExtractAsSeparate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +97,10 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentCloseParameters {\n");
+            sb.Append("class PDFExtractPageParameters {\n");
+            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  Aa: ").Append(Aa).Append("\n");
+            sb.Append("  ExtractAsSeparate: ").Append(ExtractAsSeparate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,29 +121,34 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocumentCloseParameters);
+            return this.Equals(input as PDFExtractPageParameters);
         }
 
         /// <summary>
-        /// Returns true if DocumentCloseParameters instances are equal
+        /// Returns true if PDFExtractPageParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocumentCloseParameters to be compared</param>
+        /// <param name="input">Instance of PDFExtractPageParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentCloseParameters input)
+        public bool Equals(PDFExtractPageParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.PageRange == input.PageRange ||
+                    (this.PageRange != null &&
+                    this.PageRange.Equals(input.PageRange))
+                ) && 
+                (
                     this.FileId == input.FileId ||
                     (this.FileId != null &&
                     this.FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.Aa == input.Aa ||
-                    (this.Aa != null &&
-                    this.Aa.Equals(input.Aa))
+                    this.ExtractAsSeparate == input.ExtractAsSeparate ||
+                    (this.ExtractAsSeparate != null &&
+                    this.ExtractAsSeparate.Equals(input.ExtractAsSeparate))
                 );
         }
 
@@ -131,10 +161,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.PageRange != null)
+                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.Aa != null)
-                    hashCode = hashCode * 59 + this.Aa.GetHashCode();
+                if (this.ExtractAsSeparate != null)
+                    hashCode = hashCode * 59 + this.ExtractAsSeparate.GetHashCode();
                 return hashCode;
             }
         }

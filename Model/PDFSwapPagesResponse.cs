@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a swap pages action request.
+    /// Represents the response to a swap pages action request.
     /// </summary>
     [DataContract]
     public partial class PDFSwapPagesResponse :  IEquatable<PDFSwapPagesResponse>, IValidatableObject

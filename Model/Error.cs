@@ -347,7 +347,43 @@ namespace PassportPDF.Model
             /// Enum CanNotOpenImage for "CanNotOpenImage"
             /// </summary>
             [EnumMember(Value = "CanNotOpenImage")]
-            CanNotOpenImage = 52
+            CanNotOpenImage = 52,
+            
+            /// <summary>
+            /// Enum CanNotSaveAsPNG for "CanNotSaveAsPNG"
+            /// </summary>
+            [EnumMember(Value = "CanNotSaveAsPNG")]
+            CanNotSaveAsPNG = 53,
+            
+            /// <summary>
+            /// Enum CanNotSaveAsTIFF for "CanNotSaveAsTIFF"
+            /// </summary>
+            [EnumMember(Value = "CanNotSaveAsTIFF")]
+            CanNotSaveAsTIFF = 54,
+            
+            /// <summary>
+            /// Enum CanNotSaveAsTIFFMultipage for "CanNotSaveAsTIFFMultipage"
+            /// </summary>
+            [EnumMember(Value = "CanNotSaveAsTIFFMultipage")]
+            CanNotSaveAsTIFFMultipage = 55,
+            
+            /// <summary>
+            /// Enum CanNotSetInfo for "CanNotSetInfo"
+            /// </summary>
+            [EnumMember(Value = "CanNotSetInfo")]
+            CanNotSetInfo = 56,
+            
+            /// <summary>
+            /// Enum CanNotSetPageBox for "CanNotSetPageBox"
+            /// </summary>
+            [EnumMember(Value = "CanNotSetPageBox")]
+            CanNotSetPageBox = 57,
+            
+            /// <summary>
+            /// Enum CanNotExtractPage for "CanNotExtractPage"
+            /// </summary>
+            [EnumMember(Value = "CanNotExtractPage")]
+            CanNotExtractPage = 58
         }
 
         /// <summary>

@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a digital signature action request.
+    /// Represents the response to a digital signature action request.
     /// </summary>
     [DataContract]
     public partial class PDFDigiSignResponse :  IEquatable<PDFDigiSignResponse>, IValidatableObject

@@ -33,7 +33,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>DocumentCloseResponse</returns>
-        DocumentCloseResponse Close (DocumentCloseParameters closeParameters = null);
+        DocumentCloseResponse CloseDocument (DocumentCloseParameters closeParameters = null);
 
         /// <summary>
         /// Closes a previously uploaded document.
@@ -44,7 +44,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>ApiResponse of DocumentCloseResponse</returns>
-        ApiResponse<DocumentCloseResponse> CloseWithHttpInfo (DocumentCloseParameters closeParameters = null);
+        ApiResponse<DocumentCloseResponse> CloseDocumentWithHttpInfo (DocumentCloseParameters closeParameters = null);
         /// <summary>
         /// Gets the format, the page count, and a thumbnail of the provided, or a previously uploaded document.
         /// </summary>
@@ -77,7 +77,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>Task of DocumentCloseResponse</returns>
-        System.Threading.Tasks.Task<DocumentCloseResponse> CloseAsync (DocumentCloseParameters closeParameters = null);
+        System.Threading.Tasks.Task<DocumentCloseResponse> CloseDocumentAsync (DocumentCloseParameters closeParameters = null);
 
         /// <summary>
         /// Closes a previously uploaded document.
@@ -88,7 +88,7 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>Task of ApiResponse (DocumentCloseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentCloseResponse>> CloseAsyncWithHttpInfo (DocumentCloseParameters closeParameters = null);
+        System.Threading.Tasks.Task<ApiResponse<DocumentCloseResponse>> CloseDocumentAsyncWithHttpInfo (DocumentCloseParameters closeParameters = null);
         /// <summary>
         /// Gets the format, the page count, and a thumbnail of the provided, or a previously uploaded document.
         /// </summary>
@@ -216,9 +216,9 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>DocumentCloseResponse</returns>
-        public DocumentCloseResponse Close (DocumentCloseParameters closeParameters = null)
+        public DocumentCloseResponse CloseDocument (DocumentCloseParameters closeParameters = null)
         {
-             ApiResponse<DocumentCloseResponse> localVarResponse = CloseWithHttpInfo(closeParameters);
+             ApiResponse<DocumentCloseResponse> localVarResponse = CloseDocumentWithHttpInfo(closeParameters);
              return localVarResponse.Data;
         }
 
@@ -228,10 +228,10 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>ApiResponse of DocumentCloseResponse</returns>
-        public ApiResponse< DocumentCloseResponse > CloseWithHttpInfo (DocumentCloseParameters closeParameters = null)
+        public ApiResponse< DocumentCloseResponse > CloseDocumentWithHttpInfo (DocumentCloseParameters closeParameters = null)
         {
 
-            var localVarPath = "/api/document/Close";
+            var localVarPath = "/api/document/CloseDocument";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -277,7 +277,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Close", localVarResponse);
+                Exception exception = ExceptionFactory("CloseDocument", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -292,9 +292,9 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>Task of DocumentCloseResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentCloseResponse> CloseAsync (DocumentCloseParameters closeParameters = null)
+        public async System.Threading.Tasks.Task<DocumentCloseResponse> CloseDocumentAsync (DocumentCloseParameters closeParameters = null)
         {
-             ApiResponse<DocumentCloseResponse> localVarResponse = await CloseAsyncWithHttpInfo(closeParameters);
+             ApiResponse<DocumentCloseResponse> localVarResponse = await CloseDocumentAsyncWithHttpInfo(closeParameters);
              return localVarResponse.Data;
 
         }
@@ -305,10 +305,10 @@ namespace PassportPDF.Api
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="closeParameters">A DocumentCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>Task of ApiResponse (DocumentCloseResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DocumentCloseResponse>> CloseAsyncWithHttpInfo (DocumentCloseParameters closeParameters = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentCloseResponse>> CloseDocumentAsyncWithHttpInfo (DocumentCloseParameters closeParameters = null)
         {
 
-            var localVarPath = "/api/document/Close";
+            var localVarPath = "/api/document/CloseDocument";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -354,7 +354,7 @@ namespace PassportPDF.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Close", localVarResponse);
+                Exception exception = ExceptionFactory("CloseDocument", localVarResponse);
                 if (exception != null) throw exception;
             }
 

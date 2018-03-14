@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to an auto deskew action request.
+    /// Represents the response to an auto deskew action request.
     /// </summary>
     [DataContract]
     public partial class PDFAutoDeskewResponse :  IEquatable<PDFAutoDeskewResponse>, IValidatableObject

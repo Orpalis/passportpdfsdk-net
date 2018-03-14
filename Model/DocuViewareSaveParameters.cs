@@ -38,30 +38,30 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareSaveParameters" /> class.
         /// </summary>
-        /// <param name="SessionID">SessionID (required).</param>
-        /// <param name="ControlID">ControlID (required).</param>
+        /// <param name="SessionId">SessionId (required).</param>
+        /// <param name="ControlId">ControlId (required).</param>
         /// <param name="FileName">FileName (required).</param>
         /// <param name="Format">Format (required).</param>
         /// <param name="PageRange">PageRange.</param>
-        public DocuViewareSaveParameters(string SessionID = default(string), string ControlID = default(string), string FileName = default(string), string Format = default(string), string PageRange = default(string))
+        public DocuViewareSaveParameters(string SessionId = default(string), string ControlId = default(string), string FileName = default(string), string Format = default(string), string PageRange = default(string))
         {
-            // to ensure "SessionID" is required (not null)
-            if (SessionID == null)
+            // to ensure "SessionId" is required (not null)
+            if (SessionId == null)
             {
-                throw new InvalidDataException("SessionID is a required property for DocuViewareSaveParameters and cannot be null");
+                throw new InvalidDataException("SessionId is a required property for DocuViewareSaveParameters and cannot be null");
             }
             else
             {
-                this.SessionID = SessionID;
+                this.SessionId = SessionId;
             }
-            // to ensure "ControlID" is required (not null)
-            if (ControlID == null)
+            // to ensure "ControlId" is required (not null)
+            if (ControlId == null)
             {
-                throw new InvalidDataException("ControlID is a required property for DocuViewareSaveParameters and cannot be null");
+                throw new InvalidDataException("ControlId is a required property for DocuViewareSaveParameters and cannot be null");
             }
             else
             {
-                this.ControlID = ControlID;
+                this.ControlId = ControlId;
             }
             // to ensure "FileName" is required (not null)
             if (FileName == null)
@@ -85,16 +85,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets SessionID
+        /// Gets or Sets SessionId
         /// </summary>
-        [DataMember(Name="sessionID", EmitDefaultValue=false)]
-        public string SessionID { get; set; }
+        [DataMember(Name="sessionId", EmitDefaultValue=false)]
+        public string SessionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlID
+        /// Gets or Sets ControlId
         /// </summary>
-        [DataMember(Name="controlID", EmitDefaultValue=false)]
-        public string ControlID { get; set; }
+        [DataMember(Name="controlId", EmitDefaultValue=false)]
+        public string ControlId { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
@@ -122,8 +122,8 @@ namespace PassportPDF.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DocuViewareSaveParameters {\n");
-            sb.Append("  SessionID: ").Append(SessionID).Append("\n");
-            sb.Append("  ControlID: ").Append(ControlID).Append("\n");
+            sb.Append("  SessionId: ").Append(SessionId).Append("\n");
+            sb.Append("  ControlId: ").Append(ControlId).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
@@ -162,14 +162,14 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.SessionID == input.SessionID ||
-                    (this.SessionID != null &&
-                    this.SessionID.Equals(input.SessionID))
+                    this.SessionId == input.SessionId ||
+                    (this.SessionId != null &&
+                    this.SessionId.Equals(input.SessionId))
                 ) && 
                 (
-                    this.ControlID == input.ControlID ||
-                    (this.ControlID != null &&
-                    this.ControlID.Equals(input.ControlID))
+                    this.ControlId == input.ControlId ||
+                    (this.ControlId != null &&
+                    this.ControlId.Equals(input.ControlId))
                 ) && 
                 (
                     this.FileName == input.FileName ||
@@ -197,10 +197,10 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SessionID != null)
-                    hashCode = hashCode * 59 + this.SessionID.GetHashCode();
-                if (this.ControlID != null)
-                    hashCode = hashCode * 59 + this.ControlID.GetHashCode();
+                if (this.SessionId != null)
+                    hashCode = hashCode * 59 + this.SessionId.GetHashCode();
+                if (this.ControlId != null)
+                    hashCode = hashCode * 59 + this.ControlId.GetHashCode();
                 if (this.FileName != null)
                     hashCode = hashCode * 59 + this.FileName.GetHashCode();
                 if (this.Format != null)

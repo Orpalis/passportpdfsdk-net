@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a linearize action request.
+    /// Represents the response to a linearize action request.
     /// </summary>
     [DataContract]
     public partial class PDFLinearizeResponse :  IEquatable<PDFLinearizeResponse>, IValidatableObject

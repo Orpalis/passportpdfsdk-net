@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a rotate page standard action request.
+    /// Represents the response to a rotate page standard action request.
     /// </summary>
     [DataContract]
     public partial class PDFRotatePageStandardResponse :  IEquatable<PDFRotatePageStandardResponse>, IValidatableObject

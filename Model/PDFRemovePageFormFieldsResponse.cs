@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a remove page form fields action request.
+    /// Represents the response to a remove page form fields action request.
     /// </summary>
     [DataContract]
     public partial class PDFRemovePageFormFieldsResponse :  IEquatable<PDFRemovePageFormFieldsResponse>, IValidatableObject

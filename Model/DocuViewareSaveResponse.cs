@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a save as JPEG action request.
+    /// Represents the response to a save as JPEG action request.
     /// </summary>
     [DataContract]
     public partial class DocuViewareSaveResponse :  IEquatable<DocuViewareSaveResponse>, IValidatableObject

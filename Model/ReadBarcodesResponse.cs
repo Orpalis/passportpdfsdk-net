@@ -25,20 +25,22 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to a move page action request.
+    /// Represents the response to a read barcode page action request.
     /// </summary>
     [DataContract]
-    public partial class PDFMovePageResponse :  IEquatable<PDFMovePageResponse>, IValidatableObject
+    public partial class ReadBarcodesResponse :  IEquatable<ReadBarcodesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMovePageResponse" /> class.
+        /// Initializes a new instance of the <see cref="ReadBarcodesResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFMovePageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        /// <param name="Barcodes">Specifies the information of the different barcodes which have been read..</param>
+        public ReadBarcodesResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<BarcodeInfo> Barcodes = default(List<BarcodeInfo>))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
+            this.Barcodes = Barcodes;
         }
         
         /// <summary>
@@ -54,15 +56,23 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
+        /// Specifies the information of the different barcodes which have been read.
+        /// </summary>
+        /// <value>Specifies the information of the different barcodes which have been read.</value>
+        [DataMember(Name="barcodes", EmitDefaultValue=false)]
+        public List<BarcodeInfo> Barcodes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFMovePageResponse {\n");
+            sb.Append("class ReadBarcodesResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
+            sb.Append("  Barcodes: ").Append(Barcodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +93,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMovePageResponse);
+            return this.Equals(input as ReadBarcodesResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFMovePageResponse instances are equal
+        /// Returns true if ReadBarcodesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMovePageResponse to be compared</param>
+        /// <param name="input">Instance of ReadBarcodesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMovePageResponse input)
+        public bool Equals(ReadBarcodesResponse input)
         {
             if (input == null)
                 return false;
@@ -106,6 +116,11 @@ namespace PassportPDF.Model
                     this.RemainingTokens == input.RemainingTokens ||
                     (this.RemainingTokens != null &&
                     this.RemainingTokens.Equals(input.RemainingTokens))
+                ) && 
+                (
+                    this.Barcodes == input.Barcodes ||
+                    this.Barcodes != null &&
+                    this.Barcodes.SequenceEqual(input.Barcodes)
                 );
         }
 
@@ -122,6 +137,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
+                if (this.Barcodes != null)
+                    hashCode = hashCode * 59 + this.Barcodes.GetHashCode();
                 return hashCode;
             }
         }

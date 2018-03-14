@@ -25,89 +25,102 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to a get info action request.
+    /// Represents the parameters for a set info action.
     /// </summary>
     [DataContract]
-    public partial class PDFGetInfoResponse :  IEquatable<PDFGetInfoResponse>, IValidatableObject
+    public partial class PDFSetInfoParameters :  IEquatable<PDFSetInfoParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFGetInfoResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFSetInfoParameters" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFGetInfoResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        [JsonConstructorAttribute]
+        protected PDFSetInfoParameters() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PDFSetInfoParameters" /> class.
+        /// </summary>
+        /// <param name="FileId">FileId (required).</param>
+        /// <param name="Author">Author.</param>
+        /// <param name="Title">Title.</param>
+        /// <param name="Subject">Subject.</param>
+        /// <param name="Producer">Producer.</param>
+        /// <param name="Metadata">Metadata.</param>
+        /// <param name="Keywords">Keywords.</param>
+        /// <param name="ClearEmptyValues">ClearEmptyValues (default to false).</param>
+        public PDFSetInfoParameters(string FileId = default(string), string Author = default(string), string Title = default(string), string Subject = default(string), string Producer = default(string), string Metadata = default(string), string Keywords = default(string), bool? ClearEmptyValues = false)
         {
-            this.Error = Error;
-            this.RemainingTokens = RemainingTokens;
+            // to ensure "FileId" is required (not null)
+            if (FileId == null)
+            {
+                throw new InvalidDataException("FileId is a required property for PDFSetInfoParameters and cannot be null");
+            }
+            else
+            {
+                this.FileId = FileId;
+            }
+            this.Author = Author;
+            this.Title = Title;
+            this.Subject = Subject;
+            this.Producer = Producer;
+            this.Metadata = Metadata;
+            this.Keywords = Keywords;
+            // use default value if no "ClearEmptyValues" provided
+            if (ClearEmptyValues == null)
+            {
+                this.ClearEmptyValues = false;
+            }
+            else
+            {
+                this.ClearEmptyValues = ClearEmptyValues;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// Gets or Sets FileId
         /// </summary>
-        [DataMember(Name="error", EmitDefaultValue=false)]
-        public Error Error { get; set; }
+        [DataMember(Name="fileId", EmitDefaultValue=false)]
+        public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Gets or Sets Author
         /// </summary>
-        [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
-
-        /// <summary>
-        /// Specifies the number of pages of the PDF.
-        /// </summary>
-        /// <value>Specifies the number of pages of the PDF.</value>
-        [DataMember(Name="pageCount", EmitDefaultValue=false)]
-        public int? PageCount { get; private set; }
-
-        /// <summary>
-        /// Specifies the version of the PDF.
-        /// </summary>
-        /// <value>Specifies the version of the PDF.</value>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public string Version { get; private set; }
-
-        /// <summary>
-        /// Specifies the author name specified within the PDF, if any.
-        /// </summary>
-        /// <value>Specifies the author name specified within the PDF, if any.</value>
         [DataMember(Name="author", EmitDefaultValue=false)]
-        public string Author { get; private set; }
+        public string Author { get; set; }
 
         /// <summary>
-        /// Specifies the document title specified within the PDF, if any.
+        /// Gets or Sets Title
         /// </summary>
-        /// <value>Specifies the document title specified within the PDF, if any.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
-        public string Title { get; private set; }
+        public string Title { get; set; }
 
         /// <summary>
-        /// Specifies the document subject specified within the PDF, if any.
+        /// Gets or Sets Subject
         /// </summary>
-        /// <value>Specifies the document subject specified within the PDF, if any.</value>
         [DataMember(Name="subject", EmitDefaultValue=false)]
-        public string Subject { get; private set; }
+        public string Subject { get; set; }
 
         /// <summary>
-        /// Specifies the producer name specified within the PDF, if any.
+        /// Gets or Sets Producer
         /// </summary>
-        /// <value>Specifies the producer name specified within the PDF, if any.</value>
         [DataMember(Name="producer", EmitDefaultValue=false)]
-        public string Producer { get; private set; }
+        public string Producer { get; set; }
 
         /// <summary>
-        /// Specifies the metadata contained within the PDF, if any.
+        /// Gets or Sets Metadata
         /// </summary>
-        /// <value>Specifies the metadata contained within the PDF, if any.</value>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public string Metadata { get; private set; }
+        public string Metadata { get; set; }
 
         /// <summary>
-        /// Specifies the keywords associated with the PDF, if any.
+        /// Gets or Sets Keywords
         /// </summary>
-        /// <value>Specifies the keywords associated with the PDF, if any.</value>
         [DataMember(Name="keywords", EmitDefaultValue=false)]
-        public string Keywords { get; private set; }
+        public string Keywords { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClearEmptyValues
+        /// </summary>
+        [DataMember(Name="clearEmptyValues", EmitDefaultValue=false)]
+        public bool? ClearEmptyValues { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -116,17 +129,15 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFGetInfoResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  PageCount: ").Append(PageCount).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("class PDFSetInfoParameters {\n");
+            sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  Author: ").Append(Author).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Producer: ").Append(Producer).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Keywords: ").Append(Keywords).Append("\n");
+            sb.Append("  ClearEmptyValues: ").Append(ClearEmptyValues).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,39 +158,24 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFGetInfoResponse);
+            return this.Equals(input as PDFSetInfoParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFGetInfoResponse instances are equal
+        /// Returns true if PDFSetInfoParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFGetInfoResponse to be compared</param>
+        /// <param name="input">Instance of PDFSetInfoParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFGetInfoResponse input)
+        public bool Equals(PDFSetInfoParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                ) && 
-                (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
-                ) && 
-                (
-                    this.PageCount == input.PageCount ||
-                    (this.PageCount != null &&
-                    this.PageCount.Equals(input.PageCount))
-                ) && 
-                (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this.FileId == input.FileId ||
+                    (this.FileId != null &&
+                    this.FileId.Equals(input.FileId))
                 ) && 
                 (
                     this.Author == input.Author ||
@@ -210,6 +206,11 @@ namespace PassportPDF.Model
                     this.Keywords == input.Keywords ||
                     (this.Keywords != null &&
                     this.Keywords.Equals(input.Keywords))
+                ) && 
+                (
+                    this.ClearEmptyValues == input.ClearEmptyValues ||
+                    (this.ClearEmptyValues != null &&
+                    this.ClearEmptyValues.Equals(input.ClearEmptyValues))
                 );
         }
 
@@ -222,14 +223,8 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.PageCount != null)
-                    hashCode = hashCode * 59 + this.PageCount.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this.FileId != null)
+                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.Author != null)
                     hashCode = hashCode * 59 + this.Author.GetHashCode();
                 if (this.Title != null)
@@ -242,6 +237,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Keywords != null)
                     hashCode = hashCode * 59 + this.Keywords.GetHashCode();
+                if (this.ClearEmptyValues != null)
+                    hashCode = hashCode * 59 + this.ClearEmptyValues.GetHashCode();
                 return hashCode;
             }
         }

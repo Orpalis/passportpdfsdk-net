@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a clear page action request.
+    /// Represents the response to a clear page action request.
     /// </summary>
     [DataContract]
     public partial class PDFClearPageResponse :  IEquatable<PDFClearPageResponse>, IValidatableObject

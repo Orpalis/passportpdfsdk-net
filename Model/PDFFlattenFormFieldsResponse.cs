@@ -25,7 +25,7 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents a response to a flatten form field action request.
+    /// Represents the response to a flatten form field action request.
     /// </summary>
     [DataContract]
     public partial class PDFFlattenFormFieldsResponse :  IEquatable<PDFFlattenFormFieldsResponse>, IValidatableObject
