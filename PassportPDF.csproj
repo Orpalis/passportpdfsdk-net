@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 PassportPDF
 
@@ -17,7 +17,7 @@ Contact: contact@orpalis.com
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PassportPDF</RootNamespace>
     <AssemblyName>PassportPDF</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
