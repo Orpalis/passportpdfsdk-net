@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ORPALIS")]
 [assembly: AssemblyProduct("PassportPDF")]
-[assembly: AssemblyCopyright("Copyright ® 2017 ORPALIS - http://www.orpalis.com")]
+[assembly: AssemblyCopyright("Copyright ¬ 2017 ORPALIS - http://www.orpalis.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.15")]
-[assembly: AssemblyFileVersion("1.0.15")]
+[assembly: AssemblyVersion("1.0.17")]
+[assembly: AssemblyFileVersion("1.0.17")]
