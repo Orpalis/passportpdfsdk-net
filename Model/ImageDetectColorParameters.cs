@@ -25,30 +25,29 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for an auto deskew action.
+    /// Represents the parameters for an image color detection action.
     /// </summary>
     [DataContract]
-    public partial class PDFAutoDeskewParameters :  IEquatable<PDFAutoDeskewParameters>, IValidatableObject
+    public partial class ImageDetectColorParameters :  IEquatable<ImageDetectColorParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageDetectColorParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFAutoDeskewParameters() { }
+        protected ImageDetectColorParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageDetectColorParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
-        /// <param name="MaxAngleOfResearch">MaxAngleOfResearch (default to 15.0F).</param>
-        /// <param name="AngleStep">AngleStep (default to 0.25F).</param>
-        /// <param name="Optimistic">Optimistic.</param>
-        public PDFAutoDeskewParameters(string FileId = default(string), string PageRange = "1", float? MaxAngleOfResearch = 15.0F, float? AngleStep = 0.25F, bool? Optimistic = default(bool?))
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to perform color detection on. (default to &quot;1&quot;).</param>
+        /// <param name="AutoConvert">Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding..</param>
+        /// <param name="AutoRepairCharacters">Specifies whether the characters should be repaired during bitonal conversion, if any, or not..</param>
+        public ImageDetectColorParameters(string FileId = default(string), string PageRange = "1", bool? AutoConvert = default(bool?), bool? AutoRepairCharacters = default(bool?))
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for PDFAutoDeskewParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for ImageDetectColorParameters and cannot be null");
             }
             else
             {
@@ -63,25 +62,8 @@ namespace PassportPDF.Model
             {
                 this.PageRange = PageRange;
             }
-            // use default value if no "MaxAngleOfResearch" provided
-            if (MaxAngleOfResearch == null)
-            {
-                this.MaxAngleOfResearch = 15.0F;
-            }
-            else
-            {
-                this.MaxAngleOfResearch = MaxAngleOfResearch;
-            }
-            // use default value if no "AngleStep" provided
-            if (AngleStep == null)
-            {
-                this.AngleStep = 0.25F;
-            }
-            else
-            {
-                this.AngleStep = AngleStep;
-            }
-            this.Optimistic = Optimistic;
+            this.AutoConvert = AutoConvert;
+            this.AutoRepairCharacters = AutoRepairCharacters;
         }
         
         /// <summary>
@@ -91,28 +73,25 @@ namespace PassportPDF.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to perform color detection on.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to perform color detection on.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaxAngleOfResearch
+        /// Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding.
         /// </summary>
-        [DataMember(Name="maxAngleOfResearch", EmitDefaultValue=false)]
-        public float? MaxAngleOfResearch { get; set; }
+        /// <value>Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding.</value>
+        [DataMember(Name="autoConvert", EmitDefaultValue=false)]
+        public bool? AutoConvert { get; set; }
 
         /// <summary>
-        /// Gets or Sets AngleStep
+        /// Specifies whether the characters should be repaired during bitonal conversion, if any, or not.
         /// </summary>
-        [DataMember(Name="angleStep", EmitDefaultValue=false)]
-        public float? AngleStep { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Optimistic
-        /// </summary>
-        [DataMember(Name="optimistic", EmitDefaultValue=false)]
-        public bool? Optimistic { get; set; }
+        /// <value>Specifies whether the characters should be repaired during bitonal conversion, if any, or not.</value>
+        [DataMember(Name="autoRepairCharacters", EmitDefaultValue=false)]
+        public bool? AutoRepairCharacters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,12 +100,11 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFAutoDeskewParameters {\n");
+            sb.Append("class ImageDetectColorParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  MaxAngleOfResearch: ").Append(MaxAngleOfResearch).Append("\n");
-            sb.Append("  AngleStep: ").Append(AngleStep).Append("\n");
-            sb.Append("  Optimistic: ").Append(Optimistic).Append("\n");
+            sb.Append("  AutoConvert: ").Append(AutoConvert).Append("\n");
+            sb.Append("  AutoRepairCharacters: ").Append(AutoRepairCharacters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,15 +125,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFAutoDeskewParameters);
+            return this.Equals(input as ImageDetectColorParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFAutoDeskewParameters instances are equal
+        /// Returns true if ImageDetectColorParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFAutoDeskewParameters to be compared</param>
+        /// <param name="input">Instance of ImageDetectColorParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFAutoDeskewParameters input)
+        public bool Equals(ImageDetectColorParameters input)
         {
             if (input == null)
                 return false;
@@ -172,19 +150,14 @@ namespace PassportPDF.Model
                     this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.MaxAngleOfResearch == input.MaxAngleOfResearch ||
-                    (this.MaxAngleOfResearch != null &&
-                    this.MaxAngleOfResearch.Equals(input.MaxAngleOfResearch))
+                    this.AutoConvert == input.AutoConvert ||
+                    (this.AutoConvert != null &&
+                    this.AutoConvert.Equals(input.AutoConvert))
                 ) && 
                 (
-                    this.AngleStep == input.AngleStep ||
-                    (this.AngleStep != null &&
-                    this.AngleStep.Equals(input.AngleStep))
-                ) && 
-                (
-                    this.Optimistic == input.Optimistic ||
-                    (this.Optimistic != null &&
-                    this.Optimistic.Equals(input.Optimistic))
+                    this.AutoRepairCharacters == input.AutoRepairCharacters ||
+                    (this.AutoRepairCharacters != null &&
+                    this.AutoRepairCharacters.Equals(input.AutoRepairCharacters))
                 );
         }
 
@@ -201,12 +174,10 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.MaxAngleOfResearch != null)
-                    hashCode = hashCode * 59 + this.MaxAngleOfResearch.GetHashCode();
-                if (this.AngleStep != null)
-                    hashCode = hashCode * 59 + this.AngleStep.GetHashCode();
-                if (this.Optimistic != null)
-                    hashCode = hashCode * 59 + this.Optimistic.GetHashCode();
+                if (this.AutoConvert != null)
+                    hashCode = hashCode * 59 + this.AutoConvert.GetHashCode();
+                if (this.AutoRepairCharacters != null)
+                    hashCode = hashCode * 59 + this.AutoRepairCharacters.GetHashCode();
                 return hashCode;
             }
         }

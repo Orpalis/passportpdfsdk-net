@@ -31,9 +31,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        StringResponse GetApplicationDownloadLink (string applicationId = null);
+        StringResponse GetApplicationDownloadLink (string applicationId);
 
         /// <summary>
         /// 
@@ -42,9 +42,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>ApiResponse of StringResponse</returns>
-        ApiResponse<StringResponse> GetApplicationDownloadLinkWithHttpInfo (string applicationId = null);
+        ApiResponse<StringResponse> GetApplicationDownloadLinkWithHttpInfo (string applicationId);
         /// <summary>
         /// 
         /// </summary>
@@ -52,9 +52,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        StringResponse GetApplicationLatestVersion (string applicationId = null);
+        StringResponse GetApplicationLatestVersion (string applicationId);
 
         /// <summary>
         /// 
@@ -63,9 +63,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>ApiResponse of StringResponse</returns>
-        ApiResponse<StringResponse> GetApplicationLatestVersionWithHttpInfo (string applicationId = null);
+        ApiResponse<StringResponse> GetApplicationLatestVersionWithHttpInfo (string applicationId);
         /// <summary>
         /// 
         /// </summary>
@@ -73,9 +73,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        StringResponse GetApplicationMinimumSupportedVersion (string applicationId = null);
+        StringResponse GetApplicationMinimumSupportedVersion (string applicationId);
 
         /// <summary>
         /// 
@@ -84,9 +84,30 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>ApiResponse of StringResponse</returns>
-        ApiResponse<StringResponse> GetApplicationMinimumSupportedVersionWithHttpInfo (string applicationId = null);
+        ApiResponse<StringResponse> GetApplicationMinimumSupportedVersionWithHttpInfo (string applicationId);
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>IntegerResponse</returns>
+        IntegerResponse GetMaxClientThreads (string applicationId);
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>ApiResponse of IntegerResponse</returns>
+        ApiResponse<IntegerResponse> GetMaxClientThreadsWithHttpInfo (string applicationId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -96,9 +117,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
-        System.Threading.Tasks.Task<StringResponse> GetApplicationDownloadLinkAsync (string applicationId = null);
+        System.Threading.Tasks.Task<StringResponse> GetApplicationDownloadLinkAsync (string applicationId);
 
         /// <summary>
         /// 
@@ -107,9 +128,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (StringResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationDownloadLinkAsyncWithHttpInfo (string applicationId = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationDownloadLinkAsyncWithHttpInfo (string applicationId);
         /// <summary>
         /// 
         /// </summary>
@@ -117,9 +138,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
-        System.Threading.Tasks.Task<StringResponse> GetApplicationLatestVersionAsync (string applicationId = null);
+        System.Threading.Tasks.Task<StringResponse> GetApplicationLatestVersionAsync (string applicationId);
 
         /// <summary>
         /// 
@@ -128,9 +149,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (StringResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationLatestVersionAsyncWithHttpInfo (string applicationId = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationLatestVersionAsyncWithHttpInfo (string applicationId);
         /// <summary>
         /// 
         /// </summary>
@@ -138,9 +159,9 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
-        System.Threading.Tasks.Task<StringResponse> GetApplicationMinimumSupportedVersionAsync (string applicationId = null);
+        System.Threading.Tasks.Task<StringResponse> GetApplicationMinimumSupportedVersionAsync (string applicationId);
 
         /// <summary>
         /// 
@@ -149,9 +170,30 @@ namespace PassportPDF.Api
         /// 
         /// </remarks>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (StringResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationMinimumSupportedVersionAsyncWithHttpInfo (string applicationId = null);
+        System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationMinimumSupportedVersionAsyncWithHttpInfo (string applicationId);
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of IntegerResponse</returns>
+        System.Threading.Tasks.Task<IntegerResponse> GetMaxClientThreadsAsync (string applicationId);
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of ApiResponse (IntegerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IntegerResponse>> GetMaxClientThreadsAsyncWithHttpInfo (string applicationId);
         #endregion Asynchronous Operations
     }
 
@@ -256,9 +298,9 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        public StringResponse GetApplicationDownloadLink (string applicationId = null)
+        public StringResponse GetApplicationDownloadLink (string applicationId)
         {
              ApiResponse<StringResponse> localVarResponse = GetApplicationDownloadLinkWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -268,10 +310,13 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>ApiResponse of StringResponse</returns>
-        public ApiResponse< StringResponse > GetApplicationDownloadLinkWithHttpInfo (string applicationId = null)
+        public ApiResponse< StringResponse > GetApplicationDownloadLinkWithHttpInfo (string applicationId)
         {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetApplicationDownloadLink");
 
             var localVarPath = "/api/passportpdfapplicationmanager/GetApplicationDownloadLink";
             var localVarPathParams = new Dictionary<String, String>();
@@ -321,9 +366,9 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
-        public async System.Threading.Tasks.Task<StringResponse> GetApplicationDownloadLinkAsync (string applicationId = null)
+        public async System.Threading.Tasks.Task<StringResponse> GetApplicationDownloadLinkAsync (string applicationId)
         {
              ApiResponse<StringResponse> localVarResponse = await GetApplicationDownloadLinkAsyncWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -334,10 +379,13 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (StringResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationDownloadLinkAsyncWithHttpInfo (string applicationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationDownloadLinkAsyncWithHttpInfo (string applicationId)
         {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetApplicationDownloadLink");
 
             var localVarPath = "/api/passportpdfapplicationmanager/GetApplicationDownloadLink";
             var localVarPathParams = new Dictionary<String, String>();
@@ -387,9 +435,9 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        public StringResponse GetApplicationLatestVersion (string applicationId = null)
+        public StringResponse GetApplicationLatestVersion (string applicationId)
         {
              ApiResponse<StringResponse> localVarResponse = GetApplicationLatestVersionWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -399,10 +447,13 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>ApiResponse of StringResponse</returns>
-        public ApiResponse< StringResponse > GetApplicationLatestVersionWithHttpInfo (string applicationId = null)
+        public ApiResponse< StringResponse > GetApplicationLatestVersionWithHttpInfo (string applicationId)
         {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetApplicationLatestVersion");
 
             var localVarPath = "/api/passportpdfapplicationmanager/GetApplicationLatestVersion";
             var localVarPathParams = new Dictionary<String, String>();
@@ -452,9 +503,9 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
-        public async System.Threading.Tasks.Task<StringResponse> GetApplicationLatestVersionAsync (string applicationId = null)
+        public async System.Threading.Tasks.Task<StringResponse> GetApplicationLatestVersionAsync (string applicationId)
         {
              ApiResponse<StringResponse> localVarResponse = await GetApplicationLatestVersionAsyncWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -465,10 +516,13 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (StringResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationLatestVersionAsyncWithHttpInfo (string applicationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationLatestVersionAsyncWithHttpInfo (string applicationId)
         {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetApplicationLatestVersion");
 
             var localVarPath = "/api/passportpdfapplicationmanager/GetApplicationLatestVersion";
             var localVarPathParams = new Dictionary<String, String>();
@@ -518,9 +572,9 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        public StringResponse GetApplicationMinimumSupportedVersion (string applicationId = null)
+        public StringResponse GetApplicationMinimumSupportedVersion (string applicationId)
         {
              ApiResponse<StringResponse> localVarResponse = GetApplicationMinimumSupportedVersionWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -530,10 +584,13 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>ApiResponse of StringResponse</returns>
-        public ApiResponse< StringResponse > GetApplicationMinimumSupportedVersionWithHttpInfo (string applicationId = null)
+        public ApiResponse< StringResponse > GetApplicationMinimumSupportedVersionWithHttpInfo (string applicationId)
         {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetApplicationMinimumSupportedVersion");
 
             var localVarPath = "/api/passportpdfapplicationmanager/GetApplicationMinimumSupportedVersion";
             var localVarPathParams = new Dictionary<String, String>();
@@ -583,9 +640,9 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
-        public async System.Threading.Tasks.Task<StringResponse> GetApplicationMinimumSupportedVersionAsync (string applicationId = null)
+        public async System.Threading.Tasks.Task<StringResponse> GetApplicationMinimumSupportedVersionAsync (string applicationId)
         {
              ApiResponse<StringResponse> localVarResponse = await GetApplicationMinimumSupportedVersionAsyncWithHttpInfo(applicationId);
              return localVarResponse.Data;
@@ -596,10 +653,13 @@ namespace PassportPDF.Api
         ///  
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"> (optional)</param>
+        /// <param name="applicationId"></param>
         /// <returns>Task of ApiResponse (StringResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationMinimumSupportedVersionAsyncWithHttpInfo (string applicationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> GetApplicationMinimumSupportedVersionAsyncWithHttpInfo (string applicationId)
         {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetApplicationMinimumSupportedVersion");
 
             var localVarPath = "/api/passportpdfapplicationmanager/GetApplicationMinimumSupportedVersion";
             var localVarPathParams = new Dictionary<String, String>();
@@ -643,6 +703,143 @@ namespace PassportPDF.Api
             return new ApiResponse<StringResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (StringResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
+        }
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>IntegerResponse</returns>
+        public IntegerResponse GetMaxClientThreads (string applicationId)
+        {
+             ApiResponse<IntegerResponse> localVarResponse = GetMaxClientThreadsWithHttpInfo(applicationId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>ApiResponse of IntegerResponse</returns>
+        public ApiResponse< IntegerResponse > GetMaxClientThreadsWithHttpInfo (string applicationId)
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetMaxClientThreads");
+
+            var localVarPath = "/api/passportpdfapplicationmanager/GetMaxClientThreads";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMaxClientThreads", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<IntegerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (IntegerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegerResponse)));
+        }
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of IntegerResponse</returns>
+        public async System.Threading.Tasks.Task<IntegerResponse> GetMaxClientThreadsAsync (string applicationId)
+        {
+             ApiResponse<IntegerResponse> localVarResponse = await GetMaxClientThreadsAsyncWithHttpInfo(applicationId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of ApiResponse (IntegerResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<IntegerResponse>> GetMaxClientThreadsAsyncWithHttpInfo (string applicationId)
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->GetMaxClientThreads");
+
+            var localVarPath = "/api/passportpdfapplicationmanager/GetMaxClientThreads";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMaxClientThreads", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<IntegerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (IntegerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegerResponse)));
         }
 
     }

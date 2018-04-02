@@ -25,24 +25,20 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to an extract page action request.
+    /// Represents the response to a save as TIFF multipage action request.
     /// </summary>
     [DataContract]
-    public partial class PDFExtractPageResponse :  IEquatable<PDFExtractPageResponse>, IValidatableObject
+    public partial class ImageSaveAsTIFFMultipageResponse :  IEquatable<ImageSaveAsTIFFMultipageResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractPageResponse" /> class.
+        /// Initializes a new instance of the <see cref="ImageSaveAsTIFFMultipageResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        /// <param name="FileIds">Specifies the identifier(s) of the file(s) created as a result of the action..</param>
-        /// <param name="FileData">Specifies the data of the file(s) created as a result of the action..</param>
-        public PDFExtractPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<string> FileIds = default(List<string>), List<byte[]> FileData = default(List<byte[]>))
+        public ImageSaveAsTIFFMultipageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
-            this.FileIds = FileIds;
-            this.FileData = FileData;
         }
         
         /// <summary>
@@ -58,18 +54,11 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
-        /// Specifies the identifier(s) of the file(s) created as a result of the action.
+        /// Specifies the data of the produced multipage TIFF.
         /// </summary>
-        /// <value>Specifies the identifier(s) of the file(s) created as a result of the action.</value>
-        [DataMember(Name="fileIds", EmitDefaultValue=false)]
-        public List<string> FileIds { get; set; }
-
-        /// <summary>
-        /// Specifies the data of the file(s) created as a result of the action.
-        /// </summary>
-        /// <value>Specifies the data of the file(s) created as a result of the action.</value>
-        [DataMember(Name="fileData", EmitDefaultValue=false)]
-        public List<byte[]> FileData { get; set; }
+        /// <value>Specifies the data of the produced multipage TIFF.</value>
+        [DataMember(Name="imageData", EmitDefaultValue=false)]
+        public byte[] ImageData { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,11 +67,10 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFExtractPageResponse {\n");
+            sb.Append("class ImageSaveAsTIFFMultipageResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  FileIds: ").Append(FileIds).Append("\n");
-            sb.Append("  FileData: ").Append(FileData).Append("\n");
+            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,15 +91,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFExtractPageResponse);
+            return this.Equals(input as ImageSaveAsTIFFMultipageResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFExtractPageResponse instances are equal
+        /// Returns true if ImageSaveAsTIFFMultipageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFExtractPageResponse to be compared</param>
+        /// <param name="input">Instance of ImageSaveAsTIFFMultipageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFExtractPageResponse input)
+        public bool Equals(ImageSaveAsTIFFMultipageResponse input)
         {
             if (input == null)
                 return false;
@@ -128,14 +116,9 @@ namespace PassportPDF.Model
                     this.RemainingTokens.Equals(input.RemainingTokens))
                 ) && 
                 (
-                    this.FileIds == input.FileIds ||
-                    this.FileIds != null &&
-                    this.FileIds.SequenceEqual(input.FileIds)
-                ) && 
-                (
-                    this.FileData == input.FileData ||
-                    this.FileData != null &&
-                    this.FileData.SequenceEqual(input.FileData)
+                    this.ImageData == input.ImageData ||
+                    (this.ImageData != null &&
+                    this.ImageData.Equals(input.ImageData))
                 );
         }
 
@@ -152,10 +135,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.FileIds != null)
-                    hashCode = hashCode * 59 + this.FileIds.GetHashCode();
-                if (this.FileData != null)
-                    hashCode = hashCode * 59 + this.FileData.GetHashCode();
+                if (this.ImageData != null)
+                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
                 return hashCode;
             }
         }

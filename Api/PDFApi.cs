@@ -67,6 +67,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFClearPageResponse</returns>
         ApiResponse<PDFClearPageResponse> ClearPageWithHttpInfo (PDFClearPageParameters clearPageParameters);
         /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFClonePageResponse</returns>
+        PDFClonePageResponse ClonePage (PDFClonePageParameters clonePageParameters = null);
+
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFClonePageResponse</returns>
+        ApiResponse<PDFClonePageResponse> ClonePageWithHttpInfo (PDFClonePageParameters clonePageParameters = null);
+        /// <summary>
         /// Closes a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -233,6 +254,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFGetPageThumbnailResponse</returns>
         ApiResponse<PDFGetPageThumbnailResponse> GetPageThumbnailWithHttpInfo (PDFGetPageThumbnailParameters getPageThumbnailParameters);
         /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFInsertNewPageResponse</returns>
+        PDFInsertNewPageResponse InsertNewPage (PDFInsertNewPageParameters insertNewPageParameters);
+
+        /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFInsertNewPageResponse</returns>
+        ApiResponse<PDFInsertNewPageResponse> InsertNewPageWithHttpInfo (PDFInsertNewPageParameters insertNewPageParameters);
+        /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -304,6 +346,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFLoadDocumentResponse</returns>
         ApiResponse<PDFLoadDocumentResponse> LoadDocumentAsPDFMultipartWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
         /// <summary>
+        /// Merges several previously uploaded documents into a new PDF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFMergeResponse</returns>
+        PDFMergeResponse Merge (PDFMergeParameters mergeParameters);
+
+        /// <summary>
+        /// Merges several previously uploaded documents into a new PDF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFMergeResponse</returns>
+        ApiResponse<PDFMergeResponse> MergeWithHttpInfo (PDFMergeParameters mergeParameters);
+        /// <summary>
         /// Moves a page range from a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -325,7 +388,7 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFMovePageResponse</returns>
         ApiResponse<PDFMovePageResponse> MovePageWithHttpInfo (PDFMovePageParameters movePageParameters);
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages.
         /// </summary>
         /// <remarks>
         /// 
@@ -336,7 +399,7 @@ namespace PassportPDF.Api
         PDFOCRResponse OCR (PDFOCRParameters oCRParameters);
 
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages.
         /// </summary>
         /// <remarks>
         /// 
@@ -598,6 +661,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFSetInfoResponse</returns>
         ApiResponse<PDFSetInfoResponse> SetInfoWithHttpInfo (PDFSetInfoParameters setInfoParameters);
         /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFSetInitialViewResponse</returns>
+        PDFSetInitialViewResponse SetInitialView (PDFSetInitialViewParameters setInitialViewParameters = null);
+
+        /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFSetInitialViewResponse</returns>
+        ApiResponse<PDFSetInitialViewResponse> SetInitialViewWithHttpInfo (PDFSetInitialViewParameters setInitialViewParameters = null);
+        /// <summary>
         /// Sets pagebox to a page range from previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -618,6 +702,27 @@ namespace PassportPDF.Api
         /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>ApiResponse of PDFSetPageBoxResponse</returns>
         ApiResponse<PDFSetPageBoxResponse> SetPageBoxWithHttpInfo (PDFSetPageBoxParameters setPageBoxParameters = null);
+        /// <summary>
+        /// Splits a previously uploaded document into new ones.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSplitResponse</returns>
+        PDFSplitResponse Split (PDFSplitParameters splitParameters);
+
+        /// <summary>
+        /// Splits a previously uploaded document into new ones.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSplitResponse</returns>
+        ApiResponse<PDFSplitResponse> SplitWithHttpInfo (PDFSplitParameters splitParameters);
         /// <summary>
         /// Swaps two pages from a previously uploaded document.
         /// </summary>
@@ -704,6 +809,27 @@ namespace PassportPDF.Api
         /// <param name="clearPageParameters">A PDFClearPageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFClearPageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFClearPageResponse>> ClearPageAsyncWithHttpInfo (PDFClearPageParameters clearPageParameters);
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFClonePageResponse</returns>
+        System.Threading.Tasks.Task<PDFClonePageResponse> ClonePageAsync (PDFClonePageParameters clonePageParameters = null);
+
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFClonePageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFClonePageResponse>> ClonePageAsyncWithHttpInfo (PDFClonePageParameters clonePageParameters = null);
         /// <summary>
         /// Closes a previously uploaded document.
         /// </summary>
@@ -871,6 +997,27 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFGetPageThumbnailResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFGetPageThumbnailResponse>> GetPageThumbnailAsyncWithHttpInfo (PDFGetPageThumbnailParameters getPageThumbnailParameters);
         /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFInsertNewPageResponse</returns>
+        System.Threading.Tasks.Task<PDFInsertNewPageResponse> InsertNewPageAsync (PDFInsertNewPageParameters insertNewPageParameters);
+
+        /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFInsertNewPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFInsertNewPageResponse>> InsertNewPageAsyncWithHttpInfo (PDFInsertNewPageParameters insertNewPageParameters);
+        /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -942,6 +1089,27 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFLoadDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFLoadDocumentResponse>> LoadDocumentAsPDFMultipartAsyncWithHttpInfo (System.IO.Stream fileData, string contentEncoding = null, string fileName = null, string password = null, string conformance = null);
         /// <summary>
+        /// Merges several previously uploaded documents into a new PDF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFMergeResponse</returns>
+        System.Threading.Tasks.Task<PDFMergeResponse> MergeAsync (PDFMergeParameters mergeParameters);
+
+        /// <summary>
+        /// Merges several previously uploaded documents into a new PDF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFMergeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFMergeResponse>> MergeAsyncWithHttpInfo (PDFMergeParameters mergeParameters);
+        /// <summary>
         /// Moves a page range from a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -963,7 +1131,7 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFMovePageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFMovePageResponse>> MovePageAsyncWithHttpInfo (PDFMovePageParameters movePageParameters);
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages.
         /// </summary>
         /// <remarks>
         /// 
@@ -974,7 +1142,7 @@ namespace PassportPDF.Api
         System.Threading.Tasks.Task<PDFOCRResponse> OCRAsync (PDFOCRParameters oCRParameters);
 
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages.
         /// </summary>
         /// <remarks>
         /// 
@@ -1236,6 +1404,27 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (PDFSetInfoResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFSetInfoResponse>> SetInfoAsyncWithHttpInfo (PDFSetInfoParameters setInfoParameters);
         /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFSetInitialViewResponse</returns>
+        System.Threading.Tasks.Task<PDFSetInitialViewResponse> SetInitialViewAsync (PDFSetInitialViewParameters setInitialViewParameters = null);
+
+        /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFSetInitialViewResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSetInitialViewResponse>> SetInitialViewAsyncWithHttpInfo (PDFSetInitialViewParameters setInitialViewParameters = null);
+        /// <summary>
         /// Sets pagebox to a page range from previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -1256,6 +1445,27 @@ namespace PassportPDF.Api
         /// <param name="setPageBoxParameters">A PDFSetPageBoxParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>Task of ApiResponse (PDFSetPageBoxResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFSetPageBoxResponse>> SetPageBoxAsyncWithHttpInfo (PDFSetPageBoxParameters setPageBoxParameters = null);
+        /// <summary>
+        /// Splits a previously uploaded document into new ones.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSplitResponse</returns>
+        System.Threading.Tasks.Task<PDFSplitResponse> SplitAsync (PDFSplitParameters splitParameters);
+
+        /// <summary>
+        /// Splits a previously uploaded document into new ones.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSplitResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFSplitResponse>> SplitAsyncWithHttpInfo (PDFSplitParameters splitParameters);
         /// <summary>
         /// Swaps two pages from a previously uploaded document.
         /// </summary>
@@ -1714,6 +1924,159 @@ namespace PassportPDF.Api
             return new ApiResponse<PDFClearPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PDFClearPageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFClearPageResponse)));
+        }
+
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFClonePageResponse</returns>
+        public PDFClonePageResponse ClonePage (PDFClonePageParameters clonePageParameters = null)
+        {
+             ApiResponse<PDFClonePageResponse> localVarResponse = ClonePageWithHttpInfo(clonePageParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFClonePageResponse</returns>
+        public ApiResponse< PDFClonePageResponse > ClonePageWithHttpInfo (PDFClonePageParameters clonePageParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/ClonePage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (clonePageParameters != null && clonePageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(clonePageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = clonePageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ClonePage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFClonePageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFClonePageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFClonePageResponse)));
+        }
+
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFClonePageResponse</returns>
+        public async System.Threading.Tasks.Task<PDFClonePageResponse> ClonePageAsync (PDFClonePageParameters clonePageParameters = null)
+        {
+             ApiResponse<PDFClonePageResponse> localVarResponse = await ClonePageAsyncWithHttpInfo(clonePageParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Clones specific pages from a previously uploaded document to another previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clonePageParameters">A PDFClonePageParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFClonePageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFClonePageResponse>> ClonePageAsyncWithHttpInfo (PDFClonePageParameters clonePageParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/ClonePage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (clonePageParameters != null && clonePageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(clonePageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = clonePageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ClonePage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFClonePageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFClonePageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFClonePageResponse)));
         }
 
         /// <summary>
@@ -2955,6 +3318,165 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFInsertNewPageResponse</returns>
+        public PDFInsertNewPageResponse InsertNewPage (PDFInsertNewPageParameters insertNewPageParameters)
+        {
+             ApiResponse<PDFInsertNewPageResponse> localVarResponse = InsertNewPageWithHttpInfo(insertNewPageParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFInsertNewPageResponse</returns>
+        public ApiResponse< PDFInsertNewPageResponse > InsertNewPageWithHttpInfo (PDFInsertNewPageParameters insertNewPageParameters)
+        {
+            // verify the required parameter 'insertNewPageParameters' is set
+            if (insertNewPageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'insertNewPageParameters' when calling PDFApi->InsertNewPage");
+
+            var localVarPath = "/api/pdf/InsertNewPage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (insertNewPageParameters != null && insertNewPageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(insertNewPageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = insertNewPageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertNewPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFInsertNewPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFInsertNewPageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFInsertNewPageResponse)));
+        }
+
+        /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFInsertNewPageResponse</returns>
+        public async System.Threading.Tasks.Task<PDFInsertNewPageResponse> InsertNewPageAsync (PDFInsertNewPageParameters insertNewPageParameters)
+        {
+             ApiResponse<PDFInsertNewPageResponse> localVarResponse = await InsertNewPageAsyncWithHttpInfo(insertNewPageParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Inserts one or more new blank pages to a specific position in a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFInsertNewPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFInsertNewPageResponse>> InsertNewPageAsyncWithHttpInfo (PDFInsertNewPageParameters insertNewPageParameters)
+        {
+            // verify the required parameter 'insertNewPageParameters' is set
+            if (insertNewPageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'insertNewPageParameters' when calling PDFApi->InsertNewPage");
+
+            var localVarPath = "/api/pdf/InsertNewPage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (insertNewPageParameters != null && insertNewPageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(insertNewPageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = insertNewPageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertNewPage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFInsertNewPageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFInsertNewPageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFInsertNewPageResponse)));
+        }
+
+        /// <summary>
         /// Linearizes a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3436,6 +3958,165 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Merges several previously uploaded documents into a new PDF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFMergeResponse</returns>
+        public PDFMergeResponse Merge (PDFMergeParameters mergeParameters)
+        {
+             ApiResponse<PDFMergeResponse> localVarResponse = MergeWithHttpInfo(mergeParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Merges several previously uploaded documents into a new PDF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFMergeResponse</returns>
+        public ApiResponse< PDFMergeResponse > MergeWithHttpInfo (PDFMergeParameters mergeParameters)
+        {
+            // verify the required parameter 'mergeParameters' is set
+            if (mergeParameters == null)
+                throw new ApiException(400, "Missing required parameter 'mergeParameters' when calling PDFApi->Merge");
+
+            var localVarPath = "/api/pdf/Merge";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mergeParameters != null && mergeParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mergeParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mergeParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Merge", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFMergeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFMergeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFMergeResponse)));
+        }
+
+        /// <summary>
+        /// Merges several previously uploaded documents into a new PDF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFMergeResponse</returns>
+        public async System.Threading.Tasks.Task<PDFMergeResponse> MergeAsync (PDFMergeParameters mergeParameters)
+        {
+             ApiResponse<PDFMergeResponse> localVarResponse = await MergeAsyncWithHttpInfo(mergeParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Merges several previously uploaded documents into a new PDF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mergeParameters">A PDFMergeParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFMergeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFMergeResponse>> MergeAsyncWithHttpInfo (PDFMergeParameters mergeParameters)
+        {
+            // verify the required parameter 'mergeParameters' is set
+            if (mergeParameters == null)
+                throw new ApiException(400, "Missing required parameter 'mergeParameters' when calling PDFApi->Merge");
+
+            var localVarPath = "/api/pdf/Merge";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mergeParameters != null && mergeParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mergeParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mergeParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Merge", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFMergeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFMergeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFMergeResponse)));
+        }
+
+        /// <summary>
         /// Moves a page range from a previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3595,7 +4276,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page. 
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oCRParameters">A PDFOCRParameters object specifying the parameters of the action.</param>
@@ -3607,7 +4288,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page. 
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oCRParameters">A PDFOCRParameters object specifying the parameters of the action.</param>
@@ -3674,7 +4355,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page. 
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oCRParameters">A PDFOCRParameters object specifying the parameters of the action.</param>
@@ -3687,7 +4368,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page. 
+        /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oCRParameters">A PDFOCRParameters object specifying the parameters of the action.</param>
@@ -5656,6 +6337,159 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFSetInitialViewResponse</returns>
+        public PDFSetInitialViewResponse SetInitialView (PDFSetInitialViewParameters setInitialViewParameters = null)
+        {
+             ApiResponse<PDFSetInitialViewResponse> localVarResponse = SetInitialViewWithHttpInfo(setInitialViewParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFSetInitialViewResponse</returns>
+        public ApiResponse< PDFSetInitialViewResponse > SetInitialViewWithHttpInfo (PDFSetInitialViewParameters setInitialViewParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/SetInitialView";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setInitialViewParameters != null && setInitialViewParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(setInitialViewParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setInitialViewParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetInitialView", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSetInitialViewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSetInitialViewResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetInitialViewResponse)));
+        }
+
+        /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFSetInitialViewResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSetInitialViewResponse> SetInitialViewAsync (PDFSetInitialViewParameters setInitialViewParameters = null)
+        {
+             ApiResponse<PDFSetInitialViewResponse> localVarResponse = await SetInitialViewAsyncWithHttpInfo(setInitialViewParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Sets various document level initial view options to a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="setInitialViewParameters">A PDFsetInitialViewParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFSetInitialViewResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSetInitialViewResponse>> SetInitialViewAsyncWithHttpInfo (PDFSetInitialViewParameters setInitialViewParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/SetInitialView";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (setInitialViewParameters != null && setInitialViewParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(setInitialViewParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = setInitialViewParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetInitialView", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSetInitialViewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSetInitialViewResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetInitialViewResponse)));
+        }
+
+        /// <summary>
         /// Sets pagebox to a page range from previously uploaded document. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5806,6 +6640,165 @@ namespace PassportPDF.Api
             return new ApiResponse<PDFSetPageBoxResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PDFSetPageBoxResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSetPageBoxResponse)));
+        }
+
+        /// <summary>
+        /// Splits a previously uploaded document into new ones. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFSplitResponse</returns>
+        public PDFSplitResponse Split (PDFSplitParameters splitParameters)
+        {
+             ApiResponse<PDFSplitResponse> localVarResponse = SplitWithHttpInfo(splitParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Splits a previously uploaded document into new ones. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFSplitResponse</returns>
+        public ApiResponse< PDFSplitResponse > SplitWithHttpInfo (PDFSplitParameters splitParameters)
+        {
+            // verify the required parameter 'splitParameters' is set
+            if (splitParameters == null)
+                throw new ApiException(400, "Missing required parameter 'splitParameters' when calling PDFApi->Split");
+
+            var localVarPath = "/api/pdf/Split";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (splitParameters != null && splitParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(splitParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = splitParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Split", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSplitResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSplitResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSplitResponse)));
+        }
+
+        /// <summary>
+        /// Splits a previously uploaded document into new ones. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFSplitResponse</returns>
+        public async System.Threading.Tasks.Task<PDFSplitResponse> SplitAsync (PDFSplitParameters splitParameters)
+        {
+             ApiResponse<PDFSplitResponse> localVarResponse = await SplitAsyncWithHttpInfo(splitParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Splits a previously uploaded document into new ones. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="splitParameters">A PDFSplitParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFSplitResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFSplitResponse>> SplitAsyncWithHttpInfo (PDFSplitParameters splitParameters)
+        {
+            // verify the required parameter 'splitParameters' is set
+            if (splitParameters == null)
+                throw new ApiException(400, "Missing required parameter 'splitParameters' when calling PDFApi->Split");
+
+            var localVarPath = "/api/pdf/Split";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (splitParameters != null && splitParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(splitParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = splitParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Split", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFSplitResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFSplitResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFSplitResponse)));
         }
 
         /// <summary>

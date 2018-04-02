@@ -25,52 +25,78 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for an extract page action.
+    /// Represents the parameters for a split action.
     /// </summary>
     [DataContract]
-    public partial class PDFExtractPageParameters :  IEquatable<PDFExtractPageParameters>, IValidatableObject
+    public partial class PDFSplitParameters :  IEquatable<PDFSplitParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractPageParameters" /> class.
+        /// Gets or Sets SplitMethod
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SplitMethodEnum
+        {
+            
+            /// <summary>
+            /// Enum SplitByNumberOfPages for "SplitByNumberOfPages"
+            /// </summary>
+            [EnumMember(Value = "SplitByNumberOfPages")]
+            SplitByNumberOfPages = 1,
+            
+            /// <summary>
+            /// Enum SplitByFileSize for "SplitByFileSize"
+            /// </summary>
+            [EnumMember(Value = "SplitByFileSize")]
+            SplitByFileSize = 2,
+            
+            /// <summary>
+            /// Enum SplitByTopLevelBookmarks for "SplitByTopLevelBookmarks"
+            /// </summary>
+            [EnumMember(Value = "SplitByTopLevelBookmarks")]
+            SplitByTopLevelBookmarks = 3
+        }
+
+        /// <summary>
+        /// Gets or Sets SplitMethod
+        /// </summary>
+        [DataMember(Name="splitMethod", EmitDefaultValue=false)]
+        public SplitMethodEnum SplitMethod { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PDFSplitParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFExtractPageParameters() { }
+        protected PDFSplitParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractPageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFSplitParameters" /> class.
         /// </summary>
-        /// <param name="PageRange">PageRange (required).</param>
+        /// <param name="SplitMethod">SplitMethod (required) (default to SplitMethodEnum.SplitByNumberOfPages).</param>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="ExtractAsSeparate">ExtractAsSeparate.</param>
+        /// <param name="SplitValue">SplitValue.</param>
         /// <param name="ImmediateDownload">ImmediateDownload.</param>
-        public PDFExtractPageParameters(string PageRange = default(string), string FileId = default(string), bool? ExtractAsSeparate = default(bool?), bool? ImmediateDownload = default(bool?))
+        public PDFSplitParameters(SplitMethodEnum SplitMethod = SplitMethodEnum.SplitByNumberOfPages, string FileId = default(string), int? SplitValue = default(int?), bool? ImmediateDownload = default(bool?))
         {
-            // to ensure "PageRange" is required (not null)
-            if (PageRange == null)
+            // to ensure "SplitMethod" is required (not null)
+            if (SplitMethod == null)
             {
-                throw new InvalidDataException("PageRange is a required property for PDFExtractPageParameters and cannot be null");
+                throw new InvalidDataException("SplitMethod is a required property for PDFSplitParameters and cannot be null");
             }
             else
             {
-                this.PageRange = PageRange;
+                this.SplitMethod = SplitMethod;
             }
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for PDFExtractPageParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for PDFSplitParameters and cannot be null");
             }
             else
             {
                 this.FileId = FileId;
             }
-            this.ExtractAsSeparate = ExtractAsSeparate;
+            this.SplitValue = SplitValue;
             this.ImmediateDownload = ImmediateDownload;
         }
         
-        /// <summary>
-        /// Gets or Sets PageRange
-        /// </summary>
-        [DataMember(Name="pageRange", EmitDefaultValue=false)]
-        public string PageRange { get; set; }
 
         /// <summary>
         /// Gets or Sets FileId
@@ -79,10 +105,10 @@ namespace PassportPDF.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtractAsSeparate
+        /// Gets or Sets SplitValue
         /// </summary>
-        [DataMember(Name="extractAsSeparate", EmitDefaultValue=false)]
-        public bool? ExtractAsSeparate { get; set; }
+        [DataMember(Name="splitValue", EmitDefaultValue=false)]
+        public int? SplitValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ImmediateDownload
@@ -97,10 +123,10 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFExtractPageParameters {\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
+            sb.Append("class PDFSplitParameters {\n");
+            sb.Append("  SplitMethod: ").Append(SplitMethod).Append("\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  ExtractAsSeparate: ").Append(ExtractAsSeparate).Append("\n");
+            sb.Append("  SplitValue: ").Append(SplitValue).Append("\n");
             sb.Append("  ImmediateDownload: ").Append(ImmediateDownload).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,24 +148,24 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFExtractPageParameters);
+            return this.Equals(input as PDFSplitParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFExtractPageParameters instances are equal
+        /// Returns true if PDFSplitParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFExtractPageParameters to be compared</param>
+        /// <param name="input">Instance of PDFSplitParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFExtractPageParameters input)
+        public bool Equals(PDFSplitParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    this.SplitMethod == input.SplitMethod ||
+                    (this.SplitMethod != null &&
+                    this.SplitMethod.Equals(input.SplitMethod))
                 ) && 
                 (
                     this.FileId == input.FileId ||
@@ -147,9 +173,9 @@ namespace PassportPDF.Model
                     this.FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.ExtractAsSeparate == input.ExtractAsSeparate ||
-                    (this.ExtractAsSeparate != null &&
-                    this.ExtractAsSeparate.Equals(input.ExtractAsSeparate))
+                    this.SplitValue == input.SplitValue ||
+                    (this.SplitValue != null &&
+                    this.SplitValue.Equals(input.SplitValue))
                 ) && 
                 (
                     this.ImmediateDownload == input.ImmediateDownload ||
@@ -167,12 +193,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
+                if (this.SplitMethod != null)
+                    hashCode = hashCode * 59 + this.SplitMethod.GetHashCode();
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.ExtractAsSeparate != null)
-                    hashCode = hashCode * 59 + this.ExtractAsSeparate.GetHashCode();
+                if (this.SplitValue != null)
+                    hashCode = hashCode * 59 + this.SplitValue.GetHashCode();
                 if (this.ImmediateDownload != null)
                     hashCode = hashCode * 59 + this.ImmediateDownload.GetHashCode();
                 return hashCode;

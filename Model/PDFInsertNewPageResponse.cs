@@ -25,24 +25,20 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to an extract page action request.
+    /// Represents the response to an insert new page action request.
     /// </summary>
     [DataContract]
-    public partial class PDFExtractPageResponse :  IEquatable<PDFExtractPageResponse>, IValidatableObject
+    public partial class PDFInsertNewPageResponse :  IEquatable<PDFInsertNewPageResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractPageResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFInsertNewPageResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
-        /// <param name="FileIds">Specifies the identifier(s) of the file(s) created as a result of the action..</param>
-        /// <param name="FileData">Specifies the data of the file(s) created as a result of the action..</param>
-        public PDFExtractPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<string> FileIds = default(List<string>), List<byte[]> FileData = default(List<byte[]>))
+        public PDFInsertNewPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
-            this.FileIds = FileIds;
-            this.FileData = FileData;
         }
         
         /// <summary>
@@ -58,31 +54,15 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
-        /// Specifies the identifier(s) of the file(s) created as a result of the action.
-        /// </summary>
-        /// <value>Specifies the identifier(s) of the file(s) created as a result of the action.</value>
-        [DataMember(Name="fileIds", EmitDefaultValue=false)]
-        public List<string> FileIds { get; set; }
-
-        /// <summary>
-        /// Specifies the data of the file(s) created as a result of the action.
-        /// </summary>
-        /// <value>Specifies the data of the file(s) created as a result of the action.</value>
-        [DataMember(Name="fileData", EmitDefaultValue=false)]
-        public List<byte[]> FileData { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFExtractPageResponse {\n");
+            sb.Append("class PDFInsertNewPageResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  FileIds: ").Append(FileIds).Append("\n");
-            sb.Append("  FileData: ").Append(FileData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,15 +83,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFExtractPageResponse);
+            return this.Equals(input as PDFInsertNewPageResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFExtractPageResponse instances are equal
+        /// Returns true if PDFInsertNewPageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFExtractPageResponse to be compared</param>
+        /// <param name="input">Instance of PDFInsertNewPageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFExtractPageResponse input)
+        public bool Equals(PDFInsertNewPageResponse input)
         {
             if (input == null)
                 return false;
@@ -126,16 +106,6 @@ namespace PassportPDF.Model
                     this.RemainingTokens == input.RemainingTokens ||
                     (this.RemainingTokens != null &&
                     this.RemainingTokens.Equals(input.RemainingTokens))
-                ) && 
-                (
-                    this.FileIds == input.FileIds ||
-                    this.FileIds != null &&
-                    this.FileIds.SequenceEqual(input.FileIds)
-                ) && 
-                (
-                    this.FileData == input.FileData ||
-                    this.FileData != null &&
-                    this.FileData.SequenceEqual(input.FileData)
                 );
         }
 
@@ -152,10 +122,6 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.FileIds != null)
-                    hashCode = hashCode * 59 + this.FileIds.GetHashCode();
-                if (this.FileData != null)
-                    hashCode = hashCode * 59 + this.FileData.GetHashCode();
                 return hashCode;
             }
         }

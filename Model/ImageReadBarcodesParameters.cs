@@ -66,14 +66,18 @@ namespace PassportPDF.Model
         /// Initializes a new instance of the <see cref="ImageReadBarcodesParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">Specifies the number of the page, or the range of pages to read the barcodes from. (default to &quot;*&quot;).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to read the barcodes from. (default to &quot;1&quot;).</param>
+        /// <param name="RoiLeft">Specifies the left coordinate, in pixel, of the region to process..</param>
+        /// <param name="RoiTop">Specifies the top coordinate, in pixel, of the region to process..</param>
+        /// <param name="RoiWidth">Specifies the width, in pixel, of the region to process. 0 causes the entire image to be processed..</param>
+        /// <param name="RoiHeight">Specifies the height, in pixel, of the region to process. 0 causes the entire image to be processed..</param>
         /// <param name="ScanMode">Specifies the preferred scan mode. (default to ScanModeEnum.FavorAccuracy).</param>
         /// <param name="ScanBarcode1D">Specifies whether the barcodes of type 1D shall be read. (default to true).</param>
         /// <param name="ScanBarcodeQR">Specifies whether the barcodes of type QR shall be read. (default to true).</param>
         /// <param name="ScanBarcodeMicroQR">Specifies whether the barcodes of type Micro QR shall be read. (default to true).</param>
         /// <param name="ScanBarcodePDF417">Specifies whether the barcodes of type PDF 147 shall be read. (default to true).</param>
         /// <param name="ScanBarcodeDataMatrix">Specifies whether the barcodes of type Data Matrix shall be read. (default to true).</param>
-        public ImageReadBarcodesParameters(string FileId = default(string), string PageRange = "*", ScanModeEnum? ScanMode = ScanModeEnum.FavorAccuracy, bool? ScanBarcode1D = true, bool? ScanBarcodeQR = true, bool? ScanBarcodeMicroQR = true, bool? ScanBarcodePDF417 = true, bool? ScanBarcodeDataMatrix = true)
+        public ImageReadBarcodesParameters(string FileId = default(string), string PageRange = "1", int? RoiLeft = default(int?), int? RoiTop = default(int?), int? RoiWidth = default(int?), int? RoiHeight = default(int?), ScanModeEnum? ScanMode = ScanModeEnum.FavorAccuracy, bool? ScanBarcode1D = true, bool? ScanBarcodeQR = true, bool? ScanBarcodeMicroQR = true, bool? ScanBarcodePDF417 = true, bool? ScanBarcodeDataMatrix = true)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -87,12 +91,16 @@ namespace PassportPDF.Model
             // use default value if no "PageRange" provided
             if (PageRange == null)
             {
-                this.PageRange = "*";
+                this.PageRange = "1";
             }
             else
             {
                 this.PageRange = PageRange;
             }
+            this.RoiLeft = RoiLeft;
+            this.RoiTop = RoiTop;
+            this.RoiWidth = RoiWidth;
+            this.RoiHeight = RoiHeight;
             // use default value if no "ScanMode" provided
             if (ScanMode == null)
             {
@@ -162,6 +170,34 @@ namespace PassportPDF.Model
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
+        /// <summary>
+        /// Specifies the left coordinate, in pixel, of the region to process.
+        /// </summary>
+        /// <value>Specifies the left coordinate, in pixel, of the region to process.</value>
+        [DataMember(Name="roiLeft", EmitDefaultValue=false)]
+        public int? RoiLeft { get; set; }
+
+        /// <summary>
+        /// Specifies the top coordinate, in pixel, of the region to process.
+        /// </summary>
+        /// <value>Specifies the top coordinate, in pixel, of the region to process.</value>
+        [DataMember(Name="roiTop", EmitDefaultValue=false)]
+        public int? RoiTop { get; set; }
+
+        /// <summary>
+        /// Specifies the width, in pixel, of the region to process. 0 causes the entire image to be processed.
+        /// </summary>
+        /// <value>Specifies the width, in pixel, of the region to process. 0 causes the entire image to be processed.</value>
+        [DataMember(Name="roiWidth", EmitDefaultValue=false)]
+        public int? RoiWidth { get; set; }
+
+        /// <summary>
+        /// Specifies the height, in pixel, of the region to process. 0 causes the entire image to be processed.
+        /// </summary>
+        /// <value>Specifies the height, in pixel, of the region to process. 0 causes the entire image to be processed.</value>
+        [DataMember(Name="roiHeight", EmitDefaultValue=false)]
+        public int? RoiHeight { get; set; }
+
 
         /// <summary>
         /// Specifies whether the barcodes of type 1D shall be read.
@@ -208,6 +244,10 @@ namespace PassportPDF.Model
             sb.Append("class ImageReadBarcodesParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
+            sb.Append("  RoiLeft: ").Append(RoiLeft).Append("\n");
+            sb.Append("  RoiTop: ").Append(RoiTop).Append("\n");
+            sb.Append("  RoiWidth: ").Append(RoiWidth).Append("\n");
+            sb.Append("  RoiHeight: ").Append(RoiHeight).Append("\n");
             sb.Append("  ScanMode: ").Append(ScanMode).Append("\n");
             sb.Append("  ScanBarcode1D: ").Append(ScanBarcode1D).Append("\n");
             sb.Append("  ScanBarcodeQR: ").Append(ScanBarcodeQR).Append("\n");
@@ -259,6 +299,26 @@ namespace PassportPDF.Model
                     this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
+                    this.RoiLeft == input.RoiLeft ||
+                    (this.RoiLeft != null &&
+                    this.RoiLeft.Equals(input.RoiLeft))
+                ) && 
+                (
+                    this.RoiTop == input.RoiTop ||
+                    (this.RoiTop != null &&
+                    this.RoiTop.Equals(input.RoiTop))
+                ) && 
+                (
+                    this.RoiWidth == input.RoiWidth ||
+                    (this.RoiWidth != null &&
+                    this.RoiWidth.Equals(input.RoiWidth))
+                ) && 
+                (
+                    this.RoiHeight == input.RoiHeight ||
+                    (this.RoiHeight != null &&
+                    this.RoiHeight.Equals(input.RoiHeight))
+                ) && 
+                (
                     this.ScanMode == input.ScanMode ||
                     (this.ScanMode != null &&
                     this.ScanMode.Equals(input.ScanMode))
@@ -303,6 +363,14 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
+                if (this.RoiLeft != null)
+                    hashCode = hashCode * 59 + this.RoiLeft.GetHashCode();
+                if (this.RoiTop != null)
+                    hashCode = hashCode * 59 + this.RoiTop.GetHashCode();
+                if (this.RoiWidth != null)
+                    hashCode = hashCode * 59 + this.RoiWidth.GetHashCode();
+                if (this.RoiHeight != null)
+                    hashCode = hashCode * 59 + this.RoiHeight.GetHashCode();
                 if (this.ScanMode != null)
                     hashCode = hashCode * 59 + this.ScanMode.GetHashCode();
                 if (this.ScanBarcode1D != null)

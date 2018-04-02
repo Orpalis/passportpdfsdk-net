@@ -31,102 +31,97 @@ namespace PassportPDF.Model
     public partial class PdfStandardFontAlignedTextParameters :  IEquatable<PdfStandardFontAlignedTextParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Font
+        /// Gets or Sets FontName
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum FontEnum
+        public enum FontNameEnum
         {
             
             /// <summary>
-            /// Enum PdfStandardFontCourier for "PdfStandardFontCourier"
+            /// Enum Courier for "Courier"
             /// </summary>
-            [EnumMember(Value = "PdfStandardFontCourier")]
-            PdfStandardFontCourier = 1,
+            [EnumMember(Value = "Courier")]
+            Courier = 1,
             
             /// <summary>
-            /// Enum PdfStandardFontCourierOblique for "PdfStandardFontCourierOblique"
+            /// Enum Helvetica for "Helvetica"
             /// </summary>
-            [EnumMember(Value = "PdfStandardFontCourierOblique")]
-            PdfStandardFontCourierOblique = 2,
+            [EnumMember(Value = "Helvetica")]
+            Helvetica = 2,
             
             /// <summary>
-            /// Enum PdfStandardFontCourierBold for "PdfStandardFontCourierBold"
+            /// Enum Times for "Times"
             /// </summary>
-            [EnumMember(Value = "PdfStandardFontCourierBold")]
-            PdfStandardFontCourierBold = 3,
+            [EnumMember(Value = "Times")]
+            Times = 3,
             
             /// <summary>
-            /// Enum PdfStandardFontCourierBoldOblique for "PdfStandardFontCourierBoldOblique"
+            /// Enum Symbol for "Symbol"
             /// </summary>
-            [EnumMember(Value = "PdfStandardFontCourierBoldOblique")]
-            PdfStandardFontCourierBoldOblique = 4,
+            [EnumMember(Value = "Symbol")]
+            Symbol = 4,
             
             /// <summary>
-            /// Enum PdfStandardFontHelvetica for "PdfStandardFontHelvetica"
+            /// Enum ZapfDingbats for "ZapfDingbats"
             /// </summary>
-            [EnumMember(Value = "PdfStandardFontHelvetica")]
-            PdfStandardFontHelvetica = 5,
-            
-            /// <summary>
-            /// Enum PdfStandardFontHelveticaOblique for "PdfStandardFontHelveticaOblique"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontHelveticaOblique")]
-            PdfStandardFontHelveticaOblique = 6,
-            
-            /// <summary>
-            /// Enum PdfStandardFontHelveticaBold for "PdfStandardFontHelveticaBold"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontHelveticaBold")]
-            PdfStandardFontHelveticaBold = 7,
-            
-            /// <summary>
-            /// Enum PdfStandardFontHelveticaBoldOblique for "PdfStandardFontHelveticaBoldOblique"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontHelveticaBoldOblique")]
-            PdfStandardFontHelveticaBoldOblique = 8,
-            
-            /// <summary>
-            /// Enum PdfStandardFontTimesRoman for "PdfStandardFontTimesRoman"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontTimesRoman")]
-            PdfStandardFontTimesRoman = 9,
-            
-            /// <summary>
-            /// Enum PdfStandardFontTimesItalic for "PdfStandardFontTimesItalic"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontTimesItalic")]
-            PdfStandardFontTimesItalic = 10,
-            
-            /// <summary>
-            /// Enum PdfStandardFontTimesBold for "PdfStandardFontTimesBold"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontTimesBold")]
-            PdfStandardFontTimesBold = 11,
-            
-            /// <summary>
-            /// Enum PdfStandardFontTimesBoldItalic for "PdfStandardFontTimesBoldItalic"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontTimesBoldItalic")]
-            PdfStandardFontTimesBoldItalic = 12,
-            
-            /// <summary>
-            /// Enum PdfStandardFontSymbol for "PdfStandardFontSymbol"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontSymbol")]
-            PdfStandardFontSymbol = 13,
-            
-            /// <summary>
-            /// Enum PdfStandardFontZapfDingbats for "PdfStandardFontZapfDingbats"
-            /// </summary>
-            [EnumMember(Value = "PdfStandardFontZapfDingbats")]
-            PdfStandardFontZapfDingbats = 14
+            [EnumMember(Value = "ZapfDingbats")]
+            ZapfDingbats = 5
         }
 
         /// <summary>
-        /// Gets or Sets Font
+        /// Gets or Sets FontName
         /// </summary>
-        [DataMember(Name="font", EmitDefaultValue=false)]
-        public FontEnum? Font { get; set; }
+        [DataMember(Name="fontName", EmitDefaultValue=false)]
+        public FontNameEnum? FontName { get; set; }
+        /// <summary>
+        /// Gets or Sets FontStyle
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FontStyleEnum
+        {
+            
+            /// <summary>
+            /// Enum Regular for "Regular"
+            /// </summary>
+            [EnumMember(Value = "Regular")]
+            Regular = 1,
+            
+            /// <summary>
+            /// Enum Bold for "Bold"
+            /// </summary>
+            [EnumMember(Value = "Bold")]
+            Bold = 2,
+            
+            /// <summary>
+            /// Enum Italic for "Italic"
+            /// </summary>
+            [EnumMember(Value = "Italic")]
+            Italic = 3,
+            
+            /// <summary>
+            /// Enum BoldItalic for "BoldItalic"
+            /// </summary>
+            [EnumMember(Value = "BoldItalic")]
+            BoldItalic = 4,
+            
+            /// <summary>
+            /// Enum Oblique for "Oblique"
+            /// </summary>
+            [EnumMember(Value = "Oblique")]
+            Oblique = 5,
+            
+            /// <summary>
+            /// Enum BoldOblique for "BoldOblique"
+            /// </summary>
+            [EnumMember(Value = "BoldOblique")]
+            BoldOblique = 6
+        }
+
+        /// <summary>
+        /// Gets or Sets FontStyle
+        /// </summary>
+        [DataMember(Name="fontStyle", EmitDefaultValue=false)]
+        public FontStyleEnum? FontStyle { get; set; }
         /// <summary>
         /// Gets or Sets TextVerticalAlignment
         /// </summary>
@@ -194,15 +189,17 @@ namespace PassportPDF.Model
         /// </summary>
         /// <param name="Text">Text.</param>
         /// <param name="TextColor">TextColor.</param>
-        /// <param name="Font">Font.</param>
+        /// <param name="FontName">FontName.</param>
+        /// <param name="FontStyle">FontStyle.</param>
         /// <param name="FontSize">FontSize.</param>
         /// <param name="TextVerticalAlignment">TextVerticalAlignment.</param>
         /// <param name="TextHorizontalAlignment">TextHorizontalAlignment.</param>
-        public PdfStandardFontAlignedTextParameters(string Text = default(string), string TextColor = default(string), FontEnum? Font = default(FontEnum?), int? FontSize = default(int?), TextVerticalAlignmentEnum? TextVerticalAlignment = default(TextVerticalAlignmentEnum?), TextHorizontalAlignmentEnum? TextHorizontalAlignment = default(TextHorizontalAlignmentEnum?))
+        public PdfStandardFontAlignedTextParameters(string Text = default(string), string TextColor = default(string), FontNameEnum? FontName = default(FontNameEnum?), FontStyleEnum? FontStyle = default(FontStyleEnum?), int? FontSize = default(int?), TextVerticalAlignmentEnum? TextVerticalAlignment = default(TextVerticalAlignmentEnum?), TextHorizontalAlignmentEnum? TextHorizontalAlignment = default(TextHorizontalAlignmentEnum?))
         {
             this.Text = Text;
             this.TextColor = TextColor;
-            this.Font = Font;
+            this.FontName = FontName;
+            this.FontStyle = FontStyle;
             this.FontSize = FontSize;
             this.TextVerticalAlignment = TextVerticalAlignment;
             this.TextHorizontalAlignment = TextHorizontalAlignment;
@@ -219,6 +216,7 @@ namespace PassportPDF.Model
         /// </summary>
         [DataMember(Name="textColor", EmitDefaultValue=false)]
         public string TextColor { get; set; }
+
 
 
         /// <summary>
@@ -239,7 +237,8 @@ namespace PassportPDF.Model
             sb.Append("class PdfStandardFontAlignedTextParameters {\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  TextColor: ").Append(TextColor).Append("\n");
-            sb.Append("  Font: ").Append(Font).Append("\n");
+            sb.Append("  FontName: ").Append(FontName).Append("\n");
+            sb.Append("  FontStyle: ").Append(FontStyle).Append("\n");
             sb.Append("  FontSize: ").Append(FontSize).Append("\n");
             sb.Append("  TextVerticalAlignment: ").Append(TextVerticalAlignment).Append("\n");
             sb.Append("  TextHorizontalAlignment: ").Append(TextHorizontalAlignment).Append("\n");
@@ -288,9 +287,14 @@ namespace PassportPDF.Model
                     this.TextColor.Equals(input.TextColor))
                 ) && 
                 (
-                    this.Font == input.Font ||
-                    (this.Font != null &&
-                    this.Font.Equals(input.Font))
+                    this.FontName == input.FontName ||
+                    (this.FontName != null &&
+                    this.FontName.Equals(input.FontName))
+                ) && 
+                (
+                    this.FontStyle == input.FontStyle ||
+                    (this.FontStyle != null &&
+                    this.FontStyle.Equals(input.FontStyle))
                 ) && 
                 (
                     this.FontSize == input.FontSize ||
@@ -322,8 +326,10 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
                 if (this.TextColor != null)
                     hashCode = hashCode * 59 + this.TextColor.GetHashCode();
-                if (this.Font != null)
-                    hashCode = hashCode * 59 + this.Font.GetHashCode();
+                if (this.FontName != null)
+                    hashCode = hashCode * 59 + this.FontName.GetHashCode();
+                if (this.FontStyle != null)
+                    hashCode = hashCode * 59 + this.FontStyle.GetHashCode();
                 if (this.FontSize != null)
                     hashCode = hashCode * 59 + this.FontSize.GetHashCode();
                 if (this.TextVerticalAlignment != null)

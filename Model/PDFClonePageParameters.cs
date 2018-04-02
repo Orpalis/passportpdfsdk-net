@@ -25,60 +25,68 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for a save as JPEG action.
+    /// Represents the parameters for a ClonePage action.
     /// </summary>
     [DataContract]
-    public partial class ImageSaveAsJPEGParameters :  IEquatable<ImageSaveAsJPEGParameters>, IValidatableObject
+    public partial class PDFClonePageParameters :  IEquatable<PDFClonePageParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageSaveAsJPEGParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFClonePageParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ImageSaveAsJPEGParameters() { }
+        protected PDFClonePageParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageSaveAsJPEGParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFClonePageParameters" /> class.
         /// </summary>
+        /// <param name="SourceFileId">SourceFileId (required).</param>
+        /// <param name="PageRange">PageRange (required).</param>
+        /// <param name="DestinationPage">DestinationPage (required).</param>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="Quality">Quality (default to 75).</param>
-        /// <param name="Progressive">Progressive.</param>
-        public ImageSaveAsJPEGParameters(string FileId = default(string), string PageRange = "*", int? Quality = 75, bool? Progressive = default(bool?))
+        public PDFClonePageParameters(string SourceFileId = default(string), string PageRange = default(string), int? DestinationPage = default(int?), string FileId = default(string))
         {
-            // to ensure "FileId" is required (not null)
-            if (FileId == null)
+            // to ensure "SourceFileId" is required (not null)
+            if (SourceFileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for ImageSaveAsJPEGParameters and cannot be null");
+                throw new InvalidDataException("SourceFileId is a required property for PDFClonePageParameters and cannot be null");
             }
             else
             {
-                this.FileId = FileId;
+                this.SourceFileId = SourceFileId;
             }
-            // use default value if no "PageRange" provided
+            // to ensure "PageRange" is required (not null)
             if (PageRange == null)
             {
-                this.PageRange = "*";
+                throw new InvalidDataException("PageRange is a required property for PDFClonePageParameters and cannot be null");
             }
             else
             {
                 this.PageRange = PageRange;
             }
-            // use default value if no "Quality" provided
-            if (Quality == null)
+            // to ensure "DestinationPage" is required (not null)
+            if (DestinationPage == null)
             {
-                this.Quality = 75;
+                throw new InvalidDataException("DestinationPage is a required property for PDFClonePageParameters and cannot be null");
             }
             else
             {
-                this.Quality = Quality;
+                this.DestinationPage = DestinationPage;
             }
-            this.Progressive = Progressive;
+            // to ensure "FileId" is required (not null)
+            if (FileId == null)
+            {
+                throw new InvalidDataException("FileId is a required property for PDFClonePageParameters and cannot be null");
+            }
+            else
+            {
+                this.FileId = FileId;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// Gets or Sets SourceFileId
         /// </summary>
-        [DataMember(Name="fileId", EmitDefaultValue=false)]
-        public string FileId { get; set; }
+        [DataMember(Name="sourceFileId", EmitDefaultValue=false)]
+        public string SourceFileId { get; set; }
 
         /// <summary>
         /// Gets or Sets PageRange
@@ -87,16 +95,16 @@ namespace PassportPDF.Model
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quality
+        /// Gets or Sets DestinationPage
         /// </summary>
-        [DataMember(Name="quality", EmitDefaultValue=false)]
-        public int? Quality { get; set; }
+        [DataMember(Name="destinationPage", EmitDefaultValue=false)]
+        public int? DestinationPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets Progressive
+        /// Gets or Sets FileId
         /// </summary>
-        [DataMember(Name="progressive", EmitDefaultValue=false)]
-        public bool? Progressive { get; set; }
+        [DataMember(Name="fileId", EmitDefaultValue=false)]
+        public string FileId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,11 +113,11 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImageSaveAsJPEGParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
+            sb.Append("class PDFClonePageParameters {\n");
+            sb.Append("  SourceFileId: ").Append(SourceFileId).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  Quality: ").Append(Quality).Append("\n");
-            sb.Append("  Progressive: ").Append(Progressive).Append("\n");
+            sb.Append("  DestinationPage: ").Append(DestinationPage).Append("\n");
+            sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,24 +138,24 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageSaveAsJPEGParameters);
+            return this.Equals(input as PDFClonePageParameters);
         }
 
         /// <summary>
-        /// Returns true if ImageSaveAsJPEGParameters instances are equal
+        /// Returns true if PDFClonePageParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImageSaveAsJPEGParameters to be compared</param>
+        /// <param name="input">Instance of PDFClonePageParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImageSaveAsJPEGParameters input)
+        public bool Equals(PDFClonePageParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    this.SourceFileId == input.SourceFileId ||
+                    (this.SourceFileId != null &&
+                    this.SourceFileId.Equals(input.SourceFileId))
                 ) && 
                 (
                     this.PageRange == input.PageRange ||
@@ -155,14 +163,14 @@ namespace PassportPDF.Model
                     this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.Quality == input.Quality ||
-                    (this.Quality != null &&
-                    this.Quality.Equals(input.Quality))
+                    this.DestinationPage == input.DestinationPage ||
+                    (this.DestinationPage != null &&
+                    this.DestinationPage.Equals(input.DestinationPage))
                 ) && 
                 (
-                    this.Progressive == input.Progressive ||
-                    (this.Progressive != null &&
-                    this.Progressive.Equals(input.Progressive))
+                    this.FileId == input.FileId ||
+                    (this.FileId != null &&
+                    this.FileId.Equals(input.FileId))
                 );
         }
 
@@ -175,14 +183,14 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (this.SourceFileId != null)
+                    hashCode = hashCode * 59 + this.SourceFileId.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.Quality != null)
-                    hashCode = hashCode * 59 + this.Quality.GetHashCode();
-                if (this.Progressive != null)
-                    hashCode = hashCode * 59 + this.Progressive.GetHashCode();
+                if (this.DestinationPage != null)
+                    hashCode = hashCode * 59 + this.DestinationPage.GetHashCode();
+                if (this.FileId != null)
+                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 return hashCode;
             }
         }

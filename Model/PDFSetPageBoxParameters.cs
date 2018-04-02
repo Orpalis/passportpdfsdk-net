@@ -86,9 +86,9 @@ namespace PassportPDF.Model
         /// <param name="Right">Right (required).</param>
         /// <param name="Bottom">Bottom (required).</param>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageBox">PageBox (default to PageBoxEnum.CropBox).</param>
         /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        public PDFSetPageBoxParameters(float? Left = default(float?), float? Top = default(float?), float? Right = default(float?), float? Bottom = default(float?), string FileId = default(string), PageBoxEnum? PageBox = PageBoxEnum.CropBox, string PageRange = "*")
+        /// <param name="PageBox">PageBox (default to PageBoxEnum.CropBox).</param>
+        public PDFSetPageBoxParameters(float? Left = default(float?), float? Top = default(float?), float? Right = default(float?), float? Bottom = default(float?), string FileId = default(string), string PageRange = "*", PageBoxEnum? PageBox = PageBoxEnum.CropBox)
         {
             // to ensure "Left" is required (not null)
             if (Left == null)
@@ -135,15 +135,6 @@ namespace PassportPDF.Model
             {
                 this.FileId = FileId;
             }
-            // use default value if no "PageBox" provided
-            if (PageBox == null)
-            {
-                this.PageBox = PageBoxEnum.CropBox;
-            }
-            else
-            {
-                this.PageBox = PageBox;
-            }
             // use default value if no "PageRange" provided
             if (PageRange == null)
             {
@@ -152,6 +143,15 @@ namespace PassportPDF.Model
             else
             {
                 this.PageRange = PageRange;
+            }
+            // use default value if no "PageBox" provided
+            if (PageBox == null)
+            {
+                this.PageBox = PageBoxEnum.CropBox;
+            }
+            else
+            {
+                this.PageBox = PageBox;
             }
         }
         
@@ -185,12 +185,12 @@ namespace PassportPDF.Model
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
-
         /// <summary>
         /// Gets or Sets PageRange
         /// </summary>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -205,8 +205,8 @@ namespace PassportPDF.Model
             sb.Append("  Right: ").Append(Right).Append("\n");
             sb.Append("  Bottom: ").Append(Bottom).Append("\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageBox: ").Append(PageBox).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
+            sb.Append("  PageBox: ").Append(PageBox).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -267,14 +267,14 @@ namespace PassportPDF.Model
                     this.FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageBox == input.PageBox ||
-                    (this.PageBox != null &&
-                    this.PageBox.Equals(input.PageBox))
-                ) && 
-                (
                     this.PageRange == input.PageRange ||
                     (this.PageRange != null &&
                     this.PageRange.Equals(input.PageRange))
+                ) && 
+                (
+                    this.PageBox == input.PageBox ||
+                    (this.PageBox != null &&
+                    this.PageBox.Equals(input.PageBox))
                 );
         }
 
@@ -297,10 +297,10 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Bottom.GetHashCode();
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageBox != null)
-                    hashCode = hashCode * 59 + this.PageBox.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
+                if (this.PageBox != null)
+                    hashCode = hashCode * 59 + this.PageBox.GetHashCode();
                 return hashCode;
             }
         }

@@ -94,13 +94,13 @@ namespace PassportPDF.Model
         /// Initializes a new instance of the <see cref="PDFSaveAsTIFFMultipageParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
+        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
         /// <param name="Compression">Compression (default to CompressionEnum.Auto).</param>
         /// <param name="JpegQuality">JpegQuality (default to 75).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
         /// <param name="Resolution">Resolution (default to 200.0F).</param>
-        /// <param name="RenderFormFields">RenderFormFields (default to false).</param>
+        /// <param name="RenderFormFields">RenderFormFields.</param>
         /// <param name="KeepRasterPDFResolution">KeepRasterPDFResolution (default to true).</param>
-        public PDFSaveAsTIFFMultipageParameters(string FileId = default(string), CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75, string PageRange = "*", float? Resolution = 200.0F, bool? RenderFormFields = false, bool? KeepRasterPDFResolution = true)
+        public PDFSaveAsTIFFMultipageParameters(string FileId = default(string), string PageRange = "*", CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75, float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -110,6 +110,15 @@ namespace PassportPDF.Model
             else
             {
                 this.FileId = FileId;
+            }
+            // use default value if no "PageRange" provided
+            if (PageRange == null)
+            {
+                this.PageRange = "*";
+            }
+            else
+            {
+                this.PageRange = PageRange;
             }
             // use default value if no "Compression" provided
             if (Compression == null)
@@ -129,15 +138,6 @@ namespace PassportPDF.Model
             {
                 this.JpegQuality = JpegQuality;
             }
-            // use default value if no "PageRange" provided
-            if (PageRange == null)
-            {
-                this.PageRange = "*";
-            }
-            else
-            {
-                this.PageRange = PageRange;
-            }
             // use default value if no "Resolution" provided
             if (Resolution == null)
             {
@@ -147,15 +147,7 @@ namespace PassportPDF.Model
             {
                 this.Resolution = Resolution;
             }
-            // use default value if no "RenderFormFields" provided
-            if (RenderFormFields == null)
-            {
-                this.RenderFormFields = false;
-            }
-            else
-            {
-                this.RenderFormFields = RenderFormFields;
-            }
+            this.RenderFormFields = RenderFormFields;
             // use default value if no "KeepRasterPDFResolution" provided
             if (KeepRasterPDFResolution == null)
             {
@@ -173,18 +165,18 @@ namespace PassportPDF.Model
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PageRange
+        /// </summary>
+        [DataMember(Name="pageRange", EmitDefaultValue=false)]
+        public string PageRange { get; set; }
+
 
         /// <summary>
         /// Gets or Sets JpegQuality
         /// </summary>
         [DataMember(Name="jpegQuality", EmitDefaultValue=false)]
         public int? JpegQuality { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PageRange
-        /// </summary>
-        [DataMember(Name="pageRange", EmitDefaultValue=false)]
-        public string PageRange { get; set; }
 
         /// <summary>
         /// Gets or Sets Resolution
@@ -213,9 +205,9 @@ namespace PassportPDF.Model
             var sb = new StringBuilder();
             sb.Append("class PDFSaveAsTIFFMultipageParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
+            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  Compression: ").Append(Compression).Append("\n");
             sb.Append("  JpegQuality: ").Append(JpegQuality).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  Resolution: ").Append(Resolution).Append("\n");
             sb.Append("  RenderFormFields: ").Append(RenderFormFields).Append("\n");
             sb.Append("  KeepRasterPDFResolution: ").Append(KeepRasterPDFResolution).Append("\n");
@@ -259,6 +251,11 @@ namespace PassportPDF.Model
                     this.FileId.Equals(input.FileId))
                 ) && 
                 (
+                    this.PageRange == input.PageRange ||
+                    (this.PageRange != null &&
+                    this.PageRange.Equals(input.PageRange))
+                ) && 
+                (
                     this.Compression == input.Compression ||
                     (this.Compression != null &&
                     this.Compression.Equals(input.Compression))
@@ -267,11 +264,6 @@ namespace PassportPDF.Model
                     this.JpegQuality == input.JpegQuality ||
                     (this.JpegQuality != null &&
                     this.JpegQuality.Equals(input.JpegQuality))
-                ) && 
-                (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
                     this.Resolution == input.Resolution ||
@@ -301,12 +293,12 @@ namespace PassportPDF.Model
                 int hashCode = 41;
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (this.PageRange != null)
+                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 if (this.Compression != null)
                     hashCode = hashCode * 59 + this.Compression.GetHashCode();
                 if (this.JpegQuality != null)
                     hashCode = hashCode * 59 + this.JpegQuality.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 if (this.Resolution != null)
                     hashCode = hashCode * 59 + this.Resolution.GetHashCode();
                 if (this.RenderFormFields != null)

@@ -383,7 +383,79 @@ namespace PassportPDF.Model
             /// Enum CanNotExtractPage for "CanNotExtractPage"
             /// </summary>
             [EnumMember(Value = "CanNotExtractPage")]
-            CanNotExtractPage = 58
+            CanNotExtractPage = 58,
+            
+            /// <summary>
+            /// Enum CanNotInsertNewPage for "CanNotInsertNewPage"
+            /// </summary>
+            [EnumMember(Value = "CanNotInsertNewPage")]
+            CanNotInsertNewPage = 59,
+            
+            /// <summary>
+            /// Enum CanNotClonePage for "CanNotClonePage"
+            /// </summary>
+            [EnumMember(Value = "CanNotClonePage")]
+            CanNotClonePage = 60,
+            
+            /// <summary>
+            /// Enum CanNotSetInitialView for "CanNotSetInitialView"
+            /// </summary>
+            [EnumMember(Value = "CanNotSetInitialView")]
+            CanNotSetInitialView = 61,
+            
+            /// <summary>
+            /// Enum CanNotAdjust for "CanNotAdjust"
+            /// </summary>
+            [EnumMember(Value = "CanNotAdjust")]
+            CanNotAdjust = 62,
+            
+            /// <summary>
+            /// Enum CanNotResize for "CanNotResize"
+            /// </summary>
+            [EnumMember(Value = "CanNotResize")]
+            CanNotResize = 63,
+            
+            /// <summary>
+            /// Enum CanNotFilter for "CanNotFilter"
+            /// </summary>
+            [EnumMember(Value = "CanNotFilter")]
+            CanNotFilter = 64,
+            
+            /// <summary>
+            /// Enum CanNotCleanupDocument for "CanNotCleanupDocument"
+            /// </summary>
+            [EnumMember(Value = "CanNotCleanupDocument")]
+            CanNotCleanupDocument = 65,
+            
+            /// <summary>
+            /// Enum UnknownDocumentFormat for "UnknownDocumentFormat"
+            /// </summary>
+            [EnumMember(Value = "UnknownDocumentFormat")]
+            UnknownDocumentFormat = 66,
+            
+            /// <summary>
+            /// Enum CanNotCrop for "CanNotCrop"
+            /// </summary>
+            [EnumMember(Value = "CanNotCrop")]
+            CanNotCrop = 67,
+            
+            /// <summary>
+            /// Enum CanNotRotate for "CanNotRotate"
+            /// </summary>
+            [EnumMember(Value = "CanNotRotate")]
+            CanNotRotate = 68,
+            
+            /// <summary>
+            /// Enum CanNotDetectColor for "CanNotDetectColor"
+            /// </summary>
+            [EnumMember(Value = "CanNotDetectColor")]
+            CanNotDetectColor = 69,
+            
+            /// <summary>
+            /// Enum CanNotConvertColorDepth for "CanNotConvertColorDepth"
+            /// </summary>
+            [EnumMember(Value = "CanNotConvertColorDepth")]
+            CanNotConvertColorDepth = 70
         }
 
         /// <summary>

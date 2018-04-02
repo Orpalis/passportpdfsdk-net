@@ -45,8 +45,8 @@ namespace PassportPDF.Model
         /// <param name="Producer">Producer.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Keywords">Keywords.</param>
-        /// <param name="ClearEmptyValues">ClearEmptyValues (default to false).</param>
-        public PDFSetInfoParameters(string FileId = default(string), string Author = default(string), string Title = default(string), string Subject = default(string), string Producer = default(string), string Metadata = default(string), string Keywords = default(string), bool? ClearEmptyValues = false)
+        /// <param name="ClearEmptyValues">ClearEmptyValues.</param>
+        public PDFSetInfoParameters(string FileId = default(string), string Author = default(string), string Title = default(string), string Subject = default(string), string Producer = default(string), string Metadata = default(string), string Keywords = default(string), bool? ClearEmptyValues = default(bool?))
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -63,15 +63,7 @@ namespace PassportPDF.Model
             this.Producer = Producer;
             this.Metadata = Metadata;
             this.Keywords = Keywords;
-            // use default value if no "ClearEmptyValues" provided
-            if (ClearEmptyValues == null)
-            {
-                this.ClearEmptyValues = false;
-            }
-            else
-            {
-                this.ClearEmptyValues = ClearEmptyValues;
-            }
+            this.ClearEmptyValues = ClearEmptyValues;
         }
         
         /// <summary>

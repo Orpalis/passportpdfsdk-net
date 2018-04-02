@@ -64,14 +64,14 @@ namespace PassportPDF.Model
         /// Initializes a new instance of the <see cref="PDFReadBarcodesParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
+        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
         /// <param name="ScanMode">ScanMode (default to ScanModeEnum.FavorAccuracy).</param>
         /// <param name="ScanBarcode1D">ScanBarcode1D (default to true).</param>
         /// <param name="ScanBarcodeQR">ScanBarcodeQR (default to true).</param>
         /// <param name="ScanBarcodeMicroQR">ScanBarcodeMicroQR (default to true).</param>
         /// <param name="ScanBarcodePDF417">ScanBarcodePDF417 (default to true).</param>
         /// <param name="ScanBarcodeDataMatrix">ScanBarcodeDataMatrix (default to true).</param>
-        public PDFReadBarcodesParameters(string FileId = default(string), string PageRange = "*", ScanModeEnum? ScanMode = ScanModeEnum.FavorAccuracy, bool? ScanBarcode1D = true, bool? ScanBarcodeQR = true, bool? ScanBarcodeMicroQR = true, bool? ScanBarcodePDF417 = true, bool? ScanBarcodeDataMatrix = true)
+        public PDFReadBarcodesParameters(string FileId = default(string), string PageRange = "1", ScanModeEnum? ScanMode = ScanModeEnum.FavorAccuracy, bool? ScanBarcode1D = true, bool? ScanBarcodeQR = true, bool? ScanBarcodeMicroQR = true, bool? ScanBarcodePDF417 = true, bool? ScanBarcodeDataMatrix = true)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -85,7 +85,7 @@ namespace PassportPDF.Model
             // use default value if no "PageRange" provided
             if (PageRange == null)
             {
-                this.PageRange = "*";
+                this.PageRange = "1";
             }
             else
             {

@@ -39,13 +39,13 @@ namespace PassportPDF.Model
         /// Initializes a new instance of the <see cref="PDFSaveAsJPEGParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="Quality">Quality (default to 75).</param>
-        /// <param name="Progressive">Progressive (default to false).</param>
         /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
+        /// <param name="Quality">Quality (default to 75).</param>
+        /// <param name="Progressive">Progressive.</param>
         /// <param name="Resolution">Resolution (default to 200.0F).</param>
         /// <param name="RenderFormFields">RenderFormFields.</param>
         /// <param name="KeepRasterPDFResolution">KeepRasterPDFResolution (default to true).</param>
-        public PDFSaveAsJPEGParameters(string FileId = default(string), int? Quality = 75, bool? Progressive = false, string PageRange = "*", float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
+        public PDFSaveAsJPEGParameters(string FileId = default(string), string PageRange = "*", int? Quality = 75, bool? Progressive = default(bool?), float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -56,24 +56,6 @@ namespace PassportPDF.Model
             {
                 this.FileId = FileId;
             }
-            // use default value if no "Quality" provided
-            if (Quality == null)
-            {
-                this.Quality = 75;
-            }
-            else
-            {
-                this.Quality = Quality;
-            }
-            // use default value if no "Progressive" provided
-            if (Progressive == null)
-            {
-                this.Progressive = false;
-            }
-            else
-            {
-                this.Progressive = Progressive;
-            }
             // use default value if no "PageRange" provided
             if (PageRange == null)
             {
@@ -83,6 +65,16 @@ namespace PassportPDF.Model
             {
                 this.PageRange = PageRange;
             }
+            // use default value if no "Quality" provided
+            if (Quality == null)
+            {
+                this.Quality = 75;
+            }
+            else
+            {
+                this.Quality = Quality;
+            }
+            this.Progressive = Progressive;
             // use default value if no "Resolution" provided
             if (Resolution == null)
             {
@@ -111,6 +103,12 @@ namespace PassportPDF.Model
         public string FileId { get; set; }
 
         /// <summary>
+        /// Gets or Sets PageRange
+        /// </summary>
+        [DataMember(Name="pageRange", EmitDefaultValue=false)]
+        public string PageRange { get; set; }
+
+        /// <summary>
         /// Gets or Sets Quality
         /// </summary>
         [DataMember(Name="quality", EmitDefaultValue=false)]
@@ -121,12 +119,6 @@ namespace PassportPDF.Model
         /// </summary>
         [DataMember(Name="progressive", EmitDefaultValue=false)]
         public bool? Progressive { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PageRange
-        /// </summary>
-        [DataMember(Name="pageRange", EmitDefaultValue=false)]
-        public string PageRange { get; set; }
 
         /// <summary>
         /// Gets or Sets Resolution
@@ -155,9 +147,9 @@ namespace PassportPDF.Model
             var sb = new StringBuilder();
             sb.Append("class PDFSaveAsJPEGParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
+            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
             sb.Append("  Progressive: ").Append(Progressive).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  Resolution: ").Append(Resolution).Append("\n");
             sb.Append("  RenderFormFields: ").Append(RenderFormFields).Append("\n");
             sb.Append("  KeepRasterPDFResolution: ").Append(KeepRasterPDFResolution).Append("\n");
@@ -201,6 +193,11 @@ namespace PassportPDF.Model
                     this.FileId.Equals(input.FileId))
                 ) && 
                 (
+                    this.PageRange == input.PageRange ||
+                    (this.PageRange != null &&
+                    this.PageRange.Equals(input.PageRange))
+                ) && 
+                (
                     this.Quality == input.Quality ||
                     (this.Quality != null &&
                     this.Quality.Equals(input.Quality))
@@ -209,11 +206,6 @@ namespace PassportPDF.Model
                     this.Progressive == input.Progressive ||
                     (this.Progressive != null &&
                     this.Progressive.Equals(input.Progressive))
-                ) && 
-                (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
                     this.Resolution == input.Resolution ||
@@ -243,12 +235,12 @@ namespace PassportPDF.Model
                 int hashCode = 41;
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (this.PageRange != null)
+                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 if (this.Quality != null)
                     hashCode = hashCode * 59 + this.Quality.GetHashCode();
                 if (this.Progressive != null)
                     hashCode = hashCode * 59 + this.Progressive.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 if (this.Resolution != null)
                     hashCode = hashCode * 59 + this.Resolution.GetHashCode();
                 if (this.RenderFormFields != null)

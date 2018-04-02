@@ -25,19 +25,19 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to an extract page action request.
+    /// Represents the response to a split action request.
     /// </summary>
     [DataContract]
-    public partial class PDFExtractPageResponse :  IEquatable<PDFExtractPageResponse>, IValidatableObject
+    public partial class PDFSplitResponse :  IEquatable<PDFSplitResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractPageResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFSplitResponse" /> class.
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="RemainingTokens">RemainingTokens.</param>
         /// <param name="FileIds">Specifies the identifier(s) of the file(s) created as a result of the action..</param>
         /// <param name="FileData">Specifies the data of the file(s) created as a result of the action..</param>
-        public PDFExtractPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<string> FileIds = default(List<string>), List<byte[]> FileData = default(List<byte[]>))
+        public PDFSplitResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<string> FileIds = default(List<string>), List<byte[]> FileData = default(List<byte[]>))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
@@ -78,7 +78,7 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFExtractPageResponse {\n");
+            sb.Append("class PDFSplitResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
@@ -103,15 +103,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFExtractPageResponse);
+            return this.Equals(input as PDFSplitResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFExtractPageResponse instances are equal
+        /// Returns true if PDFSplitResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFExtractPageResponse to be compared</param>
+        /// <param name="input">Instance of PDFSplitResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFExtractPageResponse input)
+        public bool Equals(PDFSplitResponse input)
         {
             if (input == null)
                 return false;

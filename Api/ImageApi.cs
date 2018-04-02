@@ -25,6 +25,48 @@ namespace PassportPDF.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Adjusts a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageAdjustResponse</returns>
+        ImageAdjustResponse Adjust (ImageAdjustParameters imageAdjustParameters);
+
+        /// <summary>
+        /// Adjusts a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageAdjustResponse</returns>
+        ApiResponse<ImageAdjustResponse> AdjustWithHttpInfo (ImageAdjustParameters imageAdjustParameters);
+        /// <summary>
+        /// Cleanup a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageCleanupDocumentResponse</returns>
+        ImageCleanupDocumentResponse CleanupDocument (ImageCleanupDocumentParameters cleanupDocumentParameters);
+
+        /// <summary>
+        /// Cleanup a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageCleanupDocumentResponse</returns>
+        ApiResponse<ImageCleanupDocumentResponse> CleanupDocumentWithHttpInfo (ImageCleanupDocumentParameters cleanupDocumentParameters);
+        /// <summary>
         /// Closes a previously uploaded image.
         /// </summary>
         /// <remarks>
@@ -45,6 +87,48 @@ namespace PassportPDF.Api
         /// <param name="closeParameters">An ImageCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>ApiResponse of ImageCloseResponse</returns>
         ApiResponse<ImageCloseResponse> CloseImageWithHttpInfo (ImageCloseParameters closeParameters = null);
+        /// <summary>
+        /// Crops a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageCropResponse</returns>
+        ImageCropResponse Crop (ImageCropParameters imageCropParameters);
+
+        /// <summary>
+        /// Crops a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageCropResponse</returns>
+        ApiResponse<ImageCropResponse> CropWithHttpInfo (ImageCropParameters imageCropParameters);
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageDetectColorResponse</returns>
+        ImageDetectColorResponse DetectColor (ImageDetectColorParameters imageDetectColorParameters);
+
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageDetectColorResponse</returns>
+        ApiResponse<ImageDetectColorResponse> DetectColorWithHttpInfo (ImageDetectColorParameters imageDetectColorParameters);
         /// <summary>
         /// Gets the supported file extensions by the image loading actions.
         /// </summary>
@@ -132,6 +216,48 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of ReadBarcodesResponse</returns>
         ApiResponse<ReadBarcodesResponse> ReadBarcodesWithHttpInfo (ImageReadBarcodesParameters readBarcodeParameters);
         /// <summary>
+        /// Resizes a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageResizeResponse</returns>
+        ImageResizeResponse Resize (ImageResizeParameters imageResizeParameters);
+
+        /// <summary>
+        /// Resizes a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageResizeResponse</returns>
+        ApiResponse<ImageResizeResponse> ResizeWithHttpInfo (ImageResizeParameters imageResizeParameters);
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageRotateResponse</returns>
+        ImageRotateResponse Rotate (ImageRotateParameters imageRotateParameters);
+
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageRotateResponse</returns>
+        ApiResponse<ImageRotateResponse> RotateWithHttpInfo (ImageRotateParameters imageRotateParameters);
+        /// <summary>
         /// Saves a previously uploaded image as JPEG.
         /// </summary>
         /// <remarks>
@@ -194,8 +320,71 @@ namespace PassportPDF.Api
         /// <param name="saveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
         /// <returns>ApiResponse of ImageSaveAsTIFFResponse</returns>
         ApiResponse<ImageSaveAsTIFFResponse> SaveAsTIFFWithHttpInfo (ImageSaveAsTIFFParameters saveAsTIFFParameters);
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>ImageSaveAsTIFFMultipageResponse</returns>
+        ImageSaveAsTIFFMultipageResponse SaveAsTIFFMultipage (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of ImageSaveAsTIFFMultipageResponse</returns>
+        ApiResponse<ImageSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageWithHttpInfo (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Adjusts a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageAdjustResponse</returns>
+        System.Threading.Tasks.Task<ImageAdjustResponse> AdjustAsync (ImageAdjustParameters imageAdjustParameters);
+
+        /// <summary>
+        /// Adjusts a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageAdjustResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageAdjustResponse>> AdjustAsyncWithHttpInfo (ImageAdjustParameters imageAdjustParameters);
+        /// <summary>
+        /// Cleanup a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageCleanupDocumentResponse</returns>
+        System.Threading.Tasks.Task<ImageCleanupDocumentResponse> CleanupDocumentAsync (ImageCleanupDocumentParameters cleanupDocumentParameters);
+
+        /// <summary>
+        /// Cleanup a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageCleanupDocumentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageCleanupDocumentResponse>> CleanupDocumentAsyncWithHttpInfo (ImageCleanupDocumentParameters cleanupDocumentParameters);
         /// <summary>
         /// Closes a previously uploaded image.
         /// </summary>
@@ -217,6 +406,48 @@ namespace PassportPDF.Api
         /// <param name="closeParameters">An ImageCloseParameters object specifying the parameters of the action. (optional)</param>
         /// <returns>Task of ApiResponse (ImageCloseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImageCloseResponse>> CloseImageAsyncWithHttpInfo (ImageCloseParameters closeParameters = null);
+        /// <summary>
+        /// Crops a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageCropResponse</returns>
+        System.Threading.Tasks.Task<ImageCropResponse> CropAsync (ImageCropParameters imageCropParameters);
+
+        /// <summary>
+        /// Crops a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageCropResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageCropResponse>> CropAsyncWithHttpInfo (ImageCropParameters imageCropParameters);
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageDetectColorResponse</returns>
+        System.Threading.Tasks.Task<ImageDetectColorResponse> DetectColorAsync (ImageDetectColorParameters imageDetectColorParameters);
+
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageDetectColorResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageDetectColorResponse>> DetectColorAsyncWithHttpInfo (ImageDetectColorParameters imageDetectColorParameters);
         /// <summary>
         /// Gets the supported file extensions by the image loading actions.
         /// </summary>
@@ -304,6 +535,48 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (ReadBarcodesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ReadBarcodesResponse>> ReadBarcodesAsyncWithHttpInfo (ImageReadBarcodesParameters readBarcodeParameters);
         /// <summary>
+        /// Resizes a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageResizeResponse</returns>
+        System.Threading.Tasks.Task<ImageResizeResponse> ResizeAsync (ImageResizeParameters imageResizeParameters);
+
+        /// <summary>
+        /// Resizes a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageResizeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageResizeResponse>> ResizeAsyncWithHttpInfo (ImageResizeParameters imageResizeParameters);
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageRotateResponse</returns>
+        System.Threading.Tasks.Task<ImageRotateResponse> RotateAsync (ImageRotateParameters imageRotateParameters);
+
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageRotateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageRotateResponse>> RotateAsyncWithHttpInfo (ImageRotateParameters imageRotateParameters);
+        /// <summary>
         /// Saves a previously uploaded image as JPEG.
         /// </summary>
         /// <remarks>
@@ -366,6 +639,27 @@ namespace PassportPDF.Api
         /// <param name="saveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (ImageSaveAsTIFFResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImageSaveAsTIFFResponse>> SaveAsTIFFAsyncWithHttpInfo (ImageSaveAsTIFFParameters saveAsTIFFParameters);
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ImageSaveAsTIFFMultipageResponse</returns>
+        System.Threading.Tasks.Task<ImageSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageAsync (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
+
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (ImageSaveAsTIFFMultipageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ImageSaveAsTIFFMultipageResponse>> SaveAsTIFFMultipageAsyncWithHttpInfo (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters);
         #endregion Asynchronous Operations
     }
 
@@ -464,6 +758,324 @@ namespace PassportPDF.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Adjusts a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageAdjustResponse</returns>
+        public ImageAdjustResponse Adjust (ImageAdjustParameters imageAdjustParameters)
+        {
+             ApiResponse<ImageAdjustResponse> localVarResponse = AdjustWithHttpInfo(imageAdjustParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Adjusts a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageAdjustResponse</returns>
+        public ApiResponse< ImageAdjustResponse > AdjustWithHttpInfo (ImageAdjustParameters imageAdjustParameters)
+        {
+            // verify the required parameter 'imageAdjustParameters' is set
+            if (imageAdjustParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageAdjustParameters' when calling ImageApi->Adjust");
+
+            var localVarPath = "/api/image/Adjust";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageAdjustParameters != null && imageAdjustParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageAdjustParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageAdjustParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Adjust", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageAdjustResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageAdjustResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageAdjustResponse)));
+        }
+
+        /// <summary>
+        /// Adjusts a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageAdjustResponse</returns>
+        public async System.Threading.Tasks.Task<ImageAdjustResponse> AdjustAsync (ImageAdjustParameters imageAdjustParameters)
+        {
+             ApiResponse<ImageAdjustResponse> localVarResponse = await AdjustAsyncWithHttpInfo(imageAdjustParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Adjusts a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageAdjustResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageAdjustResponse>> AdjustAsyncWithHttpInfo (ImageAdjustParameters imageAdjustParameters)
+        {
+            // verify the required parameter 'imageAdjustParameters' is set
+            if (imageAdjustParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageAdjustParameters' when calling ImageApi->Adjust");
+
+            var localVarPath = "/api/image/Adjust";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageAdjustParameters != null && imageAdjustParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageAdjustParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageAdjustParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Adjust", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageAdjustResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageAdjustResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageAdjustResponse)));
+        }
+
+        /// <summary>
+        /// Cleanup a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageCleanupDocumentResponse</returns>
+        public ImageCleanupDocumentResponse CleanupDocument (ImageCleanupDocumentParameters cleanupDocumentParameters)
+        {
+             ApiResponse<ImageCleanupDocumentResponse> localVarResponse = CleanupDocumentWithHttpInfo(cleanupDocumentParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cleanup a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageCleanupDocumentResponse</returns>
+        public ApiResponse< ImageCleanupDocumentResponse > CleanupDocumentWithHttpInfo (ImageCleanupDocumentParameters cleanupDocumentParameters)
+        {
+            // verify the required parameter 'cleanupDocumentParameters' is set
+            if (cleanupDocumentParameters == null)
+                throw new ApiException(400, "Missing required parameter 'cleanupDocumentParameters' when calling ImageApi->CleanupDocument");
+
+            var localVarPath = "/api/image/CleanupDocument";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (cleanupDocumentParameters != null && cleanupDocumentParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cleanupDocumentParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cleanupDocumentParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CleanupDocument", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageCleanupDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageCleanupDocumentResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageCleanupDocumentResponse)));
+        }
+
+        /// <summary>
+        /// Cleanup a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageCleanupDocumentResponse</returns>
+        public async System.Threading.Tasks.Task<ImageCleanupDocumentResponse> CleanupDocumentAsync (ImageCleanupDocumentParameters cleanupDocumentParameters)
+        {
+             ApiResponse<ImageCleanupDocumentResponse> localVarResponse = await CleanupDocumentAsyncWithHttpInfo(cleanupDocumentParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cleanup a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageCleanupDocumentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageCleanupDocumentResponse>> CleanupDocumentAsyncWithHttpInfo (ImageCleanupDocumentParameters cleanupDocumentParameters)
+        {
+            // verify the required parameter 'cleanupDocumentParameters' is set
+            if (cleanupDocumentParameters == null)
+                throw new ApiException(400, "Missing required parameter 'cleanupDocumentParameters' when calling ImageApi->CleanupDocument");
+
+            var localVarPath = "/api/image/CleanupDocument";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (cleanupDocumentParameters != null && cleanupDocumentParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cleanupDocumentParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cleanupDocumentParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CleanupDocument", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageCleanupDocumentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageCleanupDocumentResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageCleanupDocumentResponse)));
         }
 
         /// <summary>
@@ -617,6 +1229,324 @@ namespace PassportPDF.Api
             return new ApiResponse<ImageCloseResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ImageCloseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageCloseResponse)));
+        }
+
+        /// <summary>
+        /// Crops a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageCropResponse</returns>
+        public ImageCropResponse Crop (ImageCropParameters imageCropParameters)
+        {
+             ApiResponse<ImageCropResponse> localVarResponse = CropWithHttpInfo(imageCropParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Crops a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageCropResponse</returns>
+        public ApiResponse< ImageCropResponse > CropWithHttpInfo (ImageCropParameters imageCropParameters)
+        {
+            // verify the required parameter 'imageCropParameters' is set
+            if (imageCropParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageCropParameters' when calling ImageApi->Crop");
+
+            var localVarPath = "/api/image/Crop";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageCropParameters != null && imageCropParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageCropParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageCropParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Crop", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageCropResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageCropResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageCropResponse)));
+        }
+
+        /// <summary>
+        /// Crops a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageCropResponse</returns>
+        public async System.Threading.Tasks.Task<ImageCropResponse> CropAsync (ImageCropParameters imageCropParameters)
+        {
+             ApiResponse<ImageCropResponse> localVarResponse = await CropAsyncWithHttpInfo(imageCropParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Crops a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageCropResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageCropResponse>> CropAsyncWithHttpInfo (ImageCropParameters imageCropParameters)
+        {
+            // verify the required parameter 'imageCropParameters' is set
+            if (imageCropParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageCropParameters' when calling ImageApi->Crop");
+
+            var localVarPath = "/api/image/Crop";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageCropParameters != null && imageCropParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageCropParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageCropParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Crop", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageCropResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageCropResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageCropResponse)));
+        }
+
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageDetectColorResponse</returns>
+        public ImageDetectColorResponse DetectColor (ImageDetectColorParameters imageDetectColorParameters)
+        {
+             ApiResponse<ImageDetectColorResponse> localVarResponse = DetectColorWithHttpInfo(imageDetectColorParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageDetectColorResponse</returns>
+        public ApiResponse< ImageDetectColorResponse > DetectColorWithHttpInfo (ImageDetectColorParameters imageDetectColorParameters)
+        {
+            // verify the required parameter 'imageDetectColorParameters' is set
+            if (imageDetectColorParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageDetectColorParameters' when calling ImageApi->DetectColor");
+
+            var localVarPath = "/api/image/DetectColor";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageDetectColorParameters != null && imageDetectColorParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageDetectColorParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageDetectColorParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DetectColor", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageDetectColorResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageDetectColorResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageDetectColorResponse)));
+        }
+
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageDetectColorResponse</returns>
+        public async System.Threading.Tasks.Task<ImageDetectColorResponse> DetectColorAsync (ImageDetectColorParameters imageDetectColorParameters)
+        {
+             ApiResponse<ImageDetectColorResponse> localVarResponse = await DetectColorAsyncWithHttpInfo(imageDetectColorParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Performs color detection  on a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageDetectColorResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageDetectColorResponse>> DetectColorAsyncWithHttpInfo (ImageDetectColorParameters imageDetectColorParameters)
+        {
+            // verify the required parameter 'imageDetectColorParameters' is set
+            if (imageDetectColorParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageDetectColorParameters' when calling ImageApi->DetectColor");
+
+            var localVarPath = "/api/image/DetectColor";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageDetectColorParameters != null && imageDetectColorParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageDetectColorParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageDetectColorParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DetectColor", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageDetectColorResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageDetectColorResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageDetectColorResponse)));
         }
 
         /// <summary>
@@ -1214,6 +2144,324 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Resizes a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageResizeResponse</returns>
+        public ImageResizeResponse Resize (ImageResizeParameters imageResizeParameters)
+        {
+             ApiResponse<ImageResizeResponse> localVarResponse = ResizeWithHttpInfo(imageResizeParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resizes a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageResizeResponse</returns>
+        public ApiResponse< ImageResizeResponse > ResizeWithHttpInfo (ImageResizeParameters imageResizeParameters)
+        {
+            // verify the required parameter 'imageResizeParameters' is set
+            if (imageResizeParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageResizeParameters' when calling ImageApi->Resize");
+
+            var localVarPath = "/api/image/Resize";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageResizeParameters != null && imageResizeParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageResizeParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageResizeParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Resize", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageResizeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageResizeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageResizeResponse)));
+        }
+
+        /// <summary>
+        /// Resizes a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageResizeResponse</returns>
+        public async System.Threading.Tasks.Task<ImageResizeResponse> ResizeAsync (ImageResizeParameters imageResizeParameters)
+        {
+             ApiResponse<ImageResizeResponse> localVarResponse = await ResizeAsyncWithHttpInfo(imageResizeParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Resizes a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageResizeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageResizeResponse>> ResizeAsyncWithHttpInfo (ImageResizeParameters imageResizeParameters)
+        {
+            // verify the required parameter 'imageResizeParameters' is set
+            if (imageResizeParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageResizeParameters' when calling ImageApi->Resize");
+
+            var localVarPath = "/api/image/Resize";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageResizeParameters != null && imageResizeParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageResizeParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageResizeParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Resize", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageResizeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageResizeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageResizeResponse)));
+        }
+
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>ImageRotateResponse</returns>
+        public ImageRotateResponse Rotate (ImageRotateParameters imageRotateParameters)
+        {
+             ApiResponse<ImageRotateResponse> localVarResponse = RotateWithHttpInfo(imageRotateParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>ApiResponse of ImageRotateResponse</returns>
+        public ApiResponse< ImageRotateResponse > RotateWithHttpInfo (ImageRotateParameters imageRotateParameters)
+        {
+            // verify the required parameter 'imageRotateParameters' is set
+            if (imageRotateParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageRotateParameters' when calling ImageApi->Rotate");
+
+            var localVarPath = "/api/image/Rotate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageRotateParameters != null && imageRotateParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageRotateParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageRotateParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Rotate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageRotateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageRotateResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageRotateResponse)));
+        }
+
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ImageRotateResponse</returns>
+        public async System.Threading.Tasks.Task<ImageRotateResponse> RotateAsync (ImageRotateParameters imageRotateParameters)
+        {
+             ApiResponse<ImageRotateResponse> localVarResponse = await RotateAsyncWithHttpInfo(imageRotateParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Rotates and/or flips a previously uploaded image. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
+        /// <returns>Task of ApiResponse (ImageRotateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageRotateResponse>> RotateAsyncWithHttpInfo (ImageRotateParameters imageRotateParameters)
+        {
+            // verify the required parameter 'imageRotateParameters' is set
+            if (imageRotateParameters == null)
+                throw new ApiException(400, "Missing required parameter 'imageRotateParameters' when calling ImageApi->Rotate");
+
+            var localVarPath = "/api/image/Rotate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (imageRotateParameters != null && imageRotateParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(imageRotateParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = imageRotateParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Rotate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageRotateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageRotateResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageRotateResponse)));
+        }
+
+        /// <summary>
         /// Saves a previously uploaded image as JPEG. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1688,6 +2936,165 @@ namespace PassportPDF.Api
             return new ApiResponse<ImageSaveAsTIFFResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ImageSaveAsTIFFResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageSaveAsTIFFResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>ImageSaveAsTIFFMultipageResponse</returns>
+        public ImageSaveAsTIFFMultipageResponse SaveAsTIFFMultipage (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+             ApiResponse<ImageSaveAsTIFFMultipageResponse> localVarResponse = SaveAsTIFFMultipageWithHttpInfo(saveAsTIFFMultipageParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of ImageSaveAsTIFFMultipageResponse</returns>
+        public ApiResponse< ImageSaveAsTIFFMultipageResponse > SaveAsTIFFMultipageWithHttpInfo (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+            // verify the required parameter 'saveAsTIFFMultipageParameters' is set
+            if (saveAsTIFFMultipageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsTIFFMultipageParameters' when calling ImageApi->SaveAsTIFFMultipage");
+
+            var localVarPath = "/api/image/SaveAsTIFFMultipage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsTIFFMultipageParameters != null && saveAsTIFFMultipageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsTIFFMultipageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsTIFFMultipageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsTIFFMultipage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageSaveAsTIFFMultipageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageSaveAsTIFFMultipageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageSaveAsTIFFMultipageResponse)));
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ImageSaveAsTIFFMultipageResponse</returns>
+        public async System.Threading.Tasks.Task<ImageSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageAsync (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+             ApiResponse<ImageSaveAsTIFFMultipageResponse> localVarResponse = await SaveAsTIFFMultipageAsyncWithHttpInfo(saveAsTIFFMultipageParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Saves a previously uploaded image as multipage TIFF. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="saveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (ImageSaveAsTIFFMultipageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ImageSaveAsTIFFMultipageResponse>> SaveAsTIFFMultipageAsyncWithHttpInfo (ImageSaveAsTIFFMultipageParameters saveAsTIFFMultipageParameters)
+        {
+            // verify the required parameter 'saveAsTIFFMultipageParameters' is set
+            if (saveAsTIFFMultipageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsTIFFMultipageParameters' when calling ImageApi->SaveAsTIFFMultipage");
+
+            var localVarPath = "/api/image/SaveAsTIFFMultipage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (saveAsTIFFMultipageParameters != null && saveAsTIFFMultipageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveAsTIFFMultipageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveAsTIFFMultipageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveAsTIFFMultipage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ImageSaveAsTIFFMultipageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ImageSaveAsTIFFMultipageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageSaveAsTIFFMultipageResponse)));
         }
 
     }

@@ -25,30 +25,84 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for an auto deskew action.
+    /// Represents the parameters for a save as TIFF multipage action.
     /// </summary>
     [DataContract]
-    public partial class PDFAutoDeskewParameters :  IEquatable<PDFAutoDeskewParameters>, IValidatableObject
+    public partial class ImageSaveAsTIFFMultipageParameters :  IEquatable<ImageSaveAsTIFFMultipageParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
+        /// Gets or Sets Compression
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CompressionEnum
+        {
+            
+            /// <summary>
+            /// Enum Deflate for "Deflate"
+            /// </summary>
+            [EnumMember(Value = "Deflate")]
+            Deflate = 1,
+            
+            /// <summary>
+            /// Enum CCITT3 for "CCITT3"
+            /// </summary>
+            [EnumMember(Value = "CCITT3")]
+            CCITT3 = 2,
+            
+            /// <summary>
+            /// Enum CCITT4 for "CCITT4"
+            /// </summary>
+            [EnumMember(Value = "CCITT4")]
+            CCITT4 = 3,
+            
+            /// <summary>
+            /// Enum LZW for "LZW"
+            /// </summary>
+            [EnumMember(Value = "LZW")]
+            LZW = 4,
+            
+            /// <summary>
+            /// Enum JPEG for "JPEG"
+            /// </summary>
+            [EnumMember(Value = "JPEG")]
+            JPEG = 5,
+            
+            /// <summary>
+            /// Enum RLE for "RLE"
+            /// </summary>
+            [EnumMember(Value = "RLE")]
+            RLE = 6,
+            
+            /// <summary>
+            /// Enum Auto for "Auto"
+            /// </summary>
+            [EnumMember(Value = "Auto")]
+            Auto = 7
+        }
+
+        /// <summary>
+        /// Gets or Sets Compression
+        /// </summary>
+        [DataMember(Name="compression", EmitDefaultValue=false)]
+        public CompressionEnum? Compression { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageSaveAsTIFFMultipageParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFAutoDeskewParameters() { }
+        protected ImageSaveAsTIFFMultipageParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageSaveAsTIFFMultipageParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
-        /// <param name="MaxAngleOfResearch">MaxAngleOfResearch (default to 15.0F).</param>
-        /// <param name="AngleStep">AngleStep (default to 0.25F).</param>
-        /// <param name="Optimistic">Optimistic.</param>
-        public PDFAutoDeskewParameters(string FileId = default(string), string PageRange = "1", float? MaxAngleOfResearch = 15.0F, float? AngleStep = 0.25F, bool? Optimistic = default(bool?))
+        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
+        /// <param name="Compression">Compression (default to CompressionEnum.Auto).</param>
+        /// <param name="JpegQuality">JpegQuality (default to 75).</param>
+        public ImageSaveAsTIFFMultipageParameters(string FileId = default(string), string PageRange = "*", CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for PDFAutoDeskewParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for ImageSaveAsTIFFMultipageParameters and cannot be null");
             }
             else
             {
@@ -57,31 +111,30 @@ namespace PassportPDF.Model
             // use default value if no "PageRange" provided
             if (PageRange == null)
             {
-                this.PageRange = "1";
+                this.PageRange = "*";
             }
             else
             {
                 this.PageRange = PageRange;
             }
-            // use default value if no "MaxAngleOfResearch" provided
-            if (MaxAngleOfResearch == null)
+            // use default value if no "Compression" provided
+            if (Compression == null)
             {
-                this.MaxAngleOfResearch = 15.0F;
+                this.Compression = CompressionEnum.Auto;
             }
             else
             {
-                this.MaxAngleOfResearch = MaxAngleOfResearch;
+                this.Compression = Compression;
             }
-            // use default value if no "AngleStep" provided
-            if (AngleStep == null)
+            // use default value if no "JpegQuality" provided
+            if (JpegQuality == null)
             {
-                this.AngleStep = 0.25F;
+                this.JpegQuality = 75;
             }
             else
             {
-                this.AngleStep = AngleStep;
+                this.JpegQuality = JpegQuality;
             }
-            this.Optimistic = Optimistic;
         }
         
         /// <summary>
@@ -96,23 +149,12 @@ namespace PassportPDF.Model
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
-        /// <summary>
-        /// Gets or Sets MaxAngleOfResearch
-        /// </summary>
-        [DataMember(Name="maxAngleOfResearch", EmitDefaultValue=false)]
-        public float? MaxAngleOfResearch { get; set; }
 
         /// <summary>
-        /// Gets or Sets AngleStep
+        /// Gets or Sets JpegQuality
         /// </summary>
-        [DataMember(Name="angleStep", EmitDefaultValue=false)]
-        public float? AngleStep { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Optimistic
-        /// </summary>
-        [DataMember(Name="optimistic", EmitDefaultValue=false)]
-        public bool? Optimistic { get; set; }
+        [DataMember(Name="jpegQuality", EmitDefaultValue=false)]
+        public int? JpegQuality { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,12 +163,11 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFAutoDeskewParameters {\n");
+            sb.Append("class ImageSaveAsTIFFMultipageParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  MaxAngleOfResearch: ").Append(MaxAngleOfResearch).Append("\n");
-            sb.Append("  AngleStep: ").Append(AngleStep).Append("\n");
-            sb.Append("  Optimistic: ").Append(Optimistic).Append("\n");
+            sb.Append("  Compression: ").Append(Compression).Append("\n");
+            sb.Append("  JpegQuality: ").Append(JpegQuality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,15 +188,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFAutoDeskewParameters);
+            return this.Equals(input as ImageSaveAsTIFFMultipageParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFAutoDeskewParameters instances are equal
+        /// Returns true if ImageSaveAsTIFFMultipageParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFAutoDeskewParameters to be compared</param>
+        /// <param name="input">Instance of ImageSaveAsTIFFMultipageParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFAutoDeskewParameters input)
+        public bool Equals(ImageSaveAsTIFFMultipageParameters input)
         {
             if (input == null)
                 return false;
@@ -172,19 +213,14 @@ namespace PassportPDF.Model
                     this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.MaxAngleOfResearch == input.MaxAngleOfResearch ||
-                    (this.MaxAngleOfResearch != null &&
-                    this.MaxAngleOfResearch.Equals(input.MaxAngleOfResearch))
+                    this.Compression == input.Compression ||
+                    (this.Compression != null &&
+                    this.Compression.Equals(input.Compression))
                 ) && 
                 (
-                    this.AngleStep == input.AngleStep ||
-                    (this.AngleStep != null &&
-                    this.AngleStep.Equals(input.AngleStep))
-                ) && 
-                (
-                    this.Optimistic == input.Optimistic ||
-                    (this.Optimistic != null &&
-                    this.Optimistic.Equals(input.Optimistic))
+                    this.JpegQuality == input.JpegQuality ||
+                    (this.JpegQuality != null &&
+                    this.JpegQuality.Equals(input.JpegQuality))
                 );
         }
 
@@ -201,12 +237,10 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.MaxAngleOfResearch != null)
-                    hashCode = hashCode * 59 + this.MaxAngleOfResearch.GetHashCode();
-                if (this.AngleStep != null)
-                    hashCode = hashCode * 59 + this.AngleStep.GetHashCode();
-                if (this.Optimistic != null)
-                    hashCode = hashCode * 59 + this.Optimistic.GetHashCode();
+                if (this.Compression != null)
+                    hashCode = hashCode * 59 + this.Compression.GetHashCode();
+                if (this.JpegQuality != null)
+                    hashCode = hashCode * 59 + this.JpegQuality.GetHashCode();
                 return hashCode;
             }
         }

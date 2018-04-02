@@ -25,30 +25,30 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for an auto deskew action.
+    /// Represents the parameters for an image rotate action.
     /// </summary>
     [DataContract]
-    public partial class PDFAutoDeskewParameters :  IEquatable<PDFAutoDeskewParameters>, IValidatableObject
+    public partial class ImageRotateParameters :  IEquatable<ImageRotateParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageRotateParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFAutoDeskewParameters() { }
+        protected ImageRotateParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
+        /// Initializes a new instance of the <see cref="ImageRotateParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
-        /// <param name="MaxAngleOfResearch">MaxAngleOfResearch (default to 15.0F).</param>
-        /// <param name="AngleStep">AngleStep (default to 0.25F).</param>
-        /// <param name="Optimistic">Optimistic.</param>
-        public PDFAutoDeskewParameters(string FileId = default(string), string PageRange = "1", float? MaxAngleOfResearch = 15.0F, float? AngleStep = 0.25F, bool? Optimistic = default(bool?))
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to rotate. (default to &quot;1&quot;).</param>
+        /// <param name="RotationAngle">RotationAngle.</param>
+        /// <param name="FlipHorizontally">FlipHorizontally.</param>
+        /// <param name="FlipVertically">FlipVertically.</param>
+        public ImageRotateParameters(string FileId = default(string), string PageRange = "1", float? RotationAngle = default(float?), bool? FlipHorizontally = default(bool?), bool? FlipVertically = default(bool?))
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for PDFAutoDeskewParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for ImageRotateParameters and cannot be null");
             }
             else
             {
@@ -63,25 +63,9 @@ namespace PassportPDF.Model
             {
                 this.PageRange = PageRange;
             }
-            // use default value if no "MaxAngleOfResearch" provided
-            if (MaxAngleOfResearch == null)
-            {
-                this.MaxAngleOfResearch = 15.0F;
-            }
-            else
-            {
-                this.MaxAngleOfResearch = MaxAngleOfResearch;
-            }
-            // use default value if no "AngleStep" provided
-            if (AngleStep == null)
-            {
-                this.AngleStep = 0.25F;
-            }
-            else
-            {
-                this.AngleStep = AngleStep;
-            }
-            this.Optimistic = Optimistic;
+            this.RotationAngle = RotationAngle;
+            this.FlipHorizontally = FlipHorizontally;
+            this.FlipVertically = FlipVertically;
         }
         
         /// <summary>
@@ -91,28 +75,29 @@ namespace PassportPDF.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to rotate.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to rotate.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaxAngleOfResearch
+        /// Gets or Sets RotationAngle
         /// </summary>
-        [DataMember(Name="maxAngleOfResearch", EmitDefaultValue=false)]
-        public float? MaxAngleOfResearch { get; set; }
+        [DataMember(Name="rotationAngle", EmitDefaultValue=false)]
+        public float? RotationAngle { get; set; }
 
         /// <summary>
-        /// Gets or Sets AngleStep
+        /// Gets or Sets FlipHorizontally
         /// </summary>
-        [DataMember(Name="angleStep", EmitDefaultValue=false)]
-        public float? AngleStep { get; set; }
+        [DataMember(Name="flipHorizontally", EmitDefaultValue=false)]
+        public bool? FlipHorizontally { get; set; }
 
         /// <summary>
-        /// Gets or Sets Optimistic
+        /// Gets or Sets FlipVertically
         /// </summary>
-        [DataMember(Name="optimistic", EmitDefaultValue=false)]
-        public bool? Optimistic { get; set; }
+        [DataMember(Name="flipVertically", EmitDefaultValue=false)]
+        public bool? FlipVertically { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,12 +106,12 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFAutoDeskewParameters {\n");
+            sb.Append("class ImageRotateParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  MaxAngleOfResearch: ").Append(MaxAngleOfResearch).Append("\n");
-            sb.Append("  AngleStep: ").Append(AngleStep).Append("\n");
-            sb.Append("  Optimistic: ").Append(Optimistic).Append("\n");
+            sb.Append("  RotationAngle: ").Append(RotationAngle).Append("\n");
+            sb.Append("  FlipHorizontally: ").Append(FlipHorizontally).Append("\n");
+            sb.Append("  FlipVertically: ").Append(FlipVertically).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,15 +132,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFAutoDeskewParameters);
+            return this.Equals(input as ImageRotateParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFAutoDeskewParameters instances are equal
+        /// Returns true if ImageRotateParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFAutoDeskewParameters to be compared</param>
+        /// <param name="input">Instance of ImageRotateParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFAutoDeskewParameters input)
+        public bool Equals(ImageRotateParameters input)
         {
             if (input == null)
                 return false;
@@ -172,19 +157,19 @@ namespace PassportPDF.Model
                     this.PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.MaxAngleOfResearch == input.MaxAngleOfResearch ||
-                    (this.MaxAngleOfResearch != null &&
-                    this.MaxAngleOfResearch.Equals(input.MaxAngleOfResearch))
+                    this.RotationAngle == input.RotationAngle ||
+                    (this.RotationAngle != null &&
+                    this.RotationAngle.Equals(input.RotationAngle))
                 ) && 
                 (
-                    this.AngleStep == input.AngleStep ||
-                    (this.AngleStep != null &&
-                    this.AngleStep.Equals(input.AngleStep))
+                    this.FlipHorizontally == input.FlipHorizontally ||
+                    (this.FlipHorizontally != null &&
+                    this.FlipHorizontally.Equals(input.FlipHorizontally))
                 ) && 
                 (
-                    this.Optimistic == input.Optimistic ||
-                    (this.Optimistic != null &&
-                    this.Optimistic.Equals(input.Optimistic))
+                    this.FlipVertically == input.FlipVertically ||
+                    (this.FlipVertically != null &&
+                    this.FlipVertically.Equals(input.FlipVertically))
                 );
         }
 
@@ -201,12 +186,12 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.MaxAngleOfResearch != null)
-                    hashCode = hashCode * 59 + this.MaxAngleOfResearch.GetHashCode();
-                if (this.AngleStep != null)
-                    hashCode = hashCode * 59 + this.AngleStep.GetHashCode();
-                if (this.Optimistic != null)
-                    hashCode = hashCode * 59 + this.Optimistic.GetHashCode();
+                if (this.RotationAngle != null)
+                    hashCode = hashCode * 59 + this.RotationAngle.GetHashCode();
+                if (this.FlipHorizontally != null)
+                    hashCode = hashCode * 59 + this.FlipHorizontally.GetHashCode();
+                if (this.FlipVertically != null)
+                    hashCode = hashCode * 59 + this.FlipVertically.GetHashCode();
                 return hashCode;
             }
         }

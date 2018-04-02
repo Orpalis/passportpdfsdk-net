@@ -94,10 +94,10 @@ namespace PassportPDF.Model
         /// Initializes a new instance of the <see cref="ImageSaveAsTIFFParameters" /> class.
         /// </summary>
         /// <param name="FileId">FileId (required).</param>
+        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
         /// <param name="Compression">Compression (default to CompressionEnum.Auto).</param>
         /// <param name="JpegQuality">JpegQuality (default to 75).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        public ImageSaveAsTIFFParameters(string FileId = default(string), CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75, string PageRange = "*")
+        public ImageSaveAsTIFFParameters(string FileId = default(string), string PageRange = "*", CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -107,6 +107,15 @@ namespace PassportPDF.Model
             else
             {
                 this.FileId = FileId;
+            }
+            // use default value if no "PageRange" provided
+            if (PageRange == null)
+            {
+                this.PageRange = "*";
+            }
+            else
+            {
+                this.PageRange = PageRange;
             }
             // use default value if no "Compression" provided
             if (Compression == null)
@@ -126,15 +135,6 @@ namespace PassportPDF.Model
             {
                 this.JpegQuality = JpegQuality;
             }
-            // use default value if no "PageRange" provided
-            if (PageRange == null)
-            {
-                this.PageRange = "*";
-            }
-            else
-            {
-                this.PageRange = PageRange;
-            }
         }
         
         /// <summary>
@@ -143,18 +143,18 @@ namespace PassportPDF.Model
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
+        /// <summary>
+        /// Gets or Sets PageRange
+        /// </summary>
+        [DataMember(Name="pageRange", EmitDefaultValue=false)]
+        public string PageRange { get; set; }
+
 
         /// <summary>
         /// Gets or Sets JpegQuality
         /// </summary>
         [DataMember(Name="jpegQuality", EmitDefaultValue=false)]
         public int? JpegQuality { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PageRange
-        /// </summary>
-        [DataMember(Name="pageRange", EmitDefaultValue=false)]
-        public string PageRange { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -165,9 +165,9 @@ namespace PassportPDF.Model
             var sb = new StringBuilder();
             sb.Append("class ImageSaveAsTIFFParameters {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
+            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  Compression: ").Append(Compression).Append("\n");
             sb.Append("  JpegQuality: ").Append(JpegQuality).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +208,11 @@ namespace PassportPDF.Model
                     this.FileId.Equals(input.FileId))
                 ) && 
                 (
+                    this.PageRange == input.PageRange ||
+                    (this.PageRange != null &&
+                    this.PageRange.Equals(input.PageRange))
+                ) && 
+                (
                     this.Compression == input.Compression ||
                     (this.Compression != null &&
                     this.Compression.Equals(input.Compression))
@@ -216,11 +221,6 @@ namespace PassportPDF.Model
                     this.JpegQuality == input.JpegQuality ||
                     (this.JpegQuality != null &&
                     this.JpegQuality.Equals(input.JpegQuality))
-                ) && 
-                (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
                 );
         }
 
@@ -235,12 +235,12 @@ namespace PassportPDF.Model
                 int hashCode = 41;
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (this.PageRange != null)
+                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 if (this.Compression != null)
                     hashCode = hashCode * 59 + this.Compression.GetHashCode();
                 if (this.JpegQuality != null)
                     hashCode = hashCode * 59 + this.JpegQuality.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
                 return hashCode;
             }
         }
