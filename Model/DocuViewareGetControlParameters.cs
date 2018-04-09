@@ -38,8 +38,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareGetControlParameters" /> class.
         /// </summary>
-        /// <param name="SessionID">SessionID (required).</param>
-        /// <param name="ControlState">ControlState (required).</param>
+        /// <param name="SessionID">Specifies the unique identifier used to identify the user session. (required).</param>
+        /// <param name="ControlState">A DocuViewareControlState object specifying the configuration of the DocuVieware control. (required).</param>
         public DocuViewareGetControlParameters(string SessionID = default(string), DocuViewareControlState ControlState = default(DocuViewareControlState))
         {
             // to ensure "SessionID" is required (not null)
@@ -63,14 +63,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets SessionID
+        /// Specifies the unique identifier used to identify the user session.
         /// </summary>
+        /// <value>Specifies the unique identifier used to identify the user session.</value>
         [DataMember(Name="sessionID", EmitDefaultValue=false)]
         public string SessionID { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlState
+        /// A DocuViewareControlState object specifying the configuration of the DocuVieware control.
         /// </summary>
+        /// <value>A DocuViewareControlState object specifying the configuration of the DocuVieware control.</value>
         [DataMember(Name="controlState", EmitDefaultValue=false)]
         public DocuViewareControlState ControlState { get; set; }
 

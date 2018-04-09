@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFProtectParameters :  IEquatable<PDFProtectParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Encryption
+        /// Specifies the encryption scheme to be used.
         /// </summary>
+        /// <value>Specifies the encryption scheme to be used.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EncryptionEnum
         {
@@ -69,8 +70,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets Encryption
+        /// Specifies the encryption scheme to be used.
         /// </summary>
+        /// <value>Specifies the encryption scheme to be used.</value>
         [DataMember(Name="encryption", EmitDefaultValue=false)]
         public EncryptionEnum? Encryption { get; set; }
         /// <summary>
@@ -81,18 +83,18 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFProtectParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="OwnerPassword">OwnerPassword.</param>
-        /// <param name="UserPassword">UserPassword.</param>
-        /// <param name="Encryption">Encryption (default to EncryptionEnum.PdfEncryption256BitAES).</param>
-        /// <param name="CanPrint">CanPrint (default to true).</param>
-        /// <param name="CanCopy">CanCopy (default to true).</param>
-        /// <param name="CanModify">CanModify (default to true).</param>
-        /// <param name="CanAddNotes">CanAddNotes (default to true).</param>
-        /// <param name="CanFillFields">CanFillFields (default to true).</param>
-        /// <param name="CanCopyAccess">CanCopyAccess (default to true).</param>
-        /// <param name="CanAssemble">CanAssemble (default to true).</param>
-        /// <param name="CanPrintFull">CanPrintFull (default to true).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="OwnerPassword">Specifies the owner password to be set..</param>
+        /// <param name="UserPassword">Specifies the user password to be set..</param>
+        /// <param name="Encryption">Specifies the encryption scheme to be used. (default to EncryptionEnum.PdfEncryption256BitAES).</param>
+        /// <param name="CanPrint">Allows the user to print the document, but possibly not at the highest quality level. Ignored if no encryption algorithm is set. (default to true).</param>
+        /// <param name="CanCopy">Allows the user to copy or extract text and graphics from the document. Ignored if the no encryption scheme is set. (default to true).</param>
+        /// <param name="CanModify">Allows the user to modify the document. Ignored if the no encryption scheme is set. (default to true).</param>
+        /// <param name="CanAddNotes">Allows the user to add annotations. Ignored if the no encryption scheme is set. (default to true).</param>
+        /// <param name="CanFillFields">Allows the user to fill-in form fields. Only works with 128-bit encryption. (default to true).</param>
+        /// <param name="CanCopyAccess">Enables copying or extracting for use with accessibility features. Only works with 128-bit encryption. (default to true).</param>
+        /// <param name="CanAssemble">Allows the user to assemble the document. Only works with 128-bit encryption. (default to true).</param>
+        /// <param name="CanPrintFull">Allows high resolution printing of the document. Only works with 128-bit encryption. (default to true).</param>
         public PDFProtectParameters(string FileId = default(string), string OwnerPassword = default(string), string UserPassword = default(string), EncryptionEnum? Encryption = EncryptionEnum.PdfEncryption256BitAES, bool? CanPrint = true, bool? CanCopy = true, bool? CanModify = true, bool? CanAddNotes = true, bool? CanFillFields = true, bool? CanCopyAccess = true, bool? CanAssemble = true, bool? CanPrintFull = true)
         {
             // to ensure "FileId" is required (not null)
@@ -190,69 +192,80 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets OwnerPassword
+        /// Specifies the owner password to be set.
         /// </summary>
+        /// <value>Specifies the owner password to be set.</value>
         [DataMember(Name="ownerPassword", EmitDefaultValue=false)]
         public string OwnerPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserPassword
+        /// Specifies the user password to be set.
         /// </summary>
+        /// <value>Specifies the user password to be set.</value>
         [DataMember(Name="userPassword", EmitDefaultValue=false)]
         public string UserPassword { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets CanPrint
+        /// Allows the user to print the document, but possibly not at the highest quality level. Ignored if no encryption algorithm is set.
         /// </summary>
+        /// <value>Allows the user to print the document, but possibly not at the highest quality level. Ignored if no encryption algorithm is set.</value>
         [DataMember(Name="canPrint", EmitDefaultValue=false)]
         public bool? CanPrint { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanCopy
+        /// Allows the user to copy or extract text and graphics from the document. Ignored if the no encryption scheme is set.
         /// </summary>
+        /// <value>Allows the user to copy or extract text and graphics from the document. Ignored if the no encryption scheme is set.</value>
         [DataMember(Name="canCopy", EmitDefaultValue=false)]
         public bool? CanCopy { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanModify
+        /// Allows the user to modify the document. Ignored if the no encryption scheme is set.
         /// </summary>
+        /// <value>Allows the user to modify the document. Ignored if the no encryption scheme is set.</value>
         [DataMember(Name="canModify", EmitDefaultValue=false)]
         public bool? CanModify { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanAddNotes
+        /// Allows the user to add annotations. Ignored if the no encryption scheme is set.
         /// </summary>
+        /// <value>Allows the user to add annotations. Ignored if the no encryption scheme is set.</value>
         [DataMember(Name="canAddNotes", EmitDefaultValue=false)]
         public bool? CanAddNotes { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanFillFields
+        /// Allows the user to fill-in form fields. Only works with 128-bit encryption.
         /// </summary>
+        /// <value>Allows the user to fill-in form fields. Only works with 128-bit encryption.</value>
         [DataMember(Name="canFillFields", EmitDefaultValue=false)]
         public bool? CanFillFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanCopyAccess
+        /// Enables copying or extracting for use with accessibility features. Only works with 128-bit encryption.
         /// </summary>
+        /// <value>Enables copying or extracting for use with accessibility features. Only works with 128-bit encryption.</value>
         [DataMember(Name="canCopyAccess", EmitDefaultValue=false)]
         public bool? CanCopyAccess { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanAssemble
+        /// Allows the user to assemble the document. Only works with 128-bit encryption.
         /// </summary>
+        /// <value>Allows the user to assemble the document. Only works with 128-bit encryption.</value>
         [DataMember(Name="canAssemble", EmitDefaultValue=false)]
         public bool? CanAssemble { get; set; }
 
         /// <summary>
-        /// Gets or Sets CanPrintFull
+        /// Allows high resolution printing of the document. Only works with 128-bit encryption.
         /// </summary>
+        /// <value>Allows high resolution printing of the document. Only works with 128-bit encryption.</value>
         [DataMember(Name="canPrintFull", EmitDefaultValue=false)]
         public bool? CanPrintFull { get; set; }
 

@@ -38,10 +38,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFClonePageParameters" /> class.
         /// </summary>
-        /// <param name="SourceFileId">SourceFileId (required).</param>
-        /// <param name="PageRange">PageRange (required).</param>
-        /// <param name="DestinationPage">DestinationPage (required).</param>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="SourceFileId">Specifies the file identifier of the PDF to be cloned. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be cloned. (required).</param>
+        /// <param name="DestinationPage">Specifies the number of the page where the cloned page(s) shall be inserted. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         public PDFClonePageParameters(string SourceFileId = default(string), string PageRange = default(string), int? DestinationPage = default(int?), string FileId = default(string))
         {
             // to ensure "SourceFileId" is required (not null)
@@ -83,26 +83,30 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets SourceFileId
+        /// Specifies the file identifier of the PDF to be cloned.
         /// </summary>
+        /// <value>Specifies the file identifier of the PDF to be cloned.</value>
         [DataMember(Name="sourceFileId", EmitDefaultValue=false)]
         public string SourceFileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be cloned.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be cloned.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets DestinationPage
+        /// Specifies the number of the page where the cloned page(s) shall be inserted.
         /// </summary>
+        /// <value>Specifies the number of the page where the cloned page(s) shall be inserted.</value>
         [DataMember(Name="destinationPage", EmitDefaultValue=false)]
         public int? DestinationPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

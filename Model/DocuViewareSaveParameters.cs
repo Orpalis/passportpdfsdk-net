@@ -38,11 +38,11 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareSaveParameters" /> class.
         /// </summary>
-        /// <param name="SessionId">SessionId (required).</param>
-        /// <param name="ControlId">ControlId (required).</param>
-        /// <param name="FileName">FileName (required).</param>
-        /// <param name="Format">Format (required).</param>
-        /// <param name="PageRange">PageRange.</param>
+        /// <param name="SessionId">Specifies the unique identifier used to identify the user session. (required).</param>
+        /// <param name="ControlId">Specifies the identifier associated with the control. (required).</param>
+        /// <param name="FileName">Specifies the name of the file to create. (required).</param>
+        /// <param name="Format">Specifies the format of the document to save.  Supported values are tiff, pdf, pdf/a, pdf/a1a, pdf/a1b, pdf/a2a, pdf/a2b, pdf/a2u, pdf/a3a, pdf/a3b, pdf/a3u. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be saved into the new file..</param>
         public DocuViewareSaveParameters(string SessionId = default(string), string ControlId = default(string), string FileName = default(string), string Format = default(string), string PageRange = default(string))
         {
             // to ensure "SessionId" is required (not null)
@@ -85,32 +85,37 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets SessionId
+        /// Specifies the unique identifier used to identify the user session.
         /// </summary>
+        /// <value>Specifies the unique identifier used to identify the user session.</value>
         [DataMember(Name="sessionId", EmitDefaultValue=false)]
         public string SessionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlId
+        /// Specifies the identifier associated with the control.
         /// </summary>
+        /// <value>Specifies the identifier associated with the control.</value>
         [DataMember(Name="controlId", EmitDefaultValue=false)]
         public string ControlId { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileName
+        /// Specifies the name of the file to create.
         /// </summary>
+        /// <value>Specifies the name of the file to create.</value>
         [DataMember(Name="fileName", EmitDefaultValue=false)]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Format
+        /// Specifies the format of the document to save.  Supported values are tiff, pdf, pdf/a, pdf/a1a, pdf/a1b, pdf/a2a, pdf/a2b, pdf/a2u, pdf/a3a, pdf/a3b, pdf/a3u.
         /// </summary>
+        /// <value>Specifies the format of the document to save.  Supported values are tiff, pdf, pdf/a, pdf/a1a, pdf/a1b, pdf/a2a, pdf/a2b, pdf/a2u, pdf/a3a, pdf/a3b, pdf/a3u.</value>
         [DataMember(Name="format", EmitDefaultValue=false)]
         public string Format { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be saved into the new file.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be saved into the new file.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 

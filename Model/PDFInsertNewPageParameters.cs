@@ -38,11 +38,11 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFInsertNewPageParameters" /> class.
         /// </summary>
-        /// <param name="PageNumber">PageNumber (required).</param>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageCount">PageCount (default to 1).</param>
-        /// <param name="Width">Width (default to 595.0F).</param>
-        /// <param name="Height">Height (default to 842.0F).</param>
+        /// <param name="PageNumber">Specifies the number of the page where the new page(s) shall be inserted. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageCount">Specifies the number of pages that must be inserted. (default to 1).</param>
+        /// <param name="Width">Specifies, in points, the width of the page(s) to be inserted. (default to 595.0F).</param>
+        /// <param name="Height">Specifies, in points, the height of the page(s) to be inserted. (default to 842.0F).</param>
         public PDFInsertNewPageParameters(int? PageNumber = default(int?), string FileId = default(string), int? PageCount = 1, float? Width = 595.0F, float? Height = 842.0F)
         {
             // to ensure "PageNumber" is required (not null)
@@ -93,32 +93,37 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets PageNumber
+        /// Specifies the number of the page where the new page(s) shall be inserted.
         /// </summary>
+        /// <value>Specifies the number of the page where the new page(s) shall be inserted.</value>
         [DataMember(Name="pageNumber", EmitDefaultValue=false)]
         public int? PageNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageCount
+        /// Specifies the number of pages that must be inserted.
         /// </summary>
+        /// <value>Specifies the number of pages that must be inserted.</value>
         [DataMember(Name="pageCount", EmitDefaultValue=false)]
         public int? PageCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Width
+        /// Specifies, in points, the width of the page(s) to be inserted.
         /// </summary>
+        /// <value>Specifies, in points, the width of the page(s) to be inserted.</value>
         [DataMember(Name="width", EmitDefaultValue=false)]
         public float? Width { get; set; }
 
         /// <summary>
-        /// Gets or Sets Height
+        /// Specifies, in points, the height of the page(s) to be inserted.
         /// </summary>
+        /// <value>Specifies, in points, the height of the page(s) to be inserted.</value>
         [DataMember(Name="height", EmitDefaultValue=false)]
         public float? Height { get; set; }
 

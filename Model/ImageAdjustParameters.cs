@@ -38,7 +38,7 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageAdjustParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to adjust. (default to &quot;1&quot;).</param>
         /// <param name="RoiLeft">Specifies the left coordinate, in pixel, of the region to process..</param>
         /// <param name="RoiTop">Specifies the top coordinate, in pixel, of the region to process..</param>
@@ -83,8 +83,9 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

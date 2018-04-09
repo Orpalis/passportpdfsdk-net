@@ -38,11 +38,11 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFAutoDeskewParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
-        /// <param name="MaxAngleOfResearch">MaxAngleOfResearch (default to 15.0F).</param>
-        /// <param name="AngleStep">AngleStep (default to 0.25F).</param>
-        /// <param name="Optimistic">Optimistic.</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the page or the page range to be auto-deskewed. (default to &quot;1&quot;).</param>
+        /// <param name="MaxAngleOfResearch">Specifies the maximum skew angle to be detected. A value of below 15 is suggested. (default to 15.0F).</param>
+        /// <param name="AngleStep">Specifies the minimum skew angle to be detected. (default to 0.25F).</param>
+        /// <param name="Optimistic">Specifies whether the skew detection engine must be optimistic when detecting angles.  If you know the image is skewed, you should set this to true..</param>
         public PDFAutoDeskewParameters(string FileId = default(string), string PageRange = "1", float? MaxAngleOfResearch = 15.0F, float? AngleStep = 0.25F, bool? Optimistic = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -85,32 +85,37 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the page or the page range to be auto-deskewed.
         /// </summary>
+        /// <value>Specifies the page or the page range to be auto-deskewed.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaxAngleOfResearch
+        /// Specifies the maximum skew angle to be detected. A value of below 15 is suggested.
         /// </summary>
+        /// <value>Specifies the maximum skew angle to be detected. A value of below 15 is suggested.</value>
         [DataMember(Name="maxAngleOfResearch", EmitDefaultValue=false)]
         public float? MaxAngleOfResearch { get; set; }
 
         /// <summary>
-        /// Gets or Sets AngleStep
+        /// Specifies the minimum skew angle to be detected.
         /// </summary>
+        /// <value>Specifies the minimum skew angle to be detected.</value>
         [DataMember(Name="angleStep", EmitDefaultValue=false)]
         public float? AngleStep { get; set; }
 
         /// <summary>
-        /// Gets or Sets Optimistic
+        /// Specifies whether the skew detection engine must be optimistic when detecting angles.  If you know the image is skewed, you should set this to true.
         /// </summary>
+        /// <value>Specifies whether the skew detection engine must be optimistic when detecting angles.  If you know the image is skewed, you should set this to true.</value>
         [DataMember(Name="optimistic", EmitDefaultValue=false)]
         public bool? Optimistic { get; set; }
 

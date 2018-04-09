@@ -38,14 +38,14 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSetInfoParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="Author">Author.</param>
-        /// <param name="Title">Title.</param>
-        /// <param name="Subject">Subject.</param>
-        /// <param name="Producer">Producer.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Keywords">Keywords.</param>
-        /// <param name="ClearEmptyValues">ClearEmptyValues.</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="Author">Specifies the author name specified within the PDF, if any..</param>
+        /// <param name="Title">Specifies the document title specified within the PDF, if any..</param>
+        /// <param name="Subject">Specifies the document subject specified within the PDF, if any..</param>
+        /// <param name="Producer">Specifies the producer name specified within the PDF, if any..</param>
+        /// <param name="Metadata">Specifies the metadata contained within the PDF, if any..</param>
+        /// <param name="Keywords">Specifies the keywords associated with the PDF, if any..</param>
+        /// <param name="ClearEmptyValues">Specifies whether the empty info values shall be cleared..</param>
         public PDFSetInfoParameters(string FileId = default(string), string Author = default(string), string Title = default(string), string Subject = default(string), string Producer = default(string), string Metadata = default(string), string Keywords = default(string), bool? ClearEmptyValues = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -67,50 +67,58 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Author
+        /// Specifies the author name specified within the PDF, if any.
         /// </summary>
+        /// <value>Specifies the author name specified within the PDF, if any.</value>
         [DataMember(Name="author", EmitDefaultValue=false)]
         public string Author { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// Specifies the document title specified within the PDF, if any.
         /// </summary>
+        /// <value>Specifies the document title specified within the PDF, if any.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Subject
+        /// Specifies the document subject specified within the PDF, if any.
         /// </summary>
+        /// <value>Specifies the document subject specified within the PDF, if any.</value>
         [DataMember(Name="subject", EmitDefaultValue=false)]
         public string Subject { get; set; }
 
         /// <summary>
-        /// Gets or Sets Producer
+        /// Specifies the producer name specified within the PDF, if any.
         /// </summary>
+        /// <value>Specifies the producer name specified within the PDF, if any.</value>
         [DataMember(Name="producer", EmitDefaultValue=false)]
         public string Producer { get; set; }
 
         /// <summary>
-        /// Gets or Sets Metadata
+        /// Specifies the metadata contained within the PDF, if any.
         /// </summary>
+        /// <value>Specifies the metadata contained within the PDF, if any.</value>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public string Metadata { get; set; }
 
         /// <summary>
-        /// Gets or Sets Keywords
+        /// Specifies the keywords associated with the PDF, if any.
         /// </summary>
+        /// <value>Specifies the keywords associated with the PDF, if any.</value>
         [DataMember(Name="keywords", EmitDefaultValue=false)]
         public string Keywords { get; set; }
 
         /// <summary>
-        /// Gets or Sets ClearEmptyValues
+        /// Specifies whether the empty info values shall be cleared.
         /// </summary>
+        /// <value>Specifies whether the empty info values shall be cleared.</value>
         [DataMember(Name="clearEmptyValues", EmitDefaultValue=false)]
         public bool? ClearEmptyValues { get; set; }
 

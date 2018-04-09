@@ -38,8 +38,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFClearPageParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the page or the range of pages to be cleared. (default to &quot;1&quot;).</param>
         public PDFClearPageParameters(string FileId = default(string), string PageRange = "1")
         {
             // to ensure "FileId" is required (not null)
@@ -63,14 +63,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the page or the range of pages to be cleared.
         /// </summary>
+        /// <value>Specifies the page or the range of pages to be cleared.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 

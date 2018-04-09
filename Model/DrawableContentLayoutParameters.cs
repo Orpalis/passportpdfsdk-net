@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class DrawableContentLayoutParameters :  IEquatable<DrawableContentLayoutParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets HorizontalPosition
+        /// Specifies the horizontal position of the content to be drawn.
         /// </summary>
+        /// <value>Specifies the horizontal position of the content to be drawn.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum HorizontalPositionEnum
         {
@@ -63,13 +64,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets HorizontalPosition
+        /// Specifies the horizontal position of the content to be drawn.
         /// </summary>
+        /// <value>Specifies the horizontal position of the content to be drawn.</value>
         [DataMember(Name="horizontalPosition", EmitDefaultValue=false)]
         public HorizontalPositionEnum? HorizontalPosition { get; set; }
         /// <summary>
-        /// Gets or Sets VerticalPosition
+        /// Specifies the vertical position of the content to be drawn.
         /// </summary>
+        /// <value>Specifies the vertical position of the content to be drawn.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum VerticalPositionEnum
         {
@@ -100,13 +103,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets VerticalPosition
+        /// Specifies the vertical position of the content to be drawn.
         /// </summary>
+        /// <value>Specifies the vertical position of the content to be drawn.</value>
         [DataMember(Name="verticalPosition", EmitDefaultValue=false)]
         public VerticalPositionEnum? VerticalPosition { get; set; }
         /// <summary>
-        /// Gets or Sets Size
+        /// Specifies the size of the content to be drawn.
         /// </summary>
+        /// <value>Specifies the size of the content to be drawn.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SizeEnum
         {
@@ -143,21 +148,22 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets Size
+        /// Specifies the size of the content to be drawn.
         /// </summary>
+        /// <value>Specifies the size of the content to be drawn.</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public SizeEnum? Size { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DrawableContentLayoutParameters" /> class.
         /// </summary>
-        /// <param name="HorizontalPosition">HorizontalPosition.</param>
-        /// <param name="VerticalPosition">VerticalPosition.</param>
-        /// <param name="Size">Size.</param>
-        /// <param name="IndentFromEdges">IndentFromEdges.</param>
-        /// <param name="AbsolutePositionX">AbsolutePositionX.</param>
-        /// <param name="AbsolutePositionY">AbsolutePositionY.</param>
-        /// <param name="AbsoluteWidth">AbsoluteWidth.</param>
-        /// <param name="AbsoluteHeight">AbsoluteHeight.</param>
+        /// <param name="HorizontalPosition">Specifies the horizontal position of the content to be drawn..</param>
+        /// <param name="VerticalPosition">Specifies the vertical position of the content to be drawn..</param>
+        /// <param name="Size">Specifies the size of the content to be drawn..</param>
+        /// <param name="IndentFromEdges">Specifies whether the content shall be slightly indented from the nearest page edges..</param>
+        /// <param name="AbsolutePositionX">Specifies the absolute horizontal position of the content, in points..</param>
+        /// <param name="AbsolutePositionY">Specifies the absolute vertical position of the content, in points..</param>
+        /// <param name="AbsoluteWidth">Specifies the absolute width of the content, in points..</param>
+        /// <param name="AbsoluteHeight">Specifies the absolute height of the content, in points..</param>
         public DrawableContentLayoutParameters(HorizontalPositionEnum? HorizontalPosition = default(HorizontalPositionEnum?), VerticalPositionEnum? VerticalPosition = default(VerticalPositionEnum?), SizeEnum? Size = default(SizeEnum?), bool? IndentFromEdges = default(bool?), float? AbsolutePositionX = default(float?), float? AbsolutePositionY = default(float?), float? AbsoluteWidth = default(float?), float? AbsoluteHeight = default(float?))
         {
             this.HorizontalPosition = HorizontalPosition;
@@ -174,32 +180,37 @@ namespace PassportPDF.Model
 
 
         /// <summary>
-        /// Gets or Sets IndentFromEdges
+        /// Specifies whether the content shall be slightly indented from the nearest page edges.
         /// </summary>
+        /// <value>Specifies whether the content shall be slightly indented from the nearest page edges.</value>
         [DataMember(Name="indentFromEdges", EmitDefaultValue=false)]
         public bool? IndentFromEdges { get; set; }
 
         /// <summary>
-        /// Gets or Sets AbsolutePositionX
+        /// Specifies the absolute horizontal position of the content, in points.
         /// </summary>
+        /// <value>Specifies the absolute horizontal position of the content, in points.</value>
         [DataMember(Name="absolutePositionX", EmitDefaultValue=false)]
         public float? AbsolutePositionX { get; set; }
 
         /// <summary>
-        /// Gets or Sets AbsolutePositionY
+        /// Specifies the absolute vertical position of the content, in points.
         /// </summary>
+        /// <value>Specifies the absolute vertical position of the content, in points.</value>
         [DataMember(Name="absolutePositionY", EmitDefaultValue=false)]
         public float? AbsolutePositionY { get; set; }
 
         /// <summary>
-        /// Gets or Sets AbsoluteWidth
+        /// Specifies the absolute width of the content, in points.
         /// </summary>
+        /// <value>Specifies the absolute width of the content, in points.</value>
         [DataMember(Name="absoluteWidth", EmitDefaultValue=false)]
         public float? AbsoluteWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets AbsoluteHeight
+        /// Specifies the absolute height of the content, in points.
         /// </summary>
+        /// <value>Specifies the absolute height of the content, in points.</value>
         [DataMember(Name="absoluteHeight", EmitDefaultValue=false)]
         public float? AbsoluteHeight { get; set; }
 

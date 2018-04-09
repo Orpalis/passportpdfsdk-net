@@ -25,35 +25,32 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to an insert new page action request.
+    /// Holds the data of an image from a given page of a document.
     /// </summary>
     [DataContract]
-    public partial class PDFInsertNewPageResponse :  IEquatable<PDFInsertNewPageResponse>, IValidatableObject
+    public partial class PageImage :  IEquatable<PageImage>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFInsertNewPageResponse" /> class.
+        /// Initializes a new instance of the <see cref="PageImage" /> class.
         /// </summary>
-        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
-        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
-        public PDFInsertNewPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        [JsonConstructorAttribute]
+        public PageImage()
         {
-            this.Error = Error;
-            this.RemainingTokens = RemainingTokens;
         }
         
         /// <summary>
-        /// If not null, provides information about an unsuccessful action.
+        /// Specifies the number of the page.
         /// </summary>
-        /// <value>If not null, provides information about an unsuccessful action.</value>
-        [DataMember(Name="error", EmitDefaultValue=false)]
-        public Error Error { get; set; }
+        /// <value>Specifies the number of the page.</value>
+        [DataMember(Name="pageNumber", EmitDefaultValue=false)]
+        public int? PageNumber { get; private set; }
 
         /// <summary>
-        /// Specifies the number of remaining tokens.
+        /// The data of the image.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        /// <value>The data of the image.</value>
+        [DataMember(Name="imageData", EmitDefaultValue=false)]
+        public byte[] ImageData { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +59,9 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFInsertNewPageResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
+            sb.Append("class PageImage {\n");
+            sb.Append("  PageNumber: ").Append(PageNumber).Append("\n");
+            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +82,29 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFInsertNewPageResponse);
+            return this.Equals(input as PageImage);
         }
 
         /// <summary>
-        /// Returns true if PDFInsertNewPageResponse instances are equal
+        /// Returns true if PageImage instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFInsertNewPageResponse to be compared</param>
+        /// <param name="input">Instance of PageImage to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFInsertNewPageResponse input)
+        public bool Equals(PageImage input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    this.PageNumber == input.PageNumber ||
+                    (this.PageNumber != null &&
+                    this.PageNumber.Equals(input.PageNumber))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    this.ImageData == input.ImageData ||
+                    (this.ImageData != null &&
+                    this.ImageData.Equals(input.ImageData))
                 );
         }
 
@@ -120,10 +117,10 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
+                if (this.PageNumber != null)
+                    hashCode = hashCode * 59 + this.PageNumber.GetHashCode();
+                if (this.ImageData != null)
+                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
                 return hashCode;
             }
         }

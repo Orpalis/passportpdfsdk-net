@@ -38,8 +38,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFLinearizeParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PackDocument">PackDocument.</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PackDocument">Specifies whether the document shall be packed, in order to reduce its size..</param>
         public PDFLinearizeParameters(string FileId = default(string), bool? PackDocument = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -55,14 +55,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PackDocument
+        /// Specifies whether the document shall be packed, in order to reduce its size.
         /// </summary>
+        /// <value>Specifies whether the document shall be packed, in order to reduce its size.</value>
         [DataMember(Name="packDocument", EmitDefaultValue=false)]
         public bool? PackDocument { get; set; }
 

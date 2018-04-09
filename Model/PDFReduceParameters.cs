@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFReduceParameters :  IEquatable<PDFReduceParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets OutputVersion
+        /// Specifies the preferred version for the reduced PDF.
         /// </summary>
+        /// <value>Specifies the preferred version for the reduced PDF.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OutputVersionEnum
         {
@@ -69,13 +70,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets OutputVersion
+        /// Specifies the preferred version for the reduced PDF.
         /// </summary>
+        /// <value>Specifies the preferred version for the reduced PDF.</value>
         [DataMember(Name="outputVersion", EmitDefaultValue=false)]
         public OutputVersionEnum? OutputVersion { get; set; }
         /// <summary>
-        /// Gets or Sets ImageQuality
+        /// Specifies the quality to be used for the compression of the images from the PDF.
         /// </summary>
+        /// <value>Specifies the quality to be used for the compression of the images from the PDF.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ImageQualityEnum
         {
@@ -106,8 +109,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ImageQuality
+        /// Specifies the quality to be used for the compression of the images from the PDF.
         /// </summary>
+        /// <value>Specifies the quality to be used for the compression of the images from the PDF.</value>
         [DataMember(Name="imageQuality", EmitDefaultValue=false)]
         public ImageQualityEnum? ImageQuality { get; set; }
         /// <summary>
@@ -118,26 +122,27 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFReduceParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="OutputVersion">OutputVersion (default to OutputVersionEnum.PdfVersion15).</param>
-        /// <param name="ImageQuality">ImageQuality (default to ImageQualityEnum.ImageQualityMedium).</param>
-        /// <param name="RecompressImages">RecompressImages (default to true).</param>
-        /// <param name="EnableColorDetection">EnableColorDetection (default to true).</param>
-        /// <param name="PackDocument">PackDocument (default to true).</param>
-        /// <param name="PackFonts">PackFonts (default to true).</param>
-        /// <param name="DownscaleImages">DownscaleImages (default to true).</param>
-        /// <param name="DownscaleResolution">DownscaleResolution (default to 150).</param>
-        /// <param name="FastWebView">FastWebView (default to false).</param>
-        /// <param name="RemoveFormFields">RemoveFormFields (default to false).</param>
-        /// <param name="RemoveAnnotations">RemoveAnnotations (default to false).</param>
-        /// <param name="RemoveBookmarks">RemoveBookmarks (default to false).</param>
-        /// <param name="RemoveHyperlinks">RemoveHyperlinks (default to false).</param>
-        /// <param name="RemoveEmbeddedFiles">RemoveEmbeddedFiles (default to false).</param>
-        /// <param name="EnableJPEG2000">EnableJPEG2000 (default to true).</param>
-        /// <param name="EnableJBIG2">EnableJBIG2 (default to true).</param>
-        /// <param name="EnableCharRepair">EnableCharRepair (default to false).</param>
-        /// <param name="EnableMRC">EnableMRC (default to false).</param>
-        public PDFReduceParameters(string FileId = default(string), OutputVersionEnum? OutputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? ImageQuality = ImageQualityEnum.ImageQualityMedium, bool? RecompressImages = true, bool? EnableColorDetection = true, bool? PackDocument = true, bool? PackFonts = true, bool? DownscaleImages = true, int? DownscaleResolution = 150, bool? FastWebView = false, bool? RemoveFormFields = false, bool? RemoveAnnotations = false, bool? RemoveBookmarks = false, bool? RemoveHyperlinks = false, bool? RemoveEmbeddedFiles = false, bool? EnableJPEG2000 = true, bool? EnableJBIG2 = true, bool? EnableCharRepair = false, bool? EnableMRC = false)
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="OutputVersion">Specifies the preferred version for the reduced PDF. (default to OutputVersionEnum.PdfVersion15).</param>
+        /// <param name="ImageQuality">Specifies the quality to be used for the compression of the images from the PDF. (default to ImageQualityEnum.ImageQualityMedium).</param>
+        /// <param name="RecompressImages">Specifies whether the images from the PDF shall be recompressed. (default to true).</param>
+        /// <param name="EnableColorDetection">Specifies whether color detection must be performed on the images from the PDF. (default to true).</param>
+        /// <param name="PackDocument">Specifies whether the PDF shall be packed when saved in order to reduce its size. (default to true).</param>
+        /// <param name="PackFonts">Specifies whether the PDF fonts must be packed in order to reduce their size. (default to true).</param>
+        /// <param name="DownscaleImages">Specifies whether the images from the PDF shall be downscaled. (default to true).</param>
+        /// <param name="DownscaleResolution">Specifies the scale percentage for the images downscaling. (default to 150).</param>
+        /// <param name="FastWebView">Specifies whether the PDF shall be optimized for online distribution. (default to false).</param>
+        /// <param name="RemoveFormFields">Specifies whether the form fields shall be removed from the PDF. (default to false).</param>
+        /// <param name="RemoveAnnotations">Specifies whether the annotations shall be removed from the PDF. (default to false).</param>
+        /// <param name="RemoveBookmarks">Specifies whether the bookmarks shall be removed from the PDF. (default to false).</param>
+        /// <param name="RemoveHyperlinks">Specifies whether the hyperlinks shall be removed from the PDF. (default to false).</param>
+        /// <param name="RemoveEmbeddedFiles">Specifies whether the embedded files shall be removed from the PDF. (default to false).</param>
+        /// <param name="EnableJPEG2000">Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF. (default to true).</param>
+        /// <param name="EnableJBIG2">Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF. (default to true).</param>
+        /// <param name="EnableCharRepair">Specifies whether characters repairing shall be performed during bitonal conversion. (default to false).</param>
+        /// <param name="EnableMRC">Specifies whether MRC shall be used for compressing the PDF contents. (default to false).</param>
+        /// <param name="RemoveBlankPages">Specifies whether the blank pages shall be removed. (default to false).</param>
+        public PDFReduceParameters(string FileId = default(string), OutputVersionEnum? OutputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? ImageQuality = ImageQualityEnum.ImageQualityMedium, bool? RecompressImages = true, bool? EnableColorDetection = true, bool? PackDocument = true, bool? PackFonts = true, bool? DownscaleImages = true, int? DownscaleResolution = 150, bool? FastWebView = false, bool? RemoveFormFields = false, bool? RemoveAnnotations = false, bool? RemoveBookmarks = false, bool? RemoveHyperlinks = false, bool? RemoveEmbeddedFiles = false, bool? EnableJPEG2000 = true, bool? EnableJBIG2 = true, bool? EnableCharRepair = false, bool? EnableMRC = false, bool? RemoveBlankPages = false)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -310,111 +315,144 @@ namespace PassportPDF.Model
             {
                 this.EnableMRC = EnableMRC;
             }
+            // use default value if no "RemoveBlankPages" provided
+            if (RemoveBlankPages == null)
+            {
+                this.RemoveBlankPages = false;
+            }
+            else
+            {
+                this.RemoveBlankPages = RemoveBlankPages;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets RecompressImages
+        /// Specifies whether the images from the PDF shall be recompressed.
         /// </summary>
+        /// <value>Specifies whether the images from the PDF shall be recompressed.</value>
         [DataMember(Name="recompressImages", EmitDefaultValue=false)]
         public bool? RecompressImages { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableColorDetection
+        /// Specifies whether color detection must be performed on the images from the PDF.
         /// </summary>
+        /// <value>Specifies whether color detection must be performed on the images from the PDF.</value>
         [DataMember(Name="enableColorDetection", EmitDefaultValue=false)]
         public bool? EnableColorDetection { get; set; }
 
         /// <summary>
-        /// Gets or Sets PackDocument
+        /// Specifies whether the PDF shall be packed when saved in order to reduce its size.
         /// </summary>
+        /// <value>Specifies whether the PDF shall be packed when saved in order to reduce its size.</value>
         [DataMember(Name="packDocument", EmitDefaultValue=false)]
         public bool? PackDocument { get; set; }
 
         /// <summary>
-        /// Gets or Sets PackFonts
+        /// Specifies whether the PDF fonts must be packed in order to reduce their size.
         /// </summary>
+        /// <value>Specifies whether the PDF fonts must be packed in order to reduce their size.</value>
         [DataMember(Name="packFonts", EmitDefaultValue=false)]
         public bool? PackFonts { get; set; }
 
         /// <summary>
-        /// Gets or Sets DownscaleImages
+        /// Specifies whether the images from the PDF shall be downscaled.
         /// </summary>
+        /// <value>Specifies whether the images from the PDF shall be downscaled.</value>
         [DataMember(Name="downscaleImages", EmitDefaultValue=false)]
         public bool? DownscaleImages { get; set; }
 
         /// <summary>
-        /// Gets or Sets DownscaleResolution
+        /// Specifies the scale percentage for the images downscaling.
         /// </summary>
+        /// <value>Specifies the scale percentage for the images downscaling.</value>
         [DataMember(Name="downscaleResolution", EmitDefaultValue=false)]
         public int? DownscaleResolution { get; set; }
 
         /// <summary>
-        /// Gets or Sets FastWebView
+        /// Specifies whether the PDF shall be optimized for online distribution.
         /// </summary>
+        /// <value>Specifies whether the PDF shall be optimized for online distribution.</value>
         [DataMember(Name="fastWebView", EmitDefaultValue=false)]
         public bool? FastWebView { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemoveFormFields
+        /// Specifies whether the form fields shall be removed from the PDF.
         /// </summary>
+        /// <value>Specifies whether the form fields shall be removed from the PDF.</value>
         [DataMember(Name="removeFormFields", EmitDefaultValue=false)]
         public bool? RemoveFormFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemoveAnnotations
+        /// Specifies whether the annotations shall be removed from the PDF.
         /// </summary>
+        /// <value>Specifies whether the annotations shall be removed from the PDF.</value>
         [DataMember(Name="removeAnnotations", EmitDefaultValue=false)]
         public bool? RemoveAnnotations { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemoveBookmarks
+        /// Specifies whether the bookmarks shall be removed from the PDF.
         /// </summary>
+        /// <value>Specifies whether the bookmarks shall be removed from the PDF.</value>
         [DataMember(Name="removeBookmarks", EmitDefaultValue=false)]
         public bool? RemoveBookmarks { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemoveHyperlinks
+        /// Specifies whether the hyperlinks shall be removed from the PDF.
         /// </summary>
+        /// <value>Specifies whether the hyperlinks shall be removed from the PDF.</value>
         [DataMember(Name="removeHyperlinks", EmitDefaultValue=false)]
         public bool? RemoveHyperlinks { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemoveEmbeddedFiles
+        /// Specifies whether the embedded files shall be removed from the PDF.
         /// </summary>
+        /// <value>Specifies whether the embedded files shall be removed from the PDF.</value>
         [DataMember(Name="removeEmbeddedFiles", EmitDefaultValue=false)]
         public bool? RemoveEmbeddedFiles { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableJPEG2000
+        /// Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF.
         /// </summary>
+        /// <value>Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF.</value>
         [DataMember(Name="enableJPEG2000", EmitDefaultValue=false)]
         public bool? EnableJPEG2000 { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableJBIG2
+        /// Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF.
         /// </summary>
+        /// <value>Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF.</value>
         [DataMember(Name="enableJBIG2", EmitDefaultValue=false)]
         public bool? EnableJBIG2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableCharRepair
+        /// Specifies whether characters repairing shall be performed during bitonal conversion.
         /// </summary>
+        /// <value>Specifies whether characters repairing shall be performed during bitonal conversion.</value>
         [DataMember(Name="enableCharRepair", EmitDefaultValue=false)]
         public bool? EnableCharRepair { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableMRC
+        /// Specifies whether MRC shall be used for compressing the PDF contents.
         /// </summary>
+        /// <value>Specifies whether MRC shall be used for compressing the PDF contents.</value>
         [DataMember(Name="enableMRC", EmitDefaultValue=false)]
         public bool? EnableMRC { get; set; }
+
+        /// <summary>
+        /// Specifies whether the blank pages shall be removed.
+        /// </summary>
+        /// <value>Specifies whether the blank pages shall be removed.</value>
+        [DataMember(Name="removeBlankPages", EmitDefaultValue=false)]
+        public bool? RemoveBlankPages { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -443,6 +481,7 @@ namespace PassportPDF.Model
             sb.Append("  EnableJBIG2: ").Append(EnableJBIG2).Append("\n");
             sb.Append("  EnableCharRepair: ").Append(EnableCharRepair).Append("\n");
             sb.Append("  EnableMRC: ").Append(EnableMRC).Append("\n");
+            sb.Append("  RemoveBlankPages: ").Append(RemoveBlankPages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -571,6 +610,11 @@ namespace PassportPDF.Model
                     this.EnableMRC == input.EnableMRC ||
                     (this.EnableMRC != null &&
                     this.EnableMRC.Equals(input.EnableMRC))
+                ) && 
+                (
+                    this.RemoveBlankPages == input.RemoveBlankPages ||
+                    (this.RemoveBlankPages != null &&
+                    this.RemoveBlankPages.Equals(input.RemoveBlankPages))
                 );
         }
 
@@ -621,6 +665,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.EnableCharRepair.GetHashCode();
                 if (this.EnableMRC != null)
                     hashCode = hashCode * 59 + this.EnableMRC.GetHashCode();
+                if (this.RemoveBlankPages != null)
+                    hashCode = hashCode * 59 + this.RemoveBlankPages.GetHashCode();
                 return hashCode;
             }
         }

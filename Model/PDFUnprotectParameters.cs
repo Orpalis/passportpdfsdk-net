@@ -38,8 +38,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFUnprotectParameters" /> class.
         /// </summary>
-        /// <param name="Password">Password (required).</param>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="Password">Specifies the password to be used to unprotect the PDF. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         public PDFUnprotectParameters(string Password = default(string), string FileId = default(string))
         {
             // to ensure "Password" is required (not null)
@@ -63,14 +63,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Password
+        /// Specifies the password to be used to unprotect the PDF.
         /// </summary>
+        /// <value>Specifies the password to be used to unprotect the PDF.</value>
         [DataMember(Name="password", EmitDefaultValue=false)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

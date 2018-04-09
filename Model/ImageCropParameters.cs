@@ -69,7 +69,7 @@ namespace PassportPDF.Model
         /// <param name="CropBoxTop">Specifies the crop box top coordinate. (required).</param>
         /// <param name="CropBoxWidth">Specifies the crop box width. (required).</param>
         /// <param name="CropBoxHeight">Specifies the crop box height. (required).</param>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to crop. (default to &quot;1&quot;).</param>
         /// <param name="CropUnit">Specifies in which unit the provided crop box coordinates are expressed. (default to CropUnitEnum.Pixel).</param>
         public ImageCropParameters(int? CropBoxLeft = default(int?), int? CropBoxTop = default(int?), int? CropBoxWidth = default(int?), int? CropBoxHeight = default(int?), string FileId = default(string), string PageRange = "1", CropUnitEnum? CropUnit = CropUnitEnum.Pixel)
@@ -168,8 +168,9 @@ namespace PassportPDF.Model
         public int? CropBoxHeight { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

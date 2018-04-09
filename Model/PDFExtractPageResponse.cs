@@ -33,8 +33,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFExtractPageResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
         /// <param name="FileIds">Specifies the identifier(s) of the file(s) created as a result of the action..</param>
         /// <param name="FileData">Specifies the data of the file(s) created as a result of the action..</param>
         public PDFExtractPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<string> FileIds = default(List<string>), List<byte[]> FileData = default(List<byte[]>))
@@ -46,14 +46,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Specifies the number of remaining tokens.
         /// </summary>
+        /// <value>Specifies the number of remaining tokens.</value>
         [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
         public long? RemainingTokens { get; set; }
 

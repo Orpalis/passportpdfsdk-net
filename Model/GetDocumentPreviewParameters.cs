@@ -38,12 +38,12 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
         /// </summary>
-        /// <param name="FileName">FileName (required).</param>
-        /// <param name="FileId">FileId.</param>
-        /// <param name="FileData">FileData.</param>
-        /// <param name="ThumbnailWidth">ThumbnailWidth (default to 140).</param>
-        /// <param name="ThumbnailHeight">ThumbnailHeight (default to 220).</param>
-        /// <param name="ThumbnailBackgroundColor">ThumbnailBackgroundColor (default to &quot;rgba(0,0,0,0)&quot;).</param>
+        /// <param name="FileName">Specifies the name of the file to be previewed. (required).</param>
+        /// <param name="FileId">Specifies the identifier of the file to be previewed..</param>
+        /// <param name="FileData">Specifies the data of the document to be previewed..</param>
+        /// <param name="ThumbnailWidth">Specifies, in pixels, the width of the thumbnail to be retrieved. (default to 140).</param>
+        /// <param name="ThumbnailHeight">Specifies, in pixels, the height of the thumbnail to be retrieved. (default to 220).</param>
+        /// <param name="ThumbnailBackgroundColor">Specifies the background color of the thumbnail, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;). (default to &quot;rgba(0,0,0,0)&quot;).</param>
         public GetDocumentPreviewParameters(string FileName = default(string), string FileId = default(string), byte[] FileData = default(byte[]), int? ThumbnailWidth = 140, int? ThumbnailHeight = 220, string ThumbnailBackgroundColor = "rgba(0,0,0,0)")
         {
             // to ensure "FileName" is required (not null)
@@ -87,38 +87,44 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileName
+        /// Specifies the name of the file to be previewed.
         /// </summary>
+        /// <value>Specifies the name of the file to be previewed.</value>
         [DataMember(Name="fileName", EmitDefaultValue=false)]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// Specifies the identifier of the file to be previewed.
         /// </summary>
+        /// <value>Specifies the identifier of the file to be previewed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileData
+        /// Specifies the data of the document to be previewed.
         /// </summary>
+        /// <value>Specifies the data of the document to be previewed.</value>
         [DataMember(Name="fileData", EmitDefaultValue=false)]
         public byte[] FileData { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailWidth
+        /// Specifies, in pixels, the width of the thumbnail to be retrieved.
         /// </summary>
+        /// <value>Specifies, in pixels, the width of the thumbnail to be retrieved.</value>
         [DataMember(Name="thumbnailWidth", EmitDefaultValue=false)]
         public int? ThumbnailWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailHeight
+        /// Specifies, in pixels, the height of the thumbnail to be retrieved.
         /// </summary>
+        /// <value>Specifies, in pixels, the height of the thumbnail to be retrieved.</value>
         [DataMember(Name="thumbnailHeight", EmitDefaultValue=false)]
         public int? ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailBackgroundColor
+        /// Specifies the background color of the thumbnail, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).
         /// </summary>
+        /// <value>Specifies the background color of the thumbnail, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).</value>
         [DataMember(Name="thumbnailBackgroundColor", EmitDefaultValue=false)]
         public string ThumbnailBackgroundColor { get; set; }
 

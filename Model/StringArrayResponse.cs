@@ -33,8 +33,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StringArrayResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Value">Value.</param>
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="Value">The response value..</param>
         public StringArrayResponse(Error Error = default(Error), List<string> Value = default(List<string>))
         {
             this.Error = Error;
@@ -42,14 +42,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The response value.
         /// </summary>
+        /// <value>The response value.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public List<string> Value { get; set; }
 

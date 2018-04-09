@@ -130,7 +130,7 @@ namespace PassportPDF.Model
         /// </summary>
         /// <param name="ResizeHorizontal">Specifies the resize horizontal parameter. (required).</param>
         /// <param name="ResizeVertical">Specifies the resize vertical parameter. (required).</param>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to resize. (default to &quot;1&quot;).</param>
         /// <param name="ResizeMode">Specifies the interpolation algorithm that must be used during the resizing operation. (default to ResizeModeEnum.Auto).</param>
         /// <param name="ResizeUnit">Specifies the unit of measure for the given parameters. (default to ResizeUnitEnum.Pixel).</param>
@@ -207,8 +207,9 @@ namespace PassportPDF.Model
         public float? ResizeVertical { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

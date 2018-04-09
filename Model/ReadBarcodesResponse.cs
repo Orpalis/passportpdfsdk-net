@@ -33,8 +33,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReadBarcodesResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
         /// <param name="Barcodes">Specifies the information of the different barcodes which have been read..</param>
         public ReadBarcodesResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<BarcodeInfo> Barcodes = default(List<BarcodeInfo>))
         {
@@ -44,14 +44,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Specifies the number of remaining tokens.
         /// </summary>
+        /// <value>Specifies the number of remaining tokens.</value>
         [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
         public long? RemainingTokens { get; set; }
 

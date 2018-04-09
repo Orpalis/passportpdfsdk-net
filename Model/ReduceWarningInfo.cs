@@ -102,7 +102,13 @@ namespace PassportPDF.Model
             /// Enum FileSizeReductionFailure for "FileSizeReductionFailure"
             /// </summary>
             [EnumMember(Value = "FileSizeReductionFailure")]
-            FileSizeReductionFailure = 11
+            FileSizeReductionFailure = 11,
+            
+            /// <summary>
+            /// Enum BlankPageRemovalFailure for "BlankPageRemovalFailure"
+            /// </summary>
+            [EnumMember(Value = "BlankPageRemovalFailure")]
+            BlankPageRemovalFailure = 12
         }
 
         /// <summary>

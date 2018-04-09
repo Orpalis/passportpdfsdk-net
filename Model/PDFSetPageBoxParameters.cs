@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFSetPageBoxParameters :  IEquatable<PDFSetPageBoxParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets PageBox
+        /// Specifies the page box to be set.
         /// </summary>
+        /// <value>Specifies the page box to be set.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PageBoxEnum
         {
@@ -69,8 +70,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets PageBox
+        /// Specifies the page box to be set.
         /// </summary>
+        /// <value>Specifies the page box to be set.</value>
         [DataMember(Name="pageBox", EmitDefaultValue=false)]
         public PageBoxEnum? PageBox { get; set; }
         /// <summary>
@@ -81,13 +83,13 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSetPageBoxParameters" /> class.
         /// </summary>
-        /// <param name="Left">Left (required).</param>
-        /// <param name="Top">Top (required).</param>
-        /// <param name="Right">Right (required).</param>
-        /// <param name="Bottom">Bottom (required).</param>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="PageBox">PageBox (default to PageBoxEnum.CropBox).</param>
+        /// <param name="Left">Specifies, in points, the newly defined left position of the specified page box. (required).</param>
+        /// <param name="Top">Specifies, in points, the newly defined top position of the specified page box. (required).</param>
+        /// <param name="Right">Specifies, in points, the newly defined right position of the specified page box. (required).</param>
+        /// <param name="Bottom">Specifies, in points, the newly defined bottom position of the specified page box. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of page whose page box shall be set. (default to &quot;*&quot;).</param>
+        /// <param name="PageBox">Specifies the page box to be set. (default to PageBoxEnum.CropBox).</param>
         public PDFSetPageBoxParameters(float? Left = default(float?), float? Top = default(float?), float? Right = default(float?), float? Bottom = default(float?), string FileId = default(string), string PageRange = "*", PageBoxEnum? PageBox = PageBoxEnum.CropBox)
         {
             // to ensure "Left" is required (not null)
@@ -156,38 +158,44 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Left
+        /// Specifies, in points, the newly defined left position of the specified page box.
         /// </summary>
+        /// <value>Specifies, in points, the newly defined left position of the specified page box.</value>
         [DataMember(Name="left", EmitDefaultValue=false)]
         public float? Left { get; set; }
 
         /// <summary>
-        /// Gets or Sets Top
+        /// Specifies, in points, the newly defined top position of the specified page box.
         /// </summary>
+        /// <value>Specifies, in points, the newly defined top position of the specified page box.</value>
         [DataMember(Name="top", EmitDefaultValue=false)]
         public float? Top { get; set; }
 
         /// <summary>
-        /// Gets or Sets Right
+        /// Specifies, in points, the newly defined right position of the specified page box.
         /// </summary>
+        /// <value>Specifies, in points, the newly defined right position of the specified page box.</value>
         [DataMember(Name="right", EmitDefaultValue=false)]
         public float? Right { get; set; }
 
         /// <summary>
-        /// Gets or Sets Bottom
+        /// Specifies, in points, the newly defined bottom position of the specified page box.
         /// </summary>
+        /// <value>Specifies, in points, the newly defined bottom position of the specified page box.</value>
         [DataMember(Name="bottom", EmitDefaultValue=false)]
         public float? Bottom { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of page whose page box shall be set.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of page whose page box shall be set.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 

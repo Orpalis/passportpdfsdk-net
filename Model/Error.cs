@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class Error :  IEquatable<Error>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Resultcode
+        /// Specifies the last result status provided by the PassportPDF API.
         /// </summary>
+        /// <value>Specifies the last result status provided by the PassportPDF API.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ResultcodeEnum
         {
@@ -455,47 +456,56 @@ namespace PassportPDF.Model
             /// Enum CanNotConvertColorDepth for "CanNotConvertColorDepth"
             /// </summary>
             [EnumMember(Value = "CanNotConvertColorDepth")]
-            CanNotConvertColorDepth = 70
+            CanNotConvertColorDepth = 70,
+            
+            /// <summary>
+            /// Enum PdfCanNotAddFont for "PdfCanNotAddFont"
+            /// </summary>
+            [EnumMember(Value = "PdfCanNotAddFont")]
+            PdfCanNotAddFont = 71,
+            
+            /// <summary>
+            /// Enum ActionExecutionRejected for "ActionExecutionRejected"
+            /// </summary>
+            [EnumMember(Value = "ActionExecutionRejected")]
+            ActionExecutionRejected = 72
         }
 
         /// <summary>
-        /// Gets or Sets Resultcode
+        /// Specifies the last result status provided by the PassportPDF API.
         /// </summary>
+        /// <value>Specifies the last result status provided by the PassportPDF API.</value>
         [DataMember(Name="resultcode", EmitDefaultValue=false)]
         public ResultcodeEnum? Resultcode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="Resultcode">Resultcode.</param>
-        /// <param name="ExtResultStatus">ExtResultStatus.</param>
-        /// <param name="ExtResultMessage">ExtResultMessage.</param>
-        /// <param name="InternalErrorId">InternalErrorId.</param>
-        public Error(ResultcodeEnum? Resultcode = default(ResultcodeEnum?), string ExtResultStatus = default(string), string ExtResultMessage = default(string), string InternalErrorId = default(string))
+        [JsonConstructorAttribute]
+        public Error()
         {
-            this.Resultcode = Resultcode;
-            this.ExtResultStatus = ExtResultStatus;
-            this.ExtResultMessage = ExtResultMessage;
-            this.InternalErrorId = InternalErrorId;
         }
         
 
         /// <summary>
-        /// Gets or Sets ExtResultStatus
+        /// Specifies a result code related to an error which occured in an external component.
         /// </summary>
+        /// <value>Specifies a result code related to an error which occured in an external component.</value>
         [DataMember(Name="extResultStatus", EmitDefaultValue=false)]
-        public string ExtResultStatus { get; set; }
+        public string ExtResultStatus { get; private set; }
 
         /// <summary>
-        /// Gets or Sets ExtResultMessage
+        /// Specifies a message which further describes the error.
         /// </summary>
+        /// <value>Specifies a message which further describes the error.</value>
         [DataMember(Name="extResultMessage", EmitDefaultValue=false)]
-        public string ExtResultMessage { get; set; }
+        public string ExtResultMessage { get; private set; }
 
         /// <summary>
-        /// Gets or Sets InternalErrorId
+        /// Specifies a unique identifier, allowing to easily assess the error.
         /// </summary>
+        /// <value>Specifies a unique identifier, allowing to easily assess the error.</value>
         [DataMember(Name="internalErrorId", EmitDefaultValue=false)]
-        public string InternalErrorId { get; set; }
+        public string InternalErrorId { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

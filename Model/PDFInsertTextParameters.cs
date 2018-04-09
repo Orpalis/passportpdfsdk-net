@@ -25,27 +25,38 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for a remove page form fields action.
+    /// Represents the parameters for an insert text action.
     /// </summary>
     [DataContract]
-    public partial class PDFRemovePageFormFieldsParameters :  IEquatable<PDFRemovePageFormFieldsParameters>, IValidatableObject
+    public partial class PDFInsertTextParameters :  IEquatable<PDFInsertTextParameters>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFRemovePageFormFieldsParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFInsertTextParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFRemovePageFormFieldsParameters() { }
+        protected PDFInsertTextParameters() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFRemovePageFormFieldsParameters" /> class.
+        /// Initializes a new instance of the <see cref="PDFInsertTextParameters" /> class.
         /// </summary>
+        /// <param name="TextParameters">Specifies the properties of the text content to be inserted. (required).</param>
         /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        /// <param name="PageRange">Specifies the page or the page range whose form fields shall be removed. (default to &quot;*&quot;).</param>
-        public PDFRemovePageFormFieldsParameters(string FileId = default(string), string PageRange = "*")
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages on which the text shall be inserted. (default to &quot;*&quot;).</param>
+        /// <param name="TextBoundingBoxLayout">Specifies the layout of the text bounding box on the page..</param>
+        public PDFInsertTextParameters(PdfAlignedTextParameters TextParameters = default(PdfAlignedTextParameters), string FileId = default(string), string PageRange = "*", DrawableContentLayoutParameters TextBoundingBoxLayout = default(DrawableContentLayoutParameters))
         {
+            // to ensure "TextParameters" is required (not null)
+            if (TextParameters == null)
+            {
+                throw new InvalidDataException("TextParameters is a required property for PDFInsertTextParameters and cannot be null");
+            }
+            else
+            {
+                this.TextParameters = TextParameters;
+            }
             // to ensure "FileId" is required (not null)
             if (FileId == null)
             {
-                throw new InvalidDataException("FileId is a required property for PDFRemovePageFormFieldsParameters and cannot be null");
+                throw new InvalidDataException("FileId is a required property for PDFInsertTextParameters and cannot be null");
             }
             else
             {
@@ -60,8 +71,16 @@ namespace PassportPDF.Model
             {
                 this.PageRange = PageRange;
             }
+            this.TextBoundingBoxLayout = TextBoundingBoxLayout;
         }
         
+        /// <summary>
+        /// Specifies the properties of the text content to be inserted.
+        /// </summary>
+        /// <value>Specifies the properties of the text content to be inserted.</value>
+        [DataMember(Name="textParameters", EmitDefaultValue=false)]
+        public PdfAlignedTextParameters TextParameters { get; set; }
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
@@ -70,11 +89,18 @@ namespace PassportPDF.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Specifies the page or the page range whose form fields shall be removed.
+        /// Specifies the number of the page, or the range of pages on which the text shall be inserted.
         /// </summary>
-        /// <value>Specifies the page or the page range whose form fields shall be removed.</value>
+        /// <value>Specifies the number of the page, or the range of pages on which the text shall be inserted.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
+
+        /// <summary>
+        /// Specifies the layout of the text bounding box on the page.
+        /// </summary>
+        /// <value>Specifies the layout of the text bounding box on the page.</value>
+        [DataMember(Name="textBoundingBoxLayout", EmitDefaultValue=false)]
+        public DrawableContentLayoutParameters TextBoundingBoxLayout { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +109,11 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFRemovePageFormFieldsParameters {\n");
+            sb.Append("class PDFInsertTextParameters {\n");
+            sb.Append("  TextParameters: ").Append(TextParameters).Append("\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
+            sb.Append("  TextBoundingBoxLayout: ").Append(TextBoundingBoxLayout).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,20 +134,25 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFRemovePageFormFieldsParameters);
+            return this.Equals(input as PDFInsertTextParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFRemovePageFormFieldsParameters instances are equal
+        /// Returns true if PDFInsertTextParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFRemovePageFormFieldsParameters to be compared</param>
+        /// <param name="input">Instance of PDFInsertTextParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFRemovePageFormFieldsParameters input)
+        public bool Equals(PDFInsertTextParameters input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.TextParameters == input.TextParameters ||
+                    (this.TextParameters != null &&
+                    this.TextParameters.Equals(input.TextParameters))
+                ) && 
                 (
                     this.FileId == input.FileId ||
                     (this.FileId != null &&
@@ -129,6 +162,11 @@ namespace PassportPDF.Model
                     this.PageRange == input.PageRange ||
                     (this.PageRange != null &&
                     this.PageRange.Equals(input.PageRange))
+                ) && 
+                (
+                    this.TextBoundingBoxLayout == input.TextBoundingBoxLayout ||
+                    (this.TextBoundingBoxLayout != null &&
+                    this.TextBoundingBoxLayout.Equals(input.TextBoundingBoxLayout))
                 );
         }
 
@@ -141,10 +179,14 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TextParameters != null)
+                    hashCode = hashCode * 59 + this.TextParameters.GetHashCode();
                 if (this.FileId != null)
                     hashCode = hashCode * 59 + this.FileId.GetHashCode();
                 if (this.PageRange != null)
                     hashCode = hashCode * 59 + this.PageRange.GetHashCode();
+                if (this.TextBoundingBoxLayout != null)
+                    hashCode = hashCode * 59 + this.TextBoundingBoxLayout.GetHashCode();
                 return hashCode;
             }
         }

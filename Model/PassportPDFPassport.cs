@@ -41,7 +41,9 @@ namespace PassportPDF.Model
         /// <param name="ExtraTokensEndDate">ExtraTokensEndDate.</param>
         /// <param name="IsYearlyPaid">IsYearlyPaid.</param>
         /// <param name="IsActive">IsActive.</param>
-        public PassportPDFPassport(string PassportId = default(string), int? PlanId = default(int?), DateTime? SubscriptionDate = default(DateTime?), long? CurrentTokensUsed = default(long?), long? ExtraTokens = default(long?), DateTime? ExtraTokensEndDate = default(DateTime?), bool? IsYearlyPaid = default(bool?), bool? IsActive = default(bool?))
+        /// <param name="TokensPercentUsageAlert">TokensPercentUsageAlert.</param>
+        /// <param name="TokensPercentUsageAlertSent">TokensPercentUsageAlertSent.</param>
+        public PassportPDFPassport(string PassportId = default(string), int? PlanId = default(int?), DateTime? SubscriptionDate = default(DateTime?), long? CurrentTokensUsed = default(long?), long? ExtraTokens = default(long?), DateTime? ExtraTokensEndDate = default(DateTime?), bool? IsYearlyPaid = default(bool?), bool? IsActive = default(bool?), int? TokensPercentUsageAlert = default(int?), bool? TokensPercentUsageAlertSent = default(bool?))
         {
             this.PassportId = PassportId;
             this.PlanId = PlanId;
@@ -51,6 +53,8 @@ namespace PassportPDF.Model
             this.ExtraTokensEndDate = ExtraTokensEndDate;
             this.IsYearlyPaid = IsYearlyPaid;
             this.IsActive = IsActive;
+            this.TokensPercentUsageAlert = TokensPercentUsageAlert;
+            this.TokensPercentUsageAlertSent = TokensPercentUsageAlertSent;
         }
         
         /// <summary>
@@ -102,6 +106,18 @@ namespace PassportPDF.Model
         public bool? IsActive { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokensPercentUsageAlert
+        /// </summary>
+        [DataMember(Name="tokensPercentUsageAlert", EmitDefaultValue=false)]
+        public int? TokensPercentUsageAlert { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokensPercentUsageAlertSent
+        /// </summary>
+        [DataMember(Name="tokensPercentUsageAlertSent", EmitDefaultValue=false)]
+        public bool? TokensPercentUsageAlertSent { get; set; }
+
+        /// <summary>
         /// Gets or Sets NextMonthlyTerm
         /// </summary>
         [DataMember(Name="nextMonthlyTerm", EmitDefaultValue=false)]
@@ -129,6 +145,8 @@ namespace PassportPDF.Model
             sb.Append("  ExtraTokensEndDate: ").Append(ExtraTokensEndDate).Append("\n");
             sb.Append("  IsYearlyPaid: ").Append(IsYearlyPaid).Append("\n");
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
+            sb.Append("  TokensPercentUsageAlert: ").Append(TokensPercentUsageAlert).Append("\n");
+            sb.Append("  TokensPercentUsageAlertSent: ").Append(TokensPercentUsageAlertSent).Append("\n");
             sb.Append("  NextMonthlyTerm: ").Append(NextMonthlyTerm).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
             sb.Append("}\n");
@@ -206,6 +224,16 @@ namespace PassportPDF.Model
                     this.IsActive.Equals(input.IsActive))
                 ) && 
                 (
+                    this.TokensPercentUsageAlert == input.TokensPercentUsageAlert ||
+                    (this.TokensPercentUsageAlert != null &&
+                    this.TokensPercentUsageAlert.Equals(input.TokensPercentUsageAlert))
+                ) && 
+                (
+                    this.TokensPercentUsageAlertSent == input.TokensPercentUsageAlertSent ||
+                    (this.TokensPercentUsageAlertSent != null &&
+                    this.TokensPercentUsageAlertSent.Equals(input.TokensPercentUsageAlertSent))
+                ) && 
+                (
                     this.NextMonthlyTerm == input.NextMonthlyTerm ||
                     (this.NextMonthlyTerm != null &&
                     this.NextMonthlyTerm.Equals(input.NextMonthlyTerm))
@@ -242,6 +270,10 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.IsYearlyPaid.GetHashCode();
                 if (this.IsActive != null)
                     hashCode = hashCode * 59 + this.IsActive.GetHashCode();
+                if (this.TokensPercentUsageAlert != null)
+                    hashCode = hashCode * 59 + this.TokensPercentUsageAlert.GetHashCode();
+                if (this.TokensPercentUsageAlertSent != null)
+                    hashCode = hashCode * 59 + this.TokensPercentUsageAlertSent.GetHashCode();
                 if (this.NextMonthlyTerm != null)
                     hashCode = hashCode * 59 + this.NextMonthlyTerm.GetHashCode();
                 if (this.RemainingTokens != null)

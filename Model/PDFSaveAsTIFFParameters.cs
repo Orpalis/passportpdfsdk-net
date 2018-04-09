@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFSaveAsTIFFParameters :  IEquatable<PDFSaveAsTIFFParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Compression
+        /// Specifies the compression to be used for the TIFF output.
         /// </summary>
+        /// <value>Specifies the compression to be used for the TIFF output.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CompressionEnum
         {
@@ -81,8 +82,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets Compression
+        /// Specifies the compression to be used for the TIFF output.
         /// </summary>
+        /// <value>Specifies the compression to be used for the TIFF output.</value>
         [DataMember(Name="compression", EmitDefaultValue=false)]
         public CompressionEnum? Compression { get; set; }
         /// <summary>
@@ -93,14 +95,15 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSaveAsTIFFParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="Compression">Compression (default to CompressionEnum.Auto).</param>
-        /// <param name="JpegQuality">JpegQuality (default to 75).</param>
-        /// <param name="Resolution">Resolution (default to 200.0F).</param>
-        /// <param name="RenderFormFields">RenderFormFields.</param>
-        /// <param name="KeepRasterPDFResolution">KeepRasterPDFResolution (default to true).</param>
-        public PDFSaveAsTIFFParameters(string FileId = default(string), string PageRange = "*", CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75, float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be saved as TIFF. (default to &quot;*&quot;).</param>
+        /// <param name="Compression">Specifies the compression to be used for the TIFF output. (default to CompressionEnum.Auto).</param>
+        /// <param name="JpegQuality">Specifies the level of quality to be used if JPEG compression is used, from 1 (poorest) to 100 (greatest). (default to 75).</param>
+        /// <param name="UseCMYK">Specifies whether the TIFF shall be saved in CMYK color space or not..</param>
+        /// <param name="Resolution">Specifies the resolution to be used for the rendition process. (default to 200.0F).</param>
+        /// <param name="RenderFormFields">Specifies whether the form fields of the PDF shall be rendered..</param>
+        /// <param name="KeepRasterPDFResolution">Specifies whether the initial image resolution must be kept in case of raster-pdf processing. (default to true).</param>
+        public PDFSaveAsTIFFParameters(string FileId = default(string), string PageRange = "*", CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75, bool? UseCMYK = default(bool?), float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -138,6 +141,7 @@ namespace PassportPDF.Model
             {
                 this.JpegQuality = JpegQuality;
             }
+            this.UseCMYK = UseCMYK;
             // use default value if no "Resolution" provided
             if (Resolution == null)
             {
@@ -160,39 +164,52 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be saved as TIFF.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be saved as TIFF.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets JpegQuality
+        /// Specifies the level of quality to be used if JPEG compression is used, from 1 (poorest) to 100 (greatest).
         /// </summary>
+        /// <value>Specifies the level of quality to be used if JPEG compression is used, from 1 (poorest) to 100 (greatest).</value>
         [DataMember(Name="jpegQuality", EmitDefaultValue=false)]
         public int? JpegQuality { get; set; }
 
         /// <summary>
-        /// Gets or Sets Resolution
+        /// Specifies whether the TIFF shall be saved in CMYK color space or not.
         /// </summary>
+        /// <value>Specifies whether the TIFF shall be saved in CMYK color space or not.</value>
+        [DataMember(Name="useCMYK", EmitDefaultValue=false)]
+        public bool? UseCMYK { get; set; }
+
+        /// <summary>
+        /// Specifies the resolution to be used for the rendition process.
+        /// </summary>
+        /// <value>Specifies the resolution to be used for the rendition process.</value>
         [DataMember(Name="resolution", EmitDefaultValue=false)]
         public float? Resolution { get; set; }
 
         /// <summary>
-        /// Gets or Sets RenderFormFields
+        /// Specifies whether the form fields of the PDF shall be rendered.
         /// </summary>
+        /// <value>Specifies whether the form fields of the PDF shall be rendered.</value>
         [DataMember(Name="renderFormFields", EmitDefaultValue=false)]
         public bool? RenderFormFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets KeepRasterPDFResolution
+        /// Specifies whether the initial image resolution must be kept in case of raster-pdf processing.
         /// </summary>
+        /// <value>Specifies whether the initial image resolution must be kept in case of raster-pdf processing.</value>
         [DataMember(Name="keepRasterPDFResolution", EmitDefaultValue=false)]
         public bool? KeepRasterPDFResolution { get; set; }
 
@@ -208,6 +225,7 @@ namespace PassportPDF.Model
             sb.Append("  PageRange: ").Append(PageRange).Append("\n");
             sb.Append("  Compression: ").Append(Compression).Append("\n");
             sb.Append("  JpegQuality: ").Append(JpegQuality).Append("\n");
+            sb.Append("  UseCMYK: ").Append(UseCMYK).Append("\n");
             sb.Append("  Resolution: ").Append(Resolution).Append("\n");
             sb.Append("  RenderFormFields: ").Append(RenderFormFields).Append("\n");
             sb.Append("  KeepRasterPDFResolution: ").Append(KeepRasterPDFResolution).Append("\n");
@@ -266,6 +284,11 @@ namespace PassportPDF.Model
                     this.JpegQuality.Equals(input.JpegQuality))
                 ) && 
                 (
+                    this.UseCMYK == input.UseCMYK ||
+                    (this.UseCMYK != null &&
+                    this.UseCMYK.Equals(input.UseCMYK))
+                ) && 
+                (
                     this.Resolution == input.Resolution ||
                     (this.Resolution != null &&
                     this.Resolution.Equals(input.Resolution))
@@ -299,6 +322,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Compression.GetHashCode();
                 if (this.JpegQuality != null)
                     hashCode = hashCode * 59 + this.JpegQuality.GetHashCode();
+                if (this.UseCMYK != null)
+                    hashCode = hashCode * 59 + this.UseCMYK.GetHashCode();
                 if (this.Resolution != null)
                     hashCode = hashCode * 59 + this.Resolution.GetHashCode();
                 if (this.RenderFormFields != null)

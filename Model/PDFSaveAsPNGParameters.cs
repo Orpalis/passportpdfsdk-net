@@ -38,13 +38,13 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSaveAsPNGParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="Compression">Compression (default to 6).</param>
-        /// <param name="Interlaced">Interlaced.</param>
-        /// <param name="Resolution">Resolution (default to 200.0F).</param>
-        /// <param name="RenderFormFields">RenderFormFields.</param>
-        /// <param name="KeepRasterPDFResolution">KeepRasterPDFResolution (default to true).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be saved as PNG. (default to &quot;*&quot;).</param>
+        /// <param name="Compression">Specifies the level of compression to be used for the PNG output, between 0 (no compression - faster encoding) to 9(max compression - slower encoding). (default to 6).</param>
+        /// <param name="Interlaced">Specifies if the produced PNG image must be interlaced..</param>
+        /// <param name="Resolution">Specifies the resolution to be used for the rendition process. (default to 200.0F).</param>
+        /// <param name="RenderFormFields">Specifies whether the form fields of the PDF shall be rendered..</param>
+        /// <param name="KeepRasterPDFResolution">Specifies if the initial image resolution must be kept in case of raster-pdf processing. (default to true).</param>
         public PDFSaveAsPNGParameters(string FileId = default(string), string PageRange = "*", int? Compression = 6, bool? Interlaced = default(bool?), float? Resolution = 200.0F, bool? RenderFormFields = default(bool?), bool? KeepRasterPDFResolution = true)
         {
             // to ensure "FileId" is required (not null)
@@ -97,44 +97,51 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be saved as PNG.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be saved as PNG.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets Compression
+        /// Specifies the level of compression to be used for the PNG output, between 0 (no compression - faster encoding) to 9(max compression - slower encoding).
         /// </summary>
+        /// <value>Specifies the level of compression to be used for the PNG output, between 0 (no compression - faster encoding) to 9(max compression - slower encoding).</value>
         [DataMember(Name="compression", EmitDefaultValue=false)]
         public int? Compression { get; set; }
 
         /// <summary>
-        /// Gets or Sets Interlaced
+        /// Specifies if the produced PNG image must be interlaced.
         /// </summary>
+        /// <value>Specifies if the produced PNG image must be interlaced.</value>
         [DataMember(Name="interlaced", EmitDefaultValue=false)]
         public bool? Interlaced { get; set; }
 
         /// <summary>
-        /// Gets or Sets Resolution
+        /// Specifies the resolution to be used for the rendition process.
         /// </summary>
+        /// <value>Specifies the resolution to be used for the rendition process.</value>
         [DataMember(Name="resolution", EmitDefaultValue=false)]
         public float? Resolution { get; set; }
 
         /// <summary>
-        /// Gets or Sets RenderFormFields
+        /// Specifies whether the form fields of the PDF shall be rendered.
         /// </summary>
+        /// <value>Specifies whether the form fields of the PDF shall be rendered.</value>
         [DataMember(Name="renderFormFields", EmitDefaultValue=false)]
         public bool? RenderFormFields { get; set; }
 
         /// <summary>
-        /// Gets or Sets KeepRasterPDFResolution
+        /// Specifies if the initial image resolution must be kept in case of raster-pdf processing.
         /// </summary>
+        /// <value>Specifies if the initial image resolution must be kept in case of raster-pdf processing.</value>
         [DataMember(Name="keepRasterPDFResolution", EmitDefaultValue=false)]
         public bool? KeepRasterPDFResolution { get; set; }
 

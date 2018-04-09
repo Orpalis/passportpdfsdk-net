@@ -38,9 +38,9 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageCleanupDocumentParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to cleanup. (default to &quot;1&quot;).</param>
-        /// <param name="RemoveBlackBorders">Specifies whether the black borders of the document image shall be replaced with white content..</param>
+        /// <param name="RemoveBlackBorders">Specifies whether the dark borders of the document image shall be replaced with white content..</param>
         /// <param name="Deskew">Specifies whether the document shall be deskewed..</param>
         /// <param name="RemovePunchHoleTop">Specifies whether punch holes shall be removed from the top margin of the document..</param>
         /// <param name="RemovePunchHoleLeft">Specifies whether punch holes shall be removed from the left margin of the document..</param>
@@ -77,8 +77,9 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
@@ -90,9 +91,9 @@ namespace PassportPDF.Model
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Specifies whether the black borders of the document image shall be replaced with white content.
+        /// Specifies whether the dark borders of the document image shall be replaced with white content.
         /// </summary>
-        /// <value>Specifies whether the black borders of the document image shall be replaced with white content.</value>
+        /// <value>Specifies whether the dark borders of the document image shall be replaced with white content.</value>
         [DataMember(Name="removeBlackBorders", EmitDefaultValue=false)]
         public bool? RemoveBlackBorders { get; set; }
 

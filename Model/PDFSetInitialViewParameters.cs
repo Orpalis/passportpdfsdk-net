@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFSetInitialViewParameters :  IEquatable<PDFSetInitialViewParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets PageMode
+        /// Specifies how the document shall be displayed when opened.
         /// </summary>
+        /// <value>Specifies how the document shall be displayed when opened.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PageModeEnum
         {
@@ -75,13 +76,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets PageMode
+        /// Specifies how the document shall be displayed when opened.
         /// </summary>
+        /// <value>Specifies how the document shall be displayed when opened.</value>
         [DataMember(Name="pageMode", EmitDefaultValue=false)]
         public PageModeEnum? PageMode { get; set; }
         /// <summary>
-        /// Gets or Sets LayoutMode
+        /// Specifies the page layout to be used when the document is opened.
         /// </summary>
+        /// <value>Specifies the page layout to be used when the document is opened.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LayoutModeEnum
         {
@@ -124,13 +127,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets LayoutMode
+        /// Specifies the page layout to be used when the document is opened.
         /// </summary>
+        /// <value>Specifies the page layout to be used when the document is opened.</value>
         [DataMember(Name="layoutMode", EmitDefaultValue=false)]
         public LayoutModeEnum? LayoutMode { get; set; }
         /// <summary>
-        /// Gets or Sets NonFullScreenPageMode
+        /// Specifies how the document shall be displayed when exiting full-screen mode.
         /// </summary>
+        /// <value>Specifies how the document shall be displayed when exiting full-screen mode.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum NonFullScreenPageModeEnum
         {
@@ -161,8 +166,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets NonFullScreenPageMode
+        /// Specifies how the document shall be displayed when exiting full-screen mode.
         /// </summary>
+        /// <value>Specifies how the document shall be displayed when exiting full-screen mode.</value>
         [DataMember(Name="nonFullScreenPageMode", EmitDefaultValue=false)]
         public NonFullScreenPageModeEnum? NonFullScreenPageMode { get; set; }
         /// <summary>
@@ -173,18 +179,18 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSetInitialViewParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageMode">PageMode (default to PageModeEnum.None).</param>
-        /// <param name="LayoutMode">LayoutMode (default to LayoutModeEnum.SinglePage).</param>
-        /// <param name="NonFullScreenPageMode">NonFullScreenPageMode (default to NonFullScreenPageModeEnum.None).</param>
-        /// <param name="OpenPage">OpenPage (default to 1).</param>
-        /// <param name="OpenZoom">OpenZoom (default to 1.0F).</param>
-        /// <param name="HideToolbar">HideToolbar.</param>
-        /// <param name="HideMenubar">HideMenubar.</param>
-        /// <param name="HideWindowUI">HideWindowUI.</param>
-        /// <param name="FitWindow">FitWindow.</param>
-        /// <param name="CenterWindow">CenterWindow.</param>
-        /// <param name="DisplayDocTitle">DisplayDocTitle.</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageMode">Specifies how the document shall be displayed when opened. (default to PageModeEnum.None).</param>
+        /// <param name="LayoutMode">Specifies the page layout to be used when the document is opened. (default to LayoutModeEnum.SinglePage).</param>
+        /// <param name="NonFullScreenPageMode">Specifies how the document shall be displayed when exiting full-screen mode. (default to NonFullScreenPageModeEnum.None).</param>
+        /// <param name="OpenPage">Specifies which page should be displayed when the document is opened. (default to 1).</param>
+        /// <param name="OpenZoom">Specifies the default zoom factor to be used when the document is opened. Value of 1 to represent the 100% zoom, 2 means 200%, 0,5 means 50%, etc. (default to 1.0F).</param>
+        /// <param name="HideToolbar">A flag specifying whether to hide the viewer application’s tool bars when the document is active. Default value: false..</param>
+        /// <param name="HideMenubar">(Optional) A flag specifying whether to hide the viewer application’s menu bar when the document is active. Default value: false..</param>
+        /// <param name="HideWindowUI">(Optional) A flag specifying whether to hide user interface elements in the document’s window (such as scroll bars and navigation controls),  leaving only the document’s contents displayed. Default value: false..</param>
+        /// <param name="FitWindow">(Optional) A flag specifying whether to resize the document’s window to fit the size of the first displayed page. Default value: false..</param>
+        /// <param name="CenterWindow">(Optional) A flag specifying whether to position the document’s window in the center of the screen. Default value: false..</param>
+        /// <param name="DisplayDocTitle">(Optional; PDF 1.4) A flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.  If false, the title bar should instead display the name of the PDF file containing the document. Default value: false..</param>
         public PDFSetInitialViewParameters(string FileId = default(string), PageModeEnum? PageMode = PageModeEnum.None, LayoutModeEnum? LayoutMode = LayoutModeEnum.SinglePage, NonFullScreenPageModeEnum? NonFullScreenPageMode = NonFullScreenPageModeEnum.None, int? OpenPage = 1, float? OpenZoom = 1.0F, bool? HideToolbar = default(bool?), bool? HideMenubar = default(bool?), bool? HideWindowUI = default(bool?), bool? FitWindow = default(bool?), bool? CenterWindow = default(bool?), bool? DisplayDocTitle = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -250,8 +256,9 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
@@ -259,50 +266,58 @@ namespace PassportPDF.Model
 
 
         /// <summary>
-        /// Gets or Sets OpenPage
+        /// Specifies which page should be displayed when the document is opened.
         /// </summary>
+        /// <value>Specifies which page should be displayed when the document is opened.</value>
         [DataMember(Name="openPage", EmitDefaultValue=false)]
         public int? OpenPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets OpenZoom
+        /// Specifies the default zoom factor to be used when the document is opened. Value of 1 to represent the 100% zoom, 2 means 200%, 0,5 means 50%, etc.
         /// </summary>
+        /// <value>Specifies the default zoom factor to be used when the document is opened. Value of 1 to represent the 100% zoom, 2 means 200%, 0,5 means 50%, etc.</value>
         [DataMember(Name="openZoom", EmitDefaultValue=false)]
         public float? OpenZoom { get; set; }
 
         /// <summary>
-        /// Gets or Sets HideToolbar
+        /// A flag specifying whether to hide the viewer application’s tool bars when the document is active. Default value: false.
         /// </summary>
+        /// <value>A flag specifying whether to hide the viewer application’s tool bars when the document is active. Default value: false.</value>
         [DataMember(Name="hideToolbar", EmitDefaultValue=false)]
         public bool? HideToolbar { get; set; }
 
         /// <summary>
-        /// Gets or Sets HideMenubar
+        /// (Optional) A flag specifying whether to hide the viewer application’s menu bar when the document is active. Default value: false.
         /// </summary>
+        /// <value>(Optional) A flag specifying whether to hide the viewer application’s menu bar when the document is active. Default value: false.</value>
         [DataMember(Name="hideMenubar", EmitDefaultValue=false)]
         public bool? HideMenubar { get; set; }
 
         /// <summary>
-        /// Gets or Sets HideWindowUI
+        /// (Optional) A flag specifying whether to hide user interface elements in the document’s window (such as scroll bars and navigation controls),  leaving only the document’s contents displayed. Default value: false.
         /// </summary>
+        /// <value>(Optional) A flag specifying whether to hide user interface elements in the document’s window (such as scroll bars and navigation controls),  leaving only the document’s contents displayed. Default value: false.</value>
         [DataMember(Name="hideWindowUI", EmitDefaultValue=false)]
         public bool? HideWindowUI { get; set; }
 
         /// <summary>
-        /// Gets or Sets FitWindow
+        /// (Optional) A flag specifying whether to resize the document’s window to fit the size of the first displayed page. Default value: false.
         /// </summary>
+        /// <value>(Optional) A flag specifying whether to resize the document’s window to fit the size of the first displayed page. Default value: false.</value>
         [DataMember(Name="fitWindow", EmitDefaultValue=false)]
         public bool? FitWindow { get; set; }
 
         /// <summary>
-        /// Gets or Sets CenterWindow
+        /// (Optional) A flag specifying whether to position the document’s window in the center of the screen. Default value: false.
         /// </summary>
+        /// <value>(Optional) A flag specifying whether to position the document’s window in the center of the screen. Default value: false.</value>
         [DataMember(Name="centerWindow", EmitDefaultValue=false)]
         public bool? CenterWindow { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayDocTitle
+        /// (Optional; PDF 1.4) A flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.  If false, the title bar should instead display the name of the PDF file containing the document. Default value: false.
         /// </summary>
+        /// <value>(Optional; PDF 1.4) A flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.  If false, the title bar should instead display the name of the PDF file containing the document. Default value: false.</value>
         [DataMember(Name="displayDocTitle", EmitDefaultValue=false)]
         public bool? DisplayDocTitle { get; set; }
 

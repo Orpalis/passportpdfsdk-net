@@ -33,34 +33,36 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFGetPageThumbnailResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
-        /// <param name="ThumbnailData">Specifies the data of the requested thumbnails, in PNG format..</param>
-        public PDFGetPageThumbnailResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<byte[]> ThumbnailData = default(List<byte[]>))
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
+        /// <param name="PageThumbnails">Contains all the obtained thumbnails..</param>
+        public PDFGetPageThumbnailResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<PageImage> PageThumbnails = default(List<PageImage>))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
-            this.ThumbnailData = ThumbnailData;
+            this.PageThumbnails = PageThumbnails;
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Specifies the number of remaining tokens.
         /// </summary>
+        /// <value>Specifies the number of remaining tokens.</value>
         [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
         public long? RemainingTokens { get; set; }
 
         /// <summary>
-        /// Specifies the data of the requested thumbnails, in PNG format.
+        /// Contains all the obtained thumbnails.
         /// </summary>
-        /// <value>Specifies the data of the requested thumbnails, in PNG format.</value>
-        [DataMember(Name="thumbnailData", EmitDefaultValue=false)]
-        public List<byte[]> ThumbnailData { get; set; }
+        /// <value>Contains all the obtained thumbnails.</value>
+        [DataMember(Name="pageThumbnails", EmitDefaultValue=false)]
+        public List<PageImage> PageThumbnails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,7 +74,7 @@ namespace PassportPDF.Model
             sb.Append("class PDFGetPageThumbnailResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  ThumbnailData: ").Append(ThumbnailData).Append("\n");
+            sb.Append("  PageThumbnails: ").Append(PageThumbnails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,9 +120,9 @@ namespace PassportPDF.Model
                     this.RemainingTokens.Equals(input.RemainingTokens))
                 ) && 
                 (
-                    this.ThumbnailData == input.ThumbnailData ||
-                    this.ThumbnailData != null &&
-                    this.ThumbnailData.SequenceEqual(input.ThumbnailData)
+                    this.PageThumbnails == input.PageThumbnails ||
+                    this.PageThumbnails != null &&
+                    this.PageThumbnails.SequenceEqual(input.PageThumbnails)
                 );
         }
 
@@ -137,8 +139,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.ThumbnailData != null)
-                    hashCode = hashCode * 59 + this.ThumbnailData.GetHashCode();
+                if (this.PageThumbnails != null)
+                    hashCode = hashCode * 59 + this.PageThumbnails.GetHashCode();
                 return hashCode;
             }
         }

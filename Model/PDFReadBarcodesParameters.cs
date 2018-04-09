@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFReadBarcodesParameters :  IEquatable<PDFReadBarcodesParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ScanMode
+        /// Specifies the preferred scan mode.
         /// </summary>
+        /// <value>Specifies the preferred scan mode.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScanModeEnum
         {
@@ -51,8 +52,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ScanMode
+        /// Specifies the preferred scan mode.
         /// </summary>
+        /// <value>Specifies the preferred scan mode.</value>
         [DataMember(Name="scanMode", EmitDefaultValue=false)]
         public ScanModeEnum? ScanMode { get; set; }
         /// <summary>
@@ -63,14 +65,14 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFReadBarcodesParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
-        /// <param name="ScanMode">ScanMode (default to ScanModeEnum.FavorAccuracy).</param>
-        /// <param name="ScanBarcode1D">ScanBarcode1D (default to true).</param>
-        /// <param name="ScanBarcodeQR">ScanBarcodeQR (default to true).</param>
-        /// <param name="ScanBarcodeMicroQR">ScanBarcodeMicroQR (default to true).</param>
-        /// <param name="ScanBarcodePDF417">ScanBarcodePDF417 (default to true).</param>
-        /// <param name="ScanBarcodeDataMatrix">ScanBarcodeDataMatrix (default to true).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to read the barcodes from. (default to &quot;1&quot;).</param>
+        /// <param name="ScanMode">Specifies the preferred scan mode. (default to ScanModeEnum.FavorAccuracy).</param>
+        /// <param name="ScanBarcode1D">Specifies whether the barcodes of type 1D shall be read. (default to true).</param>
+        /// <param name="ScanBarcodeQR">Specifies whether the barcodes of type QR shall be read. (default to true).</param>
+        /// <param name="ScanBarcodeMicroQR">Specifies whether the barcodes of type Micro QR shall be read. (default to true).</param>
+        /// <param name="ScanBarcodePDF417">Specifies whether the barcodes of type PDF 147 shall be read. (default to true).</param>
+        /// <param name="ScanBarcodeDataMatrix">Specifies whether the barcodes of type Data Matrix shall be read. (default to true).</param>
         public PDFReadBarcodesParameters(string FileId = default(string), string PageRange = "1", ScanModeEnum? ScanMode = ScanModeEnum.FavorAccuracy, bool? ScanBarcode1D = true, bool? ScanBarcodeQR = true, bool? ScanBarcodeMicroQR = true, bool? ScanBarcodePDF417 = true, bool? ScanBarcodeDataMatrix = true)
         {
             // to ensure "FileId" is required (not null)
@@ -148,45 +150,52 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to read the barcodes from.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to read the barcodes from.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets ScanBarcode1D
+        /// Specifies whether the barcodes of type 1D shall be read.
         /// </summary>
+        /// <value>Specifies whether the barcodes of type 1D shall be read.</value>
         [DataMember(Name="scanBarcode1D", EmitDefaultValue=false)]
         public bool? ScanBarcode1D { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScanBarcodeQR
+        /// Specifies whether the barcodes of type QR shall be read.
         /// </summary>
+        /// <value>Specifies whether the barcodes of type QR shall be read.</value>
         [DataMember(Name="scanBarcodeQR", EmitDefaultValue=false)]
         public bool? ScanBarcodeQR { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScanBarcodeMicroQR
+        /// Specifies whether the barcodes of type Micro QR shall be read.
         /// </summary>
+        /// <value>Specifies whether the barcodes of type Micro QR shall be read.</value>
         [DataMember(Name="scanBarcodeMicroQR", EmitDefaultValue=false)]
         public bool? ScanBarcodeMicroQR { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScanBarcodePDF417
+        /// Specifies whether the barcodes of type PDF 147 shall be read.
         /// </summary>
+        /// <value>Specifies whether the barcodes of type PDF 147 shall be read.</value>
         [DataMember(Name="scanBarcodePDF417", EmitDefaultValue=false)]
         public bool? ScanBarcodePDF417 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScanBarcodeDataMatrix
+        /// Specifies whether the barcodes of type Data Matrix shall be read.
         /// </summary>
+        /// <value>Specifies whether the barcodes of type Data Matrix shall be read.</value>
         [DataMember(Name="scanBarcodeDataMatrix", EmitDefaultValue=false)]
         public bool? ScanBarcodeDataMatrix { get; set; }
 

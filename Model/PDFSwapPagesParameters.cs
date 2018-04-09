@@ -38,9 +38,9 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSwapPagesParameters" /> class.
         /// </summary>
-        /// <param name="Page1">Page1 (required).</param>
-        /// <param name="Page2">Page2 (required).</param>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="Page1">Specifies the number of the first page. (required).</param>
+        /// <param name="Page2">Specifies the number of the second page. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         public PDFSwapPagesParameters(int? Page1 = default(int?), int? Page2 = default(int?), string FileId = default(string))
         {
             // to ensure "Page1" is required (not null)
@@ -73,20 +73,23 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Page1
+        /// Specifies the number of the first page.
         /// </summary>
+        /// <value>Specifies the number of the first page.</value>
         [DataMember(Name="page1", EmitDefaultValue=false)]
         public int? Page1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets Page2
+        /// Specifies the number of the second page.
         /// </summary>
+        /// <value>Specifies the number of the second page.</value>
         [DataMember(Name="page2", EmitDefaultValue=false)]
         public int? Page2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

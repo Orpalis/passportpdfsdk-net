@@ -38,11 +38,11 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFGetPageThumbnailParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="BackgroundColor">BackgroundColor (default to &quot;rgba(0,0,0,0)&quot;).</param>
-        /// <param name="ThumbnailWidth">ThumbnailWidth (default to 140).</param>
-        /// <param name="ThumbnailHeight">ThumbnailHeight (default to 220).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the page or the range of pages to get a thumbnail from. (default to &quot;*&quot;).</param>
+        /// <param name="BackgroundColor">Specifies the background color of the thumbnail(s), using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;). (default to &quot;rgba(0,0,0,0)&quot;).</param>
+        /// <param name="ThumbnailWidth">Specifies the width, in points, of the thumbnail(s). (default to 140).</param>
+        /// <param name="ThumbnailHeight">Specifies the height, in points, of the thumbnail(s). (default to 220).</param>
         public PDFGetPageThumbnailParameters(string FileId = default(string), string PageRange = "*", string BackgroundColor = "rgba(0,0,0,0)", int? ThumbnailWidth = 140, int? ThumbnailHeight = 220)
         {
             // to ensure "FileId" is required (not null)
@@ -93,32 +93,37 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the page or the range of pages to get a thumbnail from.
         /// </summary>
+        /// <value>Specifies the page or the range of pages to get a thumbnail from.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets BackgroundColor
+        /// Specifies the background color of the thumbnail(s), using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).
         /// </summary>
+        /// <value>Specifies the background color of the thumbnail(s), using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).</value>
         [DataMember(Name="backgroundColor", EmitDefaultValue=false)]
         public string BackgroundColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailWidth
+        /// Specifies the width, in points, of the thumbnail(s).
         /// </summary>
+        /// <value>Specifies the width, in points, of the thumbnail(s).</value>
         [DataMember(Name="thumbnailWidth", EmitDefaultValue=false)]
         public int? ThumbnailWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailHeight
+        /// Specifies the height, in points, of the thumbnail(s).
         /// </summary>
+        /// <value>Specifies the height, in points, of the thumbnail(s).</value>
         [DataMember(Name="thumbnailHeight", EmitDefaultValue=false)]
         public int? ThumbnailHeight { get; set; }
 

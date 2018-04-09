@@ -33,31 +33,32 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFRepairDocumentResponse" /> class.
         /// </summary>
-        /// <param name="FileId">FileId.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFRepairDocumentResponse(string FileId = default(string), Error Error = default(Error), long? RemainingTokens = default(long?))
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
+        public PDFRepairDocumentResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
-            this.FileId = FileId;
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// Specifies the file identifier of the repaired document.
         /// </summary>
+        /// <value>Specifies the file identifier of the repaired document.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
-        public string FileId { get; set; }
+        public string FileId { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Specifies the number of remaining tokens.
         /// </summary>
+        /// <value>Specifies the number of remaining tokens.</value>
         [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
         public long? RemainingTokens { get; set; }
 

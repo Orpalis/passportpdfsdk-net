@@ -38,11 +38,11 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageRotateParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to rotate. (default to &quot;1&quot;).</param>
-        /// <param name="RotationAngle">RotationAngle.</param>
-        /// <param name="FlipHorizontally">FlipHorizontally.</param>
-        /// <param name="FlipVertically">FlipVertically.</param>
+        /// <param name="RotationAngle">Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90..</param>
+        /// <param name="FlipHorizontally">Specifies whether the page(s) shall be flipped horizontally..</param>
+        /// <param name="FlipVertically">Specifies whether the page(s) shall be flipped vertically..</param>
         public ImageRotateParameters(string FileId = default(string), string PageRange = "1", float? RotationAngle = default(float?), bool? FlipHorizontally = default(bool?), bool? FlipVertically = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -69,8 +69,9 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
@@ -82,20 +83,23 @@ namespace PassportPDF.Model
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets RotationAngle
+        /// Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.
         /// </summary>
+        /// <value>Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.</value>
         [DataMember(Name="rotationAngle", EmitDefaultValue=false)]
         public float? RotationAngle { get; set; }
 
         /// <summary>
-        /// Gets or Sets FlipHorizontally
+        /// Specifies whether the page(s) shall be flipped horizontally.
         /// </summary>
+        /// <value>Specifies whether the page(s) shall be flipped horizontally.</value>
         [DataMember(Name="flipHorizontally", EmitDefaultValue=false)]
         public bool? FlipHorizontally { get; set; }
 
         /// <summary>
-        /// Gets or Sets FlipVertically
+        /// Specifies whether the page(s) shall be flipped vertically.
         /// </summary>
+        /// <value>Specifies whether the page(s) shall be flipped vertically.</value>
         [DataMember(Name="flipVertically", EmitDefaultValue=false)]
         public bool? FlipVertically { get; set; }
 

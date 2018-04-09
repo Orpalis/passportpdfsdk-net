@@ -33,25 +33,25 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LongResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Value">Value.</param>
-        public LongResponse(Error Error = default(Error), long? Value = default(long?))
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        public LongResponse(Error Error = default(Error))
         {
             this.Error = Error;
-            this.Value = Value;
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The response value.
         /// </summary>
+        /// <value>The response value.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public long? Value { get; set; }
+        public long? Value { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

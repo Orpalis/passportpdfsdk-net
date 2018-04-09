@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFSplitParameters :  IEquatable<PDFSplitParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets SplitMethod
+        /// Specifies the split method to be used.
         /// </summary>
+        /// <value>Specifies the split method to be used.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SplitMethodEnum
         {
@@ -57,8 +58,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets SplitMethod
+        /// Specifies the split method to be used.
         /// </summary>
+        /// <value>Specifies the split method to be used.</value>
         [DataMember(Name="splitMethod", EmitDefaultValue=false)]
         public SplitMethodEnum SplitMethod { get; set; }
         /// <summary>
@@ -69,10 +71,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSplitParameters" /> class.
         /// </summary>
-        /// <param name="SplitMethod">SplitMethod (required) (default to SplitMethodEnum.SplitByNumberOfPages).</param>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="SplitValue">SplitValue.</param>
-        /// <param name="ImmediateDownload">ImmediateDownload.</param>
+        /// <param name="SplitMethod">Specifies the split method to be used. (required) (default to SplitMethodEnum.SplitByNumberOfPages).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="SplitValue">Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files..</param>
+        /// <param name="ImmediateDownload">Specifies whether the file(s) created as a result of the action shall be available for immediate download..</param>
         public PDFSplitParameters(SplitMethodEnum SplitMethod = SplitMethodEnum.SplitByNumberOfPages, string FileId = default(string), int? SplitValue = default(int?), bool? ImmediateDownload = default(bool?))
         {
             // to ensure "SplitMethod" is required (not null)
@@ -99,20 +101,23 @@ namespace PassportPDF.Model
         
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets SplitValue
+        /// Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files.
         /// </summary>
+        /// <value>Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files.</value>
         [DataMember(Name="splitValue", EmitDefaultValue=false)]
         public int? SplitValue { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImmediateDownload
+        /// Specifies whether the file(s) created as a result of the action shall be available for immediate download.
         /// </summary>
+        /// <value>Specifies whether the file(s) created as a result of the action shall be available for immediate download.</value>
         [DataMember(Name="immediateDownload", EmitDefaultValue=false)]
         public bool? ImmediateDownload { get; set; }
 

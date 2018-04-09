@@ -25,22 +25,20 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to an image color detection action request.
+    /// Represents the response to an insert text action request.
     /// </summary>
     [DataContract]
-    public partial class ImageDetectColorResponse :  IEquatable<ImageDetectColorResponse>, IValidatableObject
+    public partial class PDFInsertTextResponse :  IEquatable<PDFInsertTextResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageDetectColorResponse" /> class.
+        /// Initializes a new instance of the <see cref="PDFInsertTextResponse" /> class.
         /// </summary>
         /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
         /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
-        /// <param name="ColorDetectionResults">Specifies the result of the color detection operation performed on each page..</param>
-        public ImageDetectColorResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<ColorDetectionResult> ColorDetectionResults = default(List<ColorDetectionResult>))
+        public PDFInsertTextResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
-            this.ColorDetectionResults = ColorDetectionResults;
         }
         
         /// <summary>
@@ -58,23 +56,15 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
-        /// Specifies the result of the color detection operation performed on each page.
-        /// </summary>
-        /// <value>Specifies the result of the color detection operation performed on each page.</value>
-        [DataMember(Name="colorDetectionResults", EmitDefaultValue=false)]
-        public List<ColorDetectionResult> ColorDetectionResults { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImageDetectColorResponse {\n");
+            sb.Append("class PDFInsertTextResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  ColorDetectionResults: ").Append(ColorDetectionResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,15 +85,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageDetectColorResponse);
+            return this.Equals(input as PDFInsertTextResponse);
         }
 
         /// <summary>
-        /// Returns true if ImageDetectColorResponse instances are equal
+        /// Returns true if PDFInsertTextResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImageDetectColorResponse to be compared</param>
+        /// <param name="input">Instance of PDFInsertTextResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImageDetectColorResponse input)
+        public bool Equals(PDFInsertTextResponse input)
         {
             if (input == null)
                 return false;
@@ -118,11 +108,6 @@ namespace PassportPDF.Model
                     this.RemainingTokens == input.RemainingTokens ||
                     (this.RemainingTokens != null &&
                     this.RemainingTokens.Equals(input.RemainingTokens))
-                ) && 
-                (
-                    this.ColorDetectionResults == input.ColorDetectionResults ||
-                    this.ColorDetectionResults != null &&
-                    this.ColorDetectionResults.SequenceEqual(input.ColorDetectionResults)
                 );
         }
 
@@ -139,8 +124,6 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.ColorDetectionResults != null)
-                    hashCode = hashCode * 59 + this.ColorDetectionResults.GetHashCode();
                 return hashCode;
             }
         }

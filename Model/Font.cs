@@ -25,35 +25,65 @@ using SwaggerDateConverter = PassportPDF.Client.SwaggerDateConverter;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the response to an insert new page action request.
+    /// Font
     /// </summary>
     [DataContract]
-    public partial class PDFInsertNewPageResponse :  IEquatable<PDFInsertNewPageResponse>, IValidatableObject
+    public partial class Font :  IEquatable<Font>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFInsertNewPageResponse" /> class.
+        /// Gets or Sets FontStyle
         /// </summary>
-        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
-        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
-        public PDFInsertNewPageResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FontStyleEnum
         {
-            this.Error = Error;
-            this.RemainingTokens = RemainingTokens;
+            
+            /// <summary>
+            /// Enum Regular for "Regular"
+            /// </summary>
+            [EnumMember(Value = "Regular")]
+            Regular = 1,
+            
+            /// <summary>
+            /// Enum Bold for "Bold"
+            /// </summary>
+            [EnumMember(Value = "Bold")]
+            Bold = 2,
+            
+            /// <summary>
+            /// Enum Italic for "Italic"
+            /// </summary>
+            [EnumMember(Value = "Italic")]
+            Italic = 3,
+            
+            /// <summary>
+            /// Enum BoldItalic for "BoldItalic"
+            /// </summary>
+            [EnumMember(Value = "BoldItalic")]
+            BoldItalic = 4
         }
-        
-        /// <summary>
-        /// If not null, provides information about an unsuccessful action.
-        /// </summary>
-        /// <value>If not null, provides information about an unsuccessful action.</value>
-        [DataMember(Name="error", EmitDefaultValue=false)]
-        public Error Error { get; set; }
 
         /// <summary>
-        /// Specifies the number of remaining tokens.
+        /// Gets or Sets FontStyle
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="fontStyle", EmitDefaultValue=false)]
+        public FontStyleEnum? FontStyle { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Font" /> class.
+        /// </summary>
+        /// <param name="FontStyle">FontStyle.</param>
+        /// <param name="FamilyName">FamilyName.</param>
+        public Font(FontStyleEnum? FontStyle = default(FontStyleEnum?), string FamilyName = default(string))
+        {
+            this.FontStyle = FontStyle;
+            this.FamilyName = FamilyName;
+        }
+        
+
+        /// <summary>
+        /// Gets or Sets FamilyName
+        /// </summary>
+        [DataMember(Name="familyName", EmitDefaultValue=false)]
+        public string FamilyName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +92,9 @@ namespace PassportPDF.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PDFInsertNewPageResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
+            sb.Append("class Font {\n");
+            sb.Append("  FontStyle: ").Append(FontStyle).Append("\n");
+            sb.Append("  FamilyName: ").Append(FamilyName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +115,29 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFInsertNewPageResponse);
+            return this.Equals(input as Font);
         }
 
         /// <summary>
-        /// Returns true if PDFInsertNewPageResponse instances are equal
+        /// Returns true if Font instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFInsertNewPageResponse to be compared</param>
+        /// <param name="input">Instance of Font to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFInsertNewPageResponse input)
+        public bool Equals(Font input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    this.FontStyle == input.FontStyle ||
+                    (this.FontStyle != null &&
+                    this.FontStyle.Equals(input.FontStyle))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    this.FamilyName == input.FamilyName ||
+                    (this.FamilyName != null &&
+                    this.FamilyName.Equals(input.FamilyName))
                 );
         }
 
@@ -120,10 +150,10 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
+                if (this.FontStyle != null)
+                    hashCode = hashCode * 59 + this.FontStyle.GetHashCode();
+                if (this.FamilyName != null)
+                    hashCode = hashCode * 59 + this.FamilyName.GetHashCode();
                 return hashCode;
             }
         }

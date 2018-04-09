@@ -38,10 +38,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFOCRParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;1&quot;).</param>
-        /// <param name="Language">Language (default to &quot;eng&quot;).</param>
-        /// <param name="SkipPageWithText">SkipPageWithText (default to true).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the page or the page range to be processed. (default to &quot;1&quot;).</param>
+        /// <param name="Language">Specifies the language to be used for the OCR.   Supported values are:  - \&quot;deu\&quot; for Deutsch.  - \&quot;eng\&quot; for English.  - \&quot;fra\&quot; for Français.  - \&quot;ita\&quot; for italiano.  - \&quot;por\&quot; for português.  - \&quot;spa\&quot; for español. (default to &quot;eng&quot;).</param>
+        /// <param name="SkipPageWithText">Specifies if pages containing text must be ignored (in such case no token is charged). (default to true).</param>
         public PDFOCRParameters(string FileId = default(string), string PageRange = "1", string Language = "eng", bool? SkipPageWithText = true)
         {
             // to ensure "FileId" is required (not null)
@@ -83,26 +83,30 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the page or the page range to be processed.
         /// </summary>
+        /// <value>Specifies the page or the page range to be processed.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets Language
+        /// Specifies the language to be used for the OCR.   Supported values are:  - \&quot;deu\&quot; for Deutsch.  - \&quot;eng\&quot; for English.  - \&quot;fra\&quot; for Français.  - \&quot;ita\&quot; for italiano.  - \&quot;por\&quot; for português.  - \&quot;spa\&quot; for español.
         /// </summary>
+        /// <value>Specifies the language to be used for the OCR.   Supported values are:  - \&quot;deu\&quot; for Deutsch.  - \&quot;eng\&quot; for English.  - \&quot;fra\&quot; for Français.  - \&quot;ita\&quot; for italiano.  - \&quot;por\&quot; for português.  - \&quot;spa\&quot; for español.</value>
         [DataMember(Name="language", EmitDefaultValue=false)]
         public string Language { get; set; }
 
         /// <summary>
-        /// Gets or Sets SkipPageWithText
+        /// Specifies if pages containing text must be ignored (in such case no token is charged).
         /// </summary>
+        /// <value>Specifies if pages containing text must be ignored (in such case no token is charged).</value>
         [DataMember(Name="skipPageWithText", EmitDefaultValue=false)]
         public bool? SkipPageWithText { get; set; }
 

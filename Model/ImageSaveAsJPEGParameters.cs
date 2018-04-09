@@ -38,10 +38,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageSaveAsJPEGParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="Quality">Quality (default to 75).</param>
-        /// <param name="Progressive">Progressive.</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be saved as JPEG. (default to &quot;*&quot;).</param>
+        /// <param name="Quality">Specifies the level of quality to be used for the JPEG compression, between 1 (poorest) to 100 (greatest). (default to 75).</param>
+        /// <param name="Progressive">Specifies if the encoded JPEG image must be progressive..</param>
         public ImageSaveAsJPEGParameters(string FileId = default(string), string PageRange = "*", int? Quality = 75, bool? Progressive = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -75,26 +75,30 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be saved as JPEG.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be saved as JPEG.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quality
+        /// Specifies the level of quality to be used for the JPEG compression, between 1 (poorest) to 100 (greatest).
         /// </summary>
+        /// <value>Specifies the level of quality to be used for the JPEG compression, between 1 (poorest) to 100 (greatest).</value>
         [DataMember(Name="quality", EmitDefaultValue=false)]
         public int? Quality { get; set; }
 
         /// <summary>
-        /// Gets or Sets Progressive
+        /// Specifies if the encoded JPEG image must be progressive.
         /// </summary>
+        /// <value>Specifies if the encoded JPEG image must be progressive.</value>
         [DataMember(Name="progressive", EmitDefaultValue=false)]
         public bool? Progressive { get; set; }
 

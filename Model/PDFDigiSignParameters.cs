@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFDigiSignParameters :  IEquatable<PDFDigiSignParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets SignatureMode
+        /// Specifies the mode of the signature.
         /// </summary>
+        /// <value>Specifies the mode of the signature.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SignatureModeEnum
         {
@@ -57,13 +58,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets SignatureMode
+        /// Specifies the mode of the signature.
         /// </summary>
+        /// <value>Specifies the mode of the signature.</value>
         [DataMember(Name="signatureMode", EmitDefaultValue=false)]
         public SignatureModeEnum? SignatureMode { get; set; }
         /// <summary>
-        /// Gets or Sets SignatureCertificationLevel
+        /// Specifies the certification level of the singature.
         /// </summary>
+        /// <value>Specifies the certification level of the singature.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SignatureCertificationLevelEnum
         {
@@ -94,13 +97,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets SignatureCertificationLevel
+        /// Specifies the certification level of the singature.
         /// </summary>
+        /// <value>Specifies the certification level of the singature.</value>
         [DataMember(Name="signatureCertificationLevel", EmitDefaultValue=false)]
         public SignatureCertificationLevelEnum? SignatureCertificationLevel { get; set; }
         /// <summary>
-        /// Gets or Sets SignatureHashAlgorithm
+        /// Specifies the algorithm to be used for the signature.
         /// </summary>
+        /// <value>Specifies the algorithm to be used for the signature.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SignatureHashAlgorithmEnum
         {
@@ -137,8 +142,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets SignatureHashAlgorithm
+        /// Specifies the algorithm to be used for the signature.
         /// </summary>
+        /// <value>Specifies the algorithm to be used for the signature.</value>
         [DataMember(Name="signatureHashAlgorithm", EmitDefaultValue=false)]
         public SignatureHashAlgorithmEnum? SignatureHashAlgorithm { get; set; }
         /// <summary>
@@ -149,27 +155,27 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFDigiSignParameters" /> class.
         /// </summary>
-        /// <param name="CertificateData">CertificateData (required).</param>
-        /// <param name="CertificatePassword">CertificatePassword (required).</param>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="SignatureMode">SignatureMode (default to SignatureModeEnum.AdobePPKMS).</param>
-        /// <param name="SignatureCertificationLevel">SignatureCertificationLevel (default to SignatureCertificationLevelEnum.NotCertified).</param>
-        /// <param name="SignatureHashAlgorithm">SignatureHashAlgorithm (default to SignatureHashAlgorithmEnum.SHA256).</param>
-        /// <param name="SignerName">SignerName (default to &quot;PassportPDF&quot;).</param>
-        /// <param name="Reason">Reason.</param>
-        /// <param name="Location">Location.</param>
-        /// <param name="ContactInfo">ContactInfo.</param>
-        /// <param name="TimeStampURL">TimeStampURL.</param>
-        /// <param name="TimeStampUserName">TimeStampUserName.</param>
-        /// <param name="TimeStampPassword">TimeStampPassword.</param>
-        /// <param name="Linearize">Linearize.</param>
-        /// <param name="DrawSignature">DrawSignature.</param>
-        /// <param name="PageNumber">PageNumber (default to 1).</param>
-        /// <param name="ShowValidationMark">ShowValidationMark.</param>
-        /// <param name="ImageData">ImageData.</param>
+        /// <param name="CertificateData">Specifies the data of the digital PKCS#12 certificate file. (required).</param>
+        /// <param name="CertificatePassword">Specifies the certificate password. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="SignatureMode">Specifies the mode of the signature. (default to SignatureModeEnum.AdobePPKMS).</param>
+        /// <param name="SignatureCertificationLevel">Specifies the certification level of the singature. (default to SignatureCertificationLevelEnum.NotCertified).</param>
+        /// <param name="SignatureHashAlgorithm">Specifies the algorithm to be used for the signature. (default to SignatureHashAlgorithmEnum.SHA256).</param>
+        /// <param name="SignerName">Specifies the name of the signer. (default to &quot;PassportPDF&quot;).</param>
+        /// <param name="Reason">Specifies the reason of the signature..</param>
+        /// <param name="Location">Specifies the location where the signature is applied..</param>
+        /// <param name="ContactInfo">Specifies contact information about the signer..</param>
+        /// <param name="TimeStampURL">Specifies the URL of the server responsible of providing a time stamp..</param>
+        /// <param name="TimeStampUserName">Specifies the optional user name associated with the time stamp server..</param>
+        /// <param name="TimeStampPassword">Specifies the optional password associated with the time stamp server..</param>
+        /// <param name="Linearize">Specifies whether the signed PDF shall be linearized..</param>
+        /// <param name="DrawSignature">Specifies whether the signature shall be drawn on the document..</param>
+        /// <param name="PageNumber">Specifies the number of the page on which the signature shall be drawn. (default to 1).</param>
+        /// <param name="ShowValidationMark">Specifies whether a validation mark shall be drawn with the signature..</param>
+        /// <param name="ImageData">Specifies the data of the image to be drawn at the signature location..</param>
         /// <param name="SignatureLayout">SignatureLayout.</param>
         /// <param name="SignatureText">SignatureText.</param>
-        public PDFDigiSignParameters(byte[] CertificateData = default(byte[]), string CertificatePassword = default(string), string FileId = default(string), SignatureModeEnum? SignatureMode = SignatureModeEnum.AdobePPKMS, SignatureCertificationLevelEnum? SignatureCertificationLevel = SignatureCertificationLevelEnum.NotCertified, SignatureHashAlgorithmEnum? SignatureHashAlgorithm = SignatureHashAlgorithmEnum.SHA256, string SignerName = "PassportPDF", string Reason = default(string), string Location = default(string), string ContactInfo = default(string), string TimeStampURL = default(string), string TimeStampUserName = default(string), string TimeStampPassword = default(string), bool? Linearize = default(bool?), bool? DrawSignature = default(bool?), int? PageNumber = 1, bool? ShowValidationMark = default(bool?), byte[] ImageData = default(byte[]), DrawableContentLayoutParameters SignatureLayout = default(DrawableContentLayoutParameters), PdfStandardFontAlignedTextParameters SignatureText = default(PdfStandardFontAlignedTextParameters))
+        public PDFDigiSignParameters(byte[] CertificateData = default(byte[]), string CertificatePassword = default(string), string FileId = default(string), SignatureModeEnum? SignatureMode = SignatureModeEnum.AdobePPKMS, SignatureCertificationLevelEnum? SignatureCertificationLevel = SignatureCertificationLevelEnum.NotCertified, SignatureHashAlgorithmEnum? SignatureHashAlgorithm = SignatureHashAlgorithmEnum.SHA256, string SignerName = "PassportPDF", string Reason = default(string), string Location = default(string), string ContactInfo = default(string), string TimeStampURL = default(string), string TimeStampUserName = default(string), string TimeStampPassword = default(string), bool? Linearize = default(bool?), bool? DrawSignature = default(bool?), int? PageNumber = 1, bool? ShowValidationMark = default(bool?), byte[] ImageData = default(byte[]), DrawableContentLayoutParameters SignatureLayout = default(DrawableContentLayoutParameters), PdfAlignedTextParameters SignatureText = default(PdfAlignedTextParameters))
         {
             // to ensure "CertificateData" is required (not null)
             if (CertificateData == null)
@@ -258,20 +264,23 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets CertificateData
+        /// Specifies the data of the digital PKCS#12 certificate file.
         /// </summary>
+        /// <value>Specifies the data of the digital PKCS#12 certificate file.</value>
         [DataMember(Name="certificateData", EmitDefaultValue=false)]
         public byte[] CertificateData { get; set; }
 
         /// <summary>
-        /// Gets or Sets CertificatePassword
+        /// Specifies the certificate password.
         /// </summary>
+        /// <value>Specifies the certificate password.</value>
         [DataMember(Name="certificatePassword", EmitDefaultValue=false)]
         public string CertificatePassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
@@ -279,74 +288,86 @@ namespace PassportPDF.Model
 
 
         /// <summary>
-        /// Gets or Sets SignerName
+        /// Specifies the name of the signer.
         /// </summary>
+        /// <value>Specifies the name of the signer.</value>
         [DataMember(Name="signerName", EmitDefaultValue=false)]
         public string SignerName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reason
+        /// Specifies the reason of the signature.
         /// </summary>
+        /// <value>Specifies the reason of the signature.</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// Gets or Sets Location
+        /// Specifies the location where the signature is applied.
         /// </summary>
+        /// <value>Specifies the location where the signature is applied.</value>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
 
         /// <summary>
-        /// Gets or Sets ContactInfo
+        /// Specifies contact information about the signer.
         /// </summary>
+        /// <value>Specifies contact information about the signer.</value>
         [DataMember(Name="contactInfo", EmitDefaultValue=false)]
         public string ContactInfo { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeStampURL
+        /// Specifies the URL of the server responsible of providing a time stamp.
         /// </summary>
+        /// <value>Specifies the URL of the server responsible of providing a time stamp.</value>
         [DataMember(Name="timeStampURL", EmitDefaultValue=false)]
         public string TimeStampURL { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeStampUserName
+        /// Specifies the optional user name associated with the time stamp server.
         /// </summary>
+        /// <value>Specifies the optional user name associated with the time stamp server.</value>
         [DataMember(Name="timeStampUserName", EmitDefaultValue=false)]
         public string TimeStampUserName { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeStampPassword
+        /// Specifies the optional password associated with the time stamp server.
         /// </summary>
+        /// <value>Specifies the optional password associated with the time stamp server.</value>
         [DataMember(Name="timeStampPassword", EmitDefaultValue=false)]
         public string TimeStampPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets Linearize
+        /// Specifies whether the signed PDF shall be linearized.
         /// </summary>
+        /// <value>Specifies whether the signed PDF shall be linearized.</value>
         [DataMember(Name="linearize", EmitDefaultValue=false)]
         public bool? Linearize { get; set; }
 
         /// <summary>
-        /// Gets or Sets DrawSignature
+        /// Specifies whether the signature shall be drawn on the document.
         /// </summary>
+        /// <value>Specifies whether the signature shall be drawn on the document.</value>
         [DataMember(Name="drawSignature", EmitDefaultValue=false)]
         public bool? DrawSignature { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageNumber
+        /// Specifies the number of the page on which the signature shall be drawn.
         /// </summary>
+        /// <value>Specifies the number of the page on which the signature shall be drawn.</value>
         [DataMember(Name="pageNumber", EmitDefaultValue=false)]
         public int? PageNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowValidationMark
+        /// Specifies whether a validation mark shall be drawn with the signature.
         /// </summary>
+        /// <value>Specifies whether a validation mark shall be drawn with the signature.</value>
         [DataMember(Name="showValidationMark", EmitDefaultValue=false)]
         public bool? ShowValidationMark { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImageData
+        /// Specifies the data of the image to be drawn at the signature location.
         /// </summary>
+        /// <value>Specifies the data of the image to be drawn at the signature location.</value>
         [DataMember(Name="imageData", EmitDefaultValue=false)]
         public byte[] ImageData { get; set; }
 
@@ -360,7 +381,7 @@ namespace PassportPDF.Model
         /// Gets or Sets SignatureText
         /// </summary>
         [DataMember(Name="signatureText", EmitDefaultValue=false)]
-        public PdfStandardFontAlignedTextParameters SignatureText { get; set; }
+        public PdfAlignedTextParameters SignatureText { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

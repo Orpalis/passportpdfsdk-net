@@ -38,9 +38,9 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFMovePageParameters" /> class.
         /// </summary>
-        /// <param name="SourcePageRange">SourcePageRange (required).</param>
-        /// <param name="DestinationPage">DestinationPage (required).</param>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="SourcePageRange">Specifies the number of the page, or the range of pages to be moved. (required).</param>
+        /// <param name="DestinationPage">Specifies the number of the destination page. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         public PDFMovePageParameters(string SourcePageRange = default(string), int? DestinationPage = default(int?), string FileId = default(string))
         {
             // to ensure "SourcePageRange" is required (not null)
@@ -73,20 +73,23 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets SourcePageRange
+        /// Specifies the number of the page, or the range of pages to be moved.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be moved.</value>
         [DataMember(Name="sourcePageRange", EmitDefaultValue=false)]
         public string SourcePageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets DestinationPage
+        /// Specifies the number of the destination page.
         /// </summary>
+        /// <value>Specifies the number of the destination page.</value>
         [DataMember(Name="destinationPage", EmitDefaultValue=false)]
         public int? DestinationPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

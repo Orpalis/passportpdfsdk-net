@@ -33,8 +33,8 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFMergeParameters" /> class.
         /// </summary>
-        /// <param name="FilesId">FilesId.</param>
-        /// <param name="IncludeAttachments">IncludeAttachments (default to true).</param>
+        /// <param name="FilesId">Specifies the identifiers of the documents to be merged..</param>
+        /// <param name="IncludeAttachments">Specifies if file attachments should be included in merged document. (default to true).</param>
         public PDFMergeParameters(List<string> FilesId = default(List<string>), bool? IncludeAttachments = true)
         {
             this.FilesId = FilesId;
@@ -50,14 +50,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FilesId
+        /// Specifies the identifiers of the documents to be merged.
         /// </summary>
+        /// <value>Specifies the identifiers of the documents to be merged.</value>
         [DataMember(Name="filesId", EmitDefaultValue=false)]
         public List<string> FilesId { get; set; }
 
         /// <summary>
-        /// Gets or Sets IncludeAttachments
+        /// Specifies if file attachments should be included in merged document.
         /// </summary>
+        /// <value>Specifies if file attachments should be included in merged document.</value>
         [DataMember(Name="includeAttachments", EmitDefaultValue=false)]
         public bool? IncludeAttachments { get; set; }
 

@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class DocuViewareControlState :  IEquatable<DocuViewareControlState>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets DocumentAlignment
+        /// Specifies the document alignment set within the control.
         /// </summary>
+        /// <value>Specifies the document alignment set within the control.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DocumentAlignmentEnum
         {
@@ -93,13 +94,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets DocumentAlignment
+        /// Specifies the document alignment set within the control.
         /// </summary>
+        /// <value>Specifies the document alignment set within the control.</value>
         [DataMember(Name="documentAlignment", EmitDefaultValue=false)]
         public DocumentAlignmentEnum? DocumentAlignment { get; set; }
         /// <summary>
-        /// Gets or Sets DocumentPosition
+        /// Specifies the document position set within the control.
         /// </summary>
+        /// <value>Specifies the document position set within the control.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DocumentPositionEnum
         {
@@ -160,13 +163,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets DocumentPosition
+        /// Specifies the document position set within the control.
         /// </summary>
+        /// <value>Specifies the document position set within the control.</value>
         [DataMember(Name="documentPosition", EmitDefaultValue=false)]
         public DocumentPositionEnum? DocumentPosition { get; set; }
         /// <summary>
-        /// Gets or Sets ZoomMode
+        /// Specifies the zoom mode used by the viewer.
         /// </summary>
+        /// <value>Specifies the zoom mode used by the viewer.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ZoomModeEnum
         {
@@ -215,13 +220,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ZoomMode
+        /// Specifies the zoom mode used by the viewer.
         /// </summary>
+        /// <value>Specifies the zoom mode used by the viewer.</value>
         [DataMember(Name="zoomMode", EmitDefaultValue=false)]
         public ZoomModeEnum? ZoomMode { get; set; }
         /// <summary>
-        /// Gets or Sets OpenZoomMode
+        /// Specifies the zoom mode to set when a new document is loaded.
         /// </summary>
+        /// <value>Specifies the zoom mode to set when a new document is loaded.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OpenZoomModeEnum
         {
@@ -270,13 +277,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets OpenZoomMode
+        /// Specifies the zoom mode to set when a new document is loaded.
         /// </summary>
+        /// <value>Specifies the zoom mode to set when a new document is loaded.</value>
         [DataMember(Name="openZoomMode", EmitDefaultValue=false)]
         public OpenZoomModeEnum? OpenZoomMode { get; set; }
         /// <summary>
-        /// Gets or Sets ViewRotation
+        /// Specifies the current rotation of the control.
         /// </summary>
+        /// <value>Specifies the current rotation of the control.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ViewRotationEnum
         {
@@ -331,13 +340,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ViewRotation
+        /// Specifies the current rotation of the control.
         /// </summary>
+        /// <value>Specifies the current rotation of the control.</value>
         [DataMember(Name="viewRotation", EmitDefaultValue=false)]
         public ViewRotationEnum? ViewRotation { get; set; }
         /// <summary>
-        /// Gets or Sets PageRotation
+        /// Specifies the current page rotation of the displayed document.
         /// </summary>
+        /// <value>Specifies the current page rotation of the displayed document.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PageRotationEnum
         {
@@ -392,13 +403,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets PageRotation
+        /// Specifies the current page rotation of the displayed document.
         /// </summary>
+        /// <value>Specifies the current page rotation of the displayed document.</value>
         [DataMember(Name="pageRotation", EmitDefaultValue=false)]
         public PageRotationEnum? PageRotation { get; set; }
         /// <summary>
-        /// Gets or Sets PageViewMode
+        /// Specifies the view mode used by the viewer.
         /// </summary>
+        /// <value>Specifies the view mode used by the viewer.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PageViewModeEnum
         {
@@ -417,13 +430,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets PageViewMode
+        /// Specifies the view mode used by the viewer.
         /// </summary>
+        /// <value>Specifies the view mode used by the viewer.</value>
         [DataMember(Name="pageViewMode", EmitDefaultValue=false)]
         public PageViewModeEnum? PageViewMode { get; set; }
         /// <summary>
-        /// Gets or Sets Locale
+        /// Specifies the user preference information related to the user&#39;s language.
         /// </summary>
+        /// <value>Specifies the user preference information related to the user&#39;s language.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LocaleEnum
         {
@@ -592,13 +607,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets Locale
+        /// Specifies the user preference information related to the user&#39;s language.
         /// </summary>
+        /// <value>Specifies the user preference information related to the user&#39;s language.</value>
         [DataMember(Name="locale", EmitDefaultValue=false)]
         public LocaleEnum? Locale { get; set; }
         /// <summary>
-        /// Gets or Sets RotateButtonsMode
+        /// Specifies the rotation mode associated with the rotation button group.
         /// </summary>
+        /// <value>Specifies the rotation mode associated with the rotation button group.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RotateButtonsModeEnum
         {
@@ -617,13 +634,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets RotateButtonsMode
+        /// Specifies the rotation mode associated with the rotation button group.
         /// </summary>
+        /// <value>Specifies the rotation mode associated with the rotation button group.</value>
         [DataMember(Name="rotateButtonsMode", EmitDefaultValue=false)]
         public RotateButtonsModeEnum? RotateButtonsMode { get; set; }
         /// <summary>
-        /// Gets or Sets ToolbarStyle
+        /// Specifies the Toolbar style, Desktop, Mobile or Auto.
         /// </summary>
+        /// <value>Specifies the Toolbar style, Desktop, Mobile or Auto.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ToolbarStyleEnum
         {
@@ -648,13 +667,15 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ToolbarStyle
+        /// Specifies the Toolbar style, Desktop, Mobile or Auto.
         /// </summary>
+        /// <value>Specifies the Toolbar style, Desktop, Mobile or Auto.</value>
         [DataMember(Name="toolbarStyle", EmitDefaultValue=false)]
         public ToolbarStyleEnum? ToolbarStyle { get; set; }
         /// <summary>
-        /// Gets or Sets PrintQuality
+        /// Specifies the quality level to be used to print documents.
         /// </summary>
+        /// <value>Specifies the quality level to be used to print documents.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PrintQualityEnum
         {
@@ -685,122 +706,123 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets PrintQuality
+        /// Specifies the quality level to be used to print documents.
         /// </summary>
+        /// <value>Specifies the quality level to be used to print documents.</value>
         [DataMember(Name="printQuality", EmitDefaultValue=false)]
         public PrintQualityEnum? PrintQuality { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareControlState" /> class.
         /// </summary>
-        /// <param name="TextSearchMaxResults">TextSearchMaxResults.</param>
-        /// <param name="Timeout">Timeout.</param>
-        /// <param name="ControlId">ControlId.</param>
-        /// <param name="ShowLogo">ShowLogo.</param>
-        /// <param name="DocumentAlignment">DocumentAlignment.</param>
-        /// <param name="DocumentPosition">DocumentPosition.</param>
-        /// <param name="EnableGdPictureAnnotations">EnableGdPictureAnnotations.</param>
-        /// <param name="EnableFormFieldsEdition">EnableFormFieldsEdition.</param>
+        /// <param name="TextSearchMaxResults">Specifies the maximum number of results provided by a text search request..</param>
+        /// <param name="Timeout">Specifies the amount of time, in minutes, allowed between requests before the DocuVieware session-state provider terminates the session.&lt;br /&gt;.</param>
+        /// <param name="ControlId">Specifies the identifier associated with the control..</param>
+        /// <param name="ShowLogo">Specifies if the DocuVieware logo is displayed in the toolbar..</param>
+        /// <param name="DocumentAlignment">Specifies the document alignment set within the control..</param>
+        /// <param name="DocumentPosition">Specifies the document position set within the control..</param>
+        /// <param name="EnableGdPictureAnnotations">Specifies if GdPicture/XMP annotations support is activated..</param>
+        /// <param name="EnableFormFieldsEdition">Specifies whether form fields can be edited into the client browser or not..</param>
         /// <param name="AnnotationEditorMode">AnnotationEditorMode.</param>
-        /// <param name="Zoom">Zoom.</param>
-        /// <param name="ZoomMode">ZoomMode.</param>
-        /// <param name="OpenZoomMode">OpenZoomMode.</param>
-        /// <param name="ViewRotation">ViewRotation.</param>
-        /// <param name="PageRotation">PageRotation.</param>
-        /// <param name="ZoomStep">ZoomStep.</param>
-        /// <param name="ScrollBars">ScrollBars.</param>
-        /// <param name="ForceScrollBars">ForceScrollBars.</param>
-        /// <param name="PageViewMode">PageViewMode.</param>
-        /// <param name="EnableTextSelection">EnableTextSelection.</param>
-        /// <param name="EnableTextSelectionAnnotation">EnableTextSelectionAnnotation.</param>
-        /// <param name="Locale">Locale.</param>
-        /// <param name="UserLanguages">UserLanguages.</param>
-        /// <param name="ControlWidth">ControlWidth.</param>
-        /// <param name="ControlHeight">ControlHeight.</param>
-        /// <param name="AnnotationDropShadow">AnnotationDropShadow.</param>
-        /// <param name="AllowPrint">AllowPrint.</param>
-        /// <param name="AllowUpload">AllowUpload.</param>
-        /// <param name="EnableMultipleThumbnailSelection">EnableMultipleThumbnailSelection.</param>
-        /// <param name="EnableThumbnailDragDrop">EnableThumbnailDragDrop.</param>
-        /// <param name="EnableFileUploadButton">EnableFileUploadButton.</param>
-        /// <param name="EnableLoadFromUriButton">EnableLoadFromUriButton.</param>
-        /// <param name="EnableSaveButton">EnableSaveButton.</param>
-        /// <param name="EnablePagesNavigationButtons">EnablePagesNavigationButtons.</param>
-        /// <param name="EnablePrintButton">EnablePrintButton.</param>
-        /// <param name="EnableFitWidthButton">EnableFitWidthButton.</param>
-        /// <param name="EnableZoom100Button">EnableZoom100Button.</param>
-        /// <param name="EnableMouseModeButtons">EnableMouseModeButtons.</param>
-        /// <param name="EnablePanModeButton">EnablePanModeButton.</param>
-        /// <param name="EnableSelectModeButton">EnableSelectModeButton.</param>
-        /// <param name="EnableMarqueeZoomModeButton">EnableMarqueeZoomModeButton.</param>
-        /// <param name="EnableFullScreenButton">EnableFullScreenButton.</param>
-        /// <param name="EnableFitPageButton">EnableFitPageButton.</param>
-        /// <param name="EnableZoomButtons">EnableZoomButtons.</param>
-        /// <param name="EnablePageViewButtons">EnablePageViewButtons.</param>
-        /// <param name="RotateButtonsMode">RotateButtonsMode.</param>
-        /// <param name="EnableRotateButtons">EnableRotateButtons.</param>
-        /// <param name="EnableAnnotationActionButtons">EnableAnnotationActionButtons.</param>
-        /// <param name="EnableSelectedTextAnnotationEdition">EnableSelectedTextAnnotationEdition.</param>
-        /// <param name="EnableRectangleHighlighterAnnotationButton">EnableRectangleHighlighterAnnotationButton.</param>
-        /// <param name="EnableFreehandHighlighterAnnotationButton">EnableFreehandHighlighterAnnotationButton.</param>
-        /// <param name="EnableRubberStampAnnotationButton">EnableRubberStampAnnotationButton.</param>
-        /// <param name="EnableRectangleAnnotationButton">EnableRectangleAnnotationButton.</param>
-        /// <param name="EnableEllipseAnnotationButton">EnableEllipseAnnotationButton.</param>
-        /// <param name="EnableLineAnnotationButton">EnableLineAnnotationButton.</param>
-        /// <param name="EnableConnectedLineAnnotationButton">EnableConnectedLineAnnotationButton.</param>
-        /// <param name="EnableFreehandAnnotationButton">EnableFreehandAnnotationButton.</param>
-        /// <param name="EnableLineArrowAnnotationButton">EnableLineArrowAnnotationButton.</param>
-        /// <param name="EnableLinkAnnotationButton">EnableLinkAnnotationButton.</param>
-        /// <param name="EnableRulerAnnotationButton">EnableRulerAnnotationButton.</param>
+        /// <param name="Zoom">Specifies the current factor of zoom applied during page rendering operations: 1 for 100%, 1.5 for 150%, 2 for 200%....</param>
+        /// <param name="ZoomMode">Specifies the zoom mode used by the viewer..</param>
+        /// <param name="OpenZoomMode">Specifies the zoom mode to set when a new document is loaded..</param>
+        /// <param name="ViewRotation">Specifies the current rotation of the control..</param>
+        /// <param name="PageRotation">Specifies the current page rotation of the displayed document..</param>
+        /// <param name="ZoomStep">Defines the percentage of increasing or decreasing level of zoom for &#39;Zoom In&#39; and &#39;Zoom Out&#39; operations..</param>
+        /// <param name="ScrollBars">Specifies whether scrollbars can be displayed or not within the viewer.&lt;br /&gt;.</param>
+        /// <param name="ForceScrollBars">Specifies whether the viewer shall always show scrollbars..</param>
+        /// <param name="PageViewMode">Specifies the view mode used by the viewer..</param>
+        /// <param name="EnableTextSelection">Specifies if text selection is permitted..</param>
+        /// <param name="EnableTextSelectionAnnotation">Specifies whether the selected text context menu options should contain annotations entries..</param>
+        /// <param name="Locale">Specifies the user preference information related to the user&#39;s language..</param>
+        /// <param name="UserLanguages">Specifies the different languages used by the user&#39;s browser..</param>
+        /// <param name="ControlWidth">Specifies the width of the control within its container..</param>
+        /// <param name="ControlHeight">Specifies, the height of the control within its container..</param>
+        /// <param name="AnnotationDropShadow">Specifies whether GdPicture/XMP annotations are rendered with a drop shadow effect..</param>
+        /// <param name="AllowPrint">Specifies whether printing is allowed..</param>
+        /// <param name="AllowUpload">Specifies whether file upload is allowed..</param>
+        /// <param name="EnableMultipleThumbnailSelection">Specifies whether multiple thumbnails selection is allowed..</param>
+        /// <param name="EnableThumbnailDragDrop">Specifies whether the thumbnails can be moved by drag and drop..</param>
+        /// <param name="EnableFileUploadButton">Specifies whether the open button shall be enabled..</param>
+        /// <param name="EnableLoadFromUriButton">Specifies whether the &#39;open from uri&#39; button shall be enabled..</param>
+        /// <param name="EnableSaveButton">Specifies whether the save button shall be enabled..</param>
+        /// <param name="EnablePagesNavigationButtons">Specifies whether the save button shall be enabled..</param>
+        /// <param name="EnablePrintButton">Specifies whether the print button shall be enabled..</param>
+        /// <param name="EnableFitWidthButton">Specifies whether the fit width button shall be enabled..</param>
+        /// <param name="EnableZoom100Button">Specifies whether the fit original size button shall be enabled..</param>
+        /// <param name="EnableMouseModeButtons">Specifies whether the mouse mode button group shall be enabled..</param>
+        /// <param name="EnablePanModeButton">Specifies whether the pan mode button shall be enabled..</param>
+        /// <param name="EnableSelectModeButton">Specifies whether the select mode button shall be enabled..</param>
+        /// <param name="EnableMarqueeZoomModeButton">Specifies whether the marquee zoom mode button shall be enabled..</param>
+        /// <param name="EnableFullScreenButton">Specifies whether the fullscreen button shall be enabled..</param>
+        /// <param name="EnableFitPageButton">Specifies whether the &#39;Fit Page&#39; button shall be enabled..</param>
+        /// <param name="EnableZoomButtons">Specifies whether the zoom button group shall be enabled..</param>
+        /// <param name="EnablePageViewButtons">Specifies whether the page view mode button shall be enabled..</param>
+        /// <param name="RotateButtonsMode">Specifies the rotation mode associated with the rotation button group..</param>
+        /// <param name="EnableRotateButtons">Specifies whether the rotation button group shall be enabled..</param>
+        /// <param name="EnableAnnotationActionButtons">Specifies whether the action buttons shall be enabled when an annotation is selected.  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableSelectedTextAnnotationEdition">Specifies whether the selected text annotations shall be editable..</param>
+        /// <param name="EnableRectangleHighlighterAnnotationButton">Specifies whether the rectangle highlighter annotation button shall be enabled. &lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableFreehandHighlighterAnnotationButton">Specifies whether the freehand highlighter annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableRubberStampAnnotationButton">Specifies whether the rubber stamp annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableRectangleAnnotationButton">Specifies whether the rectangle annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableEllipseAnnotationButton">Specifies whether the ellipse annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableLineAnnotationButton">Specifies whether the line annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableConnectedLineAnnotationButton">Specifies whether the connected line annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableFreehandAnnotationButton">Specifies whether the freehand annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableLineArrowAnnotationButton">Specifies whether the line arrow annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableLinkAnnotationButton">Specifies whether the link annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableRulerAnnotationButton">Specifies whether the ruler annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
         /// <param name="EnablePolyRulerAnnotationButton">EnablePolyRulerAnnotationButton.</param>
-        /// <param name="EnableTextAnnotationButton">EnableTextAnnotationButton.</param>
-        /// <param name="EnableStickyNoteAnnotationButton">EnableStickyNoteAnnotationButton.</param>
-        /// <param name="EnableTwainAcquisitionButton">EnableTwainAcquisitionButton.</param>
-        /// <param name="TwainSourceEnableCustomConfiguration">TwainSourceEnableCustomConfiguration.</param>
-        /// <param name="TwainSourceSelectFeeder">TwainSourceSelectFeeder.</param>
-        /// <param name="TwainSourceBitDepth">TwainSourceBitDepth.</param>
-        /// <param name="TwainSourceResolution">TwainSourceResolution.</param>
-        /// <param name="TwainSourceEnableDuplex">TwainSourceEnableDuplex.</param>
-        /// <param name="TwainSourceHideUI">TwainSourceHideUI.</param>
-        /// <param name="FreeHandContinuousDrawingMode">FreeHandContinuousDrawingMode.</param>
-        /// <param name="ShowTextSearchSnapIn">ShowTextSearchSnapIn.</param>
-        /// <param name="ShowThumbnailsSnapIn">ShowThumbnailsSnapIn.</param>
-        /// <param name="ShowBookmarksSnapIn">ShowBookmarksSnapIn.</param>
-        /// <param name="ShowAnnotationsSnapIn">ShowAnnotationsSnapIn.</param>
-        /// <param name="ShowAnnotationsCommentsSnapIn">ShowAnnotationsCommentsSnapIn.</param>
-        /// <param name="ThumbnailWidth">ThumbnailWidth.</param>
-        /// <param name="ThumbnailHeight">ThumbnailHeight.</param>
-        /// <param name="SnapInPanelDefaultWidth">SnapInPanelDefaultWidth.</param>
-        /// <param name="CollapsedSnapIn">CollapsedSnapIn.</param>
-        /// <param name="CollapseSnapinOnDocumentClosed">CollapseSnapinOnDocumentClosed.</param>
-        /// <param name="ShowSnapInCollapseButton">ShowSnapInCollapseButton.</param>
-        /// <param name="ShowSnapInPanelHeader">ShowSnapInPanelHeader.</param>
-        /// <param name="ShowSnapInButtonStrip">ShowSnapInButtonStrip.</param>
-        /// <param name="ShowToolbar">ShowToolbar.</param>
-        /// <param name="ToolbarStyle">ToolbarStyle.</param>
-        /// <param name="ToolbarButtonsSpacing">ToolbarButtonsSpacing.</param>
-        /// <param name="ToolbarHeight">ToolbarHeight.</param>
-        /// <param name="StrokeColor">StrokeColor.</param>
-        /// <param name="MiscBorderColor">MiscBorderColor.</param>
-        /// <param name="HeaderColor">HeaderColor.</param>
-        /// <param name="PanelBackColor">PanelBackColor.</param>
-        /// <param name="ViewerBackColor">ViewerBackColor.</param>
-        /// <param name="ActiveSelectedColor">ActiveSelectedColor.</param>
-        /// <param name="ToolbarBackColor">ToolbarBackColor.</param>
-        /// <param name="CustomNotificationIconError">CustomNotificationIconError.</param>
-        /// <param name="CustomNotificationIconQuestion">CustomNotificationIconQuestion.</param>
-        /// <param name="CustomNotificationIconWarning">CustomNotificationIconWarning.</param>
-        /// <param name="CustomNotificationIconInfo">CustomNotificationIconInfo.</param>
-        /// <param name="CustomNotificationIconOk">CustomNotificationIconOk.</param>
-        /// <param name="MaxUploadSize">MaxUploadSize.</param>
-        /// <param name="MaxDownloadSize">MaxDownloadSize.</param>
-        /// <param name="MaxPages">MaxPages.</param>
-        /// <param name="AllowedExportFormats">AllowedExportFormats.</param>
-        /// <param name="DisableAnnotationDrawingModePanel">DisableAnnotationDrawingModePanel.</param>
-        /// <param name="PrintQuality">PrintQuality.</param>
+        /// <param name="EnableTextAnnotationButton">Specifies whether the text annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableStickyNoteAnnotationButton">Specifies whether the sticky note annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="EnableTwainAcquisitionButton">Specifies whether the TWAIN acquisition button shall be enabled..</param>
+        /// <param name="TwainSourceEnableCustomConfiguration">Enables the custom configuration support for the TWAIN source..</param>
+        /// <param name="TwainSourceSelectFeeder">Specifies whether the TWAIN acquisition source shall acquire from the document feeder or the flatbed.  This property is only effective if TwainSourceSetCustomConfiguratation is set to true..</param>
+        /// <param name="TwainSourceBitDepth">Specifies the bit depth the TWAIN acquisition source should acquire at. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true..</param>
+        /// <param name="TwainSourceResolution">Specifies the resolution the TWAIN acquisition source should acquire at. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true..</param>
+        /// <param name="TwainSourceEnableDuplex">Specifies whether the TWAIN acquisition source shall enable duplex acquisition. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true..</param>
+        /// <param name="TwainSourceHideUI">Specifies whether the TWAIN acquisition source shall hide or show the device driver user interface before acquisition. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true..</param>
+        /// <param name="FreeHandContinuousDrawingMode">Specifies whether the drawing mode for freehand annotation is multi line or not.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="ShowTextSearchSnapIn">Specifies whether the text search SnapIn is enabled..</param>
+        /// <param name="ShowThumbnailsSnapIn">Specifies whether the Thumbnails SnapIn is enabled..</param>
+        /// <param name="ShowBookmarksSnapIn">Specifies whether the Bookmarks SnapIn is enabled..</param>
+        /// <param name="ShowAnnotationsSnapIn">Specifies whether the annotations SnapIn is enabled..</param>
+        /// <param name="ShowAnnotationsCommentsSnapIn">Specifies whether the Annotations Comments SnapIn is enabled..</param>
+        /// <param name="ThumbnailWidth">The width, in pixels, of each thumbnail..</param>
+        /// <param name="ThumbnailHeight">The height, in pixels, of each thumbnail..</param>
+        /// <param name="SnapInPanelDefaultWidth">Specfiies the Snap-in panel default width..</param>
+        /// <param name="CollapsedSnapIn">Specifies whether the Snap-in panel is collapsed or not..</param>
+        /// <param name="CollapseSnapinOnDocumentClosed">Specifies whether the Snap-in panel should be automatically collapsed when the displayed document is closed..</param>
+        /// <param name="ShowSnapInCollapseButton">Specifies whether the button that collapses the Snap-in pannel is displayed or not..</param>
+        /// <param name="ShowSnapInPanelHeader">Specifies whether the header of the Snap-in pannel is displayed or not..</param>
+        /// <param name="ShowSnapInButtonStrip">Specifies whether the Snap-in button strip is displayed or not..</param>
+        /// <param name="ShowToolbar">Specifies whether the Toolbars are visible or not..</param>
+        /// <param name="ToolbarStyle">Specifies the Toolbar style, Desktop, Mobile or Auto..</param>
+        /// <param name="ToolbarButtonsSpacing">The space, in pixels, between each button of the toolbar..</param>
+        /// <param name="ToolbarHeight">The height, in pixels, of the toolbar..</param>
+        /// <param name="StrokeColor">Specifies the color used to stroke viewer elements such borders, toolbar icons and thumbnail text..</param>
+        /// <param name="MiscBorderColor">Specifies the color used to define dropdowns borders, buttons separators, line separators..</param>
+        /// <param name="HeaderColor">Specifies the color used in both dialogs and snap-ins headers..</param>
+        /// <param name="PanelBackColor">Specifies the color used in both dialogs and snap-ins body background..</param>
+        /// <param name="ViewerBackColor">Specifies the viewer area background color..</param>
+        /// <param name="ActiveSelectedColor">Specifies the selected and active elements stroke color..</param>
+        /// <param name="ToolbarBackColor">Viewer Toolbar Background Color..</param>
+        /// <param name="CustomNotificationIconError">Custom error notification icon.&lt;br /&gt;  Used to specify a custom icon within errors notification boxes..</param>
+        /// <param name="CustomNotificationIconQuestion">Custom question notification icon.&lt;br /&gt;  Used to specify a custom icon within questions notification boxes..</param>
+        /// <param name="CustomNotificationIconWarning">Custom warning notification icon.&lt;br /&gt;  Used to specify a custom icon within warnings notification boxes..</param>
+        /// <param name="CustomNotificationIconInfo">Custom info notification icon.&lt;br /&gt;  Used to specify a custom icon within informations notification boxes..</param>
+        /// <param name="CustomNotificationIconOk">Custom success notification icon.&lt;br /&gt;  Used to specify a custom icon within success notification boxes..</param>
+        /// <param name="MaxUploadSize">Specifies, in bytes, the upload size limit..</param>
+        /// <param name="MaxDownloadSize">Specifies, in bytes, the download size limit..</param>
+        /// <param name="MaxPages">Specifies the maximum of pages per loaded document..</param>
+        /// <param name="AllowedExportFormats">Specifies extensions of the allowed formats for export. Each extension must be separated by a coma.&lt;br /&gt;  Wildcarrd character &#39;*&#39; can be used to specify any supported format.&lt;br /&gt;  The following extensions are currently supported: \&quot;PDF\&quot;, \&quot;TIFF\&quot;.&lt;br /&gt;  For example use \&quot;*\&quot; to allow all supported format for export, \&quot;PDF\&quot; to allow only PDF export and \&quot;PDF,TIFF\&quot; to allow PDF and TIFF export..</param>
+        /// <param name="DisableAnnotationDrawingModePanel">Specifies whether the drawing mode panel shall be enabled while user is drawing a free hand annotation.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true..</param>
+        /// <param name="PrintQuality">Specifies the quality level to be used to print documents..</param>
         /// <param name="FileHostingURI">FileHostingURI.</param>
-        /// <param name="DocumentURI">DocumentURI.</param>
-        /// <param name="DocumentFileName">DocumentFileName.</param>
-        /// <param name="DisableDownloadProgress">DisableDownloadProgress.</param>
+        /// <param name="DocumentURI">Specifies the URI of a document to load into the control.  This can be an empty string if a document is already loaded..</param>
+        /// <param name="DocumentFileName">Specifies the file name of the input document. The file name can help to determine the input document format.  Default value is an empty string..</param>
+        /// <param name="DisableDownloadProgress">A flag aspecifying if the control should display a loading progress status bar to the end user while a document is being loaded..</param>
         /// <param name="EnableDocumentsDrop">EnableDocumentsDrop.</param>
         public DocuViewareControlState(int? TextSearchMaxResults = default(int?), int? Timeout = default(int?), string ControlId = default(string), bool? ShowLogo = default(bool?), DocumentAlignmentEnum? DocumentAlignment = default(DocumentAlignmentEnum?), DocumentPositionEnum? DocumentPosition = default(DocumentPositionEnum?), bool? EnableGdPictureAnnotations = default(bool?), bool? EnableFormFieldsEdition = default(bool?), bool? AnnotationEditorMode = default(bool?), double? Zoom = default(double?), ZoomModeEnum? ZoomMode = default(ZoomModeEnum?), OpenZoomModeEnum? OpenZoomMode = default(OpenZoomModeEnum?), ViewRotationEnum? ViewRotation = default(ViewRotationEnum?), PageRotationEnum? PageRotation = default(PageRotationEnum?), int? ZoomStep = default(int?), bool? ScrollBars = default(bool?), bool? ForceScrollBars = default(bool?), PageViewModeEnum? PageViewMode = default(PageViewModeEnum?), bool? EnableTextSelection = default(bool?), bool? EnableTextSelectionAnnotation = default(bool?), LocaleEnum? Locale = default(LocaleEnum?), List<string> UserLanguages = default(List<string>), string ControlWidth = default(string), string ControlHeight = default(string), bool? AnnotationDropShadow = default(bool?), bool? AllowPrint = default(bool?), bool? AllowUpload = default(bool?), bool? EnableMultipleThumbnailSelection = default(bool?), bool? EnableThumbnailDragDrop = default(bool?), bool? EnableFileUploadButton = default(bool?), bool? EnableLoadFromUriButton = default(bool?), bool? EnableSaveButton = default(bool?), bool? EnablePagesNavigationButtons = default(bool?), bool? EnablePrintButton = default(bool?), bool? EnableFitWidthButton = default(bool?), bool? EnableZoom100Button = default(bool?), bool? EnableMouseModeButtons = default(bool?), bool? EnablePanModeButton = default(bool?), bool? EnableSelectModeButton = default(bool?), bool? EnableMarqueeZoomModeButton = default(bool?), bool? EnableFullScreenButton = default(bool?), bool? EnableFitPageButton = default(bool?), bool? EnableZoomButtons = default(bool?), bool? EnablePageViewButtons = default(bool?), RotateButtonsModeEnum? RotateButtonsMode = default(RotateButtonsModeEnum?), bool? EnableRotateButtons = default(bool?), bool? EnableAnnotationActionButtons = default(bool?), bool? EnableSelectedTextAnnotationEdition = default(bool?), bool? EnableRectangleHighlighterAnnotationButton = default(bool?), bool? EnableFreehandHighlighterAnnotationButton = default(bool?), bool? EnableRubberStampAnnotationButton = default(bool?), bool? EnableRectangleAnnotationButton = default(bool?), bool? EnableEllipseAnnotationButton = default(bool?), bool? EnableLineAnnotationButton = default(bool?), bool? EnableConnectedLineAnnotationButton = default(bool?), bool? EnableFreehandAnnotationButton = default(bool?), bool? EnableLineArrowAnnotationButton = default(bool?), bool? EnableLinkAnnotationButton = default(bool?), bool? EnableRulerAnnotationButton = default(bool?), bool? EnablePolyRulerAnnotationButton = default(bool?), bool? EnableTextAnnotationButton = default(bool?), bool? EnableStickyNoteAnnotationButton = default(bool?), bool? EnableTwainAcquisitionButton = default(bool?), bool? TwainSourceEnableCustomConfiguration = default(bool?), bool? TwainSourceSelectFeeder = default(bool?), int? TwainSourceBitDepth = default(int?), int? TwainSourceResolution = default(int?), bool? TwainSourceEnableDuplex = default(bool?), bool? TwainSourceHideUI = default(bool?), bool? FreeHandContinuousDrawingMode = default(bool?), bool? ShowTextSearchSnapIn = default(bool?), bool? ShowThumbnailsSnapIn = default(bool?), bool? ShowBookmarksSnapIn = default(bool?), bool? ShowAnnotationsSnapIn = default(bool?), bool? ShowAnnotationsCommentsSnapIn = default(bool?), int? ThumbnailWidth = default(int?), int? ThumbnailHeight = default(int?), string SnapInPanelDefaultWidth = default(string), bool? CollapsedSnapIn = default(bool?), bool? CollapseSnapinOnDocumentClosed = default(bool?), bool? ShowSnapInCollapseButton = default(bool?), bool? ShowSnapInPanelHeader = default(bool?), bool? ShowSnapInButtonStrip = default(bool?), bool? ShowToolbar = default(bool?), ToolbarStyleEnum? ToolbarStyle = default(ToolbarStyleEnum?), int? ToolbarButtonsSpacing = default(int?), int? ToolbarHeight = default(int?), string StrokeColor = default(string), string MiscBorderColor = default(string), string HeaderColor = default(string), string PanelBackColor = default(string), string ViewerBackColor = default(string), string ActiveSelectedColor = default(string), string ToolbarBackColor = default(string), string CustomNotificationIconError = default(string), string CustomNotificationIconQuestion = default(string), string CustomNotificationIconWarning = default(string), string CustomNotificationIconInfo = default(string), string CustomNotificationIconOk = default(string), int? MaxUploadSize = default(int?), int? MaxDownloadSize = default(int?), int? MaxPages = default(int?), string AllowedExportFormats = default(string), bool? DisableAnnotationDrawingModePanel = default(bool?), PrintQualityEnum? PrintQuality = default(PrintQualityEnum?), string FileHostingURI = default(string), string DocumentURI = default(string), string DocumentFileName = default(string), bool? DisableDownloadProgress = default(bool?), bool? EnableDocumentsDrop = default(bool?))
         {
@@ -917,40 +939,46 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets TextSearchMaxResults
+        /// Specifies the maximum number of results provided by a text search request.
         /// </summary>
+        /// <value>Specifies the maximum number of results provided by a text search request.</value>
         [DataMember(Name="textSearchMaxResults", EmitDefaultValue=false)]
         public int? TextSearchMaxResults { get; set; }
 
         /// <summary>
-        /// Gets or Sets Timeout
+        /// Specifies the amount of time, in minutes, allowed between requests before the DocuVieware session-state provider terminates the session.&lt;br /&gt;
         /// </summary>
+        /// <value>Specifies the amount of time, in minutes, allowed between requests before the DocuVieware session-state provider terminates the session.&lt;br /&gt;</value>
         [DataMember(Name="timeout", EmitDefaultValue=false)]
         public int? Timeout { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlId
+        /// Specifies the identifier associated with the control.
         /// </summary>
+        /// <value>Specifies the identifier associated with the control.</value>
         [DataMember(Name="controlId", EmitDefaultValue=false)]
         public string ControlId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowLogo
+        /// Specifies if the DocuVieware logo is displayed in the toolbar.
         /// </summary>
+        /// <value>Specifies if the DocuVieware logo is displayed in the toolbar.</value>
         [DataMember(Name="showLogo", EmitDefaultValue=false)]
         public bool? ShowLogo { get; set; }
 
 
 
         /// <summary>
-        /// Gets or Sets EnableGdPictureAnnotations
+        /// Specifies if GdPicture/XMP annotations support is activated.
         /// </summary>
+        /// <value>Specifies if GdPicture/XMP annotations support is activated.</value>
         [DataMember(Name="enableGdPictureAnnotations", EmitDefaultValue=false)]
         public bool? EnableGdPictureAnnotations { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFormFieldsEdition
+        /// Specifies whether form fields can be edited into the client browser or not.
         /// </summary>
+        /// <value>Specifies whether form fields can be edited into the client browser or not.</value>
         [DataMember(Name="enableFormFieldsEdition", EmitDefaultValue=false)]
         public bool? EnableFormFieldsEdition { get; set; }
 
@@ -961,8 +989,9 @@ namespace PassportPDF.Model
         public bool? AnnotationEditorMode { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zoom
+        /// Specifies the current factor of zoom applied during page rendering operations: 1 for 100%, 1.5 for 150%, 2 for 200%...
         /// </summary>
+        /// <value>Specifies the current factor of zoom applied during page rendering operations: 1 for 100%, 1.5 for 150%, 2 for 200%...</value>
         [DataMember(Name="zoom", EmitDefaultValue=false)]
         public double? Zoom { get; set; }
 
@@ -971,257 +1000,299 @@ namespace PassportPDF.Model
 
 
         /// <summary>
-        /// Gets or Sets ZoomStep
+        /// Defines the percentage of increasing or decreasing level of zoom for &#39;Zoom In&#39; and &#39;Zoom Out&#39; operations.
         /// </summary>
+        /// <value>Defines the percentage of increasing or decreasing level of zoom for &#39;Zoom In&#39; and &#39;Zoom Out&#39; operations.</value>
         [DataMember(Name="zoomStep", EmitDefaultValue=false)]
         public int? ZoomStep { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScrollBars
+        /// Specifies whether scrollbars can be displayed or not within the viewer.&lt;br /&gt;
         /// </summary>
+        /// <value>Specifies whether scrollbars can be displayed or not within the viewer.&lt;br /&gt;</value>
         [DataMember(Name="scrollBars", EmitDefaultValue=false)]
         public bool? ScrollBars { get; set; }
 
         /// <summary>
-        /// Gets or Sets ForceScrollBars
+        /// Specifies whether the viewer shall always show scrollbars.
         /// </summary>
+        /// <value>Specifies whether the viewer shall always show scrollbars.</value>
         [DataMember(Name="forceScrollBars", EmitDefaultValue=false)]
         public bool? ForceScrollBars { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets EnableTextSelection
+        /// Specifies if text selection is permitted.
         /// </summary>
+        /// <value>Specifies if text selection is permitted.</value>
         [DataMember(Name="enableTextSelection", EmitDefaultValue=false)]
         public bool? EnableTextSelection { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableTextSelectionAnnotation
+        /// Specifies whether the selected text context menu options should contain annotations entries.
         /// </summary>
+        /// <value>Specifies whether the selected text context menu options should contain annotations entries.</value>
         [DataMember(Name="enableTextSelectionAnnotation", EmitDefaultValue=false)]
         public bool? EnableTextSelectionAnnotation { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets UserLanguages
+        /// Specifies the different languages used by the user&#39;s browser.
         /// </summary>
+        /// <value>Specifies the different languages used by the user&#39;s browser.</value>
         [DataMember(Name="userLanguages", EmitDefaultValue=false)]
         public List<string> UserLanguages { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlWidth
+        /// Specifies the width of the control within its container.
         /// </summary>
+        /// <value>Specifies the width of the control within its container.</value>
         [DataMember(Name="controlWidth", EmitDefaultValue=false)]
         public string ControlWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets ControlHeight
+        /// Specifies, the height of the control within its container.
         /// </summary>
+        /// <value>Specifies, the height of the control within its container.</value>
         [DataMember(Name="controlHeight", EmitDefaultValue=false)]
         public string ControlHeight { get; set; }
 
         /// <summary>
-        /// Gets or Sets AnnotationDropShadow
+        /// Specifies whether GdPicture/XMP annotations are rendered with a drop shadow effect.
         /// </summary>
+        /// <value>Specifies whether GdPicture/XMP annotations are rendered with a drop shadow effect.</value>
         [DataMember(Name="annotationDropShadow", EmitDefaultValue=false)]
         public bool? AnnotationDropShadow { get; set; }
 
         /// <summary>
-        /// Gets or Sets AllowPrint
+        /// Specifies whether printing is allowed.
         /// </summary>
+        /// <value>Specifies whether printing is allowed.</value>
         [DataMember(Name="allowPrint", EmitDefaultValue=false)]
         public bool? AllowPrint { get; set; }
 
         /// <summary>
-        /// Gets or Sets AllowUpload
+        /// Specifies whether file upload is allowed.
         /// </summary>
+        /// <value>Specifies whether file upload is allowed.</value>
         [DataMember(Name="allowUpload", EmitDefaultValue=false)]
         public bool? AllowUpload { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableMultipleThumbnailSelection
+        /// Specifies whether multiple thumbnails selection is allowed.
         /// </summary>
+        /// <value>Specifies whether multiple thumbnails selection is allowed.</value>
         [DataMember(Name="enableMultipleThumbnailSelection", EmitDefaultValue=false)]
         public bool? EnableMultipleThumbnailSelection { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableThumbnailDragDrop
+        /// Specifies whether the thumbnails can be moved by drag and drop.
         /// </summary>
+        /// <value>Specifies whether the thumbnails can be moved by drag and drop.</value>
         [DataMember(Name="enableThumbnailDragDrop", EmitDefaultValue=false)]
         public bool? EnableThumbnailDragDrop { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFileUploadButton
+        /// Specifies whether the open button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the open button shall be enabled.</value>
         [DataMember(Name="enableFileUploadButton", EmitDefaultValue=false)]
         public bool? EnableFileUploadButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableLoadFromUriButton
+        /// Specifies whether the &#39;open from uri&#39; button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the &#39;open from uri&#39; button shall be enabled.</value>
         [DataMember(Name="enableLoadFromUriButton", EmitDefaultValue=false)]
         public bool? EnableLoadFromUriButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableSaveButton
+        /// Specifies whether the save button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the save button shall be enabled.</value>
         [DataMember(Name="enableSaveButton", EmitDefaultValue=false)]
         public bool? EnableSaveButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnablePagesNavigationButtons
+        /// Specifies whether the save button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the save button shall be enabled.</value>
         [DataMember(Name="enablePagesNavigationButtons", EmitDefaultValue=false)]
         public bool? EnablePagesNavigationButtons { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnablePrintButton
+        /// Specifies whether the print button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the print button shall be enabled.</value>
         [DataMember(Name="enablePrintButton", EmitDefaultValue=false)]
         public bool? EnablePrintButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFitWidthButton
+        /// Specifies whether the fit width button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the fit width button shall be enabled.</value>
         [DataMember(Name="enableFitWidthButton", EmitDefaultValue=false)]
         public bool? EnableFitWidthButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableZoom100Button
+        /// Specifies whether the fit original size button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the fit original size button shall be enabled.</value>
         [DataMember(Name="enableZoom100Button", EmitDefaultValue=false)]
         public bool? EnableZoom100Button { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableMouseModeButtons
+        /// Specifies whether the mouse mode button group shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the mouse mode button group shall be enabled.</value>
         [DataMember(Name="enableMouseModeButtons", EmitDefaultValue=false)]
         public bool? EnableMouseModeButtons { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnablePanModeButton
+        /// Specifies whether the pan mode button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the pan mode button shall be enabled.</value>
         [DataMember(Name="enablePanModeButton", EmitDefaultValue=false)]
         public bool? EnablePanModeButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableSelectModeButton
+        /// Specifies whether the select mode button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the select mode button shall be enabled.</value>
         [DataMember(Name="enableSelectModeButton", EmitDefaultValue=false)]
         public bool? EnableSelectModeButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableMarqueeZoomModeButton
+        /// Specifies whether the marquee zoom mode button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the marquee zoom mode button shall be enabled.</value>
         [DataMember(Name="enableMarqueeZoomModeButton", EmitDefaultValue=false)]
         public bool? EnableMarqueeZoomModeButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFullScreenButton
+        /// Specifies whether the fullscreen button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the fullscreen button shall be enabled.</value>
         [DataMember(Name="enableFullScreenButton", EmitDefaultValue=false)]
         public bool? EnableFullScreenButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFitPageButton
+        /// Specifies whether the &#39;Fit Page&#39; button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the &#39;Fit Page&#39; button shall be enabled.</value>
         [DataMember(Name="enableFitPageButton", EmitDefaultValue=false)]
         public bool? EnableFitPageButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableZoomButtons
+        /// Specifies whether the zoom button group shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the zoom button group shall be enabled.</value>
         [DataMember(Name="enableZoomButtons", EmitDefaultValue=false)]
         public bool? EnableZoomButtons { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnablePageViewButtons
+        /// Specifies whether the page view mode button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the page view mode button shall be enabled.</value>
         [DataMember(Name="enablePageViewButtons", EmitDefaultValue=false)]
         public bool? EnablePageViewButtons { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets EnableRotateButtons
+        /// Specifies whether the rotation button group shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the rotation button group shall be enabled.</value>
         [DataMember(Name="enableRotateButtons", EmitDefaultValue=false)]
         public bool? EnableRotateButtons { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableAnnotationActionButtons
+        /// Specifies whether the action buttons shall be enabled when an annotation is selected.  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the action buttons shall be enabled when an annotation is selected.  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableAnnotationActionButtons", EmitDefaultValue=false)]
         public bool? EnableAnnotationActionButtons { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableSelectedTextAnnotationEdition
+        /// Specifies whether the selected text annotations shall be editable.
         /// </summary>
+        /// <value>Specifies whether the selected text annotations shall be editable.</value>
         [DataMember(Name="enableSelectedTextAnnotationEdition", EmitDefaultValue=false)]
         public bool? EnableSelectedTextAnnotationEdition { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableRectangleHighlighterAnnotationButton
+        /// Specifies whether the rectangle highlighter annotation button shall be enabled. &lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the rectangle highlighter annotation button shall be enabled. &lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableRectangleHighlighterAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableRectangleHighlighterAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFreehandHighlighterAnnotationButton
+        /// Specifies whether the freehand highlighter annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the freehand highlighter annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableFreehandHighlighterAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableFreehandHighlighterAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableRubberStampAnnotationButton
+        /// Specifies whether the rubber stamp annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the rubber stamp annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableRubberStampAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableRubberStampAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableRectangleAnnotationButton
+        /// Specifies whether the rectangle annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the rectangle annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableRectangleAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableRectangleAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableEllipseAnnotationButton
+        /// Specifies whether the ellipse annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the ellipse annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableEllipseAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableEllipseAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableLineAnnotationButton
+        /// Specifies whether the line annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the line annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableLineAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableLineAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableConnectedLineAnnotationButton
+        /// Specifies whether the connected line annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the connected line annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableConnectedLineAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableConnectedLineAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableFreehandAnnotationButton
+        /// Specifies whether the freehand annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the freehand annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableFreehandAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableFreehandAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableLineArrowAnnotationButton
+        /// Specifies whether the line arrow annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the line arrow annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableLineArrowAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableLineArrowAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableLinkAnnotationButton
+        /// Specifies whether the link annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the link annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableLinkAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableLinkAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableRulerAnnotationButton
+        /// Specifies whether the ruler annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the ruler annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableRulerAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableRulerAnnotationButton { get; set; }
 
@@ -1232,261 +1303,304 @@ namespace PassportPDF.Model
         public bool? EnablePolyRulerAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableTextAnnotationButton
+        /// Specifies whether the text annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the text annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableTextAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableTextAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableStickyNoteAnnotationButton
+        /// Specifies whether the sticky note annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the sticky note annotation button shall be enabled.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="enableStickyNoteAnnotationButton", EmitDefaultValue=false)]
         public bool? EnableStickyNoteAnnotationButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnableTwainAcquisitionButton
+        /// Specifies whether the TWAIN acquisition button shall be enabled.
         /// </summary>
+        /// <value>Specifies whether the TWAIN acquisition button shall be enabled.</value>
         [DataMember(Name="enableTwainAcquisitionButton", EmitDefaultValue=false)]
         public bool? EnableTwainAcquisitionButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwainSourceEnableCustomConfiguration
+        /// Enables the custom configuration support for the TWAIN source.
         /// </summary>
+        /// <value>Enables the custom configuration support for the TWAIN source.</value>
         [DataMember(Name="twainSourceEnableCustomConfiguration", EmitDefaultValue=false)]
         public bool? TwainSourceEnableCustomConfiguration { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwainSourceSelectFeeder
+        /// Specifies whether the TWAIN acquisition source shall acquire from the document feeder or the flatbed.  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.
         /// </summary>
+        /// <value>Specifies whether the TWAIN acquisition source shall acquire from the document feeder or the flatbed.  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.</value>
         [DataMember(Name="twainSourceSelectFeeder", EmitDefaultValue=false)]
         public bool? TwainSourceSelectFeeder { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwainSourceBitDepth
+        /// Specifies the bit depth the TWAIN acquisition source should acquire at. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.
         /// </summary>
+        /// <value>Specifies the bit depth the TWAIN acquisition source should acquire at. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.</value>
         [DataMember(Name="twainSourceBitDepth", EmitDefaultValue=false)]
         public int? TwainSourceBitDepth { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwainSourceResolution
+        /// Specifies the resolution the TWAIN acquisition source should acquire at. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.
         /// </summary>
+        /// <value>Specifies the resolution the TWAIN acquisition source should acquire at. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.</value>
         [DataMember(Name="twainSourceResolution", EmitDefaultValue=false)]
         public int? TwainSourceResolution { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwainSourceEnableDuplex
+        /// Specifies whether the TWAIN acquisition source shall enable duplex acquisition. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.
         /// </summary>
+        /// <value>Specifies whether the TWAIN acquisition source shall enable duplex acquisition. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.</value>
         [DataMember(Name="twainSourceEnableDuplex", EmitDefaultValue=false)]
         public bool? TwainSourceEnableDuplex { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwainSourceHideUI
+        /// Specifies whether the TWAIN acquisition source shall hide or show the device driver user interface before acquisition. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.
         /// </summary>
+        /// <value>Specifies whether the TWAIN acquisition source shall hide or show the device driver user interface before acquisition. &lt;br /&gt;  This property is only effective if TwainSourceSetCustomConfiguratation is set to true.</value>
         [DataMember(Name="twainSourceHideUI", EmitDefaultValue=false)]
         public bool? TwainSourceHideUI { get; set; }
 
         /// <summary>
-        /// Gets or Sets FreeHandContinuousDrawingMode
+        /// Specifies whether the drawing mode for freehand annotation is multi line or not.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the drawing mode for freehand annotation is multi line or not.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="freeHandContinuousDrawingMode", EmitDefaultValue=false)]
         public bool? FreeHandContinuousDrawingMode { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowTextSearchSnapIn
+        /// Specifies whether the text search SnapIn is enabled.
         /// </summary>
+        /// <value>Specifies whether the text search SnapIn is enabled.</value>
         [DataMember(Name="showTextSearchSnapIn", EmitDefaultValue=false)]
         public bool? ShowTextSearchSnapIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowThumbnailsSnapIn
+        /// Specifies whether the Thumbnails SnapIn is enabled.
         /// </summary>
+        /// <value>Specifies whether the Thumbnails SnapIn is enabled.</value>
         [DataMember(Name="showThumbnailsSnapIn", EmitDefaultValue=false)]
         public bool? ShowThumbnailsSnapIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowBookmarksSnapIn
+        /// Specifies whether the Bookmarks SnapIn is enabled.
         /// </summary>
+        /// <value>Specifies whether the Bookmarks SnapIn is enabled.</value>
         [DataMember(Name="showBookmarksSnapIn", EmitDefaultValue=false)]
         public bool? ShowBookmarksSnapIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowAnnotationsSnapIn
+        /// Specifies whether the annotations SnapIn is enabled.
         /// </summary>
+        /// <value>Specifies whether the annotations SnapIn is enabled.</value>
         [DataMember(Name="showAnnotationsSnapIn", EmitDefaultValue=false)]
         public bool? ShowAnnotationsSnapIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowAnnotationsCommentsSnapIn
+        /// Specifies whether the Annotations Comments SnapIn is enabled.
         /// </summary>
+        /// <value>Specifies whether the Annotations Comments SnapIn is enabled.</value>
         [DataMember(Name="showAnnotationsCommentsSnapIn", EmitDefaultValue=false)]
         public bool? ShowAnnotationsCommentsSnapIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailWidth
+        /// The width, in pixels, of each thumbnail.
         /// </summary>
+        /// <value>The width, in pixels, of each thumbnail.</value>
         [DataMember(Name="thumbnailWidth", EmitDefaultValue=false)]
         public int? ThumbnailWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailHeight
+        /// The height, in pixels, of each thumbnail.
         /// </summary>
+        /// <value>The height, in pixels, of each thumbnail.</value>
         [DataMember(Name="thumbnailHeight", EmitDefaultValue=false)]
         public int? ThumbnailHeight { get; set; }
 
         /// <summary>
-        /// Gets or Sets SnapInPanelDefaultWidth
+        /// Specfiies the Snap-in panel default width.
         /// </summary>
+        /// <value>Specfiies the Snap-in panel default width.</value>
         [DataMember(Name="snapInPanelDefaultWidth", EmitDefaultValue=false)]
         public string SnapInPanelDefaultWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets CollapsedSnapIn
+        /// Specifies whether the Snap-in panel is collapsed or not.
         /// </summary>
+        /// <value>Specifies whether the Snap-in panel is collapsed or not.</value>
         [DataMember(Name="collapsedSnapIn", EmitDefaultValue=false)]
         public bool? CollapsedSnapIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets CollapseSnapinOnDocumentClosed
+        /// Specifies whether the Snap-in panel should be automatically collapsed when the displayed document is closed.
         /// </summary>
+        /// <value>Specifies whether the Snap-in panel should be automatically collapsed when the displayed document is closed.</value>
         [DataMember(Name="collapseSnapinOnDocumentClosed", EmitDefaultValue=false)]
         public bool? CollapseSnapinOnDocumentClosed { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowSnapInCollapseButton
+        /// Specifies whether the button that collapses the Snap-in pannel is displayed or not.
         /// </summary>
+        /// <value>Specifies whether the button that collapses the Snap-in pannel is displayed or not.</value>
         [DataMember(Name="showSnapInCollapseButton", EmitDefaultValue=false)]
         public bool? ShowSnapInCollapseButton { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowSnapInPanelHeader
+        /// Specifies whether the header of the Snap-in pannel is displayed or not.
         /// </summary>
+        /// <value>Specifies whether the header of the Snap-in pannel is displayed or not.</value>
         [DataMember(Name="showSnapInPanelHeader", EmitDefaultValue=false)]
         public bool? ShowSnapInPanelHeader { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowSnapInButtonStrip
+        /// Specifies whether the Snap-in button strip is displayed or not.
         /// </summary>
+        /// <value>Specifies whether the Snap-in button strip is displayed or not.</value>
         [DataMember(Name="showSnapInButtonStrip", EmitDefaultValue=false)]
         public bool? ShowSnapInButtonStrip { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowToolbar
+        /// Specifies whether the Toolbars are visible or not.
         /// </summary>
+        /// <value>Specifies whether the Toolbars are visible or not.</value>
         [DataMember(Name="showToolbar", EmitDefaultValue=false)]
         public bool? ShowToolbar { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets ToolbarButtonsSpacing
+        /// The space, in pixels, between each button of the toolbar.
         /// </summary>
+        /// <value>The space, in pixels, between each button of the toolbar.</value>
         [DataMember(Name="toolbarButtonsSpacing", EmitDefaultValue=false)]
         public int? ToolbarButtonsSpacing { get; set; }
 
         /// <summary>
-        /// Gets or Sets ToolbarHeight
+        /// The height, in pixels, of the toolbar.
         /// </summary>
+        /// <value>The height, in pixels, of the toolbar.</value>
         [DataMember(Name="toolbarHeight", EmitDefaultValue=false)]
         public int? ToolbarHeight { get; set; }
 
         /// <summary>
-        /// Gets or Sets StrokeColor
+        /// Specifies the color used to stroke viewer elements such borders, toolbar icons and thumbnail text.
         /// </summary>
+        /// <value>Specifies the color used to stroke viewer elements such borders, toolbar icons and thumbnail text.</value>
         [DataMember(Name="strokeColor", EmitDefaultValue=false)]
         public string StrokeColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets MiscBorderColor
+        /// Specifies the color used to define dropdowns borders, buttons separators, line separators.
         /// </summary>
+        /// <value>Specifies the color used to define dropdowns borders, buttons separators, line separators.</value>
         [DataMember(Name="miscBorderColor", EmitDefaultValue=false)]
         public string MiscBorderColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets HeaderColor
+        /// Specifies the color used in both dialogs and snap-ins headers.
         /// </summary>
+        /// <value>Specifies the color used in both dialogs and snap-ins headers.</value>
         [DataMember(Name="headerColor", EmitDefaultValue=false)]
         public string HeaderColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets PanelBackColor
+        /// Specifies the color used in both dialogs and snap-ins body background.
         /// </summary>
+        /// <value>Specifies the color used in both dialogs and snap-ins body background.</value>
         [DataMember(Name="panelBackColor", EmitDefaultValue=false)]
         public string PanelBackColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets ViewerBackColor
+        /// Specifies the viewer area background color.
         /// </summary>
+        /// <value>Specifies the viewer area background color.</value>
         [DataMember(Name="viewerBackColor", EmitDefaultValue=false)]
         public string ViewerBackColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActiveSelectedColor
+        /// Specifies the selected and active elements stroke color.
         /// </summary>
+        /// <value>Specifies the selected and active elements stroke color.</value>
         [DataMember(Name="activeSelectedColor", EmitDefaultValue=false)]
         public string ActiveSelectedColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets ToolbarBackColor
+        /// Viewer Toolbar Background Color.
         /// </summary>
+        /// <value>Viewer Toolbar Background Color.</value>
         [DataMember(Name="toolbarBackColor", EmitDefaultValue=false)]
         public string ToolbarBackColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomNotificationIconError
+        /// Custom error notification icon.&lt;br /&gt;  Used to specify a custom icon within errors notification boxes.
         /// </summary>
+        /// <value>Custom error notification icon.&lt;br /&gt;  Used to specify a custom icon within errors notification boxes.</value>
         [DataMember(Name="customNotificationIconError", EmitDefaultValue=false)]
         public string CustomNotificationIconError { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomNotificationIconQuestion
+        /// Custom question notification icon.&lt;br /&gt;  Used to specify a custom icon within questions notification boxes.
         /// </summary>
+        /// <value>Custom question notification icon.&lt;br /&gt;  Used to specify a custom icon within questions notification boxes.</value>
         [DataMember(Name="customNotificationIconQuestion", EmitDefaultValue=false)]
         public string CustomNotificationIconQuestion { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomNotificationIconWarning
+        /// Custom warning notification icon.&lt;br /&gt;  Used to specify a custom icon within warnings notification boxes.
         /// </summary>
+        /// <value>Custom warning notification icon.&lt;br /&gt;  Used to specify a custom icon within warnings notification boxes.</value>
         [DataMember(Name="customNotificationIconWarning", EmitDefaultValue=false)]
         public string CustomNotificationIconWarning { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomNotificationIconInfo
+        /// Custom info notification icon.&lt;br /&gt;  Used to specify a custom icon within informations notification boxes.
         /// </summary>
+        /// <value>Custom info notification icon.&lt;br /&gt;  Used to specify a custom icon within informations notification boxes.</value>
         [DataMember(Name="customNotificationIconInfo", EmitDefaultValue=false)]
         public string CustomNotificationIconInfo { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomNotificationIconOk
+        /// Custom success notification icon.&lt;br /&gt;  Used to specify a custom icon within success notification boxes.
         /// </summary>
+        /// <value>Custom success notification icon.&lt;br /&gt;  Used to specify a custom icon within success notification boxes.</value>
         [DataMember(Name="customNotificationIconOk", EmitDefaultValue=false)]
         public string CustomNotificationIconOk { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaxUploadSize
+        /// Specifies, in bytes, the upload size limit.
         /// </summary>
+        /// <value>Specifies, in bytes, the upload size limit.</value>
         [DataMember(Name="maxUploadSize", EmitDefaultValue=false)]
         public int? MaxUploadSize { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaxDownloadSize
+        /// Specifies, in bytes, the download size limit.
         /// </summary>
+        /// <value>Specifies, in bytes, the download size limit.</value>
         [DataMember(Name="maxDownloadSize", EmitDefaultValue=false)]
         public int? MaxDownloadSize { get; set; }
 
         /// <summary>
-        /// Gets or Sets MaxPages
+        /// Specifies the maximum of pages per loaded document.
         /// </summary>
+        /// <value>Specifies the maximum of pages per loaded document.</value>
         [DataMember(Name="maxPages", EmitDefaultValue=false)]
         public int? MaxPages { get; set; }
 
         /// <summary>
-        /// Gets or Sets AllowedExportFormats
+        /// Specifies extensions of the allowed formats for export. Each extension must be separated by a coma.&lt;br /&gt;  Wildcarrd character &#39;*&#39; can be used to specify any supported format.&lt;br /&gt;  The following extensions are currently supported: \&quot;PDF\&quot;, \&quot;TIFF\&quot;.&lt;br /&gt;  For example use \&quot;*\&quot; to allow all supported format for export, \&quot;PDF\&quot; to allow only PDF export and \&quot;PDF,TIFF\&quot; to allow PDF and TIFF export.
         /// </summary>
+        /// <value>Specifies extensions of the allowed formats for export. Each extension must be separated by a coma.&lt;br /&gt;  Wildcarrd character &#39;*&#39; can be used to specify any supported format.&lt;br /&gt;  The following extensions are currently supported: \&quot;PDF\&quot;, \&quot;TIFF\&quot;.&lt;br /&gt;  For example use \&quot;*\&quot; to allow all supported format for export, \&quot;PDF\&quot; to allow only PDF export and \&quot;PDF,TIFF\&quot; to allow PDF and TIFF export.</value>
         [DataMember(Name="allowedExportFormats", EmitDefaultValue=false)]
         public string AllowedExportFormats { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisableAnnotationDrawingModePanel
+        /// Specifies whether the drawing mode panel shall be enabled while user is drawing a free hand annotation.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.
         /// </summary>
+        /// <value>Specifies whether the drawing mode panel shall be enabled while user is drawing a free hand annotation.&lt;br /&gt;  This property is only effective if EnableGdPictureAnnotations is set to true.</value>
         [DataMember(Name="disableAnnotationDrawingModePanel", EmitDefaultValue=false)]
         public bool? DisableAnnotationDrawingModePanel { get; set; }
 
@@ -1498,20 +1612,23 @@ namespace PassportPDF.Model
         public string FileHostingURI { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocumentURI
+        /// Specifies the URI of a document to load into the control.  This can be an empty string if a document is already loaded.
         /// </summary>
+        /// <value>Specifies the URI of a document to load into the control.  This can be an empty string if a document is already loaded.</value>
         [DataMember(Name="documentURI", EmitDefaultValue=false)]
         public string DocumentURI { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocumentFileName
+        /// Specifies the file name of the input document. The file name can help to determine the input document format.  Default value is an empty string.
         /// </summary>
+        /// <value>Specifies the file name of the input document. The file name can help to determine the input document format.  Default value is an empty string.</value>
         [DataMember(Name="documentFileName", EmitDefaultValue=false)]
         public string DocumentFileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisableDownloadProgress
+        /// A flag aspecifying if the control should display a loading progress status bar to the end user while a document is being loaded.
         /// </summary>
+        /// <value>A flag aspecifying if the control should display a loading progress status bar to the end user while a document is being loaded.</value>
         [DataMember(Name="disableDownloadProgress", EmitDefaultValue=false)]
         public bool? DisableDownloadProgress { get; set; }
 

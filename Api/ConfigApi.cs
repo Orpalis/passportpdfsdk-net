@@ -82,7 +82,26 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of IntegerResponse</returns>
         ApiResponse<IntegerResponse> GetSuggestedMaxClientThreadsWithHttpInfo ();
         /// <summary>
-        /// Get the list of supported languages for OCR.
+        /// Gets the list of supported fonts for text drawing operations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Font&gt;</returns>
+        List<Font> GetSupportedFonts ();
+
+        /// <summary>
+        /// Gets the list of supported fonts for text drawing operations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Font&gt;</returns>
+        ApiResponse<List<Font>> GetSupportedFontsWithHttpInfo ();
+        /// <summary>
+        /// Gets the list of supported languages for OCR.
         /// </summary>
         /// <remarks>
         /// 
@@ -92,7 +111,7 @@ namespace PassportPDF.Api
         StringArrayResponse GetSupportedOCRLanguages ();
 
         /// <summary>
-        /// Get the list of supported languages for OCR.
+        /// Gets the list of supported languages for OCR.
         /// </summary>
         /// <remarks>
         /// 
@@ -160,7 +179,26 @@ namespace PassportPDF.Api
         /// <returns>Task of ApiResponse (IntegerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntegerResponse>> GetSuggestedMaxClientThreadsAsyncWithHttpInfo ();
         /// <summary>
-        /// Get the list of supported languages for OCR.
+        /// Gets the list of supported fonts for text drawing operations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;Font&gt;</returns>
+        System.Threading.Tasks.Task<List<Font>> GetSupportedFontsAsync ();
+
+        /// <summary>
+        /// Gets the list of supported fonts for text drawing operations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;Font&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Font>>> GetSupportedFontsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Gets the list of supported languages for OCR.
         /// </summary>
         /// <remarks>
         /// 
@@ -170,7 +208,7 @@ namespace PassportPDF.Api
         System.Threading.Tasks.Task<StringArrayResponse> GetSupportedOCRLanguagesAsync ();
 
         /// <summary>
-        /// Get the list of supported languages for OCR.
+        /// Gets the list of supported languages for OCR.
         /// </summary>
         /// <remarks>
         /// 
@@ -654,7 +692,132 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Get the list of supported languages for OCR. 
+        /// Gets the list of supported fonts for text drawing operations. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Font&gt;</returns>
+        public List<Font> GetSupportedFonts ()
+        {
+             ApiResponse<List<Font>> localVarResponse = GetSupportedFontsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets the list of supported fonts for text drawing operations. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Font&gt;</returns>
+        public ApiResponse< List<Font> > GetSupportedFontsWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/config/GetSupportedFonts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSupportedFonts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<Font>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<Font>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Font>)));
+        }
+
+        /// <summary>
+        /// Gets the list of supported fonts for text drawing operations. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;Font&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Font>> GetSupportedFontsAsync ()
+        {
+             ApiResponse<List<Font>> localVarResponse = await GetSupportedFontsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Gets the list of supported fonts for text drawing operations. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;Font&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<Font>>> GetSupportedFontsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/api/config/GetSupportedFonts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetSupportedFonts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<Font>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<Font>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Font>)));
+        }
+
+        /// <summary>
+        /// Gets the list of supported languages for OCR. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringArrayResponse</returns>
@@ -665,7 +828,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Get the list of supported languages for OCR. 
+        /// Gets the list of supported languages for OCR. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of StringArrayResponse</returns>
@@ -716,7 +879,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Get the list of supported languages for OCR. 
+        /// Gets the list of supported languages for OCR. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringArrayResponse</returns>
@@ -728,7 +891,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Get the list of supported languages for OCR. 
+        /// Gets the list of supported languages for OCR. 
         /// </summary>
         /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (StringArrayResponse)</returns>

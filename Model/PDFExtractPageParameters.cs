@@ -38,10 +38,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFExtractPageParameters" /> class.
         /// </summary>
-        /// <param name="PageRange">PageRange (required).</param>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="ExtractAsSeparate">ExtractAsSeparate.</param>
-        /// <param name="ImmediateDownload">ImmediateDownload.</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be extracted. (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="ExtractAsSeparate">Specifies whether each extracted page shall form a separate document..</param>
+        /// <param name="ImmediateDownload">Specifies whether the file(s) created as a result of the action shall be available for immediate download..</param>
         public PDFExtractPageParameters(string PageRange = default(string), string FileId = default(string), bool? ExtractAsSeparate = default(bool?), bool? ImmediateDownload = default(bool?))
         {
             // to ensure "PageRange" is required (not null)
@@ -67,26 +67,30 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be extracted.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be extracted.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtractAsSeparate
+        /// Specifies whether each extracted page shall form a separate document.
         /// </summary>
+        /// <value>Specifies whether each extracted page shall form a separate document.</value>
         [DataMember(Name="extractAsSeparate", EmitDefaultValue=false)]
         public bool? ExtractAsSeparate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImmediateDownload
+        /// Specifies whether the file(s) created as a result of the action shall be available for immediate download.
         /// </summary>
+        /// <value>Specifies whether the file(s) created as a result of the action shall be available for immediate download.</value>
         [DataMember(Name="immediateDownload", EmitDefaultValue=false)]
         public bool? ImmediateDownload { get; set; }
 

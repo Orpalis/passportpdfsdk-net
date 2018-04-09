@@ -29,7 +29,7 @@ namespace PassportPDF.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.17";
+        public const string Version = "1.0.19";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace PassportPDF.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/1.0.17/csharp";
+            UserAgent = "Swagger-Codegen/1.0.19/csharp";
             BasePath = "http://passportpdfapi.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace PassportPDF.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/1.0.17/csharp"
+            string userAgent = "Swagger-Codegen/1.0.19/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -422,7 +422,7 @@ namespace PassportPDF.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 1.0.17\n";
+            report += "    SDK Package Version: 1.0.19\n";
 
             return report;
         }

@@ -33,34 +33,36 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSaveAsJPEGResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
-        /// <param name="ImagesData">Specifies the data of all the images extracted from the PDF..</param>
-        public PDFSaveAsJPEGResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<byte[]> ImagesData = default(List<byte[]>))
+        /// <param name="PageImages">The page(s) of the PDF saved as JPEG image(s)..</param>
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
+        public PDFSaveAsJPEGResponse(List<PageImage> PageImages = default(List<PageImage>), Error Error = default(Error), long? RemainingTokens = default(long?))
         {
+            this.PageImages = PageImages;
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
-            this.ImagesData = ImagesData;
         }
         
         /// <summary>
-        /// Gets or Sets Error
+        /// The page(s) of the PDF saved as JPEG image(s).
         /// </summary>
+        /// <value>The page(s) of the PDF saved as JPEG image(s).</value>
+        [DataMember(Name="pageImages", EmitDefaultValue=false)]
+        public List<PageImage> PageImages { get; set; }
+
+        /// <summary>
+        /// If not null, provides information about an unsuccessful action.
+        /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Specifies the number of remaining tokens.
         /// </summary>
+        /// <value>Specifies the number of remaining tokens.</value>
         [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
         public long? RemainingTokens { get; set; }
-
-        /// <summary>
-        /// Specifies the data of all the images extracted from the PDF.
-        /// </summary>
-        /// <value>Specifies the data of all the images extracted from the PDF.</value>
-        [DataMember(Name="imagesData", EmitDefaultValue=false)]
-        public List<byte[]> ImagesData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +72,9 @@ namespace PassportPDF.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PDFSaveAsJPEGResponse {\n");
+            sb.Append("  PageImages: ").Append(PageImages).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  ImagesData: ").Append(ImagesData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +110,11 @@ namespace PassportPDF.Model
 
             return 
                 (
+                    this.PageImages == input.PageImages ||
+                    this.PageImages != null &&
+                    this.PageImages.SequenceEqual(input.PageImages)
+                ) && 
+                (
                     this.Error == input.Error ||
                     (this.Error != null &&
                     this.Error.Equals(input.Error))
@@ -116,11 +123,6 @@ namespace PassportPDF.Model
                     this.RemainingTokens == input.RemainingTokens ||
                     (this.RemainingTokens != null &&
                     this.RemainingTokens.Equals(input.RemainingTokens))
-                ) && 
-                (
-                    this.ImagesData == input.ImagesData ||
-                    this.ImagesData != null &&
-                    this.ImagesData.SequenceEqual(input.ImagesData)
                 );
         }
 
@@ -133,12 +135,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.PageImages != null)
+                    hashCode = hashCode * 59 + this.PageImages.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.ImagesData != null)
-                    hashCode = hashCode * 59 + this.ImagesData.GetHashCode();
                 return hashCode;
             }
         }

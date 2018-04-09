@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class LoadImageFromByteArrayParameters :  IEquatable<LoadImageFromByteArrayParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ContentEncoding
+        /// Specifies the encoding of the document data.
         /// </summary>
+        /// <value>Specifies the encoding of the document data.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ContentEncodingEnum
         {
@@ -51,8 +52,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ContentEncoding
+        /// Specifies the encoding of the document data.
         /// </summary>
+        /// <value>Specifies the encoding of the document data.</value>
         [DataMember(Name="contentEncoding", EmitDefaultValue=false)]
         public ContentEncodingEnum? ContentEncoding { get; set; }
         /// <summary>
@@ -63,9 +65,9 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoadImageFromByteArrayParameters" /> class.
         /// </summary>
-        /// <param name="Content">Content (required).</param>
-        /// <param name="FileName">FileName.</param>
-        /// <param name="ContentEncoding">ContentEncoding (default to ContentEncodingEnum.Identity).</param>
+        /// <param name="Content">Specifies the data of the image. (required).</param>
+        /// <param name="FileName">Specifies the name of the document..</param>
+        /// <param name="ContentEncoding">Specifies the encoding of the document data. (default to ContentEncodingEnum.Identity).</param>
         public LoadImageFromByteArrayParameters(byte[] Content = default(byte[]), string FileName = default(string), ContentEncodingEnum? ContentEncoding = ContentEncodingEnum.Identity)
         {
             // to ensure "Content" is required (not null)
@@ -90,14 +92,16 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Content
+        /// Specifies the data of the image.
         /// </summary>
+        /// <value>Specifies the data of the image.</value>
         [DataMember(Name="content", EmitDefaultValue=false)]
         public byte[] Content { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileName
+        /// Specifies the name of the document.
         /// </summary>
+        /// <value>Specifies the name of the document.</value>
         [DataMember(Name="fileName", EmitDefaultValue=false)]
         public string FileName { get; set; }
 

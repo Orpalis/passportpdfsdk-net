@@ -38,7 +38,7 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageCloseParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         public ImageCloseParameters(string FileId = default(string))
         {
             // to ensure "FileId" is required (not null)
@@ -53,8 +53,9 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 

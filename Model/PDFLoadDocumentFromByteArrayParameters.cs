@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class PDFLoadDocumentFromByteArrayParameters :  IEquatable<PDFLoadDocumentFromByteArrayParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Conformance
+        /// Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.
         /// </summary>
+        /// <value>Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ConformanceEnum
         {
@@ -44,128 +45,124 @@ namespace PassportPDF.Model
             Unknown = 1,
             
             /// <summary>
-            /// Enum PDF for "PDF"
-            /// </summary>
-            [EnumMember(Value = "PDF")]
-            PDF = 2,
-            
-            /// <summary>
-            /// Enum PDFA1a for "PDF_A_1a"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_1a")]
-            PDFA1a = 3,
-            
-            /// <summary>
-            /// Enum PDFA1b for "PDF_A_1b"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_1b")]
-            PDFA1b = 4,
-            
-            /// <summary>
-            /// Enum PDFA2a for "PDF_A_2a"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_2a")]
-            PDFA2a = 5,
-            
-            /// <summary>
-            /// Enum PDFA2u for "PDF_A_2u"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_2u")]
-            PDFA2u = 6,
-            
-            /// <summary>
-            /// Enum PDFA2b for "PDF_A_2b"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_2b")]
-            PDFA2b = 7,
-            
-            /// <summary>
-            /// Enum PDFA3a for "PDF_A_3a"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_3a")]
-            PDFA3a = 8,
-            
-            /// <summary>
-            /// Enum PDFA3u for "PDF_A_3u"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_3u")]
-            PDFA3u = 9,
-            
-            /// <summary>
-            /// Enum PDFA3b for "PDF_A_3b"
-            /// </summary>
-            [EnumMember(Value = "PDF_A_3b")]
-            PDFA3b = 10,
-            
-            /// <summary>
             /// Enum PDF10 for "PDF1_0"
             /// </summary>
             [EnumMember(Value = "PDF1_0")]
-            PDF10 = 11,
+            PDF10 = 2,
             
             /// <summary>
             /// Enum PDF11 for "PDF1_1"
             /// </summary>
             [EnumMember(Value = "PDF1_1")]
-            PDF11 = 12,
+            PDF11 = 3,
             
             /// <summary>
             /// Enum PDF12 for "PDF1_2"
             /// </summary>
             [EnumMember(Value = "PDF1_2")]
-            PDF12 = 13,
+            PDF12 = 4,
             
             /// <summary>
             /// Enum PDF13 for "PDF1_3"
             /// </summary>
             [EnumMember(Value = "PDF1_3")]
-            PDF13 = 14,
+            PDF13 = 5,
             
             /// <summary>
             /// Enum PDF14 for "PDF1_4"
             /// </summary>
             [EnumMember(Value = "PDF1_4")]
-            PDF14 = 15,
+            PDF14 = 6,
             
             /// <summary>
             /// Enum PDF15 for "PDF1_5"
             /// </summary>
             [EnumMember(Value = "PDF1_5")]
-            PDF15 = 16,
+            PDF15 = 7,
             
             /// <summary>
             /// Enum PDF16 for "PDF1_6"
             /// </summary>
             [EnumMember(Value = "PDF1_6")]
-            PDF16 = 17,
+            PDF16 = 8,
             
             /// <summary>
             /// Enum PDF17 for "PDF1_7"
             /// </summary>
             [EnumMember(Value = "PDF1_7")]
-            PDF17 = 18,
+            PDF17 = 9,
             
             /// <summary>
             /// Enum PDF20 for "PDF2_0"
             /// </summary>
             [EnumMember(Value = "PDF2_0")]
-            PDF20 = 19,
+            PDF20 = 10,
+            
+            /// <summary>
+            /// Enum PDFA1a for "PDF_A_1a"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_1a")]
+            PDFA1a = 11,
+            
+            /// <summary>
+            /// Enum PDFA1b for "PDF_A_1b"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_1b")]
+            PDFA1b = 12,
+            
+            /// <summary>
+            /// Enum PDFA2a for "PDF_A_2a"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_2a")]
+            PDFA2a = 13,
+            
+            /// <summary>
+            /// Enum PDFA2u for "PDF_A_2u"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_2u")]
+            PDFA2u = 14,
+            
+            /// <summary>
+            /// Enum PDFA2b for "PDF_A_2b"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_2b")]
+            PDFA2b = 15,
+            
+            /// <summary>
+            /// Enum PDFA3a for "PDF_A_3a"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_3a")]
+            PDFA3a = 16,
+            
+            /// <summary>
+            /// Enum PDFA3u for "PDF_A_3u"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_3u")]
+            PDFA3u = 17,
+            
+            /// <summary>
+            /// Enum PDFA3b for "PDF_A_3b"
+            /// </summary>
+            [EnumMember(Value = "PDF_A_3b")]
+            PDFA3b = 18,
             
             /// <summary>
             /// Enum PDFUA1 for "PDF_UA_1"
             /// </summary>
             [EnumMember(Value = "PDF_UA_1")]
-            PDFUA1 = 20
+            PDFUA1 = 19
         }
 
         /// <summary>
-        /// Gets or Sets Conformance
+        /// Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.
         /// </summary>
+        /// <value>Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.</value>
         [DataMember(Name="conformance", EmitDefaultValue=false)]
         public ConformanceEnum? Conformance { get; set; }
         /// <summary>
-        /// Gets or Sets ContentEncoding
+        /// Specifies the encoding of the document data.
         /// </summary>
+        /// <value>Specifies the encoding of the document data.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ContentEncodingEnum
         {
@@ -184,8 +181,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets ContentEncoding
+        /// Specifies the encoding of the document data.
         /// </summary>
+        /// <value>Specifies the encoding of the document data.</value>
         [DataMember(Name="contentEncoding", EmitDefaultValue=false)]
         public ContentEncodingEnum? ContentEncoding { get; set; }
         /// <summary>
@@ -196,12 +194,12 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFLoadDocumentFromByteArrayParameters" /> class.
         /// </summary>
-        /// <param name="Content">Content (required).</param>
-        /// <param name="FileName">FileName.</param>
-        /// <param name="Password">Password.</param>
-        /// <param name="Conformance">Conformance (default to ConformanceEnum.PDF).</param>
-        /// <param name="ContentEncoding">ContentEncoding (default to ContentEncodingEnum.Identity).</param>
-        public PDFLoadDocumentFromByteArrayParameters(byte[] Content = default(byte[]), string FileName = default(string), string Password = default(string), ConformanceEnum? Conformance = ConformanceEnum.PDF, ContentEncodingEnum? ContentEncoding = ContentEncodingEnum.Identity)
+        /// <param name="Content">Specifies the data of the document. (required).</param>
+        /// <param name="FileName">Specifies the name of the document..</param>
+        /// <param name="Password">Specifies the password of the document..</param>
+        /// <param name="Conformance">Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed. (default to ConformanceEnum.PDF15).</param>
+        /// <param name="ContentEncoding">Specifies the encoding of the document data. (default to ContentEncodingEnum.Identity).</param>
+        public PDFLoadDocumentFromByteArrayParameters(byte[] Content = default(byte[]), string FileName = default(string), string Password = default(string), ConformanceEnum? Conformance = ConformanceEnum.PDF15, ContentEncodingEnum? ContentEncoding = ContentEncodingEnum.Identity)
         {
             // to ensure "Content" is required (not null)
             if (Content == null)
@@ -217,7 +215,7 @@ namespace PassportPDF.Model
             // use default value if no "Conformance" provided
             if (Conformance == null)
             {
-                this.Conformance = ConformanceEnum.PDF;
+                this.Conformance = ConformanceEnum.PDF15;
             }
             else
             {
@@ -235,20 +233,23 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets Content
+        /// Specifies the data of the document.
         /// </summary>
+        /// <value>Specifies the data of the document.</value>
         [DataMember(Name="content", EmitDefaultValue=false)]
         public byte[] Content { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileName
+        /// Specifies the name of the document.
         /// </summary>
+        /// <value>Specifies the name of the document.</value>
         [DataMember(Name="fileName", EmitDefaultValue=false)]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Password
+        /// Specifies the password of the document.
         /// </summary>
+        /// <value>Specifies the password of the document.</value>
         [DataMember(Name="password", EmitDefaultValue=false)]
         public string Password { get; set; }
 

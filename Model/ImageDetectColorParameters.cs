@@ -38,10 +38,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageDetectColorParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to perform color detection on. (default to &quot;1&quot;).</param>
         /// <param name="AutoConvert">Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding..</param>
-        /// <param name="AutoRepairCharacters">Specifies whether the characters should be repaired during bitonal conversion, if any, or not..</param>
+        /// <param name="AutoRepairCharacters">Specifies whether the characters shall be repaired during bitonal conversion, if any, or not..</param>
         public ImageDetectColorParameters(string FileId = default(string), string PageRange = "1", bool? AutoConvert = default(bool?), bool? AutoRepairCharacters = default(bool?))
         {
             // to ensure "FileId" is required (not null)
@@ -67,8 +67,9 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
@@ -87,9 +88,9 @@ namespace PassportPDF.Model
         public bool? AutoConvert { get; set; }
 
         /// <summary>
-        /// Specifies whether the characters should be repaired during bitonal conversion, if any, or not.
+        /// Specifies whether the characters shall be repaired during bitonal conversion, if any, or not.
         /// </summary>
-        /// <value>Specifies whether the characters should be repaired during bitonal conversion, if any, or not.</value>
+        /// <value>Specifies whether the characters shall be repaired during bitonal conversion, if any, or not.</value>
         [DataMember(Name="autoRepairCharacters", EmitDefaultValue=false)]
         public bool? AutoRepairCharacters { get; set; }
 

@@ -275,6 +275,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFInsertNewPageResponse</returns>
         ApiResponse<PDFInsertNewPageResponse> InsertNewPageWithHttpInfo (PDFInsertNewPageParameters insertNewPageParameters);
         /// <summary>
+        /// Inserts text on a document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFInsertTextResponse</returns>
+        PDFInsertTextResponse InsertText (PDFInsertTextParameters insertTextParameters = null);
+
+        /// <summary>
+        /// Inserts text on a document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFInsertTextResponse</returns>
+        ApiResponse<PDFInsertTextResponse> InsertTextWithHttpInfo (PDFInsertTextParameters insertTextParameters = null);
+        /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
         /// <remarks>
@@ -1017,6 +1038,27 @@ namespace PassportPDF.Api
         /// <param name="insertNewPageParameters">A PDFInsertNewPageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFInsertNewPageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFInsertNewPageResponse>> InsertNewPageAsyncWithHttpInfo (PDFInsertNewPageParameters insertNewPageParameters);
+        /// <summary>
+        /// Inserts text on a document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFInsertTextResponse</returns>
+        System.Threading.Tasks.Task<PDFInsertTextResponse> InsertTextAsync (PDFInsertTextParameters insertTextParameters = null);
+
+        /// <summary>
+        /// Inserts text on a document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFInsertTextResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFInsertTextResponse>> InsertTextAsyncWithHttpInfo (PDFInsertTextParameters insertTextParameters = null);
         /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
@@ -3474,6 +3516,159 @@ namespace PassportPDF.Api
             return new ApiResponse<PDFInsertNewPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PDFInsertNewPageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFInsertNewPageResponse)));
+        }
+
+        /// <summary>
+        /// Inserts text on a document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>PDFInsertTextResponse</returns>
+        public PDFInsertTextResponse InsertText (PDFInsertTextParameters insertTextParameters = null)
+        {
+             ApiResponse<PDFInsertTextResponse> localVarResponse = InsertTextWithHttpInfo(insertTextParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Inserts text on a document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>ApiResponse of PDFInsertTextResponse</returns>
+        public ApiResponse< PDFInsertTextResponse > InsertTextWithHttpInfo (PDFInsertTextParameters insertTextParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/InsertText";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (insertTextParameters != null && insertTextParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(insertTextParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = insertTextParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertText", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFInsertTextResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFInsertTextResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFInsertTextResponse)));
+        }
+
+        /// <summary>
+        /// Inserts text on a document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of PDFInsertTextResponse</returns>
+        public async System.Threading.Tasks.Task<PDFInsertTextResponse> InsertTextAsync (PDFInsertTextParameters insertTextParameters = null)
+        {
+             ApiResponse<PDFInsertTextResponse> localVarResponse = await InsertTextAsyncWithHttpInfo(insertTextParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Inserts text on a document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="insertTextParameters">A PDFInsertTextParameters object specifying the parameters of the action. (optional)</param>
+        /// <returns>Task of ApiResponse (PDFInsertTextResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFInsertTextResponse>> InsertTextAsyncWithHttpInfo (PDFInsertTextParameters insertTextParameters = null)
+        {
+
+            var localVarPath = "/api/pdf/InsertText";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (insertTextParameters != null && insertTextParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(insertTextParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = insertTextParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertText", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFInsertTextResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFInsertTextResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFInsertTextResponse)));
         }
 
         /// <summary>

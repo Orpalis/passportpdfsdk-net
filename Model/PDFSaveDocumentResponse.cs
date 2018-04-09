@@ -33,31 +33,32 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PDFSaveDocumentResponse" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="RemainingTokens">RemainingTokens.</param>
-        public PDFSaveDocumentResponse(byte[] Data = default(byte[]), Error Error = default(Error), long? RemainingTokens = default(long?))
+        /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
+        /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
+        public PDFSaveDocumentResponse(Error Error = default(Error), long? RemainingTokens = default(long?))
         {
-            this.Data = Data;
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Specifies the data of the saved document.
         /// </summary>
+        /// <value>Specifies the data of the saved document.</value>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public byte[] Data { get; set; }
+        public byte[] Data { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// If not null, provides information about an unsuccessful action.
         /// </summary>
+        /// <value>If not null, provides information about an unsuccessful action.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemainingTokens
+        /// Specifies the number of remaining tokens.
         /// </summary>
+        /// <value>Specifies the number of remaining tokens.</value>
         [DataMember(Name="remainingTokens", EmitDefaultValue=false)]
         public long? RemainingTokens { get; set; }
 

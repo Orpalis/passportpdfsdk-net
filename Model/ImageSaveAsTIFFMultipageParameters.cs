@@ -31,8 +31,9 @@ namespace PassportPDF.Model
     public partial class ImageSaveAsTIFFMultipageParameters :  IEquatable<ImageSaveAsTIFFMultipageParameters>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Compression
+        /// Specifies the compression to be used for the TIFF output.
         /// </summary>
+        /// <value>Specifies the compression to be used for the TIFF output.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CompressionEnum
         {
@@ -81,8 +82,9 @@ namespace PassportPDF.Model
         }
 
         /// <summary>
-        /// Gets or Sets Compression
+        /// Specifies the compression to be used for the TIFF output.
         /// </summary>
+        /// <value>Specifies the compression to be used for the TIFF output.</value>
         [DataMember(Name="compression", EmitDefaultValue=false)]
         public CompressionEnum? Compression { get; set; }
         /// <summary>
@@ -93,10 +95,10 @@ namespace PassportPDF.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageSaveAsTIFFMultipageParameters" /> class.
         /// </summary>
-        /// <param name="FileId">FileId (required).</param>
-        /// <param name="PageRange">PageRange (default to &quot;*&quot;).</param>
-        /// <param name="Compression">Compression (default to CompressionEnum.Auto).</param>
-        /// <param name="JpegQuality">JpegQuality (default to 75).</param>
+        /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
+        /// <param name="PageRange">Specifies the number of the page, or the range of pages to be saved as TIFF. (default to &quot;*&quot;).</param>
+        /// <param name="Compression">Specifies the compression to be used for the TIFF output. (default to CompressionEnum.Auto).</param>
+        /// <param name="JpegQuality">Specifies the level of quality to be used if JPEG compression is used, from 1 (poorest) to 100 (greatest). (default to 75).</param>
         public ImageSaveAsTIFFMultipageParameters(string FileId = default(string), string PageRange = "*", CompressionEnum? Compression = CompressionEnum.Auto, int? JpegQuality = 75)
         {
             // to ensure "FileId" is required (not null)
@@ -138,21 +140,24 @@ namespace PassportPDF.Model
         }
         
         /// <summary>
-        /// Gets or Sets FileId
+        /// The identifier of the previously uploaded file to be processed.
         /// </summary>
+        /// <value>The identifier of the previously uploaded file to be processed.</value>
         [DataMember(Name="fileId", EmitDefaultValue=false)]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageRange
+        /// Specifies the number of the page, or the range of pages to be saved as TIFF.
         /// </summary>
+        /// <value>Specifies the number of the page, or the range of pages to be saved as TIFF.</value>
         [DataMember(Name="pageRange", EmitDefaultValue=false)]
         public string PageRange { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets JpegQuality
+        /// Specifies the level of quality to be used if JPEG compression is used, from 1 (poorest) to 100 (greatest).
         /// </summary>
+        /// <value>Specifies the level of quality to be used if JPEG compression is used, from 1 (poorest) to 100 (greatest).</value>
         [DataMember(Name="jpegQuality", EmitDefaultValue=false)]
         public int? JpegQuality { get; set; }
 
