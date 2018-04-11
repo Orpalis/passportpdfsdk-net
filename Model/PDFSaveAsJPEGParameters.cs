@@ -40,7 +40,7 @@ namespace PassportPDF.Model
         /// </summary>
         /// <param name="FileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="PageRange">Specifies the number of the page, or the range of pages to be saved as JPEG. (default to &quot;*&quot;).</param>
-        /// <param name="Quality">Specifies the level of quality to be used for the JPEG compression, between 1 (poorest) to 100 (greatest). (default to 75).</param>
+        /// <param name="Quality">Specifies the level of quality to be used for the JPEG compression, from 1 (poorest) to 100 (greatest). (default to 75).</param>
         /// <param name="Progressive">Specifies if the encoded JPEG image must be progressive..</param>
         /// <param name="Resolution">Specifies the resolution to be used for the rendition process. (default to 200.0F).</param>
         /// <param name="RenderFormFields">Specifies whether the form fields of the PDF shall be rendered..</param>
@@ -111,9 +111,9 @@ namespace PassportPDF.Model
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Specifies the level of quality to be used for the JPEG compression, between 1 (poorest) to 100 (greatest).
+        /// Specifies the level of quality to be used for the JPEG compression, from 1 (poorest) to 100 (greatest).
         /// </summary>
-        /// <value>Specifies the level of quality to be used for the JPEG compression, between 1 (poorest) to 100 (greatest).</value>
+        /// <value>Specifies the level of quality to be used for the JPEG compression, from 1 (poorest) to 100 (greatest).</value>
         [DataMember(Name="quality", EmitDefaultValue=false)]
         public int? Quality { get; set; }
 

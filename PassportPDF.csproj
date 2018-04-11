@@ -12,7 +12,7 @@ Contact: contact@orpalis.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B296FC02-F7E7-4785-870E-AFE874885B01}</ProjectGuid>
+    <ProjectGuid>{FD4E14E6-2C76-4A61-9949-1CDA3D9ADE9B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PassportPDF</RootNamespace>

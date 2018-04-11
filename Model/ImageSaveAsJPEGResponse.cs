@@ -35,12 +35,12 @@ namespace PassportPDF.Model
         /// </summary>
         /// <param name="Error">If not null, provides information about an unsuccessful action..</param>
         /// <param name="RemainingTokens">Specifies the number of remaining tokens..</param>
-        /// <param name="ImagesData">Specifies the data of all the images extracted from the image file..</param>
-        public ImageSaveAsJPEGResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<byte[]> ImagesData = default(List<byte[]>))
+        /// <param name="PageImages">The image(s) saved as JPEG..</param>
+        public ImageSaveAsJPEGResponse(Error Error = default(Error), long? RemainingTokens = default(long?), List<PageImage> PageImages = default(List<PageImage>))
         {
             this.Error = Error;
             this.RemainingTokens = RemainingTokens;
-            this.ImagesData = ImagesData;
+            this.PageImages = PageImages;
         }
         
         /// <summary>
@@ -58,11 +58,11 @@ namespace PassportPDF.Model
         public long? RemainingTokens { get; set; }
 
         /// <summary>
-        /// Specifies the data of all the images extracted from the image file.
+        /// The image(s) saved as JPEG.
         /// </summary>
-        /// <value>Specifies the data of all the images extracted from the image file.</value>
-        [DataMember(Name="imagesData", EmitDefaultValue=false)]
-        public List<byte[]> ImagesData { get; set; }
+        /// <value>The image(s) saved as JPEG.</value>
+        [DataMember(Name="pageImages", EmitDefaultValue=false)]
+        public List<PageImage> PageImages { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,7 +74,7 @@ namespace PassportPDF.Model
             sb.Append("class ImageSaveAsJPEGResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  ImagesData: ").Append(ImagesData).Append("\n");
+            sb.Append("  PageImages: ").Append(PageImages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,9 +120,9 @@ namespace PassportPDF.Model
                     this.RemainingTokens.Equals(input.RemainingTokens))
                 ) && 
                 (
-                    this.ImagesData == input.ImagesData ||
-                    this.ImagesData != null &&
-                    this.ImagesData.SequenceEqual(input.ImagesData)
+                    this.PageImages == input.PageImages ||
+                    this.PageImages != null &&
+                    this.PageImages.SequenceEqual(input.PageImages)
                 );
         }
 
@@ -139,8 +139,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.RemainingTokens != null)
                     hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.ImagesData != null)
-                    hashCode = hashCode * 59 + this.ImagesData.GetHashCode();
+                if (this.PageImages != null)
+                    hashCode = hashCode * 59 + this.PageImages.GetHashCode();
                 return hashCode;
             }
         }

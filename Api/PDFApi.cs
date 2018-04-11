@@ -151,6 +151,27 @@ namespace PassportPDF.Api
         /// <returns>ApiResponse of PDFDigiSignResponse</returns>
         ApiResponse<PDFDigiSignResponse> DigiSignWithHttpInfo (PDFDigiSignParameters digiSignParameters);
         /// <summary>
+        /// Draws an image on a page range of a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFDrawImageResponse</returns>
+        PDFDrawImageResponse DrawImage (PDFDrawImageParameters drawImageParameters);
+
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFDrawImageResponse</returns>
+        ApiResponse<PDFDrawImageResponse> DrawImageWithHttpInfo (PDFDrawImageParameters drawImageParameters);
+        /// <summary>
         /// Extracts a page range from a previously uploaded document into one or several new documents.
         /// </summary>
         /// <remarks>
@@ -914,6 +935,27 @@ namespace PassportPDF.Api
         /// <param name="digiSignParameters">A PDFDigiSignParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ApiResponse (PDFDigiSignResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PDFDigiSignResponse>> DigiSignAsyncWithHttpInfo (PDFDigiSignParameters digiSignParameters);
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFDrawImageResponse</returns>
+        System.Threading.Tasks.Task<PDFDrawImageResponse> DrawImageAsync (PDFDrawImageParameters drawImageParameters);
+
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFDrawImageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PDFDrawImageResponse>> DrawImageAsyncWithHttpInfo (PDFDrawImageParameters drawImageParameters);
         /// <summary>
         /// Extracts a page range from a previously uploaded document into one or several new documents.
         /// </summary>
@@ -2596,6 +2638,165 @@ namespace PassportPDF.Api
             return new ApiResponse<PDFDigiSignResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (PDFDigiSignResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFDigiSignResponse)));
+        }
+
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>PDFDrawImageResponse</returns>
+        public PDFDrawImageResponse DrawImage (PDFDrawImageParameters drawImageParameters)
+        {
+             ApiResponse<PDFDrawImageResponse> localVarResponse = DrawImageWithHttpInfo(drawImageParameters);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>ApiResponse of PDFDrawImageResponse</returns>
+        public ApiResponse< PDFDrawImageResponse > DrawImageWithHttpInfo (PDFDrawImageParameters drawImageParameters)
+        {
+            // verify the required parameter 'drawImageParameters' is set
+            if (drawImageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'drawImageParameters' when calling PDFApi->DrawImage");
+
+            var localVarPath = "/api/pdf/DrawImage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (drawImageParameters != null && drawImageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(drawImageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = drawImageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DrawImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFDrawImageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFDrawImageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFDrawImageResponse)));
+        }
+
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PDFDrawImageResponse</returns>
+        public async System.Threading.Tasks.Task<PDFDrawImageResponse> DrawImageAsync (PDFDrawImageParameters drawImageParameters)
+        {
+             ApiResponse<PDFDrawImageResponse> localVarResponse = await DrawImageAsyncWithHttpInfo(drawImageParameters);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Draws an image on a page range of a previously uploaded document. 
+        /// </summary>
+        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="drawImageParameters">A PDFDrawImageParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of ApiResponse (PDFDrawImageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PDFDrawImageResponse>> DrawImageAsyncWithHttpInfo (PDFDrawImageParameters drawImageParameters)
+        {
+            // verify the required parameter 'drawImageParameters' is set
+            if (drawImageParameters == null)
+                throw new ApiException(400, "Missing required parameter 'drawImageParameters' when calling PDFApi->DrawImage");
+
+            var localVarPath = "/api/pdf/DrawImage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (drawImageParameters != null && drawImageParameters.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(drawImageParameters); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = drawImageParameters; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DrawImage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PDFDrawImageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PDFDrawImageResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PDFDrawImageResponse)));
         }
 
         /// <summary>

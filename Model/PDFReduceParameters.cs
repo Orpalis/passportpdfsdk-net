@@ -137,12 +137,13 @@ namespace PassportPDF.Model
         /// <param name="RemoveBookmarks">Specifies whether the bookmarks shall be removed from the PDF. (default to false).</param>
         /// <param name="RemoveHyperlinks">Specifies whether the hyperlinks shall be removed from the PDF. (default to false).</param>
         /// <param name="RemoveEmbeddedFiles">Specifies whether the embedded files shall be removed from the PDF. (default to false).</param>
+        /// <param name="RemoveBlankPages">Specifies whether the blank pages shall be removed. (default to false).</param>
+        /// <param name="RemoveJavaScript">Specifies whether the JavaScript shall be removed. (default to false).</param>
         /// <param name="EnableJPEG2000">Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF. (default to true).</param>
         /// <param name="EnableJBIG2">Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF. (default to true).</param>
         /// <param name="EnableCharRepair">Specifies whether characters repairing shall be performed during bitonal conversion. (default to false).</param>
         /// <param name="EnableMRC">Specifies whether MRC shall be used for compressing the PDF contents. (default to false).</param>
-        /// <param name="RemoveBlankPages">Specifies whether the blank pages shall be removed. (default to false).</param>
-        public PDFReduceParameters(string FileId = default(string), OutputVersionEnum? OutputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? ImageQuality = ImageQualityEnum.ImageQualityMedium, bool? RecompressImages = true, bool? EnableColorDetection = true, bool? PackDocument = true, bool? PackFonts = true, bool? DownscaleImages = true, int? DownscaleResolution = 150, bool? FastWebView = false, bool? RemoveFormFields = false, bool? RemoveAnnotations = false, bool? RemoveBookmarks = false, bool? RemoveHyperlinks = false, bool? RemoveEmbeddedFiles = false, bool? EnableJPEG2000 = true, bool? EnableJBIG2 = true, bool? EnableCharRepair = false, bool? EnableMRC = false, bool? RemoveBlankPages = false)
+        public PDFReduceParameters(string FileId = default(string), OutputVersionEnum? OutputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? ImageQuality = ImageQualityEnum.ImageQualityMedium, bool? RecompressImages = true, bool? EnableColorDetection = true, bool? PackDocument = true, bool? PackFonts = true, bool? DownscaleImages = true, int? DownscaleResolution = 150, bool? FastWebView = false, bool? RemoveFormFields = false, bool? RemoveAnnotations = false, bool? RemoveBookmarks = false, bool? RemoveHyperlinks = false, bool? RemoveEmbeddedFiles = false, bool? RemoveBlankPages = false, bool? RemoveJavaScript = false, bool? EnableJPEG2000 = true, bool? EnableJBIG2 = true, bool? EnableCharRepair = false, bool? EnableMRC = false)
         {
             // to ensure "FileId" is required (not null)
             if (FileId == null)
@@ -279,6 +280,24 @@ namespace PassportPDF.Model
             {
                 this.RemoveEmbeddedFiles = RemoveEmbeddedFiles;
             }
+            // use default value if no "RemoveBlankPages" provided
+            if (RemoveBlankPages == null)
+            {
+                this.RemoveBlankPages = false;
+            }
+            else
+            {
+                this.RemoveBlankPages = RemoveBlankPages;
+            }
+            // use default value if no "RemoveJavaScript" provided
+            if (RemoveJavaScript == null)
+            {
+                this.RemoveJavaScript = false;
+            }
+            else
+            {
+                this.RemoveJavaScript = RemoveJavaScript;
+            }
             // use default value if no "EnableJPEG2000" provided
             if (EnableJPEG2000 == null)
             {
@@ -314,15 +333,6 @@ namespace PassportPDF.Model
             else
             {
                 this.EnableMRC = EnableMRC;
-            }
-            // use default value if no "RemoveBlankPages" provided
-            if (RemoveBlankPages == null)
-            {
-                this.RemoveBlankPages = false;
-            }
-            else
-            {
-                this.RemoveBlankPages = RemoveBlankPages;
             }
         }
         
@@ -420,6 +430,20 @@ namespace PassportPDF.Model
         public bool? RemoveEmbeddedFiles { get; set; }
 
         /// <summary>
+        /// Specifies whether the blank pages shall be removed.
+        /// </summary>
+        /// <value>Specifies whether the blank pages shall be removed.</value>
+        [DataMember(Name="removeBlankPages", EmitDefaultValue=false)]
+        public bool? RemoveBlankPages { get; set; }
+
+        /// <summary>
+        /// Specifies whether the JavaScript shall be removed.
+        /// </summary>
+        /// <value>Specifies whether the JavaScript shall be removed.</value>
+        [DataMember(Name="removeJavaScript", EmitDefaultValue=false)]
+        public bool? RemoveJavaScript { get; set; }
+
+        /// <summary>
         /// Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF.
         /// </summary>
         /// <value>Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF.</value>
@@ -448,13 +472,6 @@ namespace PassportPDF.Model
         public bool? EnableMRC { get; set; }
 
         /// <summary>
-        /// Specifies whether the blank pages shall be removed.
-        /// </summary>
-        /// <value>Specifies whether the blank pages shall be removed.</value>
-        [DataMember(Name="removeBlankPages", EmitDefaultValue=false)]
-        public bool? RemoveBlankPages { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -477,11 +494,12 @@ namespace PassportPDF.Model
             sb.Append("  RemoveBookmarks: ").Append(RemoveBookmarks).Append("\n");
             sb.Append("  RemoveHyperlinks: ").Append(RemoveHyperlinks).Append("\n");
             sb.Append("  RemoveEmbeddedFiles: ").Append(RemoveEmbeddedFiles).Append("\n");
+            sb.Append("  RemoveBlankPages: ").Append(RemoveBlankPages).Append("\n");
+            sb.Append("  RemoveJavaScript: ").Append(RemoveJavaScript).Append("\n");
             sb.Append("  EnableJPEG2000: ").Append(EnableJPEG2000).Append("\n");
             sb.Append("  EnableJBIG2: ").Append(EnableJBIG2).Append("\n");
             sb.Append("  EnableCharRepair: ").Append(EnableCharRepair).Append("\n");
             sb.Append("  EnableMRC: ").Append(EnableMRC).Append("\n");
-            sb.Append("  RemoveBlankPages: ").Append(RemoveBlankPages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -592,6 +610,16 @@ namespace PassportPDF.Model
                     this.RemoveEmbeddedFiles.Equals(input.RemoveEmbeddedFiles))
                 ) && 
                 (
+                    this.RemoveBlankPages == input.RemoveBlankPages ||
+                    (this.RemoveBlankPages != null &&
+                    this.RemoveBlankPages.Equals(input.RemoveBlankPages))
+                ) && 
+                (
+                    this.RemoveJavaScript == input.RemoveJavaScript ||
+                    (this.RemoveJavaScript != null &&
+                    this.RemoveJavaScript.Equals(input.RemoveJavaScript))
+                ) && 
+                (
                     this.EnableJPEG2000 == input.EnableJPEG2000 ||
                     (this.EnableJPEG2000 != null &&
                     this.EnableJPEG2000.Equals(input.EnableJPEG2000))
@@ -610,11 +638,6 @@ namespace PassportPDF.Model
                     this.EnableMRC == input.EnableMRC ||
                     (this.EnableMRC != null &&
                     this.EnableMRC.Equals(input.EnableMRC))
-                ) && 
-                (
-                    this.RemoveBlankPages == input.RemoveBlankPages ||
-                    (this.RemoveBlankPages != null &&
-                    this.RemoveBlankPages.Equals(input.RemoveBlankPages))
                 );
         }
 
@@ -657,6 +680,10 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.RemoveHyperlinks.GetHashCode();
                 if (this.RemoveEmbeddedFiles != null)
                     hashCode = hashCode * 59 + this.RemoveEmbeddedFiles.GetHashCode();
+                if (this.RemoveBlankPages != null)
+                    hashCode = hashCode * 59 + this.RemoveBlankPages.GetHashCode();
+                if (this.RemoveJavaScript != null)
+                    hashCode = hashCode * 59 + this.RemoveJavaScript.GetHashCode();
                 if (this.EnableJPEG2000 != null)
                     hashCode = hashCode * 59 + this.EnableJPEG2000.GetHashCode();
                 if (this.EnableJBIG2 != null)
@@ -665,8 +692,6 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.EnableCharRepair.GetHashCode();
                 if (this.EnableMRC != null)
                     hashCode = hashCode * 59 + this.EnableMRC.GetHashCode();
-                if (this.RemoveBlankPages != null)
-                    hashCode = hashCode * 59 + this.RemoveBlankPages.GetHashCode();
                 return hashCode;
             }
         }
