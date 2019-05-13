@@ -55,6 +55,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -64,6 +65,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             this.RemoveBlackBorders = removeBlackBorders;
             this.Deskew = deskew;
             this.RemoveLeftMarginPunchHoles = removeLeftMarginPunchHoles;

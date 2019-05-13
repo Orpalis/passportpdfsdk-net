@@ -48,6 +48,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "imageRegions" is required (not null)
             if (imageRegions == null)
             {
@@ -57,6 +58,7 @@ namespace PassportPDF.Model
             {
                 this.ImageRegions = imageRegions;
             }
+            
         }
         
         /// <summary>

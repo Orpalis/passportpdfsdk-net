@@ -48,6 +48,7 @@ namespace PassportPDF.Model
             {
                 this.SessionID = sessionID;
             }
+            
             // to ensure "controlState" is required (not null)
             if (controlState == null)
             {
@@ -57,6 +58,7 @@ namespace PassportPDF.Model
             {
                 this.ControlState = controlState;
             }
+            
         }
         
         /// <summary>

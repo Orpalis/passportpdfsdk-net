@@ -110,6 +110,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -119,6 +120,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "font" is required (not null)
             if (font == null)
             {
@@ -128,6 +130,7 @@ namespace PassportPDF.Model
             {
                 this.Font = font;
             }
+            
             // to ensure "context" is required (not null)
             if (context == null)
             {
@@ -137,6 +140,7 @@ namespace PassportPDF.Model
             {
                 this.Context = context;
             }
+            
             this.WhiteList = whiteList;
             this.RoiLeft = roiLeft;
             this.RoiTop = roiTop;

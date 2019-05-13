@@ -142,6 +142,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -151,6 +152,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "resizeHorizontal" is required (not null)
             if (resizeHorizontal == null)
             {
@@ -160,6 +162,7 @@ namespace PassportPDF.Model
             {
                 this.ResizeHorizontal = resizeHorizontal;
             }
+            
             // to ensure "resizeVertical" is required (not null)
             if (resizeVertical == null)
             {
@@ -169,6 +172,7 @@ namespace PassportPDF.Model
             {
                 this.ResizeVertical = resizeVertical;
             }
+            
             // use default value if no "resizeMode" provided
             if (resizeMode == null)
             {

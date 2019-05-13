@@ -271,11 +271,11 @@ namespace PassportPDF.Model
         /// <param name="conformance">Specifies the level of PDF conformance to be used. (default to ConformanceEnum.PDF15).</param>
         /// <param name="colorImageCompression">Specifies the compression scheme to be used for color images. (default to ColorImageCompressionEnum.JPEG2000).</param>
         /// <param name="bitonalImageCompression">Specifies the compression scheme to be used for bitonal images. (default to BitonalImageCompressionEnum.JBIG2).</param>
-        /// <param name="imageQuality">Specifies the quality to be used for the compression of the images from the PDF.  Must be in the range [0 (best compression - worst quality) - 100 (worst quality - best compression)]. (default to 75).</param>
-        /// <param name="downscaleResolution">Specifies the resolution for downscaling the background layer, if any..</param>
+        /// <param name="imageQuality">Specifies the quality to be used for the compression of the images from the PDF.  Must be in the range [0 (best compression - worst quality) - 100 (worst quality - best compression)]. (default to 60).</param>
+        /// <param name="downscaleResolution">Specifies the resolution for downscaling the background layer, if any. (default to 100).</param>
         /// <param name="preserveSmoothing">Specifies whether the MRC engine should try to preserve smoothing between different layers.   Enabling this option should globally enhance the text quality but also reduce the compression rate..</param>
         /// <param name="fastWebView">Specifies whether the PDF shall be optimized for online distribution..</param>
-        public ImageSaveAsPDFMRCParameters(string fileId = default(string), string pageRange = default(string), ConformanceEnum? conformance = ConformanceEnum.PDF15, ColorImageCompressionEnum? colorImageCompression = ColorImageCompressionEnum.JPEG2000, BitonalImageCompressionEnum? bitonalImageCompression = BitonalImageCompressionEnum.JBIG2, int? imageQuality = 75, int? downscaleResolution = default(int?), bool? preserveSmoothing = default(bool?), bool? fastWebView = default(bool?))
+        public ImageSaveAsPDFMRCParameters(string fileId = default(string), string pageRange = default(string), ConformanceEnum? conformance = ConformanceEnum.PDF15, ColorImageCompressionEnum? colorImageCompression = ColorImageCompressionEnum.JPEG2000, BitonalImageCompressionEnum? bitonalImageCompression = BitonalImageCompressionEnum.JBIG2, int? imageQuality = 60, int? downscaleResolution = 100, bool? preserveSmoothing = default(bool?), bool? fastWebView = default(bool?))
         {
             // to ensure "fileId" is required (not null)
             if (fileId == null)
@@ -286,6 +286,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -295,6 +296,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // use default value if no "conformance" provided
             if (conformance == null)
             {
@@ -325,13 +327,21 @@ namespace PassportPDF.Model
             // use default value if no "imageQuality" provided
             if (imageQuality == null)
             {
-                this.ImageQuality = 75;
+                this.ImageQuality = 60;
             }
             else
             {
                 this.ImageQuality = imageQuality;
             }
-            this.DownscaleResolution = downscaleResolution;
+            // use default value if no "downscaleResolution" provided
+            if (downscaleResolution == null)
+            {
+                this.DownscaleResolution = 100;
+            }
+            else
+            {
+                this.DownscaleResolution = downscaleResolution;
+            }
             this.PreserveSmoothing = preserveSmoothing;
             this.FastWebView = fastWebView;
         }

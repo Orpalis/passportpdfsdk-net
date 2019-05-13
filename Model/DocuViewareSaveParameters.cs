@@ -51,6 +51,7 @@ namespace PassportPDF.Model
             {
                 this.SessionId = sessionId;
             }
+            
             // to ensure "controlId" is required (not null)
             if (controlId == null)
             {
@@ -60,6 +61,7 @@ namespace PassportPDF.Model
             {
                 this.ControlId = controlId;
             }
+            
             // to ensure "fileName" is required (not null)
             if (fileName == null)
             {
@@ -69,6 +71,7 @@ namespace PassportPDF.Model
             {
                 this.FileName = fileName;
             }
+            
             // to ensure "format" is required (not null)
             if (format == null)
             {
@@ -78,6 +81,7 @@ namespace PassportPDF.Model
             {
                 this.Format = format;
             }
+            
             this.PageRange = pageRange;
         }
         

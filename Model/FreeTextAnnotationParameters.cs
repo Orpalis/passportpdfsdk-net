@@ -52,6 +52,7 @@ namespace PassportPDF.Model
             {
                 this.AnnotationLayout = annotationLayout;
             }
+            
             this.TextParameters = textParameters;
             this.Title = title;
             this.Subject = subject;

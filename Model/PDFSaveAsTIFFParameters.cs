@@ -111,6 +111,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -120,6 +121,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // use default value if no "compression" provided
             if (compression == null)
             {

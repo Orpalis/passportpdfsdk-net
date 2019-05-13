@@ -199,6 +199,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // use default value if no "pageMode" provided
             if (pageMode == null)
             {

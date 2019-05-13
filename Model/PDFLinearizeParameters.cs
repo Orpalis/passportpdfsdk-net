@@ -48,6 +48,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             this.PackDocument = packDocument;
         }
         

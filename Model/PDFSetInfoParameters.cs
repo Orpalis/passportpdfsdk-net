@@ -54,6 +54,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             this.Author = author;
             this.Title = title;
             this.Subject = subject;

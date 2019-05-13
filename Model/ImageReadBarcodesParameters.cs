@@ -86,6 +86,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -95,6 +96,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             this.RoiLeft = roiLeft;
             this.RoiTop = roiTop;
             this.RoiWidth = roiWidth;

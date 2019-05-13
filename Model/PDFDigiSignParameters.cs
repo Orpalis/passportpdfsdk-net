@@ -183,6 +183,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "certificateData" is required (not null)
             if (certificateData == null)
             {
@@ -192,6 +193,7 @@ namespace PassportPDF.Model
             {
                 this.CertificateData = certificateData;
             }
+            
             // to ensure "certificatePassword" is required (not null)
             if (certificatePassword == null)
             {
@@ -201,6 +203,7 @@ namespace PassportPDF.Model
             {
                 this.CertificatePassword = certificatePassword;
             }
+            
             // use default value if no "signatureMode" provided
             if (signatureMode == null)
             {

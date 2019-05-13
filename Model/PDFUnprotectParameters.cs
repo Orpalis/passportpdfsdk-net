@@ -48,6 +48,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "password" is required (not null)
             if (password == null)
             {
@@ -57,6 +58,7 @@ namespace PassportPDF.Model
             {
                 this.Password = password;
             }
+            
         }
         
         /// <summary>

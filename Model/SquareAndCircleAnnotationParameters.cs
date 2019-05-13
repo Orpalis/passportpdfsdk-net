@@ -97,6 +97,7 @@ namespace PassportPDF.Model
             {
                 this.AnnotationLayout = annotationLayout;
             }
+            
             this.Title = title;
             this.Content = content;
             // use default value if no "lineWidth" provided

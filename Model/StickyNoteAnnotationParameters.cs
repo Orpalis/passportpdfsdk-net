@@ -164,6 +164,7 @@ namespace PassportPDF.Model
             {
                 this.AnnotationLayout = annotationLayout;
             }
+            
             // use default value if no "stickyNoteIcon" provided
             if (stickyNoteIcon == null)
             {

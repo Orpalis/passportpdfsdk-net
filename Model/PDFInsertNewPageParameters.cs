@@ -51,6 +51,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageNumber" is required (not null)
             if (pageNumber == null)
             {
@@ -60,6 +61,7 @@ namespace PassportPDF.Model
             {
                 this.PageNumber = pageNumber;
             }
+            
             // use default value if no "pageCount" provided
             if (pageCount == null)
             {

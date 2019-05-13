@@ -80,6 +80,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -89,6 +90,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "cropBoxLeft" is required (not null)
             if (cropBoxLeft == null)
             {
@@ -98,6 +100,7 @@ namespace PassportPDF.Model
             {
                 this.CropBoxLeft = cropBoxLeft;
             }
+            
             // to ensure "cropBoxTop" is required (not null)
             if (cropBoxTop == null)
             {
@@ -107,6 +110,7 @@ namespace PassportPDF.Model
             {
                 this.CropBoxTop = cropBoxTop;
             }
+            
             // to ensure "cropBoxWidth" is required (not null)
             if (cropBoxWidth == null)
             {
@@ -116,6 +120,7 @@ namespace PassportPDF.Model
             {
                 this.CropBoxWidth = cropBoxWidth;
             }
+            
             // to ensure "cropBoxHeight" is required (not null)
             if (cropBoxHeight == null)
             {
@@ -125,6 +130,7 @@ namespace PassportPDF.Model
             {
                 this.CropBoxHeight = cropBoxHeight;
             }
+            
             // use default value if no "cropUnit" provided
             if (cropUnit == null)
             {

@@ -187,6 +187,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -196,6 +197,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "convertColorDepthMode" is required (not null)
             if (convertColorDepthMode == null)
             {
@@ -205,6 +207,7 @@ namespace PassportPDF.Model
             {
                 this.ConvertColorDepthMode = convertColorDepthMode;
             }
+            
             // use default value if no "depth1BppOtsuThreshold" provided
             if (depth1BppOtsuThreshold == null)
             {

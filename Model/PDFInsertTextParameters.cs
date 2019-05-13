@@ -50,6 +50,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -59,6 +60,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "textParameters" is required (not null)
             if (textParameters == null)
             {
@@ -68,6 +70,7 @@ namespace PassportPDF.Model
             {
                 this.TextParameters = textParameters;
             }
+            
             this.TextBoundingBoxLayout = textBoundingBoxLayout;
         }
         

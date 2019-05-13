@@ -112,7 +112,7 @@ namespace PassportPDF.Client
         public Configuration()
         {
             UserAgent = "OpenAPI-Generator/1.0.3*/csharp";
-            BasePath = "https://passportpdfapi.com/api";
+            BasePath = "https://passportpdfapi.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -128,7 +128,7 @@ namespace PassportPDF.Client
             IDictionary<string, string> defaultHeader,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://passportpdfapi.com/api") : this()
+            string basePath = "https://passportpdfapi.com") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

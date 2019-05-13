@@ -50,6 +50,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "sourceFileId" is required (not null)
             if (sourceFileId == null)
             {
@@ -59,6 +60,7 @@ namespace PassportPDF.Model
             {
                 this.SourceFileId = sourceFileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -68,6 +70,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "destinationPage" is required (not null)
             if (destinationPage == null)
             {
@@ -77,6 +80,7 @@ namespace PassportPDF.Model
             {
                 this.DestinationPage = destinationPage;
             }
+            
         }
         
         /// <summary>

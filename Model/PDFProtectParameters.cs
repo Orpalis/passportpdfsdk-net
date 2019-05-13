@@ -103,6 +103,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             this.OwnerPassword = ownerPassword;
             this.UserPassword = userPassword;
             // use default value if no "encryption" provided

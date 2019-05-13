@@ -14,9 +14,9 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>PassportPDF</RootNamespace>
-    <Version>1.0.42</Version>
-    <AssemblyVersion>1.0.42</AssemblyVersion>
-    <FileVersion>1.0.42</FileVersion>
+    <Version>1.0.43</Version>
+    <AssemblyVersion>1.0.43</AssemblyVersion>
+    <FileVersion>1.0.43</FileVersion>
     <PackageIconUrl>http://www.orpalis.com/images/ORPALIS/logos/PP-symbol-128.png</PackageIconUrl>
     <PackageProjectUrl>https://passportpdf.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Orpalis/passportpdfsdk-net</RepositoryUrl>

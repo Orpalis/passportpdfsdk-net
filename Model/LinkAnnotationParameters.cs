@@ -79,6 +79,7 @@ namespace PassportPDF.Model
             {
                 this.AnnotationLayout = annotationLayout;
             }
+            
             this.LinkType = linkType;
             this.LinkPage = linkPage;
             this.LinkUri = linkUri;

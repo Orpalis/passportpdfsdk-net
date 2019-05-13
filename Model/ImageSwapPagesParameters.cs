@@ -49,6 +49,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "page1" is required (not null)
             if (page1 == null)
             {
@@ -58,6 +59,7 @@ namespace PassportPDF.Model
             {
                 this.Page1 = page1;
             }
+            
             // to ensure "page2" is required (not null)
             if (page2 == null)
             {
@@ -67,6 +69,7 @@ namespace PassportPDF.Model
             {
                 this.Page2 = page2;
             }
+            
         }
         
         /// <summary>

@@ -192,6 +192,7 @@ namespace PassportPDF.Model
             {
                 this.AnnotationLayout = annotationLayout;
             }
+            
             // use default value if no "rubberStampIcon" provided
             if (rubberStampIcon == null)
             {

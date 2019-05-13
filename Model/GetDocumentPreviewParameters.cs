@@ -52,6 +52,7 @@ namespace PassportPDF.Model
             {
                 this.FileName = fileName;
             }
+            
             this.FileId = fileId;
             this.FileData = fileData;
             // use default value if no "thumbnailWidth" provided

@@ -83,6 +83,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "splitMethod" is required (not null)
             if (splitMethod == null)
             {
@@ -92,6 +93,7 @@ namespace PassportPDF.Model
             {
                 this.SplitMethod = splitMethod;
             }
+            
             this.SplitValue = splitValue;
             this.ImmediateDownload = immediateDownload;
         }

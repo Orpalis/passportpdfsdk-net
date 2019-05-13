@@ -207,6 +207,7 @@ namespace PassportPDF.Model
             {
                 this.Content = content;
             }
+            
             this.FileName = fileName;
             this.Password = password;
             // use default value if no "conformance" provided

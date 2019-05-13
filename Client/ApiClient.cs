@@ -50,12 +50,12 @@ namespace PassportPDF.Client
         public ApiClient()
         {
             Configuration = PassportPDF.Client.Configuration.Default;
-            RestClient = new RestClient("https://passportpdfapi.com/api");
+            RestClient = new RestClient("https://passportpdfapi.com");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://passportpdfapi.com/api).
+        /// with default base path (https://passportpdfapi.com).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -70,7 +70,7 @@ namespace PassportPDF.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://passportpdfapi.com/api")
+        public ApiClient(String basePath = "https://passportpdfapi.com")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

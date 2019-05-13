@@ -51,6 +51,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -60,6 +61,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "rotationAngle" is required (not null)
             if (rotationAngle == null)
             {
@@ -69,6 +71,7 @@ namespace PassportPDF.Model
             {
                 this.RotationAngle = rotationAngle;
             }
+            
             this.FlipHorizontally = flipHorizontally;
             this.FlipVertically = flipVertically;
         }

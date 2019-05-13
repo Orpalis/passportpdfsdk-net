@@ -76,6 +76,7 @@ namespace PassportPDF.Model
             {
                 this.Content = content;
             }
+            
             this.FileName = fileName;
             // use default value if no "contentEncoding" provided
             if (contentEncoding == null)

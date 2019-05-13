@@ -259,39 +259,6 @@ namespace PassportPDF.Model
         [DataMember(Name="BitonalImageCompression", EmitDefaultValue=false)]
         public BitonalImageCompressionEnum? BitonalImageCompression { get; set; }
         /// <summary>
-        /// Specifies an advanced image compression method.
-        /// </summary>
-        /// <value>Specifies an advanced image compression method.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum AdvancedImageCompressionEnum
-        {
-            /// <summary>
-            /// Enum None for value: None
-            /// </summary>
-            [EnumMember(Value = "None")]
-            None = 1,
-
-            /// <summary>
-            /// Enum ColorDetection for value: ColorDetection
-            /// </summary>
-            [EnumMember(Value = "ColorDetection")]
-            ColorDetection = 2,
-
-            /// <summary>
-            /// Enum MRC for value: MRC
-            /// </summary>
-            [EnumMember(Value = "MRC")]
-            MRC = 3
-
-        }
-
-        /// <summary>
-        /// Specifies an advanced image compression method.
-        /// </summary>
-        /// <value>Specifies an advanced image compression method.</value>
-        [DataMember(Name="AdvancedImageCompression", EmitDefaultValue=false)]
-        public AdvancedImageCompressionEnum? AdvancedImageCompression { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ImageSaveAsPDFParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -304,11 +271,11 @@ namespace PassportPDF.Model
         /// <param name="conformance">Specifies the level of PDF conformance to be used. (default to ConformanceEnum.PDF15).</param>
         /// <param name="colorImageCompression">Specifies the compression scheme to be used for color images. (default to ColorImageCompressionEnum.JPEG).</param>
         /// <param name="bitonalImageCompression">Specifies the compression scheme to be used for bitonal images. (default to BitonalImageCompressionEnum.JBIG2).</param>
-        /// <param name="advancedImageCompression">Specifies an advanced image compression method. (default to AdvancedImageCompressionEnum.None).</param>
+        /// <param name="enableColorDetection">Specifies is color detection must be used. (default to false).</param>
         /// <param name="imageQuality">Specifies the quality to be used for the compression of the images from the PDF.  Must be in the range [0 (best compression - worst quality) - 100 (worst quality - best compression)]. (default to 75).</param>
         /// <param name="downscaleResolution">Specifies the resolution for downscaling images, if any..</param>
         /// <param name="fastWebView">Specifies whether the PDF shall be optimized for online distribution..</param>
-        public ImageSaveAsPDFParameters(string fileId = default(string), string pageRange = default(string), ConformanceEnum? conformance = ConformanceEnum.PDF15, ColorImageCompressionEnum? colorImageCompression = ColorImageCompressionEnum.JPEG, BitonalImageCompressionEnum? bitonalImageCompression = BitonalImageCompressionEnum.JBIG2, AdvancedImageCompressionEnum? advancedImageCompression = AdvancedImageCompressionEnum.None, int? imageQuality = 75, int? downscaleResolution = default(int?), bool? fastWebView = default(bool?))
+        public ImageSaveAsPDFParameters(string fileId = default(string), string pageRange = default(string), ConformanceEnum? conformance = ConformanceEnum.PDF15, ColorImageCompressionEnum? colorImageCompression = ColorImageCompressionEnum.JPEG, BitonalImageCompressionEnum? bitonalImageCompression = BitonalImageCompressionEnum.JBIG2, bool? enableColorDetection = false, int? imageQuality = 75, int? downscaleResolution = default(int?), bool? fastWebView = default(bool?))
         {
             // to ensure "fileId" is required (not null)
             if (fileId == null)
@@ -319,6 +286,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -328,6 +296,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // use default value if no "conformance" provided
             if (conformance == null)
             {
@@ -355,14 +324,14 @@ namespace PassportPDF.Model
             {
                 this.BitonalImageCompression = bitonalImageCompression;
             }
-            // use default value if no "advancedImageCompression" provided
-            if (advancedImageCompression == null)
+            // use default value if no "enableColorDetection" provided
+            if (enableColorDetection == null)
             {
-                this.AdvancedImageCompression = AdvancedImageCompressionEnum.None;
+                this.EnableColorDetection = false;
             }
             else
             {
-                this.AdvancedImageCompression = advancedImageCompression;
+                this.EnableColorDetection = enableColorDetection;
             }
             // use default value if no "imageQuality" provided
             if (imageQuality == null)
@@ -394,6 +363,12 @@ namespace PassportPDF.Model
 
 
 
+        /// <summary>
+        /// Specifies is color detection must be used.
+        /// </summary>
+        /// <value>Specifies is color detection must be used.</value>
+        [DataMember(Name="EnableColorDetection", EmitDefaultValue=false)]
+        public bool? EnableColorDetection { get; set; }
 
         /// <summary>
         /// Specifies the quality to be used for the compression of the images from the PDF.  Must be in the range [0 (best compression - worst quality) - 100 (worst quality - best compression)].
@@ -429,7 +404,7 @@ namespace PassportPDF.Model
             sb.Append("  Conformance: ").Append(Conformance).Append("\n");
             sb.Append("  ColorImageCompression: ").Append(ColorImageCompression).Append("\n");
             sb.Append("  BitonalImageCompression: ").Append(BitonalImageCompression).Append("\n");
-            sb.Append("  AdvancedImageCompression: ").Append(AdvancedImageCompression).Append("\n");
+            sb.Append("  EnableColorDetection: ").Append(EnableColorDetection).Append("\n");
             sb.Append("  ImageQuality: ").Append(ImageQuality).Append("\n");
             sb.Append("  DownscaleResolution: ").Append(DownscaleResolution).Append("\n");
             sb.Append("  FastWebView: ").Append(FastWebView).Append("\n");
@@ -493,9 +468,9 @@ namespace PassportPDF.Model
                     this.BitonalImageCompression.Equals(input.BitonalImageCompression))
                 ) && 
                 (
-                    this.AdvancedImageCompression == input.AdvancedImageCompression ||
-                    (this.AdvancedImageCompression != null &&
-                    this.AdvancedImageCompression.Equals(input.AdvancedImageCompression))
+                    this.EnableColorDetection == input.EnableColorDetection ||
+                    (this.EnableColorDetection != null &&
+                    this.EnableColorDetection.Equals(input.EnableColorDetection))
                 ) && 
                 (
                     this.ImageQuality == input.ImageQuality ||
@@ -533,8 +508,8 @@ namespace PassportPDF.Model
                     hashCode = hashCode * 59 + this.ColorImageCompression.GetHashCode();
                 if (this.BitonalImageCompression != null)
                     hashCode = hashCode * 59 + this.BitonalImageCompression.GetHashCode();
-                if (this.AdvancedImageCompression != null)
-                    hashCode = hashCode * 59 + this.AdvancedImageCompression.GetHashCode();
+                if (this.EnableColorDetection != null)
+                    hashCode = hashCode * 59 + this.EnableColorDetection.GetHashCode();
                 if (this.ImageQuality != null)
                     hashCode = hashCode * 59 + this.ImageQuality.GetHashCode();
                 if (this.DownscaleResolution != null)

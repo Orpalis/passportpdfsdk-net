@@ -98,6 +98,7 @@ namespace PassportPDF.Model
             {
                 this.FileId = fileId;
             }
+            
             // to ensure "pageRange" is required (not null)
             if (pageRange == null)
             {
@@ -107,6 +108,7 @@ namespace PassportPDF.Model
             {
                 this.PageRange = pageRange;
             }
+            
             // to ensure "left" is required (not null)
             if (left == null)
             {
@@ -116,6 +118,7 @@ namespace PassportPDF.Model
             {
                 this.Left = left;
             }
+            
             // to ensure "top" is required (not null)
             if (top == null)
             {
@@ -125,6 +128,7 @@ namespace PassportPDF.Model
             {
                 this.Top = top;
             }
+            
             // to ensure "right" is required (not null)
             if (right == null)
             {
@@ -134,6 +138,7 @@ namespace PassportPDF.Model
             {
                 this.Right = right;
             }
+            
             // to ensure "bottom" is required (not null)
             if (bottom == null)
             {
@@ -143,6 +148,7 @@ namespace PassportPDF.Model
             {
                 this.Bottom = bottom;
             }
+            
             // use default value if no "pageBox" provided
             if (pageBox == null)
             {
