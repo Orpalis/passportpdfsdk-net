@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,87 +26,66 @@ namespace PassportPDF.Model
     /// Represents the response to a reduce action request.
     /// </summary>
     [DataContract]
-    public partial class PDFReduceResponse :  IEquatable<PDFReduceResponse>, IValidatableObject
+    public partial class PdfReduceResponse :  IEquatable<PdfReduceResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFReduceResponse" /> class.
+        /// Initializes a new instance of the <see cref="PdfReduceResponse" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        /// <param name="remainingTokens">Specifies the number of remaining tokens..</param>
-        /// <param name="errorInfo">errorInfo.</param>
-        public PDFReduceResponse(Error error = default(Error), long? remainingTokens = default(long?), ReduceErrorInfo errorInfo = default(ReduceErrorInfo))
+        public PdfReduceResponse()
         {
-            this.Error = error;
-            this.RemainingTokens = remainingTokens;
-            this.ErrorInfo = errorInfo;
         }
-        
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="Error", EmitDefaultValue=false)]
+        [DataMember(Name="Error")]
         public Error Error { get; set; }
 
         /// <summary>
         /// Specifies the number of remaining tokens.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="RemainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorInfo
         /// </summary>
-        [DataMember(Name="ErrorInfo", EmitDefaultValue=false)]
+        [DataMember(Name="ErrorInfo")]
         public ReduceErrorInfo ErrorInfo { get; set; }
 
         /// <summary>
         /// Specifies the different warnings that occured during the process of the reduce action.
         /// </summary>
-        /// <value>Specifies the different warnings that occured during the process of the reduce action.</value>
-        [DataMember(Name="WarningsInfo", EmitDefaultValue=false)]
+        [DataMember(Name="WarningsInfo")]
         public List<ReduceWarningInfo> WarningsInfo { get; private set; }
 
         /// <summary>
         /// Specifies whether content has been removed from the PDF during the process of the reduce action.
         /// </summary>
-        /// <value>Specifies whether content has been removed from the PDF during the process of the reduce action.</value>
-        [DataMember(Name="ContentRemoved", EmitDefaultValue=false)]
-        public bool? ContentRemoved { get; private set; }
+        [DataMember(Name="ContentRemoved")]
+        public bool ContentRemoved { get; private set; }
 
         /// <summary>
         /// Specifies whether the version of the PDF has changed during the process of the reduce action.
         /// </summary>
-        /// <value>Specifies whether the version of the PDF has changed during the process of the reduce action.</value>
-        [DataMember(Name="VersionChanged", EmitDefaultValue=false)]
-        public bool? VersionChanged { get; private set; }
+        [DataMember(Name="VersionChanged")]
+        public bool VersionChanged { get; private set; }
 
         /// <summary>
         /// Specify the size of the new created document.
         /// </summary>
-        /// <value>Specify the size of the new created document.</value>
-        [DataMember(Name="NewFileSize", EmitDefaultValue=false)]
-        public long? NewFileSize { get; private set; }
+        [DataMember(Name="NewFileSize")]
+        public long NewFileSize { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFReduceResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  ErrorInfo: ").Append(ErrorInfo).Append("\n");
-            sb.Append("  WarningsInfo: ").Append(WarningsInfo).Append("\n");
-            sb.Append("  ContentRemoved: ").Append(ContentRemoved).Append("\n");
-            sb.Append("  VersionChanged: ").Append(VersionChanged).Append("\n");
-            sb.Append("  NewFileSize: ").Append(NewFileSize).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -122,54 +102,51 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFReduceResponse);
+            return Equals(input as PdfReduceResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFReduceResponse instances are equal
+        /// Returns true if PdfReduceResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFReduceResponse to be compared</param>
+        /// <param name="input">Instance of PdfReduceResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFReduceResponse input)
+        public bool Equals(PdfReduceResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 ) && 
                 (
-                    this.ErrorInfo == input.ErrorInfo ||
-                    (this.ErrorInfo != null &&
-                    this.ErrorInfo.Equals(input.ErrorInfo))
+                    ErrorInfo == input.ErrorInfo ||
+                    (ErrorInfo != null &&
+                    ErrorInfo.Equals(input.ErrorInfo))
                 ) && 
                 (
-                    this.WarningsInfo == input.WarningsInfo ||
-                    this.WarningsInfo != null &&
-                    this.WarningsInfo.SequenceEqual(input.WarningsInfo)
+                    WarningsInfo == input.WarningsInfo ||
+                    WarningsInfo != null &&
+                    input.WarningsInfo != null &&
+                    WarningsInfo.SequenceEqual(input.WarningsInfo)
                 ) && 
                 (
-                    this.ContentRemoved == input.ContentRemoved ||
-                    (this.ContentRemoved != null &&
-                    this.ContentRemoved.Equals(input.ContentRemoved))
+                    ContentRemoved == input.ContentRemoved ||
+                    ContentRemoved.Equals(input.ContentRemoved)
                 ) && 
                 (
-                    this.VersionChanged == input.VersionChanged ||
-                    (this.VersionChanged != null &&
-                    this.VersionChanged.Equals(input.VersionChanged))
+                    VersionChanged == input.VersionChanged ||
+                    VersionChanged.Equals(input.VersionChanged)
                 ) && 
                 (
-                    this.NewFileSize == input.NewFileSize ||
-                    (this.NewFileSize != null &&
-                    this.NewFileSize.Equals(input.NewFileSize))
+                    NewFileSize == input.NewFileSize ||
+                    NewFileSize.Equals(input.NewFileSize)
                 );
         }
 
@@ -182,32 +159,18 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.ErrorInfo != null)
-                    hashCode = hashCode * 59 + this.ErrorInfo.GetHashCode();
-                if (this.WarningsInfo != null)
-                    hashCode = hashCode * 59 + this.WarningsInfo.GetHashCode();
-                if (this.ContentRemoved != null)
-                    hashCode = hashCode * 59 + this.ContentRemoved.GetHashCode();
-                if (this.VersionChanged != null)
-                    hashCode = hashCode * 59 + this.VersionChanged.GetHashCode();
-                if (this.NewFileSize != null)
-                    hashCode = hashCode * 59 + this.NewFileSize.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
+                if (ErrorInfo != null)
+                    hashCode = hashCode * 59 + ErrorInfo.GetHashCode();
+                if (WarningsInfo != null)
+                    hashCode = hashCode * 59 + WarningsInfo.GetHashCode();
+                hashCode = hashCode * 59 + ContentRemoved.GetHashCode();
+                hashCode = hashCode * 59 + VersionChanged.GetHashCode();
+                hashCode = hashCode * 59 + NewFileSize.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,519 +26,194 @@ namespace PassportPDF.Model
     /// Represents the parameters for a reduce action.
     /// </summary>
     [DataContract]
-    public partial class PDFReduceParameters :  IEquatable<PDFReduceParameters>, IValidatableObject
+    public partial class PdfReduceParameters :  IEquatable<PdfReduceParameters>
     {
         /// <summary>
-        /// Specifies the preferred version for the reduced PDF.
-        /// </summary>
-        /// <value>Specifies the preferred version for the reduced PDF.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum OutputVersionEnum
-        {
-            /// <summary>
-            /// Enum PdfVersionRetainExisting for value: PdfVersionRetainExisting
-            /// </summary>
-            [EnumMember(Value = "PdfVersionRetainExisting")]
-            PdfVersionRetainExisting = 1,
-
-            /// <summary>
-            /// Enum PdfVersion14 for value: PdfVersion14
-            /// </summary>
-            [EnumMember(Value = "PdfVersion14")]
-            PdfVersion14 = 2,
-
-            /// <summary>
-            /// Enum PdfVersion15 for value: PdfVersion15
-            /// </summary>
-            [EnumMember(Value = "PdfVersion15")]
-            PdfVersion15 = 3,
-
-            /// <summary>
-            /// Enum PdfVersion16 for value: PdfVersion16
-            /// </summary>
-            [EnumMember(Value = "PdfVersion16")]
-            PdfVersion16 = 4,
-
-            /// <summary>
-            /// Enum PdfVersion17 for value: PdfVersion17
-            /// </summary>
-            [EnumMember(Value = "PdfVersion17")]
-            PdfVersion17 = 5
-
-        }
-
-        /// <summary>
-        /// Specifies the preferred version for the reduced PDF.
-        /// </summary>
-        /// <value>Specifies the preferred version for the reduced PDF.</value>
-        [DataMember(Name="OutputVersion", EmitDefaultValue=false)]
-        public OutputVersionEnum? OutputVersion { get; set; }
-        /// <summary>
-        /// Specifies the quality to be used for the compression of the images from the PDF.
-        /// </summary>
-        /// <value>Specifies the quality to be used for the compression of the images from the PDF.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ImageQualityEnum
-        {
-            /// <summary>
-            /// Enum ImageQualityLow for value: ImageQualityLow
-            /// </summary>
-            [EnumMember(Value = "ImageQualityLow")]
-            ImageQualityLow = 1,
-
-            /// <summary>
-            /// Enum ImageQualityMedium for value: ImageQualityMedium
-            /// </summary>
-            [EnumMember(Value = "ImageQualityMedium")]
-            ImageQualityMedium = 2,
-
-            /// <summary>
-            /// Enum ImageQualityHigh for value: ImageQualityHigh
-            /// </summary>
-            [EnumMember(Value = "ImageQualityHigh")]
-            ImageQualityHigh = 3,
-
-            /// <summary>
-            /// Enum ImageQualityVeryHigh for value: ImageQualityVeryHigh
-            /// </summary>
-            [EnumMember(Value = "ImageQualityVeryHigh")]
-            ImageQualityVeryHigh = 4
-
-        }
-
-        /// <summary>
-        /// Specifies the quality to be used for the compression of the images from the PDF.
-        /// </summary>
-        /// <value>Specifies the quality to be used for the compression of the images from the PDF.</value>
-        [DataMember(Name="ImageQuality", EmitDefaultValue=false)]
-        public ImageQualityEnum? ImageQuality { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PDFReduceParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfReduceParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFReduceParameters() { }
+        protected PdfReduceParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFReduceParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfReduceParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        /// <param name="outputVersion">Specifies the preferred version for the reduced PDF. (default to OutputVersionEnum.PdfVersion15).</param>
-        /// <param name="imageQuality">Specifies the quality to be used for the compression of the images from the PDF. (default to ImageQualityEnum.ImageQualityMedium).</param>
-        /// <param name="recompressImages">Specifies whether the images from the PDF shall be recompressed. (default to true).</param>
-        /// <param name="enableColorDetection">Specifies whether color detection must be performed on the images from the PDF. (default to true).</param>
-        /// <param name="packDocument">Specifies whether the PDF shall be packed when saved in order to reduce its size. (default to true).</param>
-        /// <param name="packFonts">Specifies whether the PDF fonts must be packed in order to reduce their size. (default to true).</param>
-        /// <param name="downscaleImages">Specifies whether the images from the PDF shall be downscaled. (default to true).</param>
-        /// <param name="downscaleResolution">Specifies the resolution to be used to downscale images. (default to 150).</param>
-        /// <param name="fastWebView">Specifies whether the PDF shall be optimized for online distribution. (default to false).</param>
-        /// <param name="removeFormFields">Specifies whether the form fields shall be removed from the PDF. (default to false).</param>
-        /// <param name="removeAnnotations">Specifies whether the annotations shall be removed from the PDF. (default to false).</param>
-        /// <param name="removeBookmarks">Specifies whether the bookmarks shall be removed from the PDF. (default to false).</param>
-        /// <param name="removeHyperlinks">Specifies whether the hyperlinks shall be removed from the PDF. (default to false).</param>
-        /// <param name="removeEmbeddedFiles">Specifies whether the embedded files shall be removed from the PDF. (default to false).</param>
-        /// <param name="removeBlankPages">Specifies whether the blank pages shall be removed. (default to false).</param>
-        /// <param name="removeJavaScript">Specifies whether the JavaScript shall be removed. (default to false).</param>
-        /// <param name="enableJPEG2000">Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF. (default to true).</param>
-        /// <param name="enableJBIG2">Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF. (default to true).</param>
-        /// <param name="enableCharRepair">Specifies whether characters repairing shall be performed during bitonal conversion. (default to false).</param>
-        /// <param name="enableMRC">Specifies whether MRC shall be used for compressing the PDF contents. (default to false).</param>
-        /// <param name="preserveSmoothing">Specifies if the MRC engine shall try to preserve smoothing between different layers. (default to false).</param>
-        /// <param name="downscaleResolutionMRC">Specifies the resolution for downscaling the background layer by the MRC engine, if any. (default to 100).</param>
-        public PDFReduceParameters(string fileId = default(string), OutputVersionEnum? outputVersion = OutputVersionEnum.PdfVersion15, ImageQualityEnum? imageQuality = ImageQualityEnum.ImageQualityMedium, bool? recompressImages = true, bool? enableColorDetection = true, bool? packDocument = true, bool? packFonts = true, bool? downscaleImages = true, int? downscaleResolution = 150, bool? fastWebView = false, bool? removeFormFields = false, bool? removeAnnotations = false, bool? removeBookmarks = false, bool? removeHyperlinks = false, bool? removeEmbeddedFiles = false, bool? removeBlankPages = false, bool? removeJavaScript = false, bool? enableJPEG2000 = true, bool? enableJBIG2 = true, bool? enableCharRepair = false, bool? enableMRC = false, bool? preserveSmoothing = false, int? downscaleResolutionMRC = 100)
+        public PdfReduceParameters(string fileId)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFReduceParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // use default value if no "outputVersion" provided
-            if (outputVersion == null)
-            {
-                this.OutputVersion = OutputVersionEnum.PdfVersion15;
-            }
-            else
-            {
-                this.OutputVersion = outputVersion;
-            }
-            // use default value if no "imageQuality" provided
-            if (imageQuality == null)
-            {
-                this.ImageQuality = ImageQualityEnum.ImageQualityMedium;
-            }
-            else
-            {
-                this.ImageQuality = imageQuality;
-            }
-            // use default value if no "recompressImages" provided
-            if (recompressImages == null)
-            {
-                this.RecompressImages = true;
-            }
-            else
-            {
-                this.RecompressImages = recompressImages;
-            }
-            // use default value if no "enableColorDetection" provided
-            if (enableColorDetection == null)
-            {
-                this.EnableColorDetection = true;
-            }
-            else
-            {
-                this.EnableColorDetection = enableColorDetection;
-            }
-            // use default value if no "packDocument" provided
-            if (packDocument == null)
-            {
-                this.PackDocument = true;
-            }
-            else
-            {
-                this.PackDocument = packDocument;
-            }
-            // use default value if no "packFonts" provided
-            if (packFonts == null)
-            {
-                this.PackFonts = true;
-            }
-            else
-            {
-                this.PackFonts = packFonts;
-            }
-            // use default value if no "downscaleImages" provided
-            if (downscaleImages == null)
-            {
-                this.DownscaleImages = true;
-            }
-            else
-            {
-                this.DownscaleImages = downscaleImages;
-            }
-            // use default value if no "downscaleResolution" provided
-            if (downscaleResolution == null)
-            {
-                this.DownscaleResolution = 150;
-            }
-            else
-            {
-                this.DownscaleResolution = downscaleResolution;
-            }
-            // use default value if no "fastWebView" provided
-            if (fastWebView == null)
-            {
-                this.FastWebView = false;
-            }
-            else
-            {
-                this.FastWebView = fastWebView;
-            }
-            // use default value if no "removeFormFields" provided
-            if (removeFormFields == null)
-            {
-                this.RemoveFormFields = false;
-            }
-            else
-            {
-                this.RemoveFormFields = removeFormFields;
-            }
-            // use default value if no "removeAnnotations" provided
-            if (removeAnnotations == null)
-            {
-                this.RemoveAnnotations = false;
-            }
-            else
-            {
-                this.RemoveAnnotations = removeAnnotations;
-            }
-            // use default value if no "removeBookmarks" provided
-            if (removeBookmarks == null)
-            {
-                this.RemoveBookmarks = false;
-            }
-            else
-            {
-                this.RemoveBookmarks = removeBookmarks;
-            }
-            // use default value if no "removeHyperlinks" provided
-            if (removeHyperlinks == null)
-            {
-                this.RemoveHyperlinks = false;
-            }
-            else
-            {
-                this.RemoveHyperlinks = removeHyperlinks;
-            }
-            // use default value if no "removeEmbeddedFiles" provided
-            if (removeEmbeddedFiles == null)
-            {
-                this.RemoveEmbeddedFiles = false;
-            }
-            else
-            {
-                this.RemoveEmbeddedFiles = removeEmbeddedFiles;
-            }
-            // use default value if no "removeBlankPages" provided
-            if (removeBlankPages == null)
-            {
-                this.RemoveBlankPages = false;
-            }
-            else
-            {
-                this.RemoveBlankPages = removeBlankPages;
-            }
-            // use default value if no "removeJavaScript" provided
-            if (removeJavaScript == null)
-            {
-                this.RemoveJavaScript = false;
-            }
-            else
-            {
-                this.RemoveJavaScript = removeJavaScript;
-            }
-            // use default value if no "enableJPEG2000" provided
-            if (enableJPEG2000 == null)
-            {
-                this.EnableJPEG2000 = true;
-            }
-            else
-            {
-                this.EnableJPEG2000 = enableJPEG2000;
-            }
-            // use default value if no "enableJBIG2" provided
-            if (enableJBIG2 == null)
-            {
-                this.EnableJBIG2 = true;
-            }
-            else
-            {
-                this.EnableJBIG2 = enableJBIG2;
-            }
-            // use default value if no "enableCharRepair" provided
-            if (enableCharRepair == null)
-            {
-                this.EnableCharRepair = false;
-            }
-            else
-            {
-                this.EnableCharRepair = enableCharRepair;
-            }
-            // use default value if no "enableMRC" provided
-            if (enableMRC == null)
-            {
-                this.EnableMRC = false;
-            }
-            else
-            {
-                this.EnableMRC = enableMRC;
-            }
-            // use default value if no "preserveSmoothing" provided
-            if (preserveSmoothing == null)
-            {
-                this.PreserveSmoothing = false;
-            }
-            else
-            {
-                this.PreserveSmoothing = preserveSmoothing;
-            }
-            // use default value if no "downscaleResolutionMRC" provided
-            if (downscaleResolutionMRC == null)
-            {
-                this.DownscaleResolutionMRC = 100;
-            }
-            else
-            {
-                this.DownscaleResolutionMRC = downscaleResolutionMRC;
-            }
+            FileId = fileId;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
+        /// <summary>
+        /// Gets or Sets OutputVersion
+        /// </summary>
+        [DataMember(Name="OutputVersion")]
+        public PdfVersion OutputVersion { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ImageQuality
+        /// </summary>
+        [DataMember(Name="ImageQuality")]
+        public ImageQuality ImageQuality { get; set; }
 
         /// <summary>
         /// Specifies whether the images from the PDF shall be recompressed.
         /// </summary>
-        /// <value>Specifies whether the images from the PDF shall be recompressed.</value>
-        [DataMember(Name="RecompressImages", EmitDefaultValue=false)]
-        public bool? RecompressImages { get; set; }
+        [DataMember(Name="RecompressImages")]
+        public bool RecompressImages { get; set; } = true;
 
         /// <summary>
         /// Specifies whether color detection must be performed on the images from the PDF.
         /// </summary>
-        /// <value>Specifies whether color detection must be performed on the images from the PDF.</value>
-        [DataMember(Name="EnableColorDetection", EmitDefaultValue=false)]
-        public bool? EnableColorDetection { get; set; }
+        [DataMember(Name="EnableColorDetection")]
+        public bool EnableColorDetection { get; set; } = true;
 
         /// <summary>
         /// Specifies whether the PDF shall be packed when saved in order to reduce its size.
         /// </summary>
-        /// <value>Specifies whether the PDF shall be packed when saved in order to reduce its size.</value>
-        [DataMember(Name="PackDocument", EmitDefaultValue=false)]
-        public bool? PackDocument { get; set; }
+        [DataMember(Name="PackDocument")]
+        public bool PackDocument { get; set; } = true;
 
         /// <summary>
         /// Specifies whether the PDF fonts must be packed in order to reduce their size.
         /// </summary>
-        /// <value>Specifies whether the PDF fonts must be packed in order to reduce their size.</value>
-        [DataMember(Name="PackFonts", EmitDefaultValue=false)]
-        public bool? PackFonts { get; set; }
+        [DataMember(Name="PackFonts")]
+        public bool PackFonts { get; set; } = true;
 
         /// <summary>
         /// Specifies whether the images from the PDF shall be downscaled.
         /// </summary>
-        /// <value>Specifies whether the images from the PDF shall be downscaled.</value>
-        [DataMember(Name="DownscaleImages", EmitDefaultValue=false)]
-        public bool? DownscaleImages { get; set; }
+        [DataMember(Name="DownscaleImages")]
+        public bool DownscaleImages { get; set; } = true;
 
         /// <summary>
         /// Specifies the resolution to be used to downscale images.
         /// </summary>
-        /// <value>Specifies the resolution to be used to downscale images.</value>
-        [DataMember(Name="DownscaleResolution", EmitDefaultValue=false)]
-        public int? DownscaleResolution { get; set; }
+        [DataMember(Name="DownscaleResolution")]
+        public int DownscaleResolution { get; set; } = 150;
 
         /// <summary>
         /// Specifies whether the PDF shall be optimized for online distribution.
         /// </summary>
-        /// <value>Specifies whether the PDF shall be optimized for online distribution.</value>
-        [DataMember(Name="FastWebView", EmitDefaultValue=false)]
-        public bool? FastWebView { get; set; }
+        [DataMember(Name="FastWebView")]
+        public bool FastWebView { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the form fields shall be removed from the PDF.
         /// </summary>
-        /// <value>Specifies whether the form fields shall be removed from the PDF.</value>
-        [DataMember(Name="RemoveFormFields", EmitDefaultValue=false)]
-        public bool? RemoveFormFields { get; set; }
+        [DataMember(Name="RemoveFormFields")]
+        public bool RemoveFormFields { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the annotations shall be removed from the PDF.
         /// </summary>
-        /// <value>Specifies whether the annotations shall be removed from the PDF.</value>
-        [DataMember(Name="RemoveAnnotations", EmitDefaultValue=false)]
-        public bool? RemoveAnnotations { get; set; }
+        [DataMember(Name="RemoveAnnotations")]
+        public bool RemoveAnnotations { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the bookmarks shall be removed from the PDF.
         /// </summary>
-        /// <value>Specifies whether the bookmarks shall be removed from the PDF.</value>
-        [DataMember(Name="RemoveBookmarks", EmitDefaultValue=false)]
-        public bool? RemoveBookmarks { get; set; }
+        [DataMember(Name="RemoveBookmarks")]
+        public bool RemoveBookmarks { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the hyperlinks shall be removed from the PDF.
         /// </summary>
-        /// <value>Specifies whether the hyperlinks shall be removed from the PDF.</value>
-        [DataMember(Name="RemoveHyperlinks", EmitDefaultValue=false)]
-        public bool? RemoveHyperlinks { get; set; }
+        [DataMember(Name="RemoveHyperlinks")]
+        public bool RemoveHyperlinks { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the embedded files shall be removed from the PDF.
         /// </summary>
-        /// <value>Specifies whether the embedded files shall be removed from the PDF.</value>
-        [DataMember(Name="RemoveEmbeddedFiles", EmitDefaultValue=false)]
-        public bool? RemoveEmbeddedFiles { get; set; }
+        [DataMember(Name="RemoveEmbeddedFiles")]
+        public bool RemoveEmbeddedFiles { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the blank pages shall be removed.
         /// </summary>
-        /// <value>Specifies whether the blank pages shall be removed.</value>
-        [DataMember(Name="RemoveBlankPages", EmitDefaultValue=false)]
-        public bool? RemoveBlankPages { get; set; }
+        [DataMember(Name="RemoveBlankPages")]
+        public bool RemoveBlankPages { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the JavaScript shall be removed.
         /// </summary>
-        /// <value>Specifies whether the JavaScript shall be removed.</value>
-        [DataMember(Name="RemoveJavaScript", EmitDefaultValue=false)]
-        public bool? RemoveJavaScript { get; set; }
+        [DataMember(Name="RemoveJavaScript")]
+        public bool RemoveJavaScript { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF.
         /// </summary>
-        /// <value>Specifies whether the JPEG2000 compression scheme shall be used to compress the images of the PDF.</value>
-        [DataMember(Name="EnableJPEG2000", EmitDefaultValue=false)]
-        public bool? EnableJPEG2000 { get; set; }
+        [DataMember(Name="EnableJPEG2000")]
+        public bool EnableJPEG2000 { get; set; } = true;
 
         /// <summary>
         /// Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF.
         /// </summary>
-        /// <value>Specifies whether the JBIG2 compression scheme shall be used to compress the bitonal images of the PDF.</value>
-        [DataMember(Name="EnableJBIG2", EmitDefaultValue=false)]
-        public bool? EnableJBIG2 { get; set; }
+        [DataMember(Name="EnableJBIG2")]
+        public bool EnableJBIG2 { get; set; } = true;
 
         /// <summary>
         /// Specifies whether characters repairing shall be performed during bitonal conversion.
         /// </summary>
-        /// <value>Specifies whether characters repairing shall be performed during bitonal conversion.</value>
-        [DataMember(Name="EnableCharRepair", EmitDefaultValue=false)]
-        public bool? EnableCharRepair { get; set; }
+        [DataMember(Name="EnableCharRepair")]
+        public bool EnableCharRepair { get; set; } = false;
 
         /// <summary>
         /// Specifies whether MRC shall be used for compressing the PDF contents.
         /// </summary>
-        /// <value>Specifies whether MRC shall be used for compressing the PDF contents.</value>
-        [DataMember(Name="EnableMRC", EmitDefaultValue=false)]
-        public bool? EnableMRC { get; set; }
+        [DataMember(Name="EnableMRC")]
+        public bool EnableMRC { get; set; } = false;
 
         /// <summary>
         /// Specifies if the MRC engine shall try to preserve smoothing between different layers.
         /// </summary>
-        /// <value>Specifies if the MRC engine shall try to preserve smoothing between different layers.</value>
-        [DataMember(Name="PreserveSmoothing", EmitDefaultValue=false)]
-        public bool? PreserveSmoothing { get; set; }
+        [DataMember(Name="PreserveSmoothing")]
+        public bool PreserveSmoothing { get; set; } = false;
 
         /// <summary>
         /// Specifies the resolution for downscaling the background layer by the MRC engine, if any.
         /// </summary>
-        /// <value>Specifies the resolution for downscaling the background layer by the MRC engine, if any.</value>
-        [DataMember(Name="DownscaleResolutionMRC", EmitDefaultValue=false)]
-        public int? DownscaleResolutionMRC { get; set; }
+        [DataMember(Name="DownscaleResolutionMRC")]
+        public int DownscaleResolutionMRC { get; set; } = 100;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Specifies whether the metadata shall be removed.
+        /// </summary>
+        [DataMember(Name="RemoveMetadata")]
+        public bool RemoveMetadata { get; set; } = false;
+
+        /// <summary>
+        /// Specifies whether the page thumbnails shall be removed.
+        /// </summary>
+        [DataMember(Name="RemovePageThumbnails")]
+        public bool RemovePageThumbnails { get; set; } = false;
+
+        /// <summary>
+        /// Specifies whether the page PieceInfo dictionary used to hold private application data shall be removed.
+        /// </summary>
+        [DataMember(Name="RemovePagePieceInfo")]
+        public bool RemovePagePieceInfo { get; set; } = false;
+
+        /// <summary>
+        /// Specifies the threshold value for the JBIG2 encoder pattern matching and substitution between 0 and 1. Any number lower than 1 may lead to lossy compression.
+        /// </summary>
+        [DataMember(Name="JBIG2PMSThreshold")]
+        public float JBIG2PMSThreshold { get; set; } = 0.85F;
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFReduceParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  OutputVersion: ").Append(OutputVersion).Append("\n");
-            sb.Append("  ImageQuality: ").Append(ImageQuality).Append("\n");
-            sb.Append("  RecompressImages: ").Append(RecompressImages).Append("\n");
-            sb.Append("  EnableColorDetection: ").Append(EnableColorDetection).Append("\n");
-            sb.Append("  PackDocument: ").Append(PackDocument).Append("\n");
-            sb.Append("  PackFonts: ").Append(PackFonts).Append("\n");
-            sb.Append("  DownscaleImages: ").Append(DownscaleImages).Append("\n");
-            sb.Append("  DownscaleResolution: ").Append(DownscaleResolution).Append("\n");
-            sb.Append("  FastWebView: ").Append(FastWebView).Append("\n");
-            sb.Append("  RemoveFormFields: ").Append(RemoveFormFields).Append("\n");
-            sb.Append("  RemoveAnnotations: ").Append(RemoveAnnotations).Append("\n");
-            sb.Append("  RemoveBookmarks: ").Append(RemoveBookmarks).Append("\n");
-            sb.Append("  RemoveHyperlinks: ").Append(RemoveHyperlinks).Append("\n");
-            sb.Append("  RemoveEmbeddedFiles: ").Append(RemoveEmbeddedFiles).Append("\n");
-            sb.Append("  RemoveBlankPages: ").Append(RemoveBlankPages).Append("\n");
-            sb.Append("  RemoveJavaScript: ").Append(RemoveJavaScript).Append("\n");
-            sb.Append("  EnableJPEG2000: ").Append(EnableJPEG2000).Append("\n");
-            sb.Append("  EnableJBIG2: ").Append(EnableJBIG2).Append("\n");
-            sb.Append("  EnableCharRepair: ").Append(EnableCharRepair).Append("\n");
-            sb.Append("  EnableMRC: ").Append(EnableMRC).Append("\n");
-            sb.Append("  PreserveSmoothing: ").Append(PreserveSmoothing).Append("\n");
-            sb.Append("  DownscaleResolutionMRC: ").Append(DownscaleResolutionMRC).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -554,134 +230,128 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFReduceParameters);
+            return Equals(input as PdfReduceParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFReduceParameters instances are equal
+        /// Returns true if PdfReduceParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFReduceParameters to be compared</param>
+        /// <param name="input">Instance of PdfReduceParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFReduceParameters input)
+        public bool Equals(PdfReduceParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.OutputVersion == input.OutputVersion ||
-                    (this.OutputVersion != null &&
-                    this.OutputVersion.Equals(input.OutputVersion))
+                    OutputVersion == input.OutputVersion ||
+                    OutputVersion.Equals(input.OutputVersion)
                 ) && 
                 (
-                    this.ImageQuality == input.ImageQuality ||
-                    (this.ImageQuality != null &&
-                    this.ImageQuality.Equals(input.ImageQuality))
+                    ImageQuality == input.ImageQuality ||
+                    ImageQuality.Equals(input.ImageQuality)
                 ) && 
                 (
-                    this.RecompressImages == input.RecompressImages ||
-                    (this.RecompressImages != null &&
-                    this.RecompressImages.Equals(input.RecompressImages))
+                    RecompressImages == input.RecompressImages ||
+                    RecompressImages.Equals(input.RecompressImages)
                 ) && 
                 (
-                    this.EnableColorDetection == input.EnableColorDetection ||
-                    (this.EnableColorDetection != null &&
-                    this.EnableColorDetection.Equals(input.EnableColorDetection))
+                    EnableColorDetection == input.EnableColorDetection ||
+                    EnableColorDetection.Equals(input.EnableColorDetection)
                 ) && 
                 (
-                    this.PackDocument == input.PackDocument ||
-                    (this.PackDocument != null &&
-                    this.PackDocument.Equals(input.PackDocument))
+                    PackDocument == input.PackDocument ||
+                    PackDocument.Equals(input.PackDocument)
                 ) && 
                 (
-                    this.PackFonts == input.PackFonts ||
-                    (this.PackFonts != null &&
-                    this.PackFonts.Equals(input.PackFonts))
+                    PackFonts == input.PackFonts ||
+                    PackFonts.Equals(input.PackFonts)
                 ) && 
                 (
-                    this.DownscaleImages == input.DownscaleImages ||
-                    (this.DownscaleImages != null &&
-                    this.DownscaleImages.Equals(input.DownscaleImages))
+                    DownscaleImages == input.DownscaleImages ||
+                    DownscaleImages.Equals(input.DownscaleImages)
                 ) && 
                 (
-                    this.DownscaleResolution == input.DownscaleResolution ||
-                    (this.DownscaleResolution != null &&
-                    this.DownscaleResolution.Equals(input.DownscaleResolution))
+                    DownscaleResolution == input.DownscaleResolution ||
+                    DownscaleResolution.Equals(input.DownscaleResolution)
                 ) && 
                 (
-                    this.FastWebView == input.FastWebView ||
-                    (this.FastWebView != null &&
-                    this.FastWebView.Equals(input.FastWebView))
+                    FastWebView == input.FastWebView ||
+                    FastWebView.Equals(input.FastWebView)
                 ) && 
                 (
-                    this.RemoveFormFields == input.RemoveFormFields ||
-                    (this.RemoveFormFields != null &&
-                    this.RemoveFormFields.Equals(input.RemoveFormFields))
+                    RemoveFormFields == input.RemoveFormFields ||
+                    RemoveFormFields.Equals(input.RemoveFormFields)
                 ) && 
                 (
-                    this.RemoveAnnotations == input.RemoveAnnotations ||
-                    (this.RemoveAnnotations != null &&
-                    this.RemoveAnnotations.Equals(input.RemoveAnnotations))
+                    RemoveAnnotations == input.RemoveAnnotations ||
+                    RemoveAnnotations.Equals(input.RemoveAnnotations)
                 ) && 
                 (
-                    this.RemoveBookmarks == input.RemoveBookmarks ||
-                    (this.RemoveBookmarks != null &&
-                    this.RemoveBookmarks.Equals(input.RemoveBookmarks))
+                    RemoveBookmarks == input.RemoveBookmarks ||
+                    RemoveBookmarks.Equals(input.RemoveBookmarks)
                 ) && 
                 (
-                    this.RemoveHyperlinks == input.RemoveHyperlinks ||
-                    (this.RemoveHyperlinks != null &&
-                    this.RemoveHyperlinks.Equals(input.RemoveHyperlinks))
+                    RemoveHyperlinks == input.RemoveHyperlinks ||
+                    RemoveHyperlinks.Equals(input.RemoveHyperlinks)
                 ) && 
                 (
-                    this.RemoveEmbeddedFiles == input.RemoveEmbeddedFiles ||
-                    (this.RemoveEmbeddedFiles != null &&
-                    this.RemoveEmbeddedFiles.Equals(input.RemoveEmbeddedFiles))
+                    RemoveEmbeddedFiles == input.RemoveEmbeddedFiles ||
+                    RemoveEmbeddedFiles.Equals(input.RemoveEmbeddedFiles)
                 ) && 
                 (
-                    this.RemoveBlankPages == input.RemoveBlankPages ||
-                    (this.RemoveBlankPages != null &&
-                    this.RemoveBlankPages.Equals(input.RemoveBlankPages))
+                    RemoveBlankPages == input.RemoveBlankPages ||
+                    RemoveBlankPages.Equals(input.RemoveBlankPages)
                 ) && 
                 (
-                    this.RemoveJavaScript == input.RemoveJavaScript ||
-                    (this.RemoveJavaScript != null &&
-                    this.RemoveJavaScript.Equals(input.RemoveJavaScript))
+                    RemoveJavaScript == input.RemoveJavaScript ||
+                    RemoveJavaScript.Equals(input.RemoveJavaScript)
                 ) && 
                 (
-                    this.EnableJPEG2000 == input.EnableJPEG2000 ||
-                    (this.EnableJPEG2000 != null &&
-                    this.EnableJPEG2000.Equals(input.EnableJPEG2000))
+                    EnableJPEG2000 == input.EnableJPEG2000 ||
+                    EnableJPEG2000.Equals(input.EnableJPEG2000)
                 ) && 
                 (
-                    this.EnableJBIG2 == input.EnableJBIG2 ||
-                    (this.EnableJBIG2 != null &&
-                    this.EnableJBIG2.Equals(input.EnableJBIG2))
+                    EnableJBIG2 == input.EnableJBIG2 ||
+                    EnableJBIG2.Equals(input.EnableJBIG2)
                 ) && 
                 (
-                    this.EnableCharRepair == input.EnableCharRepair ||
-                    (this.EnableCharRepair != null &&
-                    this.EnableCharRepair.Equals(input.EnableCharRepair))
+                    EnableCharRepair == input.EnableCharRepair ||
+                    EnableCharRepair.Equals(input.EnableCharRepair)
                 ) && 
                 (
-                    this.EnableMRC == input.EnableMRC ||
-                    (this.EnableMRC != null &&
-                    this.EnableMRC.Equals(input.EnableMRC))
+                    EnableMRC == input.EnableMRC ||
+                    EnableMRC.Equals(input.EnableMRC)
                 ) && 
                 (
-                    this.PreserveSmoothing == input.PreserveSmoothing ||
-                    (this.PreserveSmoothing != null &&
-                    this.PreserveSmoothing.Equals(input.PreserveSmoothing))
+                    PreserveSmoothing == input.PreserveSmoothing ||
+                    PreserveSmoothing.Equals(input.PreserveSmoothing)
                 ) && 
                 (
-                    this.DownscaleResolutionMRC == input.DownscaleResolutionMRC ||
-                    (this.DownscaleResolutionMRC != null &&
-                    this.DownscaleResolutionMRC.Equals(input.DownscaleResolutionMRC))
+                    DownscaleResolutionMRC == input.DownscaleResolutionMRC ||
+                    DownscaleResolutionMRC.Equals(input.DownscaleResolutionMRC)
+                ) && 
+                (
+                    RemoveMetadata == input.RemoveMetadata ||
+                    RemoveMetadata.Equals(input.RemoveMetadata)
+                ) && 
+                (
+                    RemovePageThumbnails == input.RemovePageThumbnails ||
+                    RemovePageThumbnails.Equals(input.RemovePageThumbnails)
+                ) && 
+                (
+                    RemovePagePieceInfo == input.RemovePagePieceInfo ||
+                    RemovePagePieceInfo.Equals(input.RemovePagePieceInfo)
+                ) && 
+                (
+                    JBIG2PMSThreshold == input.JBIG2PMSThreshold ||
+                    JBIG2PMSThreshold.Equals(input.JBIG2PMSThreshold)
                 );
         }
 
@@ -694,64 +364,36 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.OutputVersion != null)
-                    hashCode = hashCode * 59 + this.OutputVersion.GetHashCode();
-                if (this.ImageQuality != null)
-                    hashCode = hashCode * 59 + this.ImageQuality.GetHashCode();
-                if (this.RecompressImages != null)
-                    hashCode = hashCode * 59 + this.RecompressImages.GetHashCode();
-                if (this.EnableColorDetection != null)
-                    hashCode = hashCode * 59 + this.EnableColorDetection.GetHashCode();
-                if (this.PackDocument != null)
-                    hashCode = hashCode * 59 + this.PackDocument.GetHashCode();
-                if (this.PackFonts != null)
-                    hashCode = hashCode * 59 + this.PackFonts.GetHashCode();
-                if (this.DownscaleImages != null)
-                    hashCode = hashCode * 59 + this.DownscaleImages.GetHashCode();
-                if (this.DownscaleResolution != null)
-                    hashCode = hashCode * 59 + this.DownscaleResolution.GetHashCode();
-                if (this.FastWebView != null)
-                    hashCode = hashCode * 59 + this.FastWebView.GetHashCode();
-                if (this.RemoveFormFields != null)
-                    hashCode = hashCode * 59 + this.RemoveFormFields.GetHashCode();
-                if (this.RemoveAnnotations != null)
-                    hashCode = hashCode * 59 + this.RemoveAnnotations.GetHashCode();
-                if (this.RemoveBookmarks != null)
-                    hashCode = hashCode * 59 + this.RemoveBookmarks.GetHashCode();
-                if (this.RemoveHyperlinks != null)
-                    hashCode = hashCode * 59 + this.RemoveHyperlinks.GetHashCode();
-                if (this.RemoveEmbeddedFiles != null)
-                    hashCode = hashCode * 59 + this.RemoveEmbeddedFiles.GetHashCode();
-                if (this.RemoveBlankPages != null)
-                    hashCode = hashCode * 59 + this.RemoveBlankPages.GetHashCode();
-                if (this.RemoveJavaScript != null)
-                    hashCode = hashCode * 59 + this.RemoveJavaScript.GetHashCode();
-                if (this.EnableJPEG2000 != null)
-                    hashCode = hashCode * 59 + this.EnableJPEG2000.GetHashCode();
-                if (this.EnableJBIG2 != null)
-                    hashCode = hashCode * 59 + this.EnableJBIG2.GetHashCode();
-                if (this.EnableCharRepair != null)
-                    hashCode = hashCode * 59 + this.EnableCharRepair.GetHashCode();
-                if (this.EnableMRC != null)
-                    hashCode = hashCode * 59 + this.EnableMRC.GetHashCode();
-                if (this.PreserveSmoothing != null)
-                    hashCode = hashCode * 59 + this.PreserveSmoothing.GetHashCode();
-                if (this.DownscaleResolutionMRC != null)
-                    hashCode = hashCode * 59 + this.DownscaleResolutionMRC.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                hashCode = hashCode * 59 + OutputVersion.GetHashCode();
+                hashCode = hashCode * 59 + ImageQuality.GetHashCode();
+                hashCode = hashCode * 59 + RecompressImages.GetHashCode();
+                hashCode = hashCode * 59 + EnableColorDetection.GetHashCode();
+                hashCode = hashCode * 59 + PackDocument.GetHashCode();
+                hashCode = hashCode * 59 + PackFonts.GetHashCode();
+                hashCode = hashCode * 59 + DownscaleImages.GetHashCode();
+                hashCode = hashCode * 59 + DownscaleResolution.GetHashCode();
+                hashCode = hashCode * 59 + FastWebView.GetHashCode();
+                hashCode = hashCode * 59 + RemoveFormFields.GetHashCode();
+                hashCode = hashCode * 59 + RemoveAnnotations.GetHashCode();
+                hashCode = hashCode * 59 + RemoveBookmarks.GetHashCode();
+                hashCode = hashCode * 59 + RemoveHyperlinks.GetHashCode();
+                hashCode = hashCode * 59 + RemoveEmbeddedFiles.GetHashCode();
+                hashCode = hashCode * 59 + RemoveBlankPages.GetHashCode();
+                hashCode = hashCode * 59 + RemoveJavaScript.GetHashCode();
+                hashCode = hashCode * 59 + EnableJPEG2000.GetHashCode();
+                hashCode = hashCode * 59 + EnableJBIG2.GetHashCode();
+                hashCode = hashCode * 59 + EnableCharRepair.GetHashCode();
+                hashCode = hashCode * 59 + EnableMRC.GetHashCode();
+                hashCode = hashCode * 59 + PreserveSmoothing.GetHashCode();
+                hashCode = hashCode * 59 + DownscaleResolutionMRC.GetHashCode();
+                hashCode = hashCode * 59 + RemoveMetadata.GetHashCode();
+                hashCode = hashCode * 59 + RemovePageThumbnails.GetHashCode();
+                hashCode = hashCode * 59 + RemovePagePieceInfo.GetHashCode();
+                hashCode = hashCode * 59 + JBIG2PMSThreshold.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,51 +26,38 @@ namespace PassportPDF.Model
     /// Represents the parameters for a get info action.
     /// </summary>
     [DataContract]
-    public partial class PDFGetInfoParameters :  IEquatable<PDFGetInfoParameters>, IValidatableObject
+    public partial class PdfGetInfoParameters :  IEquatable<PdfGetInfoParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFGetInfoParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfGetInfoParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFGetInfoParameters() { }
+        protected PdfGetInfoParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFGetInfoParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfGetInfoParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        public PDFGetInfoParameters(string fileId = default(string))
+        public PdfGetInfoParameters(string fileId)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFGetInfoParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
+            FileId = fileId;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFGetInfoParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -86,24 +74,24 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFGetInfoParameters);
+            return Equals(input as PdfGetInfoParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFGetInfoParameters instances are equal
+        /// Returns true if PdfGetInfoParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFGetInfoParameters to be compared</param>
+        /// <param name="input">Instance of PdfGetInfoParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFGetInfoParameters input)
+        public bool Equals(PdfGetInfoParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 );
         }
 
@@ -116,20 +104,10 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

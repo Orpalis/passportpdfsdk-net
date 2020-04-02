@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,62 +26,48 @@ namespace PassportPDF.Model
     /// Represents the response to a save as JPEG action request.
     /// </summary>
     [DataContract]
-    public partial class DocuViewareSaveResponse :  IEquatable<DocuViewareSaveResponse>, IValidatableObject
+    public partial class DocuViewareSaveResponse :  IEquatable<DocuViewareSaveResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareSaveResponse" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        /// <param name="remainingTokens">Specifies the number of remaining tokens..</param>
-        public DocuViewareSaveResponse(Error error = default(Error), long? remainingTokens = default(long?))
+        public DocuViewareSaveResponse()
         {
-            this.Error = error;
-            this.RemainingTokens = remainingTokens;
         }
-        
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="Error", EmitDefaultValue=false)]
+        [DataMember(Name="Error")]
         public Error Error { get; set; }
 
         /// <summary>
         /// Specifies the number of remaining tokens.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="RemainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Specifies the data of the produced file.
         /// </summary>
-        /// <value>Specifies the data of the produced file.</value>
-        [DataMember(Name="Content", EmitDefaultValue=false)]
+        [DataMember(Name="Content")]
         public byte[] Content { get; private set; }
 
         /// <summary>
         /// Specifies content type of the produced data.
         /// </summary>
-        /// <value>Specifies content type of the produced data.</value>
-        [DataMember(Name="ContentType", EmitDefaultValue=false)]
+        [DataMember(Name="ContentType")]
         public string ContentType { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class DocuViewareSaveResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  Content: ").Append(Content).Append("\n");
-            sb.Append("  ContentType: ").Append(ContentType).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -97,7 +84,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocuViewareSaveResponse);
+            return Equals(input as DocuViewareSaveResponse);
         }
 
         /// <summary>
@@ -112,24 +99,23 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 ) && 
                 (
-                    this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
+                    Content == input.Content ||
+                    (Content != null &&
+                    Content.Equals(input.Content))
                 ) && 
                 (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
+                    ContentType == input.ContentType ||
+                    (ContentType != null &&
+                    ContentType.Equals(input.ContentType))
                 );
         }
 
@@ -142,26 +128,15 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
-                if (this.ContentType != null)
-                    hashCode = hashCode * 59 + this.ContentType.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
+                if (Content != null)
+                    hashCode = hashCode * 59 + Content.GetHashCode();
+                if (ContentType != null)
+                    hashCode = hashCode * 59 + ContentType.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

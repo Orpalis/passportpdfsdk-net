@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,69 +26,46 @@ namespace PassportPDF.Model
     /// Represents the parameters for a GetControl action.
     /// </summary>
     [DataContract]
-    public partial class DocuViewareGetControlParameters :  IEquatable<DocuViewareGetControlParameters>, IValidatableObject
+    public partial class DocuViewareGetControlParameters :  IEquatable<DocuViewareGetControlParameters>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareGetControlParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected DocuViewareGetControlParameters() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DocuViewareGetControlParameters" /> class.
         /// </summary>
         /// <param name="sessionID">Specifies the unique identifier used to identify the user session. (required).</param>
         /// <param name="controlState">controlState (required).</param>
-        public DocuViewareGetControlParameters(string sessionID = default(string), DocuViewareControlState controlState = default(DocuViewareControlState))
+        public DocuViewareGetControlParameters(string sessionID, DocuViewareControlState controlState)
         {
-            // to ensure "sessionID" is required (not null)
-            if (sessionID == null)
-            {
-                throw new InvalidDataException("sessionID is a required property for DocuViewareGetControlParameters and cannot be null");
-            }
-            else
-            {
-                this.SessionID = sessionID;
-            }
-            
-            // to ensure "controlState" is required (not null)
-            if (controlState == null)
-            {
-                throw new InvalidDataException("controlState is a required property for DocuViewareGetControlParameters and cannot be null");
-            }
-            else
-            {
-                this.ControlState = controlState;
-            }
-            
+            SessionID = sessionID;
+            ControlState = controlState;
         }
-        
+
         /// <summary>
         /// Specifies the unique identifier used to identify the user session.
         /// </summary>
-        /// <value>Specifies the unique identifier used to identify the user session.</value>
-        [DataMember(Name="SessionID", EmitDefaultValue=false)]
+        [DataMember(Name="SessionID")]
         public string SessionID { get; set; }
 
         /// <summary>
         /// Gets or Sets ControlState
         /// </summary>
-        [DataMember(Name="ControlState", EmitDefaultValue=false)]
+        [DataMember(Name="ControlState")]
         public DocuViewareControlState ControlState { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class DocuViewareGetControlParameters {\n");
-            sb.Append("  SessionID: ").Append(SessionID).Append("\n");
-            sb.Append("  ControlState: ").Append(ControlState).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -104,7 +82,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocuViewareGetControlParameters);
+            return Equals(input as DocuViewareGetControlParameters);
         }
 
         /// <summary>
@@ -119,14 +97,14 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.SessionID == input.SessionID ||
-                    (this.SessionID != null &&
-                    this.SessionID.Equals(input.SessionID))
+                    SessionID == input.SessionID ||
+                    (SessionID != null &&
+                    SessionID.Equals(input.SessionID))
                 ) && 
                 (
-                    this.ControlState == input.ControlState ||
-                    (this.ControlState != null &&
-                    this.ControlState.Equals(input.ControlState))
+                    ControlState == input.ControlState ||
+                    (ControlState != null &&
+                    ControlState.Equals(input.ControlState))
                 );
         }
 
@@ -139,22 +117,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SessionID != null)
-                    hashCode = hashCode * 59 + this.SessionID.GetHashCode();
-                if (this.ControlState != null)
-                    hashCode = hashCode * 59 + this.ControlState.GetHashCode();
+                if (SessionID != null)
+                    hashCode = hashCode * 59 + SessionID.GetHashCode();
+                if (ControlState != null)
+                    hashCode = hashCode * 59 + ControlState.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

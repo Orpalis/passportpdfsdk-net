@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,125 +26,74 @@ namespace PassportPDF.Model
     /// Represents the parameters for a get document preview action.
     /// </summary>
     [DataContract]
-    public partial class GetDocumentPreviewParameters :  IEquatable<GetDocumentPreviewParameters>, IValidatableObject
+    public partial class GetDocumentPreviewParameters :  IEquatable<GetDocumentPreviewParameters>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected GetDocumentPreviewParameters() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
         /// </summary>
-        /// <param name="fileId">Specifies the identifier of the file to be previewed..</param>
-        /// <param name="fileData">Specifies the data of the document to be previewed..</param>
         /// <param name="fileName">Specifies the name of the file to be previewed. (required).</param>
-        /// <param name="thumbnailWidth">Specifies, in pixels, the width of the thumbnail to be retrieved. (default to 140).</param>
-        /// <param name="thumbnailHeight">Specifies, in pixels, the height of the thumbnail to be retrieved. (default to 220).</param>
-        /// <param name="thumbnailBackgroundColor">Specifies the background color of the thumbnail, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;). (default to &quot;rgba(0,0,0,0)&quot;).</param>
-        public GetDocumentPreviewParameters(string fileId = default(string), byte[] fileData = default(byte[]), string fileName = default(string), int? thumbnailWidth = 140, int? thumbnailHeight = 220, string thumbnailBackgroundColor = "rgba(0,0,0,0)")
+        public GetDocumentPreviewParameters(string fileName)
         {
-            // to ensure "fileName" is required (not null)
-            if (fileName == null)
-            {
-                throw new InvalidDataException("fileName is a required property for GetDocumentPreviewParameters and cannot be null");
-            }
-            else
-            {
-                this.FileName = fileName;
-            }
-            
-            this.FileId = fileId;
-            this.FileData = fileData;
-            // use default value if no "thumbnailWidth" provided
-            if (thumbnailWidth == null)
-            {
-                this.ThumbnailWidth = 140;
-            }
-            else
-            {
-                this.ThumbnailWidth = thumbnailWidth;
-            }
-            // use default value if no "thumbnailHeight" provided
-            if (thumbnailHeight == null)
-            {
-                this.ThumbnailHeight = 220;
-            }
-            else
-            {
-                this.ThumbnailHeight = thumbnailHeight;
-            }
-            // use default value if no "thumbnailBackgroundColor" provided
-            if (thumbnailBackgroundColor == null)
-            {
-                this.ThumbnailBackgroundColor = "rgba(0,0,0,0)";
-            }
-            else
-            {
-                this.ThumbnailBackgroundColor = thumbnailBackgroundColor;
-            }
+            FileName = fileName;
         }
-        
+
         /// <summary>
         /// Specifies the identifier of the file to be previewed.
         /// </summary>
-        /// <value>Specifies the identifier of the file to be previewed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the data of the document to be previewed.
         /// </summary>
-        /// <value>Specifies the data of the document to be previewed.</value>
-        [DataMember(Name="FileData", EmitDefaultValue=false)]
+        [DataMember(Name="FileData")]
         public byte[] FileData { get; set; }
 
         /// <summary>
         /// Specifies the name of the file to be previewed.
         /// </summary>
-        /// <value>Specifies the name of the file to be previewed.</value>
-        [DataMember(Name="FileName", EmitDefaultValue=false)]
+        [DataMember(Name="FileName")]
         public string FileName { get; set; }
 
         /// <summary>
         /// Specifies, in pixels, the width of the thumbnail to be retrieved.
         /// </summary>
-        /// <value>Specifies, in pixels, the width of the thumbnail to be retrieved.</value>
-        [DataMember(Name="ThumbnailWidth", EmitDefaultValue=false)]
-        public int? ThumbnailWidth { get; set; }
+        [DataMember(Name="ThumbnailWidth")]
+        public int ThumbnailWidth { get; set; } = 140;
 
         /// <summary>
         /// Specifies, in pixels, the height of the thumbnail to be retrieved.
         /// </summary>
-        /// <value>Specifies, in pixels, the height of the thumbnail to be retrieved.</value>
-        [DataMember(Name="ThumbnailHeight", EmitDefaultValue=false)]
-        public int? ThumbnailHeight { get; set; }
+        [DataMember(Name="ThumbnailHeight")]
+        public int ThumbnailHeight { get; set; } = 220;
 
         /// <summary>
-        /// Specifies the background color of the thumbnail, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).
+        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").
         /// </summary>
-        /// <value>Specifies the background color of the thumbnail, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).</value>
-        [DataMember(Name="ThumbnailBackgroundColor", EmitDefaultValue=false)]
-        public string ThumbnailBackgroundColor { get; set; }
+        [DataMember(Name="ThumbnailBackgroundColor")]
+        public string ThumbnailBackgroundColor { get; set; } = "rgba(0,0,0,0)";
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.
+        /// </summary>
+        [DataMember(Name="ThumbnailFitToPageSize")]
+        public bool ThumbnailFitToPageSize { get; set; } = true;
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class GetDocumentPreviewParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  FileData: ").Append(FileData).Append("\n");
-            sb.Append("  FileName: ").Append(FileName).Append("\n");
-            sb.Append("  ThumbnailWidth: ").Append(ThumbnailWidth).Append("\n");
-            sb.Append("  ThumbnailHeight: ").Append(ThumbnailHeight).Append("\n");
-            sb.Append("  ThumbnailBackgroundColor: ").Append(ThumbnailBackgroundColor).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -160,7 +110,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetDocumentPreviewParameters);
+            return Equals(input as GetDocumentPreviewParameters);
         }
 
         /// <summary>
@@ -175,34 +125,36 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.FileData == input.FileData ||
-                    (this.FileData != null &&
-                    this.FileData.Equals(input.FileData))
+                    FileData == input.FileData ||
+                    (FileData != null &&
+                    FileData.Equals(input.FileData))
                 ) && 
                 (
-                    this.FileName == input.FileName ||
-                    (this.FileName != null &&
-                    this.FileName.Equals(input.FileName))
+                    FileName == input.FileName ||
+                    (FileName != null &&
+                    FileName.Equals(input.FileName))
                 ) && 
                 (
-                    this.ThumbnailWidth == input.ThumbnailWidth ||
-                    (this.ThumbnailWidth != null &&
-                    this.ThumbnailWidth.Equals(input.ThumbnailWidth))
+                    ThumbnailWidth == input.ThumbnailWidth ||
+                    ThumbnailWidth.Equals(input.ThumbnailWidth)
                 ) && 
                 (
-                    this.ThumbnailHeight == input.ThumbnailHeight ||
-                    (this.ThumbnailHeight != null &&
-                    this.ThumbnailHeight.Equals(input.ThumbnailHeight))
+                    ThumbnailHeight == input.ThumbnailHeight ||
+                    ThumbnailHeight.Equals(input.ThumbnailHeight)
                 ) && 
                 (
-                    this.ThumbnailBackgroundColor == input.ThumbnailBackgroundColor ||
-                    (this.ThumbnailBackgroundColor != null &&
-                    this.ThumbnailBackgroundColor.Equals(input.ThumbnailBackgroundColor))
+                    ThumbnailBackgroundColor == input.ThumbnailBackgroundColor ||
+                    (ThumbnailBackgroundColor != null &&
+                    ThumbnailBackgroundColor.Equals(input.ThumbnailBackgroundColor))
+                ) && 
+                (
+                    ThumbnailFitToPageSize == input.ThumbnailFitToPageSize ||
+                    ThumbnailFitToPageSize.Equals(input.ThumbnailFitToPageSize)
                 );
         }
 
@@ -215,30 +167,19 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.FileData != null)
-                    hashCode = hashCode * 59 + this.FileData.GetHashCode();
-                if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
-                if (this.ThumbnailWidth != null)
-                    hashCode = hashCode * 59 + this.ThumbnailWidth.GetHashCode();
-                if (this.ThumbnailHeight != null)
-                    hashCode = hashCode * 59 + this.ThumbnailHeight.GetHashCode();
-                if (this.ThumbnailBackgroundColor != null)
-                    hashCode = hashCode * 59 + this.ThumbnailBackgroundColor.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (FileData != null)
+                    hashCode = hashCode * 59 + FileData.GetHashCode();
+                if (FileName != null)
+                    hashCode = hashCode * 59 + FileName.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailWidth.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailHeight.GetHashCode();
+                if (ThumbnailBackgroundColor != null)
+                    hashCode = hashCode * 59 + ThumbnailBackgroundColor.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailFitToPageSize.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

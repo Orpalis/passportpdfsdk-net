@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,55 +26,44 @@ namespace PassportPDF.Model
     /// Represents the parameters for a merge action.
     /// </summary>
     [DataContract]
-    public partial class PDFMergeParameters :  IEquatable<PDFMergeParameters>, IValidatableObject
+    public partial class PdfMergeParameters :  IEquatable<PdfMergeParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMergeParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfMergeParameters" /> class.
         /// </summary>
-        /// <param name="filesId">Specifies the identifiers of the documents to be merged..</param>
-        /// <param name="includeAttachments">Specifies if file attachments should be included in merged document. (default to true).</param>
-        public PDFMergeParameters(List<string> filesId = default(List<string>), bool? includeAttachments = true)
+        [JsonConstructorAttribute]
+        protected PdfMergeParameters() { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PdfMergeParameters" /> class.
+        /// </summary>
+        /// <param name="filesId">Specifies the identifiers of the documents to be merged. (required).</param>
+        public PdfMergeParameters(List<string> filesId)
         {
-            this.FilesId = filesId;
-            // use default value if no "includeAttachments" provided
-            if (includeAttachments == null)
-            {
-                this.IncludeAttachments = true;
-            }
-            else
-            {
-                this.IncludeAttachments = includeAttachments;
-            }
+            FilesId = filesId;
         }
-        
+
         /// <summary>
         /// Specifies the identifiers of the documents to be merged.
         /// </summary>
-        /// <value>Specifies the identifiers of the documents to be merged.</value>
-        [DataMember(Name="FilesId", EmitDefaultValue=false)]
+        [DataMember(Name="FilesId")]
         public List<string> FilesId { get; set; }
 
         /// <summary>
         /// Specifies if file attachments should be included in merged document.
         /// </summary>
-        /// <value>Specifies if file attachments should be included in merged document.</value>
-        [DataMember(Name="IncludeAttachments", EmitDefaultValue=false)]
-        public bool? IncludeAttachments { get; set; }
+        [DataMember(Name="IncludeAttachments")]
+        public bool IncludeAttachments { get; set; } = true;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFMergeParameters {\n");
-            sb.Append("  FilesId: ").Append(FilesId).Append("\n");
-            sb.Append("  IncludeAttachments: ").Append(IncludeAttachments).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -90,29 +80,29 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMergeParameters);
+            return Equals(input as PdfMergeParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFMergeParameters instances are equal
+        /// Returns true if PdfMergeParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMergeParameters to be compared</param>
+        /// <param name="input">Instance of PdfMergeParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMergeParameters input)
+        public bool Equals(PdfMergeParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FilesId == input.FilesId ||
-                    this.FilesId != null &&
-                    this.FilesId.SequenceEqual(input.FilesId)
+                    FilesId == input.FilesId ||
+                    FilesId != null &&
+                    input.FilesId != null &&
+                    FilesId.SequenceEqual(input.FilesId)
                 ) && 
                 (
-                    this.IncludeAttachments == input.IncludeAttachments ||
-                    (this.IncludeAttachments != null &&
-                    this.IncludeAttachments.Equals(input.IncludeAttachments))
+                    IncludeAttachments == input.IncludeAttachments ||
+                    IncludeAttachments.Equals(input.IncludeAttachments)
                 );
         }
 
@@ -125,22 +115,11 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FilesId != null)
-                    hashCode = hashCode * 59 + this.FilesId.GetHashCode();
-                if (this.IncludeAttachments != null)
-                    hashCode = hashCode * 59 + this.IncludeAttachments.GetHashCode();
+                if (FilesId != null)
+                    hashCode = hashCode * 59 + FilesId.GetHashCode();
+                hashCode = hashCode * 59 + IncludeAttachments.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,54 +26,42 @@ namespace PassportPDF.Model
     /// Represents the response to a merge action request.
     /// </summary>
     [DataContract]
-    public partial class PDFMergeResponse :  IEquatable<PDFMergeResponse>, IValidatableObject
+    public partial class PdfMergeResponse :  IEquatable<PdfMergeResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMergeResponse" /> class.
+        /// Initializes a new instance of the <see cref="PdfMergeResponse" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        /// <param name="remainingTokens">Specifies the number of remaining tokens..</param>
-        public PDFMergeResponse(Error error = default(Error), long? remainingTokens = default(long?))
+        public PdfMergeResponse()
         {
-            this.Error = error;
-            this.RemainingTokens = remainingTokens;
         }
-        
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="Error", EmitDefaultValue=false)]
+        [DataMember(Name="Error")]
         public Error Error { get; set; }
 
         /// <summary>
         /// Specifies the number of remaining tokens.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="RemainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Specifies the file identifier of the merged document.
         /// </summary>
-        /// <value>Specifies the file identifier of the merged document.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFMergeResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -89,34 +78,33 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMergeResponse);
+            return Equals(input as PdfMergeResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFMergeResponse instances are equal
+        /// Returns true if PdfMergeResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMergeResponse to be compared</param>
+        /// <param name="input">Instance of PdfMergeResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMergeResponse input)
+        public bool Equals(PdfMergeResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 ) && 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 );
         }
 
@@ -129,24 +117,13 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

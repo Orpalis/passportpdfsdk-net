@@ -1,36 +1,26 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
 
+
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+using System.Threading.Tasks;
 using RestSharp;
 using PassportPDF.Client;
 using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
+
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPassportPDFApplicationManagerApi : IApiAccessor
+    public interface IPassportPDFApplicationManagerApiSync
     {
-        #region Synchronous Operations
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>StringResponse</returns>
-        StringResponse PassportPDFApplicationManagerGetApplicationDownloadLink (string applicationId);
 
         /// <summary>
         /// 
@@ -38,20 +28,10 @@ namespace PassportPDF.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of StringResponse</returns>
-        ApiResponse<StringResponse> PassportPDFApplicationManagerGetApplicationDownloadLinkWithHttpInfo (string applicationId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        StringResponse PassportPDFApplicationManagerGetApplicationLatestVersion (string applicationId);
+        StringResponse PassportPDFApplicationManagerGetApplicationDownloadLink(string applicationId);
 
         /// <summary>
         /// 
@@ -59,20 +39,10 @@ namespace PassportPDF.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of StringResponse</returns>
-        ApiResponse<StringResponse> PassportPDFApplicationManagerGetApplicationLatestVersionWithHttpInfo (string applicationId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
-        StringResponse PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion (string applicationId);
+        StringResponse PassportPDFApplicationManagerGetApplicationLatestVersion(string applicationId);
 
         /// <summary>
         /// 
@@ -80,775 +50,492 @@ namespace PassportPDF.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of StringResponse</returns>
-        ApiResponse<StringResponse> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionWithHttpInfo (string applicationId);
+        /// <returns>StringResponse</returns>
+        StringResponse PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion(string applicationId);
+
         /// <summary>
         /// Gets the maximum number of threads to be used simultaneously by a client application.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>IntegerResponse</returns>
-        IntegerResponse PassportPDFApplicationManagerGetMaxClientThreads (string applicationId);
-
-        /// <summary>
-        /// Gets the maximum number of threads to be used simultaneously by a client application.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of IntegerResponse</returns>
-        ApiResponse<IntegerResponse> PassportPDFApplicationManagerGetMaxClientThreadsWithHttpInfo (string applicationId);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of StringResponse</returns>
-        System.Threading.Tasks.Task<StringResponse> PassportPDFApplicationManagerGetApplicationDownloadLinkAsync (string applicationId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (StringResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResponse>> PassportPDFApplicationManagerGetApplicationDownloadLinkAsyncWithHttpInfo (string applicationId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of StringResponse</returns>
-        System.Threading.Tasks.Task<StringResponse> PassportPDFApplicationManagerGetApplicationLatestVersionAsync (string applicationId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (StringResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResponse>> PassportPDFApplicationManagerGetApplicationLatestVersionAsyncWithHttpInfo (string applicationId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of StringResponse</returns>
-        System.Threading.Tasks.Task<StringResponse> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsync (string applicationId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (StringResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StringResponse>> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsyncWithHttpInfo (string applicationId);
-        /// <summary>
-        /// Gets the maximum number of threads to be used simultaneously by a client application.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of IntegerResponse</returns>
-        System.Threading.Tasks.Task<IntegerResponse> PassportPDFApplicationManagerGetMaxClientThreadsAsync (string applicationId);
-
-        /// <summary>
-        /// Gets the maximum number of threads to be used simultaneously by a client application.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (IntegerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegerResponse>> PassportPDFApplicationManagerGetMaxClientThreadsAsyncWithHttpInfo (string applicationId);
-        #endregion Asynchronous Operations
+        IntegerResponse PassportPDFApplicationManagerGetMaxClientThreads(string applicationId);
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PassportPDFApplicationManagerApi : IPassportPDFApplicationManagerApi
+    public interface IPassportPDFApplicationManagerApiAsync
     {
-        private PassportPDF.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of StringResponse</returns>
+        Task<StringResponse> PassportPDFApplicationManagerGetApplicationDownloadLinkAsync(string applicationId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of StringResponse</returns>
+        Task<StringResponse> PassportPDFApplicationManagerGetApplicationLatestVersionAsync(string applicationId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of StringResponse</returns>
+        Task<StringResponse> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsync(string applicationId);
+
+        /// <summary>
+        /// Gets the maximum number of threads to be used simultaneously by a client application.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>Task of IntegerResponse</returns>
+        Task<IntegerResponse> PassportPDFApplicationManagerGetMaxClientThreadsAsync(string applicationId);
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface IPassportPDFApplicationManagerApi : IPassportPDFApplicationManagerApiSync, IPassportPDFApplicationManagerApiAsync
+    {
+
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public sealed class PassportPDFApplicationManagerApi : IPassportPDFApplicationManagerApi
+    {
+        /// <summary>
+        /// Gets or sets the base path of the API. If not set the value set in GlobalConfiguration will be used.
+        /// </summary>
+        public string BasePath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the API key. If not set the value set in GlobalConfiguration value will be used.
+        /// </summary>
+        public string ApiKey { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PassportPDFApplicationManagerApi"/> class.
         /// </summary>
-        /// <returns></returns>
-        public PassportPDFApplicationManagerApi(String basePath)
+        /// <param name="apiKey">The API key.</param>
+        public PassportPDFApplicationManagerApi(string apiKey = "")
         {
-            this.Configuration = new PassportPDF.Client.Configuration { BasePath = basePath };
-
-            ExceptionFactory = PassportPDF.Client.Configuration.DefaultExceptionFactory;
+            ApiKey = apiKey;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PassportPDFApplicationManagerApi"/> class
+        ///  
         /// </summary>
-        /// <returns></returns>
-        public PassportPDFApplicationManagerApi()
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <returns>IRestResponse of StringResponse</returns>
+        public StringResponse PassportPDFApplicationManagerGetApplicationDownloadLink(string applicationId)
         {
-            this.Configuration = PassportPDF.Client.Configuration.Default;
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationDownloadLink");
 
-            ExceptionFactory = PassportPDF.Client.Configuration.DefaultExceptionFactory;
-        }
+            RequestOptions requestOptions = new RequestOptions();
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PassportPDFApplicationManagerApi"/> class
-        /// using Configuration object
-        /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
-        /// <returns></returns>
-        public PassportPDFApplicationManagerApi(PassportPDF.Client.Configuration configuration = null)
-        {
-            if (configuration == null) // use the default one in Configuration
-                this.Configuration = PassportPDF.Client.Configuration.Default;
-            else
-                this.Configuration = configuration;
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            ExceptionFactory = PassportPDF.Client.Configuration.DefaultExceptionFactory;
-        }
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null)
+              requestOptions.AddHeaderParameter("Content-Type", localVarContentType);
 
-        /// <summary>
-        /// Gets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        public String GetBasePath()
-        {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null)
+              requestOptions.AddHeaderParameter("Accept", localVarAccept);
 
-        /// <summary>
-        /// Sets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
-        {
-            // do nothing
-        }
-
-        /// <summary>
-        /// Gets or sets the configuration object
-        /// </summary>
-        /// <value>An instance of the Configuration</value>
-        public PassportPDF.Client.Configuration Configuration {get; set;}
-
-        /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
-        /// </summary>
-        public PassportPDF.Client.ExceptionFactory ExceptionFactory
-        {
-            get
+            if (applicationId != null)
             {
-                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
                 {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
                 }
-                return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
-        }
+            IRestResponse response = ApiClient.CallApi(Method.GET,
+             !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+             "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationDownloadLink",
+              !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+               requestOptions);
 
-        /// <summary>
-        /// Gets the default header.
-        /// </summary>
-        /// <returns>Dictionary of HTTP header</returns>
-        [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public IDictionary<String, String> DefaultHeader()
-        {
-            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
-        }
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationDownloadLink failed: {0}", response.ErrorMessage, response.ErrorException));
+            }
 
-        /// <summary>
-        /// Add default header.
-        /// </summary>
-        /// <param name="key">Header field name.</param>
-        /// <param name="value">Header field value.</param>
-        /// <returns></returns>
-        [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
-        public void AddDefaultHeader(string key, string value)
-        {
-            this.Configuration.AddDefaultHeader(key, value);
+            return (StringResponse)ApiClient.DeserializeResponse(response, typeof(StringResponse));
         }
 
         /// <summary>
         ///  
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>StringResponse</returns>
-        public StringResponse PassportPDFApplicationManagerGetApplicationDownloadLink (string applicationId)
-        {
-             ApiResponse<StringResponse> localVarResponse = PassportPDFApplicationManagerGetApplicationDownloadLinkWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of StringResponse</returns>
-        public ApiResponse< StringResponse > PassportPDFApplicationManagerGetApplicationDownloadLinkWithHttpInfo (string applicationId)
+        /// <returns>Task of IRestResponse (StringResponse)</returns>
+        public async Task<StringResponse> PassportPDFApplicationManagerGetApplicationDownloadLinkAsync(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationDownloadLink");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationDownloadLink");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationDownloadLink";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            foreach (var contentType in contentTypes)
+                requestOptions.AddHeaderParameter("Content-Type", contentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            foreach (var accept in accepts)
+                requestOptions.AddHeaderParameter("Accept", accept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetApplicationDownloadLink", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
             }
 
-            return new ApiResponse<StringResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (StringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
+            IRestResponse response = await ApiClient.CallApiAsync(Method.GET,
+            !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+            "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationDownloadLink",
+            !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+            requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationDownloadLink failed: {0}", response.ErrorMessage, response.ErrorException));
+            }
+
+            return (StringResponse)ApiClient.DeserializeResponse(response, typeof(StringResponse));
         }
 
         /// <summary>
         ///  
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>Task of StringResponse</returns>
-        public async System.Threading.Tasks.Task<StringResponse> PassportPDFApplicationManagerGetApplicationDownloadLinkAsync (string applicationId)
-        {
-             ApiResponse<StringResponse> localVarResponse = await PassportPDFApplicationManagerGetApplicationDownloadLinkAsyncWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (StringResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> PassportPDFApplicationManagerGetApplicationDownloadLinkAsyncWithHttpInfo (string applicationId)
+        /// <returns>IRestResponse of StringResponse</returns>
+        public StringResponse PassportPDFApplicationManagerGetApplicationLatestVersion(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationDownloadLink");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationLatestVersion");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationDownloadLink";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null)
+              requestOptions.AddHeaderParameter("Content-Type", localVarContentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null)
+              requestOptions.AddHeaderParameter("Accept", localVarAccept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetApplicationDownloadLink", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
+            }
+            IRestResponse response = ApiClient.CallApi(Method.GET,
+             !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+             "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationLatestVersion",
+              !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+               requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationLatestVersion failed: {0}", response.ErrorMessage, response.ErrorException));
             }
 
-            return new ApiResponse<StringResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (StringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
+            return (StringResponse)ApiClient.DeserializeResponse(response, typeof(StringResponse));
         }
 
         /// <summary>
         ///  
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>StringResponse</returns>
-        public StringResponse PassportPDFApplicationManagerGetApplicationLatestVersion (string applicationId)
-        {
-             ApiResponse<StringResponse> localVarResponse = PassportPDFApplicationManagerGetApplicationLatestVersionWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of StringResponse</returns>
-        public ApiResponse< StringResponse > PassportPDFApplicationManagerGetApplicationLatestVersionWithHttpInfo (string applicationId)
+        /// <returns>Task of IRestResponse (StringResponse)</returns>
+        public async Task<StringResponse> PassportPDFApplicationManagerGetApplicationLatestVersionAsync(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationLatestVersion");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationLatestVersion");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationLatestVersion";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            foreach (var contentType in contentTypes)
+                requestOptions.AddHeaderParameter("Content-Type", contentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            foreach (var accept in accepts)
+                requestOptions.AddHeaderParameter("Accept", accept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetApplicationLatestVersion", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
             }
 
-            return new ApiResponse<StringResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (StringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
+            IRestResponse response = await ApiClient.CallApiAsync(Method.GET,
+            !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+            "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationLatestVersion",
+            !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+            requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationLatestVersion failed: {0}", response.ErrorMessage, response.ErrorException));
+            }
+
+            return (StringResponse)ApiClient.DeserializeResponse(response, typeof(StringResponse));
         }
 
         /// <summary>
         ///  
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>Task of StringResponse</returns>
-        public async System.Threading.Tasks.Task<StringResponse> PassportPDFApplicationManagerGetApplicationLatestVersionAsync (string applicationId)
-        {
-             ApiResponse<StringResponse> localVarResponse = await PassportPDFApplicationManagerGetApplicationLatestVersionAsyncWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (StringResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> PassportPDFApplicationManagerGetApplicationLatestVersionAsyncWithHttpInfo (string applicationId)
+        /// <returns>IRestResponse of StringResponse</returns>
+        public StringResponse PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationLatestVersion");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationLatestVersion";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null)
+              requestOptions.AddHeaderParameter("Content-Type", localVarContentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null)
+              requestOptions.AddHeaderParameter("Accept", localVarAccept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetApplicationLatestVersion", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
+            }
+            IRestResponse response = ApiClient.CallApi(Method.GET,
+             !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+             "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion",
+              !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+               requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion failed: {0}", response.ErrorMessage, response.ErrorException));
             }
 
-            return new ApiResponse<StringResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (StringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
+            return (StringResponse)ApiClient.DeserializeResponse(response, typeof(StringResponse));
         }
 
         /// <summary>
         ///  
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>StringResponse</returns>
-        public StringResponse PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion (string applicationId)
-        {
-             ApiResponse<StringResponse> localVarResponse = PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of StringResponse</returns>
-        public ApiResponse< StringResponse > PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionWithHttpInfo (string applicationId)
+        /// <returns>Task of IRestResponse (StringResponse)</returns>
+        public async Task<StringResponse> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsync(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            foreach (var contentType in contentTypes)
+                requestOptions.AddHeaderParameter("Content-Type", contentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            foreach (var accept in accepts)
+                requestOptions.AddHeaderParameter("Accept", accept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
             }
 
-            return new ApiResponse<StringResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (StringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
-        }
+            IRestResponse response = await ApiClient.CallApiAsync(Method.GET,
+            !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+            "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion",
+            !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+            requestOptions);
 
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of StringResponse</returns>
-        public async System.Threading.Tasks.Task<StringResponse> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsync (string applicationId)
-        {
-             ApiResponse<StringResponse> localVarResponse = await PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsyncWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (StringResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<StringResponse>> PassportPDFApplicationManagerGetApplicationMinimumSupportedVersionAsyncWithHttpInfo (string applicationId)
-        {
-            // verify the required parameter 'applicationId' is set
-            if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion");
-
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (!response.IsSuccessful)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion", localVarResponse);
-                if (exception != null) throw exception;
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetApplicationMinimumSupportedVersion failed: {0}", response.ErrorMessage, response.ErrorException));
             }
 
-            return new ApiResponse<StringResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (StringResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(StringResponse)));
+            return (StringResponse)ApiClient.DeserializeResponse(response, typeof(StringResponse));
         }
 
         /// <summary>
         /// Gets the maximum number of threads to be used simultaneously by a client application. 
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>IntegerResponse</returns>
-        public IntegerResponse PassportPDFApplicationManagerGetMaxClientThreads (string applicationId)
-        {
-             ApiResponse<IntegerResponse> localVarResponse = PassportPDFApplicationManagerGetMaxClientThreadsWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Gets the maximum number of threads to be used simultaneously by a client application. 
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>ApiResponse of IntegerResponse</returns>
-        public ApiResponse< IntegerResponse > PassportPDFApplicationManagerGetMaxClientThreadsWithHttpInfo (string applicationId)
+        /// <returns>IRestResponse of IntegerResponse</returns>
+        public IntegerResponse PassportPDFApplicationManagerGetMaxClientThreads(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetMaxClientThreads");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetMaxClientThreads");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetMaxClientThreads";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null)
+              requestOptions.AddHeaderParameter("Content-Type", localVarContentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null)
+              requestOptions.AddHeaderParameter("Accept", localVarAccept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetMaxClientThreads", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
+            }
+            IRestResponse response = ApiClient.CallApi(Method.GET,
+             !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+             "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetMaxClientThreads",
+              !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+               requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetMaxClientThreads failed: {0}", response.ErrorMessage, response.ErrorException));
             }
 
-            return new ApiResponse<IntegerResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (IntegerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegerResponse)));
+            return (IntegerResponse)ApiClient.DeserializeResponse(response, typeof(IntegerResponse));
         }
 
         /// <summary>
         /// Gets the maximum number of threads to be used simultaneously by a client application. 
         /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
-        /// <returns>Task of IntegerResponse</returns>
-        public async System.Threading.Tasks.Task<IntegerResponse> PassportPDFApplicationManagerGetMaxClientThreadsAsync (string applicationId)
-        {
-             ApiResponse<IntegerResponse> localVarResponse = await PassportPDFApplicationManagerGetMaxClientThreadsAsyncWithHttpInfo(applicationId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Gets the maximum number of threads to be used simultaneously by a client application. 
-        /// </summary>
-        /// <exception cref="PassportPDF.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
-        /// <returns>Task of ApiResponse (IntegerResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegerResponse>> PassportPDFApplicationManagerGetMaxClientThreadsAsyncWithHttpInfo (string applicationId)
+        /// <returns>Task of IRestResponse (IntegerResponse)</returns>
+        public async Task<IntegerResponse> PassportPDFApplicationManagerGetMaxClientThreadsAsync(string applicationId)
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetMaxClientThreads");
+                throw new ArgumentNullException("Missing required parameter 'applicationId' when calling PassportPDFApplicationManagerApi->PassportPDFApplicationManagerGetMaxClientThreads");
 
-            var localVarPath = "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetMaxClientThreads";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
+            RequestOptions requestOptions = new RequestOptions();
 
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            string[] contentTypes = new string[] {  };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
 
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            foreach (var contentType in contentTypes)
+                requestOptions.AddHeaderParameter("Content-Type", contentType);
 
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            foreach (var accept in accepts)
+                requestOptions.AddHeaderParameter("Accept", accept);
 
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
+            if (applicationId != null)
             {
-                Exception exception = ExceptionFactory("PassportPDFApplicationManagerGetMaxClientThreads", localVarResponse);
-                if (exception != null) throw exception;
+                foreach (var kvp in ClientUtils.ParameterToMultiMap("", "applicationId", applicationId))
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        requestOptions.AddQueryParameter(kvp.Key, value);
+                    }
+                }
             }
 
-            return new ApiResponse<IntegerResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (IntegerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegerResponse)));
-        }
+            IRestResponse response = await ApiClient.CallApiAsync(Method.GET,
+            !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+            "/api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetMaxClientThreads",
+            !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+            requestOptions);
 
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/passportpdfapplicationmanager/PassportPDFApplicationManagerGetMaxClientThreads failed: {0}", response.ErrorMessage, response.ErrorException));
+            }
+
+            return (IntegerResponse)ApiClient.DeserializeResponse(response, typeof(IntegerResponse));
+        }
     }
 }

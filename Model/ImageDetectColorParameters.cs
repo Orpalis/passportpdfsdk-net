@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,90 +26,58 @@ namespace PassportPDF.Model
     /// Represents the parameters for an image color detection action.
     /// </summary>
     [DataContract]
-    public partial class ImageDetectColorParameters :  IEquatable<ImageDetectColorParameters>, IValidatableObject
+    public partial class ImageDetectColorParameters :  IEquatable<ImageDetectColorParameters>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageDetectColorParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected ImageDetectColorParameters() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageDetectColorParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the number of the page, or the range of pages to perform color detection on. (required).</param>
-        /// <param name="autoConvert">Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding..</param>
-        /// <param name="autoRepairCharacters">Specifies whether the characters shall be repaired during bitonal conversion, if any, or not..</param>
-        public ImageDetectColorParameters(string fileId = default(string), string pageRange = default(string), bool? autoConvert = default(bool?), bool? autoRepairCharacters = default(bool?))
+        public ImageDetectColorParameters(string fileId, string pageRange)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for ImageDetectColorParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for ImageDetectColorParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
-            this.AutoConvert = autoConvert;
-            this.AutoRepairCharacters = autoRepairCharacters;
+            FileId = fileId;
+            PageRange = pageRange;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the number of the page, or the range of pages to perform color detection on.
         /// </summary>
-        /// <value>Specifies the number of the page, or the range of pages to perform color detection on.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
         /// <summary>
         /// Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding.
         /// </summary>
-        /// <value>Specifies whether to automatically convert the image in its best suited/optimized bits-per-pixel encoding.</value>
-        [DataMember(Name="AutoConvert", EmitDefaultValue=false)]
-        public bool? AutoConvert { get; set; }
+        [DataMember(Name="AutoConvert")]
+        public bool AutoConvert { get; set; } = false;
 
         /// <summary>
         /// Specifies whether the characters shall be repaired during bitonal conversion, if any, or not.
         /// </summary>
-        /// <value>Specifies whether the characters shall be repaired during bitonal conversion, if any, or not.</value>
-        [DataMember(Name="AutoRepairCharacters", EmitDefaultValue=false)]
-        public bool? AutoRepairCharacters { get; set; }
+        [DataMember(Name="AutoRepairCharacters")]
+        public bool AutoRepairCharacters { get; set; } = false;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class ImageDetectColorParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  AutoConvert: ").Append(AutoConvert).Append("\n");
-            sb.Append("  AutoRepairCharacters: ").Append(AutoRepairCharacters).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -125,7 +94,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageDetectColorParameters);
+            return Equals(input as ImageDetectColorParameters);
         }
 
         /// <summary>
@@ -140,24 +109,22 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.AutoConvert == input.AutoConvert ||
-                    (this.AutoConvert != null &&
-                    this.AutoConvert.Equals(input.AutoConvert))
+                    AutoConvert == input.AutoConvert ||
+                    AutoConvert.Equals(input.AutoConvert)
                 ) && 
                 (
-                    this.AutoRepairCharacters == input.AutoRepairCharacters ||
-                    (this.AutoRepairCharacters != null &&
-                    this.AutoRepairCharacters.Equals(input.AutoRepairCharacters))
+                    AutoRepairCharacters == input.AutoRepairCharacters ||
+                    AutoRepairCharacters.Equals(input.AutoRepairCharacters)
                 );
         }
 
@@ -170,26 +137,14 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.AutoConvert != null)
-                    hashCode = hashCode * 59 + this.AutoConvert.GetHashCode();
-                if (this.AutoRepairCharacters != null)
-                    hashCode = hashCode * 59 + this.AutoRepairCharacters.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
+                hashCode = hashCode * 59 + AutoConvert.GetHashCode();
+                hashCode = hashCode * 59 + AutoRepairCharacters.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

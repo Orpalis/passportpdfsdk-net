@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,70 +26,46 @@ namespace PassportPDF.Model
     /// Represents the parameters for an unprotect action.
     /// </summary>
     [DataContract]
-    public partial class PDFUnprotectParameters :  IEquatable<PDFUnprotectParameters>, IValidatableObject
+    public partial class PdfUnprotectParameters :  IEquatable<PdfUnprotectParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFUnprotectParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfUnprotectParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFUnprotectParameters() { }
+        protected PdfUnprotectParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFUnprotectParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfUnprotectParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="password">Specifies the password to be used to unprotect the PDF. (required).</param>
-        public PDFUnprotectParameters(string fileId = default(string), string password = default(string))
+        public PdfUnprotectParameters(string fileId, string password)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFUnprotectParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "password" is required (not null)
-            if (password == null)
-            {
-                throw new InvalidDataException("password is a required property for PDFUnprotectParameters and cannot be null");
-            }
-            else
-            {
-                this.Password = password;
-            }
-            
+            FileId = fileId;
+            Password = password;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the password to be used to unprotect the PDF.
         /// </summary>
-        /// <value>Specifies the password to be used to unprotect the PDF.</value>
-        [DataMember(Name="Password", EmitDefaultValue=false)]
+        [DataMember(Name="Password")]
         public string Password { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFUnprotectParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -105,29 +82,29 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFUnprotectParameters);
+            return Equals(input as PdfUnprotectParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFUnprotectParameters instances are equal
+        /// Returns true if PdfUnprotectParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFUnprotectParameters to be compared</param>
+        /// <param name="input">Instance of PdfUnprotectParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFUnprotectParameters input)
+        public bool Equals(PdfUnprotectParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
+                    Password == input.Password ||
+                    (Password != null &&
+                    Password.Equals(input.Password))
                 );
         }
 
@@ -140,22 +117,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.Password != null)
-                    hashCode = hashCode * 59 + this.Password.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (Password != null)
+                    hashCode = hashCode * 59 + Password.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

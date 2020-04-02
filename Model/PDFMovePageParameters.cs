@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,89 +26,54 @@ namespace PassportPDF.Model
     /// Represents the parameters for a move pages action.
     /// </summary>
     [DataContract]
-    public partial class PDFMovePageParameters :  IEquatable<PDFMovePageParameters>, IValidatableObject
+    public partial class PdfMovePageParameters :  IEquatable<PdfMovePageParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMovePageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfMovePageParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFMovePageParameters() { }
+        protected PdfMovePageParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFMovePageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfMovePageParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="sourcePageRange">Specifies the number of the page, or the range of pages to be moved. (required).</param>
         /// <param name="destinationPage">Specifies the number of the destination page. (required).</param>
-        public PDFMovePageParameters(string fileId = default(string), string sourcePageRange = default(string), int? destinationPage = default(int?))
+        public PdfMovePageParameters(string fileId, string sourcePageRange, int destinationPage)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFMovePageParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "sourcePageRange" is required (not null)
-            if (sourcePageRange == null)
-            {
-                throw new InvalidDataException("sourcePageRange is a required property for PDFMovePageParameters and cannot be null");
-            }
-            else
-            {
-                this.SourcePageRange = sourcePageRange;
-            }
-            
-            // to ensure "destinationPage" is required (not null)
-            if (destinationPage == null)
-            {
-                throw new InvalidDataException("destinationPage is a required property for PDFMovePageParameters and cannot be null");
-            }
-            else
-            {
-                this.DestinationPage = destinationPage;
-            }
-            
+            FileId = fileId;
+            SourcePageRange = sourcePageRange;
+            DestinationPage = destinationPage;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the number of the page, or the range of pages to be moved.
         /// </summary>
-        /// <value>Specifies the number of the page, or the range of pages to be moved.</value>
-        [DataMember(Name="SourcePageRange", EmitDefaultValue=false)]
+        [DataMember(Name="SourcePageRange")]
         public string SourcePageRange { get; set; }
 
         /// <summary>
         /// Specifies the number of the destination page.
         /// </summary>
-        /// <value>Specifies the number of the destination page.</value>
-        [DataMember(Name="DestinationPage", EmitDefaultValue=false)]
-        public int? DestinationPage { get; set; }
+        [DataMember(Name="DestinationPage")]
+        public int DestinationPage { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFMovePageParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  SourcePageRange: ").Append(SourcePageRange).Append("\n");
-            sb.Append("  DestinationPage: ").Append(DestinationPage).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -124,34 +90,33 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFMovePageParameters);
+            return Equals(input as PdfMovePageParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFMovePageParameters instances are equal
+        /// Returns true if PdfMovePageParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFMovePageParameters to be compared</param>
+        /// <param name="input">Instance of PdfMovePageParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFMovePageParameters input)
+        public bool Equals(PdfMovePageParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.SourcePageRange == input.SourcePageRange ||
-                    (this.SourcePageRange != null &&
-                    this.SourcePageRange.Equals(input.SourcePageRange))
+                    SourcePageRange == input.SourcePageRange ||
+                    (SourcePageRange != null &&
+                    SourcePageRange.Equals(input.SourcePageRange))
                 ) && 
                 (
-                    this.DestinationPage == input.DestinationPage ||
-                    (this.DestinationPage != null &&
-                    this.DestinationPage.Equals(input.DestinationPage))
+                    DestinationPage == input.DestinationPage ||
+                    DestinationPage.Equals(input.DestinationPage)
                 );
         }
 
@@ -164,24 +129,13 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.SourcePageRange != null)
-                    hashCode = hashCode * 59 + this.SourcePageRange.GetHashCode();
-                if (this.DestinationPage != null)
-                    hashCode = hashCode * 59 + this.DestinationPage.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (SourcePageRange != null)
+                    hashCode = hashCode * 59 + SourcePageRange.GetHashCode();
+                hashCode = hashCode * 59 + DestinationPage.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

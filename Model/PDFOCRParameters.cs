@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,106 +26,58 @@ namespace PassportPDF.Model
     /// Represents the parameters for an OCR action.
     /// </summary>
     [DataContract]
-    public partial class PDFOCRParameters :  IEquatable<PDFOCRParameters>, IValidatableObject
+    public partial class PdfOCRParameters :  IEquatable<PdfOCRParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFOCRParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfOCRParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFOCRParameters() { }
+        protected PdfOCRParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFOCRParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfOCRParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the page or the page range to be processed. (required).</param>
-        /// <param name="language">Specifies the language to be used for the OCR. (default to &quot;eng&quot;).</param>
-        /// <param name="skipPageWithText">Specifies if pages containing text must be ignored (in such case no token is charged). (default to true).</param>
-        public PDFOCRParameters(string fileId = default(string), string pageRange = default(string), string language = "eng", bool? skipPageWithText = true)
+        public PdfOCRParameters(string fileId, string pageRange)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFOCRParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for PDFOCRParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
-            // use default value if no "language" provided
-            if (language == null)
-            {
-                this.Language = "eng";
-            }
-            else
-            {
-                this.Language = language;
-            }
-            // use default value if no "skipPageWithText" provided
-            if (skipPageWithText == null)
-            {
-                this.SkipPageWithText = true;
-            }
-            else
-            {
-                this.SkipPageWithText = skipPageWithText;
-            }
+            FileId = fileId;
+            PageRange = pageRange;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the page or the page range to be processed.
         /// </summary>
-        /// <value>Specifies the page or the page range to be processed.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
         /// <summary>
         /// Specifies the language to be used for the OCR.
         /// </summary>
-        /// <value>Specifies the language to be used for the OCR.</value>
-        [DataMember(Name="Language", EmitDefaultValue=false)]
-        public string Language { get; set; }
+        [DataMember(Name="Language")]
+        public string Language { get; set; } = "eng";
 
         /// <summary>
         /// Specifies if pages containing text must be ignored (in such case no token is charged).
         /// </summary>
-        /// <value>Specifies if pages containing text must be ignored (in such case no token is charged).</value>
-        [DataMember(Name="SkipPageWithText", EmitDefaultValue=false)]
-        public bool? SkipPageWithText { get; set; }
+        [DataMember(Name="SkipPageWithText")]
+        public bool SkipPageWithText { get; set; } = true;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFOCRParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  SkipPageWithText: ").Append(SkipPageWithText).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -141,39 +94,38 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFOCRParameters);
+            return Equals(input as PdfOCRParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFOCRParameters instances are equal
+        /// Returns true if PdfOCRParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFOCRParameters to be compared</param>
+        /// <param name="input">Instance of PdfOCRParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFOCRParameters input)
+        public bool Equals(PdfOCRParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.Language == input.Language ||
-                    (this.Language != null &&
-                    this.Language.Equals(input.Language))
+                    Language == input.Language ||
+                    (Language != null &&
+                    Language.Equals(input.Language))
                 ) && 
                 (
-                    this.SkipPageWithText == input.SkipPageWithText ||
-                    (this.SkipPageWithText != null &&
-                    this.SkipPageWithText.Equals(input.SkipPageWithText))
+                    SkipPageWithText == input.SkipPageWithText ||
+                    SkipPageWithText.Equals(input.SkipPageWithText)
                 );
         }
 
@@ -186,26 +138,15 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.Language != null)
-                    hashCode = hashCode * 59 + this.Language.GetHashCode();
-                if (this.SkipPageWithText != null)
-                    hashCode = hashCode * 59 + this.SkipPageWithText.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
+                if (Language != null)
+                    hashCode = hashCode * 59 + Language.GetHashCode();
+                hashCode = hashCode * 59 + SkipPageWithText.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

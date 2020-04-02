@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,155 +26,68 @@ namespace PassportPDF.Model
     /// Represents information about the Square / Circle Annotation.
     /// </summary>
     [DataContract]
-    public partial class SquareAndCircleAnnotationParameters :  IEquatable<SquareAndCircleAnnotationParameters>, IValidatableObject
+    public partial class SquareAndCircleAnnotationParameters :  IEquatable<SquareAndCircleAnnotationParameters>
     {
-        /// <summary>
-        /// Specifies the thickness of the annotation.
-        /// </summary>
-        /// <value>Specifies the thickness of the annotation.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum LineWidthEnum
-        {
-            /// <summary>
-            /// Enum Small for value: Small
-            /// </summary>
-            [EnumMember(Value = "Small")]
-            Small = 1,
-
-            /// <summary>
-            /// Enum Medium for value: Medium
-            /// </summary>
-            [EnumMember(Value = "Medium")]
-            Medium = 2,
-
-            /// <summary>
-            /// Enum Large for value: Large
-            /// </summary>
-            [EnumMember(Value = "Large")]
-            Large = 3,
-
-            /// <summary>
-            /// Enum Absolute for value: Absolute
-            /// </summary>
-            [EnumMember(Value = "Absolute")]
-            Absolute = 4,
-
-            /// <summary>
-            /// Enum AutoFit for value: AutoFit
-            /// </summary>
-            [EnumMember(Value = "AutoFit")]
-            AutoFit = 5
-
-        }
-
-        /// <summary>
-        /// Specifies the thickness of the annotation.
-        /// </summary>
-        /// <value>Specifies the thickness of the annotation.</value>
-        [DataMember(Name="LineWidth", EmitDefaultValue=false)]
-        public LineWidthEnum? LineWidth { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SquareAndCircleAnnotationParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SquareAndCircleAnnotationParameters() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SquareAndCircleAnnotationParameters" /> class.
         /// </summary>
         /// <param name="annotationLayout">annotationLayout (required).</param>
-        /// <param name="title">Specifies the title of the annotation, if any..</param>
-        /// <param name="content">Specify the content of the annotation, if any..</param>
-        /// <param name="lineWidth">Specifies the thickness of the annotation. (default to LineWidthEnum.Medium).</param>
-        /// <param name="absoluteAnnotationLineWidth">Specifies the absolute thickness of the annotation, in points..</param>
-        /// <param name="color">Specifies the color of the annotation, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;). (default to &quot;red&quot;).</param>
-        public SquareAndCircleAnnotationParameters(DrawableContentLayoutParameters annotationLayout = default(DrawableContentLayoutParameters), string title = default(string), string content = default(string), LineWidthEnum? lineWidth = LineWidthEnum.Medium, float? absoluteAnnotationLineWidth = default(float?), string color = "red")
+        public SquareAndCircleAnnotationParameters(DrawableContentLayoutParameters annotationLayout)
         {
-            // to ensure "annotationLayout" is required (not null)
-            if (annotationLayout == null)
-            {
-                throw new InvalidDataException("annotationLayout is a required property for SquareAndCircleAnnotationParameters and cannot be null");
-            }
-            else
-            {
-                this.AnnotationLayout = annotationLayout;
-            }
-            
-            this.Title = title;
-            this.Content = content;
-            // use default value if no "lineWidth" provided
-            if (lineWidth == null)
-            {
-                this.LineWidth = LineWidthEnum.Medium;
-            }
-            else
-            {
-                this.LineWidth = lineWidth;
-            }
-            this.AbsoluteAnnotationLineWidth = absoluteAnnotationLineWidth;
-            // use default value if no "color" provided
-            if (color == null)
-            {
-                this.Color = "red";
-            }
-            else
-            {
-                this.Color = color;
-            }
+            AnnotationLayout = annotationLayout;
         }
-        
+
         /// <summary>
         /// Gets or Sets AnnotationLayout
         /// </summary>
-        [DataMember(Name="AnnotationLayout", EmitDefaultValue=false)]
+        [DataMember(Name="AnnotationLayout")]
         public DrawableContentLayoutParameters AnnotationLayout { get; set; }
 
         /// <summary>
         /// Specifies the title of the annotation, if any.
         /// </summary>
-        /// <value>Specifies the title of the annotation, if any.</value>
-        [DataMember(Name="Title", EmitDefaultValue=false)]
+        [DataMember(Name="Title")]
         public string Title { get; set; }
 
         /// <summary>
         /// Specify the content of the annotation, if any.
         /// </summary>
-        /// <value>Specify the content of the annotation, if any.</value>
-        [DataMember(Name="Content", EmitDefaultValue=false)]
+        [DataMember(Name="Content")]
         public string Content { get; set; }
 
+        /// <summary>
+        /// Gets or Sets LineWidth
+        /// </summary>
+        [DataMember(Name="LineWidth")]
+        public ContentSize LineWidth { get; set; }
 
         /// <summary>
         /// Specifies the absolute thickness of the annotation, in points.
         /// </summary>
-        /// <value>Specifies the absolute thickness of the annotation, in points.</value>
-        [DataMember(Name="AbsoluteAnnotationLineWidth", EmitDefaultValue=false)]
-        public float? AbsoluteAnnotationLineWidth { get; set; }
+        [DataMember(Name="AbsoluteAnnotationLineWidth")]
+        public float AbsoluteAnnotationLineWidth { get; set; }
 
         /// <summary>
-        /// Specifies the color of the annotation, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).
+        /// Specifies the color of the annotation, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").
         /// </summary>
-        /// <value>Specifies the color of the annotation, using the color name (ie: \&quot;red\&quot;) or its RGBa code (ie: \&quot;rgba(255,0,0,1)\&quot;).</value>
-        [DataMember(Name="Color", EmitDefaultValue=false)]
-        public string Color { get; set; }
+        [DataMember(Name="Color")]
+        public string Color { get; set; } = "red";
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class SquareAndCircleAnnotationParameters {\n");
-            sb.Append("  AnnotationLayout: ").Append(AnnotationLayout).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Content: ").Append(Content).Append("\n");
-            sb.Append("  LineWidth: ").Append(LineWidth).Append("\n");
-            sb.Append("  AbsoluteAnnotationLineWidth: ").Append(AbsoluteAnnotationLineWidth).Append("\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -190,7 +104,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SquareAndCircleAnnotationParameters);
+            return Equals(input as SquareAndCircleAnnotationParameters);
         }
 
         /// <summary>
@@ -205,34 +119,32 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.AnnotationLayout == input.AnnotationLayout ||
-                    (this.AnnotationLayout != null &&
-                    this.AnnotationLayout.Equals(input.AnnotationLayout))
+                    AnnotationLayout == input.AnnotationLayout ||
+                    (AnnotationLayout != null &&
+                    AnnotationLayout.Equals(input.AnnotationLayout))
                 ) && 
                 (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
+                    Title == input.Title ||
+                    (Title != null &&
+                    Title.Equals(input.Title))
                 ) && 
                 (
-                    this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
+                    Content == input.Content ||
+                    (Content != null &&
+                    Content.Equals(input.Content))
                 ) && 
                 (
-                    this.LineWidth == input.LineWidth ||
-                    (this.LineWidth != null &&
-                    this.LineWidth.Equals(input.LineWidth))
+                    LineWidth == input.LineWidth ||
+                    LineWidth.Equals(input.LineWidth)
                 ) && 
                 (
-                    this.AbsoluteAnnotationLineWidth == input.AbsoluteAnnotationLineWidth ||
-                    (this.AbsoluteAnnotationLineWidth != null &&
-                    this.AbsoluteAnnotationLineWidth.Equals(input.AbsoluteAnnotationLineWidth))
+                    AbsoluteAnnotationLineWidth == input.AbsoluteAnnotationLineWidth ||
+                    AbsoluteAnnotationLineWidth.Equals(input.AbsoluteAnnotationLineWidth)
                 ) && 
                 (
-                    this.Color == input.Color ||
-                    (this.Color != null &&
-                    this.Color.Equals(input.Color))
+                    Color == input.Color ||
+                    (Color != null &&
+                    Color.Equals(input.Color))
                 );
         }
 
@@ -245,30 +157,18 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AnnotationLayout != null)
-                    hashCode = hashCode * 59 + this.AnnotationLayout.GetHashCode();
-                if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
-                if (this.LineWidth != null)
-                    hashCode = hashCode * 59 + this.LineWidth.GetHashCode();
-                if (this.AbsoluteAnnotationLineWidth != null)
-                    hashCode = hashCode * 59 + this.AbsoluteAnnotationLineWidth.GetHashCode();
-                if (this.Color != null)
-                    hashCode = hashCode * 59 + this.Color.GetHashCode();
+                if (AnnotationLayout != null)
+                    hashCode = hashCode * 59 + AnnotationLayout.GetHashCode();
+                if (Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+                if (Content != null)
+                    hashCode = hashCode * 59 + Content.GetHashCode();
+                hashCode = hashCode * 59 + LineWidth.GetHashCode();
+                hashCode = hashCode * 59 + AbsoluteAnnotationLineWidth.GetHashCode();
+                if (Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

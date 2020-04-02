@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,47 +26,42 @@ namespace PassportPDF.Model
     /// Holds the data of an image from a given page of a document.
     /// </summary>
     [DataContract]
-    public partial class PageImage :  IEquatable<PageImage>, IValidatableObject
+    public partial class PageImage :  IEquatable<PageImage>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PageImage" /> class.
         /// </summary>
-        /// <param name="pageNumber">Specifies the number of the page..</param>
-        /// <param name="imageData">The data of the image..</param>
-        public PageImage(int? pageNumber = default(int?), byte[] imageData = default(byte[]))
+        public PageImage()
         {
-            this.PageNumber = pageNumber;
-            this.ImageData = imageData;
         }
-        
+
         /// <summary>
         /// Specifies the number of the page.
         /// </summary>
-        /// <value>Specifies the number of the page.</value>
-        [DataMember(Name="PageNumber", EmitDefaultValue=false)]
-        public int? PageNumber { get; set; }
+        [DataMember(Name="PageNumber")]
+        public int PageNumber { get; set; }
 
         /// <summary>
         /// The data of the image.
         /// </summary>
-        /// <value>The data of the image.</value>
-        [DataMember(Name="ImageData", EmitDefaultValue=false)]
+        [DataMember(Name="ImageData")]
         public byte[] ImageData { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Specifies the name of the file.
+        /// </summary>
+        [DataMember(Name="FileName")]
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PageImage {\n");
-            sb.Append("  PageNumber: ").Append(PageNumber).Append("\n");
-            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -82,7 +78,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PageImage);
+            return Equals(input as PageImage);
         }
 
         /// <summary>
@@ -97,14 +93,18 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.PageNumber == input.PageNumber ||
-                    (this.PageNumber != null &&
-                    this.PageNumber.Equals(input.PageNumber))
+                    PageNumber == input.PageNumber ||
+                    PageNumber.Equals(input.PageNumber)
                 ) && 
                 (
-                    this.ImageData == input.ImageData ||
-                    (this.ImageData != null &&
-                    this.ImageData.Equals(input.ImageData))
+                    ImageData == input.ImageData ||
+                    (ImageData != null &&
+                    ImageData.Equals(input.ImageData))
+                ) && 
+                (
+                    FileName == input.FileName ||
+                    (FileName != null &&
+                    FileName.Equals(input.FileName))
                 );
         }
 
@@ -117,22 +117,13 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PageNumber != null)
-                    hashCode = hashCode * 59 + this.PageNumber.GetHashCode();
-                if (this.ImageData != null)
-                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
+                hashCode = hashCode * 59 + PageNumber.GetHashCode();
+                if (ImageData != null)
+                    hashCode = hashCode * 59 + ImageData.GetHashCode();
+                if (FileName != null)
+                    hashCode = hashCode * 59 + FileName.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

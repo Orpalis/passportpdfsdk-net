@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,51 +26,38 @@ namespace PassportPDF.Model
     /// Represents the parameters for a repair document action.
     /// </summary>
     [DataContract]
-    public partial class PDFRepairDocumentParameters :  IEquatable<PDFRepairDocumentParameters>, IValidatableObject
+    public partial class PdfRepairDocumentParameters :  IEquatable<PdfRepairDocumentParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFRepairDocumentParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfRepairDocumentParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFRepairDocumentParameters() { }
+        protected PdfRepairDocumentParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFRepairDocumentParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfRepairDocumentParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        public PDFRepairDocumentParameters(string fileId = default(string))
+        public PdfRepairDocumentParameters(string fileId)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFRepairDocumentParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
+            FileId = fileId;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFRepairDocumentParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -86,24 +74,24 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFRepairDocumentParameters);
+            return Equals(input as PdfRepairDocumentParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFRepairDocumentParameters instances are equal
+        /// Returns true if PdfRepairDocumentParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFRepairDocumentParameters to be compared</param>
+        /// <param name="input">Instance of PdfRepairDocumentParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFRepairDocumentParameters input)
+        public bool Equals(PdfRepairDocumentParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 );
         }
 
@@ -116,20 +104,10 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

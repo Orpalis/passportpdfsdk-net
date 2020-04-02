@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,234 +26,76 @@ namespace PassportPDF.Model
     /// Represents the parameters for an insert image action.
     /// </summary>
     [DataContract]
-    public partial class PDFInsertImageParameters :  IEquatable<PDFInsertImageParameters>, IValidatableObject
+    public partial class PdfInsertImageParameters :  IEquatable<PdfInsertImageParameters>
     {
         /// <summary>
-        /// Specifies the compression scheme to be used for a color image.
-        /// </summary>
-        /// <value>Specifies the compression scheme to be used for a color image.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ColorImageCompressionEnum
-        {
-            /// <summary>
-            /// Enum None for value: None
-            /// </summary>
-            [EnumMember(Value = "None")]
-            None = 1,
-
-            /// <summary>
-            /// Enum Flate for value: Flate
-            /// </summary>
-            [EnumMember(Value = "Flate")]
-            Flate = 2,
-
-            /// <summary>
-            /// Enum CCIT4 for value: CCIT4
-            /// </summary>
-            [EnumMember(Value = "CCIT4")]
-            CCIT4 = 3,
-
-            /// <summary>
-            /// Enum JPEG for value: JPEG
-            /// </summary>
-            [EnumMember(Value = "JPEG")]
-            JPEG = 4,
-
-            /// <summary>
-            /// Enum JBIG2 for value: JBIG2
-            /// </summary>
-            [EnumMember(Value = "JBIG2")]
-            JBIG2 = 5,
-
-            /// <summary>
-            /// Enum JPEG2000 for value: JPEG2000
-            /// </summary>
-            [EnumMember(Value = "JPEG2000")]
-            JPEG2000 = 6
-
-        }
-
-        /// <summary>
-        /// Specifies the compression scheme to be used for a color image.
-        /// </summary>
-        /// <value>Specifies the compression scheme to be used for a color image.</value>
-        [DataMember(Name="ColorImageCompression", EmitDefaultValue=false)]
-        public ColorImageCompressionEnum? ColorImageCompression { get; set; }
-        /// <summary>
-        /// Specifies the compression scheme to be used for a bitonal image.
-        /// </summary>
-        /// <value>Specifies the compression scheme to be used for a bitonal image.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BitonalCompressionEnum
-        {
-            /// <summary>
-            /// Enum None for value: None
-            /// </summary>
-            [EnumMember(Value = "None")]
-            None = 1,
-
-            /// <summary>
-            /// Enum Flate for value: Flate
-            /// </summary>
-            [EnumMember(Value = "Flate")]
-            Flate = 2,
-
-            /// <summary>
-            /// Enum CCIT4 for value: CCIT4
-            /// </summary>
-            [EnumMember(Value = "CCIT4")]
-            CCIT4 = 3,
-
-            /// <summary>
-            /// Enum JPEG for value: JPEG
-            /// </summary>
-            [EnumMember(Value = "JPEG")]
-            JPEG = 4,
-
-            /// <summary>
-            /// Enum JBIG2 for value: JBIG2
-            /// </summary>
-            [EnumMember(Value = "JBIG2")]
-            JBIG2 = 5,
-
-            /// <summary>
-            /// Enum JPEG2000 for value: JPEG2000
-            /// </summary>
-            [EnumMember(Value = "JPEG2000")]
-            JPEG2000 = 6
-
-        }
-
-        /// <summary>
-        /// Specifies the compression scheme to be used for a bitonal image.
-        /// </summary>
-        /// <value>Specifies the compression scheme to be used for a bitonal image.</value>
-        [DataMember(Name="BitonalCompression", EmitDefaultValue=false)]
-        public BitonalCompressionEnum? BitonalCompression { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PDFInsertImageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfInsertImageParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFInsertImageParameters() { }
+        protected PdfInsertImageParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFInsertImageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfInsertImageParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the page or the range of pages where the image shall be inserted. (required).</param>
-        /// <param name="imageData">Specifies the data of the image to be inserted..</param>
-        /// <param name="imageFileId">Specifies the file ID of the image to be drawn..</param>
-        /// <param name="quality">Specifies the level of quality to be used for the compression, from 1 (poorest) to 100 (greatest). (default to 75).</param>
-        /// <param name="colorImageCompression">Specifies the compression scheme to be used for a color image. (default to ColorImageCompressionEnum.JPEG).</param>
-        /// <param name="bitonalCompression">Specifies the compression scheme to be used for a bitonal image. (default to BitonalCompressionEnum.JBIG2).</param>
-        public PDFInsertImageParameters(string fileId = default(string), string pageRange = default(string), byte[] imageData = default(byte[]), string imageFileId = default(string), int? quality = 75, ColorImageCompressionEnum? colorImageCompression = ColorImageCompressionEnum.JPEG, BitonalCompressionEnum? bitonalCompression = BitonalCompressionEnum.JBIG2)
+        public PdfInsertImageParameters(string fileId, string pageRange)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFInsertImageParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for PDFInsertImageParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
-            this.ImageData = imageData;
-            this.ImageFileId = imageFileId;
-            // use default value if no "quality" provided
-            if (quality == null)
-            {
-                this.Quality = 75;
-            }
-            else
-            {
-                this.Quality = quality;
-            }
-            // use default value if no "colorImageCompression" provided
-            if (colorImageCompression == null)
-            {
-                this.ColorImageCompression = ColorImageCompressionEnum.JPEG;
-            }
-            else
-            {
-                this.ColorImageCompression = colorImageCompression;
-            }
-            // use default value if no "bitonalCompression" provided
-            if (bitonalCompression == null)
-            {
-                this.BitonalCompression = BitonalCompressionEnum.JBIG2;
-            }
-            else
-            {
-                this.BitonalCompression = bitonalCompression;
-            }
+            FileId = fileId;
+            PageRange = pageRange;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the page or the range of pages where the image shall be inserted.
         /// </summary>
-        /// <value>Specifies the page or the range of pages where the image shall be inserted.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
         /// <summary>
         /// Specifies the data of the image to be inserted.
         /// </summary>
-        /// <value>Specifies the data of the image to be inserted.</value>
-        [DataMember(Name="ImageData", EmitDefaultValue=false)]
+        [DataMember(Name="ImageData")]
         public byte[] ImageData { get; set; }
 
         /// <summary>
         /// Specifies the file ID of the image to be drawn.
         /// </summary>
-        /// <value>Specifies the file ID of the image to be drawn.</value>
-        [DataMember(Name="ImageFileId", EmitDefaultValue=false)]
-        public string ImageFileId { get; set; }
+        [DataMember(Name="ImageFileId")]
+        public string ImageFileId { get; set; } = "";
 
         /// <summary>
         /// Specifies the level of quality to be used for the compression, from 1 (poorest) to 100 (greatest).
         /// </summary>
-        /// <value>Specifies the level of quality to be used for the compression, from 1 (poorest) to 100 (greatest).</value>
-        [DataMember(Name="Quality", EmitDefaultValue=false)]
-        public int? Quality { get; set; }
-
-
+        [DataMember(Name="Quality")]
+        public int Quality { get; set; } = 75;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Gets or Sets ColorImageCompression
+        /// </summary>
+        [DataMember(Name="ColorImageCompression")]
+        public PdfImageCompressionScheme ColorImageCompression { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BitonalCompression
+        /// </summary>
+        [DataMember(Name="BitonalCompression")]
+        public PdfImageCompressionScheme BitonalCompression { get; set; }
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFInsertImageParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  ImageData: ").Append(ImageData).Append("\n");
-            sb.Append("  ImageFileId: ").Append(ImageFileId).Append("\n");
-            sb.Append("  Quality: ").Append(Quality).Append("\n");
-            sb.Append("  ColorImageCompression: ").Append(ColorImageCompression).Append("\n");
-            sb.Append("  BitonalCompression: ").Append(BitonalCompression).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -269,54 +112,51 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFInsertImageParameters);
+            return Equals(input as PdfInsertImageParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFInsertImageParameters instances are equal
+        /// Returns true if PdfInsertImageParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFInsertImageParameters to be compared</param>
+        /// <param name="input">Instance of PdfInsertImageParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFInsertImageParameters input)
+        public bool Equals(PdfInsertImageParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.ImageData == input.ImageData ||
-                    (this.ImageData != null &&
-                    this.ImageData.Equals(input.ImageData))
+                    ImageData == input.ImageData ||
+                    (ImageData != null &&
+                    ImageData.Equals(input.ImageData))
                 ) && 
                 (
-                    this.ImageFileId == input.ImageFileId ||
-                    (this.ImageFileId != null &&
-                    this.ImageFileId.Equals(input.ImageFileId))
+                    ImageFileId == input.ImageFileId ||
+                    (ImageFileId != null &&
+                    ImageFileId.Equals(input.ImageFileId))
                 ) && 
                 (
-                    this.Quality == input.Quality ||
-                    (this.Quality != null &&
-                    this.Quality.Equals(input.Quality))
+                    Quality == input.Quality ||
+                    Quality.Equals(input.Quality)
                 ) && 
                 (
-                    this.ColorImageCompression == input.ColorImageCompression ||
-                    (this.ColorImageCompression != null &&
-                    this.ColorImageCompression.Equals(input.ColorImageCompression))
+                    ColorImageCompression == input.ColorImageCompression ||
+                    ColorImageCompression.Equals(input.ColorImageCompression)
                 ) && 
                 (
-                    this.BitonalCompression == input.BitonalCompression ||
-                    (this.BitonalCompression != null &&
-                    this.BitonalCompression.Equals(input.BitonalCompression))
+                    BitonalCompression == input.BitonalCompression ||
+                    BitonalCompression.Equals(input.BitonalCompression)
                 );
         }
 
@@ -329,32 +169,19 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.ImageData != null)
-                    hashCode = hashCode * 59 + this.ImageData.GetHashCode();
-                if (this.ImageFileId != null)
-                    hashCode = hashCode * 59 + this.ImageFileId.GetHashCode();
-                if (this.Quality != null)
-                    hashCode = hashCode * 59 + this.Quality.GetHashCode();
-                if (this.ColorImageCompression != null)
-                    hashCode = hashCode * 59 + this.ColorImageCompression.GetHashCode();
-                if (this.BitonalCompression != null)
-                    hashCode = hashCode * 59 + this.BitonalCompression.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
+                if (ImageData != null)
+                    hashCode = hashCode * 59 + ImageData.GetHashCode();
+                if (ImageFileId != null)
+                    hashCode = hashCode * 59 + ImageFileId.GetHashCode();
+                hashCode = hashCode * 59 + Quality.GetHashCode();
+                hashCode = hashCode * 59 + ColorImageCompression.GetHashCode();
+                hashCode = hashCode * 59 + BitonalCompression.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

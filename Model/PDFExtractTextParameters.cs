@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,165 +26,82 @@ namespace PassportPDF.Model
     /// Represents the parameters for an extract text action.
     /// </summary>
     [DataContract]
-    public partial class PDFExtractTextParameters :  IEquatable<PDFExtractTextParameters>, IValidatableObject
+    public partial class PdfExtractTextParameters :  IEquatable<PdfExtractTextParameters>
     {
         /// <summary>
-        /// Specifies the way the text shall be extracted from document.
-        /// </summary>
-        /// <value>Specifies the way the text shall be extracted from document.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TextExtractionModeEnum
-        {
-            /// <summary>
-            /// Enum WholePageReadable for value: WholePageReadable
-            /// </summary>
-            [EnumMember(Value = "WholePageReadable")]
-            WholePageReadable = 1,
-
-            /// <summary>
-            /// Enum PageAreaReadable for value: PageAreaReadable
-            /// </summary>
-            [EnumMember(Value = "PageAreaReadable")]
-            PageAreaReadable = 2,
-
-            /// <summary>
-            /// Enum WholePageCSV for value: WholePageCSV
-            /// </summary>
-            [EnumMember(Value = "WholePageCSV")]
-            WholePageCSV = 3
-
-        }
-
-        /// <summary>
-        /// Specifies the way the text shall be extracted from document.
-        /// </summary>
-        /// <value>Specifies the way the text shall be extracted from document.</value>
-        [DataMember(Name="TextExtractionMode", EmitDefaultValue=false)]
-        public TextExtractionModeEnum? TextExtractionMode { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractTextParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfExtractTextParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFExtractTextParameters() { }
+        protected PdfExtractTextParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFExtractTextParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfExtractTextParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the number of the page, or the range of pages to extract text from. (required).</param>
-        /// <param name="textExtractionMode">Specifies the way the text shall be extracted from document. (default to TextExtractionModeEnum.WholePageReadable).</param>
-        /// <param name="textExtractionAreaLeft">Specifies the left coordinate of the text extraction area for the PageAreaFormated extract mode..</param>
-        /// <param name="textExtractionAreaTop">Specifies the top coordinate of the text extraction area for the PageAreaFormated extract mode..</param>
-        /// <param name="textExtractionAreaWidth">Specifies the width of the text extraction area for the PageAreaFormated extract mode..</param>
-        /// <param name="textExtractionAreaHeight">Specifies the height of the text extraction area for the PageAreaFormated extract mode..</param>
-        /// <param name="includeHeader">Specifies whether the CSV output should include header information..</param>
-        public PDFExtractTextParameters(string fileId = default(string), string pageRange = default(string), TextExtractionModeEnum? textExtractionMode = TextExtractionModeEnum.WholePageReadable, float? textExtractionAreaLeft = default(float?), float? textExtractionAreaTop = default(float?), float? textExtractionAreaWidth = default(float?), float? textExtractionAreaHeight = default(float?), bool? includeHeader = default(bool?))
+        public PdfExtractTextParameters(string fileId, string pageRange)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFExtractTextParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for PDFExtractTextParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
-            // use default value if no "textExtractionMode" provided
-            if (textExtractionMode == null)
-            {
-                this.TextExtractionMode = TextExtractionModeEnum.WholePageReadable;
-            }
-            else
-            {
-                this.TextExtractionMode = textExtractionMode;
-            }
-            this.TextExtractionAreaLeft = textExtractionAreaLeft;
-            this.TextExtractionAreaTop = textExtractionAreaTop;
-            this.TextExtractionAreaWidth = textExtractionAreaWidth;
-            this.TextExtractionAreaHeight = textExtractionAreaHeight;
-            this.IncludeHeader = includeHeader;
+            FileId = fileId;
+            PageRange = pageRange;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the number of the page, or the range of pages to extract text from.
         /// </summary>
-        /// <value>Specifies the number of the page, or the range of pages to extract text from.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
+        /// <summary>
+        /// Gets or Sets TextExtractionMode
+        /// </summary>
+        [DataMember(Name="TextExtractionMode")]
+        public PdfExtractTextMode TextExtractionMode { get; set; }
 
         /// <summary>
         /// Specifies the left coordinate of the text extraction area for the PageAreaFormated extract mode.
         /// </summary>
-        /// <value>Specifies the left coordinate of the text extraction area for the PageAreaFormated extract mode.</value>
-        [DataMember(Name="TextExtractionAreaLeft", EmitDefaultValue=false)]
-        public float? TextExtractionAreaLeft { get; set; }
+        [DataMember(Name="TextExtractionAreaLeft")]
+        public float TextExtractionAreaLeft { get; set; } = 0F;
 
         /// <summary>
         /// Specifies the top coordinate of the text extraction area for the PageAreaFormated extract mode.
         /// </summary>
-        /// <value>Specifies the top coordinate of the text extraction area for the PageAreaFormated extract mode.</value>
-        [DataMember(Name="TextExtractionAreaTop", EmitDefaultValue=false)]
-        public float? TextExtractionAreaTop { get; set; }
+        [DataMember(Name="TextExtractionAreaTop")]
+        public float TextExtractionAreaTop { get; set; } = 0F;
 
         /// <summary>
         /// Specifies the width of the text extraction area for the PageAreaFormated extract mode.
         /// </summary>
-        /// <value>Specifies the width of the text extraction area for the PageAreaFormated extract mode.</value>
-        [DataMember(Name="TextExtractionAreaWidth", EmitDefaultValue=false)]
-        public float? TextExtractionAreaWidth { get; set; }
+        [DataMember(Name="TextExtractionAreaWidth")]
+        public float TextExtractionAreaWidth { get; set; } = 0F;
 
         /// <summary>
         /// Specifies the height of the text extraction area for the PageAreaFormated extract mode.
         /// </summary>
-        /// <value>Specifies the height of the text extraction area for the PageAreaFormated extract mode.</value>
-        [DataMember(Name="TextExtractionAreaHeight", EmitDefaultValue=false)]
-        public float? TextExtractionAreaHeight { get; set; }
+        [DataMember(Name="TextExtractionAreaHeight")]
+        public float TextExtractionAreaHeight { get; set; } = 0F;
 
         /// <summary>
         /// Specifies whether the CSV output should include header information.
         /// </summary>
-        /// <value>Specifies whether the CSV output should include header information.</value>
-        [DataMember(Name="IncludeHeader", EmitDefaultValue=false)]
-        public bool? IncludeHeader { get; set; }
+        [DataMember(Name="IncludeHeader")]
+        public bool IncludeHeader { get; set; } = false;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFExtractTextParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  TextExtractionMode: ").Append(TextExtractionMode).Append("\n");
-            sb.Append("  TextExtractionAreaLeft: ").Append(TextExtractionAreaLeft).Append("\n");
-            sb.Append("  TextExtractionAreaTop: ").Append(TextExtractionAreaTop).Append("\n");
-            sb.Append("  TextExtractionAreaWidth: ").Append(TextExtractionAreaWidth).Append("\n");
-            sb.Append("  TextExtractionAreaHeight: ").Append(TextExtractionAreaHeight).Append("\n");
-            sb.Append("  IncludeHeader: ").Append(IncludeHeader).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -200,59 +118,53 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFExtractTextParameters);
+            return Equals(input as PdfExtractTextParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFExtractTextParameters instances are equal
+        /// Returns true if PdfExtractTextParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFExtractTextParameters to be compared</param>
+        /// <param name="input">Instance of PdfExtractTextParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFExtractTextParameters input)
+        public bool Equals(PdfExtractTextParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.TextExtractionMode == input.TextExtractionMode ||
-                    (this.TextExtractionMode != null &&
-                    this.TextExtractionMode.Equals(input.TextExtractionMode))
+                    TextExtractionMode == input.TextExtractionMode ||
+                    TextExtractionMode.Equals(input.TextExtractionMode)
                 ) && 
                 (
-                    this.TextExtractionAreaLeft == input.TextExtractionAreaLeft ||
-                    (this.TextExtractionAreaLeft != null &&
-                    this.TextExtractionAreaLeft.Equals(input.TextExtractionAreaLeft))
+                    TextExtractionAreaLeft == input.TextExtractionAreaLeft ||
+                    TextExtractionAreaLeft.Equals(input.TextExtractionAreaLeft)
                 ) && 
                 (
-                    this.TextExtractionAreaTop == input.TextExtractionAreaTop ||
-                    (this.TextExtractionAreaTop != null &&
-                    this.TextExtractionAreaTop.Equals(input.TextExtractionAreaTop))
+                    TextExtractionAreaTop == input.TextExtractionAreaTop ||
+                    TextExtractionAreaTop.Equals(input.TextExtractionAreaTop)
                 ) && 
                 (
-                    this.TextExtractionAreaWidth == input.TextExtractionAreaWidth ||
-                    (this.TextExtractionAreaWidth != null &&
-                    this.TextExtractionAreaWidth.Equals(input.TextExtractionAreaWidth))
+                    TextExtractionAreaWidth == input.TextExtractionAreaWidth ||
+                    TextExtractionAreaWidth.Equals(input.TextExtractionAreaWidth)
                 ) && 
                 (
-                    this.TextExtractionAreaHeight == input.TextExtractionAreaHeight ||
-                    (this.TextExtractionAreaHeight != null &&
-                    this.TextExtractionAreaHeight.Equals(input.TextExtractionAreaHeight))
+                    TextExtractionAreaHeight == input.TextExtractionAreaHeight ||
+                    TextExtractionAreaHeight.Equals(input.TextExtractionAreaHeight)
                 ) && 
                 (
-                    this.IncludeHeader == input.IncludeHeader ||
-                    (this.IncludeHeader != null &&
-                    this.IncludeHeader.Equals(input.IncludeHeader))
+                    IncludeHeader == input.IncludeHeader ||
+                    IncludeHeader.Equals(input.IncludeHeader)
                 );
         }
 
@@ -265,34 +177,18 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.TextExtractionMode != null)
-                    hashCode = hashCode * 59 + this.TextExtractionMode.GetHashCode();
-                if (this.TextExtractionAreaLeft != null)
-                    hashCode = hashCode * 59 + this.TextExtractionAreaLeft.GetHashCode();
-                if (this.TextExtractionAreaTop != null)
-                    hashCode = hashCode * 59 + this.TextExtractionAreaTop.GetHashCode();
-                if (this.TextExtractionAreaWidth != null)
-                    hashCode = hashCode * 59 + this.TextExtractionAreaWidth.GetHashCode();
-                if (this.TextExtractionAreaHeight != null)
-                    hashCode = hashCode * 59 + this.TextExtractionAreaHeight.GetHashCode();
-                if (this.IncludeHeader != null)
-                    hashCode = hashCode * 59 + this.IncludeHeader.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
+                hashCode = hashCode * 59 + TextExtractionMode.GetHashCode();
+                hashCode = hashCode * 59 + TextExtractionAreaLeft.GetHashCode();
+                hashCode = hashCode * 59 + TextExtractionAreaTop.GetHashCode();
+                hashCode = hashCode * 59 + TextExtractionAreaWidth.GetHashCode();
+                hashCode = hashCode * 59 + TextExtractionAreaHeight.GetHashCode();
+                hashCode = hashCode * 59 + IncludeHeader.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

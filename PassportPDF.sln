@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassportPDF", "PassportPDF.csproj", "{4A3C1258-5DB0-45E1-9F8B-F382D07D7EC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A3C1258-5DB0-45E1-9F8B-F382D07D7EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A3C1258-5DB0-45E1-9F8B-F382D07D7EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A3C1258-5DB0-45E1-9F8B-F382D07D7EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A3C1258-5DB0-45E1-9F8B-F382D07D7EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BC4959A-5DBD-4A63-A1EA-944A2F7D23E5}
+	EndGlobalSection
+EndGlobal

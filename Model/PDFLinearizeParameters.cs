@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,61 +26,44 @@ namespace PassportPDF.Model
     /// Represents the parameters for a linearize action.
     /// </summary>
     [DataContract]
-    public partial class PDFLinearizeParameters :  IEquatable<PDFLinearizeParameters>, IValidatableObject
+    public partial class PdfLinearizeParameters :  IEquatable<PdfLinearizeParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFLinearizeParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfLinearizeParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFLinearizeParameters() { }
+        protected PdfLinearizeParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFLinearizeParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfLinearizeParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        /// <param name="packDocument">Specifies whether the document shall be packed, in order to reduce its size..</param>
-        public PDFLinearizeParameters(string fileId = default(string), bool? packDocument = default(bool?))
+        public PdfLinearizeParameters(string fileId)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFLinearizeParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            this.PackDocument = packDocument;
+            FileId = fileId;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies whether the document shall be packed, in order to reduce its size.
         /// </summary>
-        /// <value>Specifies whether the document shall be packed, in order to reduce its size.</value>
-        [DataMember(Name="PackDocument", EmitDefaultValue=false)]
-        public bool? PackDocument { get; set; }
+        [DataMember(Name="PackDocument")]
+        public bool PackDocument { get; set; } = false;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFLinearizeParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PackDocument: ").Append(PackDocument).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -96,29 +80,28 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFLinearizeParameters);
+            return Equals(input as PdfLinearizeParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFLinearizeParameters instances are equal
+        /// Returns true if PdfLinearizeParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFLinearizeParameters to be compared</param>
+        /// <param name="input">Instance of PdfLinearizeParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFLinearizeParameters input)
+        public bool Equals(PdfLinearizeParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PackDocument == input.PackDocument ||
-                    (this.PackDocument != null &&
-                    this.PackDocument.Equals(input.PackDocument))
+                    PackDocument == input.PackDocument ||
+                    PackDocument.Equals(input.PackDocument)
                 );
         }
 
@@ -131,22 +114,11 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PackDocument != null)
-                    hashCode = hashCode * 59 + this.PackDocument.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                hashCode = hashCode * 59 + PackDocument.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

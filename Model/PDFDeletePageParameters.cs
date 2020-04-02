@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,70 +26,46 @@ namespace PassportPDF.Model
     /// Represents the parameters for a delete page action.
     /// </summary>
     [DataContract]
-    public partial class PDFDeletePageParameters :  IEquatable<PDFDeletePageParameters>, IValidatableObject
+    public partial class PdfDeletePageParameters :  IEquatable<PdfDeletePageParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFDeletePageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfDeletePageParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFDeletePageParameters() { }
+        protected PdfDeletePageParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFDeletePageParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfDeletePageParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the number of the page, or the range of pages to be deleted. (required).</param>
-        public PDFDeletePageParameters(string fileId = default(string), string pageRange = default(string))
+        public PdfDeletePageParameters(string fileId, string pageRange)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFDeletePageParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for PDFDeletePageParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
+            FileId = fileId;
+            PageRange = pageRange;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the number of the page, or the range of pages to be deleted.
         /// </summary>
-        /// <value>Specifies the number of the page, or the range of pages to be deleted.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFDeletePageParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -105,29 +82,29 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFDeletePageParameters);
+            return Equals(input as PdfDeletePageParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFDeletePageParameters instances are equal
+        /// Returns true if PdfDeletePageParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFDeletePageParameters to be compared</param>
+        /// <param name="input">Instance of PdfDeletePageParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFDeletePageParameters input)
+        public bool Equals(PdfDeletePageParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 );
         }
 
@@ -140,22 +117,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

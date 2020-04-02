@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,54 +26,48 @@ namespace PassportPDF.Model
     /// Represents the response to a save document action request.
     /// </summary>
     [DataContract]
-    public partial class PDFSaveDocumentResponse :  IEquatable<PDFSaveDocumentResponse>, IValidatableObject
+    public partial class PdfSaveDocumentResponse :  IEquatable<PdfSaveDocumentResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSaveDocumentResponse" /> class.
+        /// Initializes a new instance of the <see cref="PdfSaveDocumentResponse" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        /// <param name="remainingTokens">Specifies the number of remaining tokens..</param>
-        public PDFSaveDocumentResponse(Error error = default(Error), long? remainingTokens = default(long?))
+        public PdfSaveDocumentResponse()
         {
-            this.Error = error;
-            this.RemainingTokens = remainingTokens;
         }
-        
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="Error", EmitDefaultValue=false)]
+        [DataMember(Name="Error")]
         public Error Error { get; set; }
 
         /// <summary>
         /// Specifies the number of remaining tokens.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="RemainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Specifies the data of the saved document.
         /// </summary>
-        /// <value>Specifies the data of the saved document.</value>
-        [DataMember(Name="Data", EmitDefaultValue=false)]
+        [DataMember(Name="Data")]
         public byte[] Data { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Specifies the name of the saved document.
+        /// </summary>
+        [DataMember(Name="FileName")]
+        public string FileName { get; private set; }
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFSaveDocumentResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -89,34 +84,38 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFSaveDocumentResponse);
+            return Equals(input as PdfSaveDocumentResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFSaveDocumentResponse instances are equal
+        /// Returns true if PdfSaveDocumentResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFSaveDocumentResponse to be compared</param>
+        /// <param name="input">Instance of PdfSaveDocumentResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFSaveDocumentResponse input)
+        public bool Equals(PdfSaveDocumentResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 ) && 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    Data == input.Data ||
+                    (Data != null &&
+                    Data.Equals(input.Data))
+                ) && 
+                (
+                    FileName == input.FileName ||
+                    (FileName != null &&
+                    FileName.Equals(input.FileName))
                 );
         }
 
@@ -129,24 +128,15 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
+                if (Data != null)
+                    hashCode = hashCode * 59 + Data.GetHashCode();
+                if (FileName != null)
+                    hashCode = hashCode * 59 + FileName.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,89 +26,54 @@ namespace PassportPDF.Model
     /// Represents the parameters for a swap pages action.
     /// </summary>
     [DataContract]
-    public partial class PDFSwapPagesParameters :  IEquatable<PDFSwapPagesParameters>, IValidatableObject
+    public partial class PdfSwapPagesParameters :  IEquatable<PdfSwapPagesParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSwapPagesParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfSwapPagesParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFSwapPagesParameters() { }
+        protected PdfSwapPagesParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSwapPagesParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfSwapPagesParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="page1">Specifies the number of the first page. (required).</param>
         /// <param name="page2">Specifies the number of the second page. (required).</param>
-        public PDFSwapPagesParameters(string fileId = default(string), int? page1 = default(int?), int? page2 = default(int?))
+        public PdfSwapPagesParameters(string fileId, int page1, int page2)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFSwapPagesParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "page1" is required (not null)
-            if (page1 == null)
-            {
-                throw new InvalidDataException("page1 is a required property for PDFSwapPagesParameters and cannot be null");
-            }
-            else
-            {
-                this.Page1 = page1;
-            }
-            
-            // to ensure "page2" is required (not null)
-            if (page2 == null)
-            {
-                throw new InvalidDataException("page2 is a required property for PDFSwapPagesParameters and cannot be null");
-            }
-            else
-            {
-                this.Page2 = page2;
-            }
-            
+            FileId = fileId;
+            Page1 = page1;
+            Page2 = page2;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the number of the first page.
         /// </summary>
-        /// <value>Specifies the number of the first page.</value>
-        [DataMember(Name="Page1", EmitDefaultValue=false)]
-        public int? Page1 { get; set; }
+        [DataMember(Name="Page1")]
+        public int Page1 { get; set; }
 
         /// <summary>
         /// Specifies the number of the second page.
         /// </summary>
-        /// <value>Specifies the number of the second page.</value>
-        [DataMember(Name="Page2", EmitDefaultValue=false)]
-        public int? Page2 { get; set; }
+        [DataMember(Name="Page2")]
+        public int Page2 { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFSwapPagesParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  Page1: ").Append(Page1).Append("\n");
-            sb.Append("  Page2: ").Append(Page2).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -124,34 +90,32 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFSwapPagesParameters);
+            return Equals(input as PdfSwapPagesParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFSwapPagesParameters instances are equal
+        /// Returns true if PdfSwapPagesParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFSwapPagesParameters to be compared</param>
+        /// <param name="input">Instance of PdfSwapPagesParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFSwapPagesParameters input)
+        public bool Equals(PdfSwapPagesParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.Page1 == input.Page1 ||
-                    (this.Page1 != null &&
-                    this.Page1.Equals(input.Page1))
+                    Page1 == input.Page1 ||
+                    Page1.Equals(input.Page1)
                 ) && 
                 (
-                    this.Page2 == input.Page2 ||
-                    (this.Page2 != null &&
-                    this.Page2.Equals(input.Page2))
+                    Page2 == input.Page2 ||
+                    Page2.Equals(input.Page2)
                 );
         }
 
@@ -164,24 +128,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.Page1 != null)
-                    hashCode = hashCode * 59 + this.Page1.GetHashCode();
-                if (this.Page2 != null)
-                    hashCode = hashCode * 59 + this.Page2.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                hashCode = hashCode * 59 + Page1.GetHashCode();
+                hashCode = hashCode * 59 + Page2.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

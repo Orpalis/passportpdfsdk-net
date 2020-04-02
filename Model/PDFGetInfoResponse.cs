@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,110 +26,150 @@ namespace PassportPDF.Model
     /// Represents the response to a get info action request.
     /// </summary>
     [DataContract]
-    public partial class PDFGetInfoResponse :  IEquatable<PDFGetInfoResponse>, IValidatableObject
+    public partial class PdfGetInfoResponse :  IEquatable<PdfGetInfoResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFGetInfoResponse" /> class.
+        /// Initializes a new instance of the <see cref="PdfGetInfoResponse" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        /// <param name="remainingTokens">Specifies the number of remaining tokens..</param>
-        public PDFGetInfoResponse(Error error = default(Error), long? remainingTokens = default(long?))
+        public PdfGetInfoResponse()
         {
-            this.Error = error;
-            this.RemainingTokens = remainingTokens;
         }
-        
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="Error", EmitDefaultValue=false)]
+        [DataMember(Name="Error")]
         public Error Error { get; set; }
 
         /// <summary>
         /// Specifies the number of remaining tokens.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="RemainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Specifies the number of pages of the PDF.
         /// </summary>
-        /// <value>Specifies the number of pages of the PDF.</value>
-        [DataMember(Name="PageCount", EmitDefaultValue=false)]
-        public int? PageCount { get; private set; }
+        [DataMember(Name="PageCount")]
+        public int PageCount { get; private set; }
 
         /// <summary>
         /// Specifies the version of the PDF.
         /// </summary>
-        /// <value>Specifies the version of the PDF.</value>
-        [DataMember(Name="Version", EmitDefaultValue=false)]
+        [DataMember(Name="Version")]
         public string Version { get; private set; }
 
         /// <summary>
         /// Specifies the author name specified within the PDF, if any.
         /// </summary>
-        /// <value>Specifies the author name specified within the PDF, if any.</value>
-        [DataMember(Name="Author", EmitDefaultValue=false)]
+        [DataMember(Name="Author")]
         public string Author { get; private set; }
 
         /// <summary>
         /// Specifies the document title specified within the PDF, if any.
         /// </summary>
-        /// <value>Specifies the document title specified within the PDF, if any.</value>
-        [DataMember(Name="Title", EmitDefaultValue=false)]
+        [DataMember(Name="Title")]
         public string Title { get; private set; }
 
         /// <summary>
         /// Specifies the document subject specified within the PDF, if any.
         /// </summary>
-        /// <value>Specifies the document subject specified within the PDF, if any.</value>
-        [DataMember(Name="Subject", EmitDefaultValue=false)]
+        [DataMember(Name="Subject")]
         public string Subject { get; private set; }
 
         /// <summary>
         /// Specifies the producer name specified within the PDF, if any.
         /// </summary>
-        /// <value>Specifies the producer name specified within the PDF, if any.</value>
-        [DataMember(Name="Producer", EmitDefaultValue=false)]
+        [DataMember(Name="Producer")]
         public string Producer { get; private set; }
 
         /// <summary>
         /// Specifies the metadata contained within the PDF, if any.
         /// </summary>
-        /// <value>Specifies the metadata contained within the PDF, if any.</value>
-        [DataMember(Name="Metadata", EmitDefaultValue=false)]
+        [DataMember(Name="Metadata")]
         public string Metadata { get; private set; }
 
         /// <summary>
         /// Specifies the keywords associated with the PDF, if any.
         /// </summary>
-        /// <value>Specifies the keywords associated with the PDF, if any.</value>
-        [DataMember(Name="Keywords", EmitDefaultValue=false)]
+        [DataMember(Name="Keywords")]
         public string Keywords { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Specifies if the PDF is protected with a user password.
+        /// </summary>
+        [DataMember(Name="HasUserPassword")]
+        public bool HasUserPassword { get; private set; }
+
+        /// <summary>
+        /// Specifies if the PDF is protected with a owner password.
+        /// </summary>
+        [DataMember(Name="HasOwnerPassword")]
+        public bool HasOwnerPassword { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Encryption
+        /// </summary>
+        [DataMember(Name="Encryption")]
+        public EncryptionAlgorithm Encryption { get; set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to print the document, but possibly not at the highest quality level.
+        /// </summary>
+        [DataMember(Name="CanPrint")]
+        public bool CanPrint { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to copy or extract text and graphics from the document.
+        /// </summary>
+        [DataMember(Name="CanCopy")]
+        public bool CanCopy { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to modify the document.
+        /// </summary>
+        [DataMember(Name="CanModify")]
+        public bool CanModify { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to add annotations.
+        /// </summary>
+        [DataMember(Name="CanAddNotes")]
+        public bool CanAddNotes { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to fill-in form fields.
+        /// </summary>
+        [DataMember(Name="CanFillFields")]
+        public bool CanFillFields { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed for copying or extracting for use with accessibility features.
+        /// </summary>
+        [DataMember(Name="CanCopyAccess")]
+        public bool CanCopyAccess { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to assemble the document.
+        /// </summary>
+        [DataMember(Name="CanAssemble")]
+        public bool CanAssemble { get; private set; }
+
+        /// <summary>
+        /// Specifies if the user is allowed to print the document with high resolution.
+        /// </summary>
+        [DataMember(Name="CanPrintFull")]
+        public bool CanPrintFull { get; private set; }
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFGetInfoResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  PageCount: ").Append(PageCount).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  Author: ").Append(Author).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  Producer: ").Append(Producer).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Keywords: ").Append(Keywords).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -145,69 +186,111 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFGetInfoResponse);
+            return Equals(input as PdfGetInfoResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFGetInfoResponse instances are equal
+        /// Returns true if PdfGetInfoResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFGetInfoResponse to be compared</param>
+        /// <param name="input">Instance of PdfGetInfoResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFGetInfoResponse input)
+        public bool Equals(PdfGetInfoResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 ) && 
                 (
-                    this.PageCount == input.PageCount ||
-                    (this.PageCount != null &&
-                    this.PageCount.Equals(input.PageCount))
+                    PageCount == input.PageCount ||
+                    PageCount.Equals(input.PageCount)
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    Version == input.Version ||
+                    (Version != null &&
+                    Version.Equals(input.Version))
                 ) && 
                 (
-                    this.Author == input.Author ||
-                    (this.Author != null &&
-                    this.Author.Equals(input.Author))
+                    Author == input.Author ||
+                    (Author != null &&
+                    Author.Equals(input.Author))
                 ) && 
                 (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
+                    Title == input.Title ||
+                    (Title != null &&
+                    Title.Equals(input.Title))
                 ) && 
                 (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
+                    Subject == input.Subject ||
+                    (Subject != null &&
+                    Subject.Equals(input.Subject))
                 ) && 
                 (
-                    this.Producer == input.Producer ||
-                    (this.Producer != null &&
-                    this.Producer.Equals(input.Producer))
+                    Producer == input.Producer ||
+                    (Producer != null &&
+                    Producer.Equals(input.Producer))
                 ) && 
                 (
-                    this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
+                    Metadata == input.Metadata ||
+                    (Metadata != null &&
+                    Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.Keywords == input.Keywords ||
-                    (this.Keywords != null &&
-                    this.Keywords.Equals(input.Keywords))
+                    Keywords == input.Keywords ||
+                    (Keywords != null &&
+                    Keywords.Equals(input.Keywords))
+                ) && 
+                (
+                    HasUserPassword == input.HasUserPassword ||
+                    HasUserPassword.Equals(input.HasUserPassword)
+                ) && 
+                (
+                    HasOwnerPassword == input.HasOwnerPassword ||
+                    HasOwnerPassword.Equals(input.HasOwnerPassword)
+                ) && 
+                (
+                    Encryption == input.Encryption ||
+                    Encryption.Equals(input.Encryption)
+                ) && 
+                (
+                    CanPrint == input.CanPrint ||
+                    CanPrint.Equals(input.CanPrint)
+                ) && 
+                (
+                    CanCopy == input.CanCopy ||
+                    CanCopy.Equals(input.CanCopy)
+                ) && 
+                (
+                    CanModify == input.CanModify ||
+                    CanModify.Equals(input.CanModify)
+                ) && 
+                (
+                    CanAddNotes == input.CanAddNotes ||
+                    CanAddNotes.Equals(input.CanAddNotes)
+                ) && 
+                (
+                    CanFillFields == input.CanFillFields ||
+                    CanFillFields.Equals(input.CanFillFields)
+                ) && 
+                (
+                    CanCopyAccess == input.CanCopyAccess ||
+                    CanCopyAccess.Equals(input.CanCopyAccess)
+                ) && 
+                (
+                    CanAssemble == input.CanAssemble ||
+                    CanAssemble.Equals(input.CanAssemble)
+                ) && 
+                (
+                    CanPrintFull == input.CanPrintFull ||
+                    CanPrintFull.Equals(input.CanPrintFull)
                 );
         }
 
@@ -220,38 +303,37 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.PageCount != null)
-                    hashCode = hashCode * 59 + this.PageCount.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
-                if (this.Author != null)
-                    hashCode = hashCode * 59 + this.Author.GetHashCode();
-                if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
-                if (this.Producer != null)
-                    hashCode = hashCode * 59 + this.Producer.GetHashCode();
-                if (this.Metadata != null)
-                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.Keywords != null)
-                    hashCode = hashCode * 59 + this.Keywords.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
+                hashCode = hashCode * 59 + PageCount.GetHashCode();
+                if (Version != null)
+                    hashCode = hashCode * 59 + Version.GetHashCode();
+                if (Author != null)
+                    hashCode = hashCode * 59 + Author.GetHashCode();
+                if (Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+                if (Subject != null)
+                    hashCode = hashCode * 59 + Subject.GetHashCode();
+                if (Producer != null)
+                    hashCode = hashCode * 59 + Producer.GetHashCode();
+                if (Metadata != null)
+                    hashCode = hashCode * 59 + Metadata.GetHashCode();
+                if (Keywords != null)
+                    hashCode = hashCode * 59 + Keywords.GetHashCode();
+                hashCode = hashCode * 59 + HasUserPassword.GetHashCode();
+                hashCode = hashCode * 59 + HasOwnerPassword.GetHashCode();
+                hashCode = hashCode * 59 + Encryption.GetHashCode();
+                hashCode = hashCode * 59 + CanPrint.GetHashCode();
+                hashCode = hashCode * 59 + CanCopy.GetHashCode();
+                hashCode = hashCode * 59 + CanModify.GetHashCode();
+                hashCode = hashCode * 59 + CanAddNotes.GetHashCode();
+                hashCode = hashCode * 59 + CanFillFields.GetHashCode();
+                hashCode = hashCode * 59 + CanCopyAccess.GetHashCode();
+                hashCode = hashCode * 59 + CanAssemble.GetHashCode();
+                hashCode = hashCode * 59 + CanPrintFull.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,47 +26,36 @@ namespace PassportPDF.Model
     /// Holds the extracted text from a given page of a document.
     /// </summary>
     [DataContract]
-    public partial class PageText :  IEquatable<PageText>, IValidatableObject
+    public partial class PageText :  IEquatable<PageText>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PageText" /> class.
         /// </summary>
-        /// <param name="pageNumber">Specifies the number of the page..</param>
-        /// <param name="extractedText">The text extraction result..</param>
-        public PageText(int? pageNumber = default(int?), string extractedText = default(string))
+        public PageText()
         {
-            this.PageNumber = pageNumber;
-            this.ExtractedText = extractedText;
         }
-        
+
         /// <summary>
         /// Specifies the number of the page.
         /// </summary>
-        /// <value>Specifies the number of the page.</value>
-        [DataMember(Name="PageNumber", EmitDefaultValue=false)]
-        public int? PageNumber { get; set; }
+        [DataMember(Name="PageNumber")]
+        public int PageNumber { get; set; }
 
         /// <summary>
         /// The text extraction result.
         /// </summary>
-        /// <value>The text extraction result.</value>
-        [DataMember(Name="ExtractedText", EmitDefaultValue=false)]
+        [DataMember(Name="ExtractedText")]
         public string ExtractedText { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PageText {\n");
-            sb.Append("  PageNumber: ").Append(PageNumber).Append("\n");
-            sb.Append("  ExtractedText: ").Append(ExtractedText).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -82,7 +72,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PageText);
+            return Equals(input as PageText);
         }
 
         /// <summary>
@@ -97,14 +87,13 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.PageNumber == input.PageNumber ||
-                    (this.PageNumber != null &&
-                    this.PageNumber.Equals(input.PageNumber))
+                    PageNumber == input.PageNumber ||
+                    PageNumber.Equals(input.PageNumber)
                 ) && 
                 (
-                    this.ExtractedText == input.ExtractedText ||
-                    (this.ExtractedText != null &&
-                    this.ExtractedText.Equals(input.ExtractedText))
+                    ExtractedText == input.ExtractedText ||
+                    (ExtractedText != null &&
+                    ExtractedText.Equals(input.ExtractedText))
                 );
         }
 
@@ -117,22 +106,11 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PageNumber != null)
-                    hashCode = hashCode * 59 + this.PageNumber.GetHashCode();
-                if (this.ExtractedText != null)
-                    hashCode = hashCode * 59 + this.ExtractedText.GetHashCode();
+                hashCode = hashCode * 59 + PageNumber.GetHashCode();
+                if (ExtractedText != null)
+                    hashCode = hashCode * 59 + ExtractedText.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

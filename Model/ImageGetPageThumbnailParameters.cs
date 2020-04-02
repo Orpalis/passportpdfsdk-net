@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,106 +26,58 @@ namespace PassportPDF.Model
     /// Represents the parameters for a get page thumbnail action.
     /// </summary>
     [DataContract]
-    public partial class ImageGetPageThumbnailParameters :  IEquatable<ImageGetPageThumbnailParameters>, IValidatableObject
+    public partial class ImageGetPageThumbnailParameters :  IEquatable<ImageGetPageThumbnailParameters>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageGetPageThumbnailParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected ImageGetPageThumbnailParameters() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageGetPageThumbnailParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the page or the range of pages to get a thumbnail from. (required).</param>
-        /// <param name="thumbnailWidth">Specifies the width, in points, of the thumbnail(s). (default to 140).</param>
-        /// <param name="thumbnailHeight">Specifies the height, in points, of the thumbnail(s). (default to 220).</param>
-        public ImageGetPageThumbnailParameters(string fileId = default(string), string pageRange = default(string), int? thumbnailWidth = 140, int? thumbnailHeight = 220)
+        public ImageGetPageThumbnailParameters(string fileId, string pageRange)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for ImageGetPageThumbnailParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for ImageGetPageThumbnailParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
-            // use default value if no "thumbnailWidth" provided
-            if (thumbnailWidth == null)
-            {
-                this.ThumbnailWidth = 140;
-            }
-            else
-            {
-                this.ThumbnailWidth = thumbnailWidth;
-            }
-            // use default value if no "thumbnailHeight" provided
-            if (thumbnailHeight == null)
-            {
-                this.ThumbnailHeight = 220;
-            }
-            else
-            {
-                this.ThumbnailHeight = thumbnailHeight;
-            }
+            FileId = fileId;
+            PageRange = pageRange;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
         /// Specifies the page or the range of pages to get a thumbnail from.
         /// </summary>
-        /// <value>Specifies the page or the range of pages to get a thumbnail from.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
         /// <summary>
         /// Specifies the width, in points, of the thumbnail(s).
         /// </summary>
-        /// <value>Specifies the width, in points, of the thumbnail(s).</value>
-        [DataMember(Name="ThumbnailWidth", EmitDefaultValue=false)]
-        public int? ThumbnailWidth { get; set; }
+        [DataMember(Name="ThumbnailWidth")]
+        public int ThumbnailWidth { get; set; } = 140;
 
         /// <summary>
         /// Specifies the height, in points, of the thumbnail(s).
         /// </summary>
-        /// <value>Specifies the height, in points, of the thumbnail(s).</value>
-        [DataMember(Name="ThumbnailHeight", EmitDefaultValue=false)]
-        public int? ThumbnailHeight { get; set; }
+        [DataMember(Name="ThumbnailHeight")]
+        public int ThumbnailHeight { get; set; } = 220;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class ImageGetPageThumbnailParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  ThumbnailWidth: ").Append(ThumbnailWidth).Append("\n");
-            sb.Append("  ThumbnailHeight: ").Append(ThumbnailHeight).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -141,7 +94,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImageGetPageThumbnailParameters);
+            return Equals(input as ImageGetPageThumbnailParameters);
         }
 
         /// <summary>
@@ -156,24 +109,22 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.ThumbnailWidth == input.ThumbnailWidth ||
-                    (this.ThumbnailWidth != null &&
-                    this.ThumbnailWidth.Equals(input.ThumbnailWidth))
+                    ThumbnailWidth == input.ThumbnailWidth ||
+                    ThumbnailWidth.Equals(input.ThumbnailWidth)
                 ) && 
                 (
-                    this.ThumbnailHeight == input.ThumbnailHeight ||
-                    (this.ThumbnailHeight != null &&
-                    this.ThumbnailHeight.Equals(input.ThumbnailHeight))
+                    ThumbnailHeight == input.ThumbnailHeight ||
+                    ThumbnailHeight.Equals(input.ThumbnailHeight)
                 );
         }
 
@@ -186,26 +137,14 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.ThumbnailWidth != null)
-                    hashCode = hashCode * 59 + this.ThumbnailWidth.GetHashCode();
-                if (this.ThumbnailHeight != null)
-                    hashCode = hashCode * 59 + this.ThumbnailHeight.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailWidth.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailHeight.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

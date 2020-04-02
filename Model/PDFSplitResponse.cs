@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,62 +26,48 @@ namespace PassportPDF.Model
     /// Represents the response to a split action request.
     /// </summary>
     [DataContract]
-    public partial class PDFSplitResponse :  IEquatable<PDFSplitResponse>, IValidatableObject
+    public partial class PdfSplitResponse :  IEquatable<PdfSplitResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSplitResponse" /> class.
+        /// Initializes a new instance of the <see cref="PdfSplitResponse" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        /// <param name="remainingTokens">Specifies the number of remaining tokens..</param>
-        public PDFSplitResponse(Error error = default(Error), long? remainingTokens = default(long?))
+        public PdfSplitResponse()
         {
-            this.Error = error;
-            this.RemainingTokens = remainingTokens;
         }
-        
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="Error", EmitDefaultValue=false)]
+        [DataMember(Name="Error")]
         public Error Error { get; set; }
 
         /// <summary>
         /// Specifies the number of remaining tokens.
         /// </summary>
-        /// <value>Specifies the number of remaining tokens.</value>
-        [DataMember(Name="RemainingTokens", EmitDefaultValue=false)]
-        public long? RemainingTokens { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Specifies the identifier(s) of the file(s) created as a result of the action.
         /// </summary>
-        /// <value>Specifies the identifier(s) of the file(s) created as a result of the action.</value>
-        [DataMember(Name="FileIds", EmitDefaultValue=false)]
+        [DataMember(Name="FileIds")]
         public List<string> FileIds { get; private set; }
 
         /// <summary>
         /// Specifies the data of the file(s) created as a result of the action.
         /// </summary>
-        /// <value>Specifies the data of the file(s) created as a result of the action.</value>
-        [DataMember(Name="FileData", EmitDefaultValue=false)]
+        [DataMember(Name="FileData")]
         public List<byte[]> FileData { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFSplitResponse {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  RemainingTokens: ").Append(RemainingTokens).Append("\n");
-            sb.Append("  FileIds: ").Append(FileIds).Append("\n");
-            sb.Append("  FileData: ").Append(FileData).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -97,39 +84,40 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFSplitResponse);
+            return Equals(input as PdfSplitResponse);
         }
 
         /// <summary>
-        /// Returns true if PDFSplitResponse instances are equal
+        /// Returns true if PdfSplitResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFSplitResponse to be compared</param>
+        /// <param name="input">Instance of PdfSplitResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFSplitResponse input)
+        public bool Equals(PdfSplitResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    this.RemainingTokens == input.RemainingTokens ||
-                    (this.RemainingTokens != null &&
-                    this.RemainingTokens.Equals(input.RemainingTokens))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 ) && 
                 (
-                    this.FileIds == input.FileIds ||
-                    this.FileIds != null &&
-                    this.FileIds.SequenceEqual(input.FileIds)
+                    FileIds == input.FileIds ||
+                    FileIds != null &&
+                    input.FileIds != null &&
+                    FileIds.SequenceEqual(input.FileIds)
                 ) && 
                 (
-                    this.FileData == input.FileData ||
-                    this.FileData != null &&
-                    this.FileData.SequenceEqual(input.FileData)
+                    FileData == input.FileData ||
+                    FileData != null &&
+                    input.FileData != null &&
+                    FileData.SequenceEqual(input.FileData)
                 );
         }
 
@@ -142,26 +130,15 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.RemainingTokens != null)
-                    hashCode = hashCode * 59 + this.RemainingTokens.GetHashCode();
-                if (this.FileIds != null)
-                    hashCode = hashCode * 59 + this.FileIds.GetHashCode();
-                if (this.FileData != null)
-                    hashCode = hashCode * 59 + this.FileData.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
+                if (FileIds != null)
+                    hashCode = hashCode * 59 + FileIds.GetHashCode();
+                if (FileData != null)
+                    hashCode = hashCode * 59 + FileData.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

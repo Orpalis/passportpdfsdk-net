@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,109 +26,66 @@ namespace PassportPDF.Model
     /// Represents the parameters for a rotate page standard action.
     /// </summary>
     [DataContract]
-    public partial class PDFRotatePageStandardParameters :  IEquatable<PDFRotatePageStandardParameters>, IValidatableObject
+    public partial class PdfRotatePageStandardParameters :  IEquatable<PdfRotatePageStandardParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFRotatePageStandardParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfRotatePageStandardParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFRotatePageStandardParameters() { }
+        protected PdfRotatePageStandardParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFRotatePageStandardParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfRotatePageStandardParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        /// <param name="pageRange">Specifies the number of the page, or the range of pages to be rotated. (required).</param>
-        /// <param name="rotationAngle">Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90. (required).</param>
-        /// <param name="flipHorizontally">Specifies whether the page(s) shall be flipped horizontally..</param>
-        /// <param name="flipVertically">Specifies whether the page(s) shall be flipped vertically..</param>
-        public PDFRotatePageStandardParameters(string fileId = default(string), string pageRange = default(string), int? rotationAngle = default(int?), bool? flipHorizontally = default(bool?), bool? flipVertically = default(bool?))
+        /// <param name="pageRange">Specifies the number of the page, or the range of pages to be rotated.  You can specify different page rotations using such pattern: Page Range = \"M:1:90;2:270\". In this example, a rotation of 90 degrees will be applied to the page 1 and 270 degrees to the page 2. (required).</param>
+        /// <param name="rotationAngle">Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.  Use 0 in case of special pattern usage for the PageRange property. (required).</param>
+        public PdfRotatePageStandardParameters(string fileId, string pageRange, int rotationAngle)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFRotatePageStandardParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "pageRange" is required (not null)
-            if (pageRange == null)
-            {
-                throw new InvalidDataException("pageRange is a required property for PDFRotatePageStandardParameters and cannot be null");
-            }
-            else
-            {
-                this.PageRange = pageRange;
-            }
-            
-            // to ensure "rotationAngle" is required (not null)
-            if (rotationAngle == null)
-            {
-                throw new InvalidDataException("rotationAngle is a required property for PDFRotatePageStandardParameters and cannot be null");
-            }
-            else
-            {
-                this.RotationAngle = rotationAngle;
-            }
-            
-            this.FlipHorizontally = flipHorizontally;
-            this.FlipVertically = flipVertically;
+            FileId = fileId;
+            PageRange = pageRange;
+            RotationAngle = rotationAngle;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
         /// <summary>
-        /// Specifies the number of the page, or the range of pages to be rotated.
+        /// Specifies the number of the page, or the range of pages to be rotated.  You can specify different page rotations using such pattern: Page Range = \"M:1:90;2:270\". In this example, a rotation of 90 degrees will be applied to the page 1 and 270 degrees to the page 2.
         /// </summary>
-        /// <value>Specifies the number of the page, or the range of pages to be rotated.</value>
-        [DataMember(Name="PageRange", EmitDefaultValue=false)]
+        [DataMember(Name="PageRange")]
         public string PageRange { get; set; }
 
         /// <summary>
-        /// Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.
+        /// Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.  Use 0 in case of special pattern usage for the PageRange property.
         /// </summary>
-        /// <value>Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.</value>
-        [DataMember(Name="RotationAngle", EmitDefaultValue=false)]
-        public int? RotationAngle { get; set; }
+        [DataMember(Name="RotationAngle")]
+        public int RotationAngle { get; set; }
 
         /// <summary>
-        /// Specifies whether the page(s) shall be flipped horizontally.
+        /// Specifies whether the page(s) shall be flipped horizontally.  This parameter is ignored if PageRange start with \"M:\".
         /// </summary>
-        /// <value>Specifies whether the page(s) shall be flipped horizontally.</value>
-        [DataMember(Name="FlipHorizontally", EmitDefaultValue=false)]
-        public bool? FlipHorizontally { get; set; }
+        [DataMember(Name="FlipHorizontally")]
+        public bool FlipHorizontally { get; set; } = false;
 
         /// <summary>
-        /// Specifies whether the page(s) shall be flipped vertically.
+        /// Specifies whether the page(s) shall be flipped vertically.  This parameter is ignored if PageRange start with \"M:\".
         /// </summary>
-        /// <value>Specifies whether the page(s) shall be flipped vertically.</value>
-        [DataMember(Name="FlipVertically", EmitDefaultValue=false)]
-        public bool? FlipVertically { get; set; }
+        [DataMember(Name="FlipVertically")]
+        public bool FlipVertically { get; set; } = false;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFRotatePageStandardParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  PageRange: ").Append(PageRange).Append("\n");
-            sb.Append("  RotationAngle: ").Append(RotationAngle).Append("\n");
-            sb.Append("  FlipHorizontally: ").Append(FlipHorizontally).Append("\n");
-            sb.Append("  FlipVertically: ").Append(FlipVertically).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -144,44 +102,41 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFRotatePageStandardParameters);
+            return Equals(input as PdfRotatePageStandardParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFRotatePageStandardParameters instances are equal
+        /// Returns true if PdfRotatePageStandardParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFRotatePageStandardParameters to be compared</param>
+        /// <param name="input">Instance of PdfRotatePageStandardParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFRotatePageStandardParameters input)
+        public bool Equals(PdfRotatePageStandardParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.PageRange == input.PageRange ||
-                    (this.PageRange != null &&
-                    this.PageRange.Equals(input.PageRange))
+                    PageRange == input.PageRange ||
+                    (PageRange != null &&
+                    PageRange.Equals(input.PageRange))
                 ) && 
                 (
-                    this.RotationAngle == input.RotationAngle ||
-                    (this.RotationAngle != null &&
-                    this.RotationAngle.Equals(input.RotationAngle))
+                    RotationAngle == input.RotationAngle ||
+                    RotationAngle.Equals(input.RotationAngle)
                 ) && 
                 (
-                    this.FlipHorizontally == input.FlipHorizontally ||
-                    (this.FlipHorizontally != null &&
-                    this.FlipHorizontally.Equals(input.FlipHorizontally))
+                    FlipHorizontally == input.FlipHorizontally ||
+                    FlipHorizontally.Equals(input.FlipHorizontally)
                 ) && 
                 (
-                    this.FlipVertically == input.FlipVertically ||
-                    (this.FlipVertically != null &&
-                    this.FlipVertically.Equals(input.FlipVertically))
+                    FlipVertically == input.FlipVertically ||
+                    FlipVertically.Equals(input.FlipVertically)
                 );
         }
 
@@ -194,28 +149,15 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.PageRange != null)
-                    hashCode = hashCode * 59 + this.PageRange.GetHashCode();
-                if (this.RotationAngle != null)
-                    hashCode = hashCode * 59 + this.RotationAngle.GetHashCode();
-                if (this.FlipHorizontally != null)
-                    hashCode = hashCode * 59 + this.FlipHorizontally.GetHashCode();
-                if (this.FlipVertically != null)
-                    hashCode = hashCode * 59 + this.FlipVertically.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (PageRange != null)
+                    hashCode = hashCode * 59 + PageRange.GetHashCode();
+                hashCode = hashCode * 59 + RotationAngle.GetHashCode();
+                hashCode = hashCode * 59 + FlipHorizontally.GetHashCode();
+                hashCode = hashCode * 59 + FlipVertically.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

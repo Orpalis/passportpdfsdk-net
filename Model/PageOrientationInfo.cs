@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,47 +26,36 @@ namespace PassportPDF.Model
     /// Represents information about the orientation of a given page.
     /// </summary>
     [DataContract]
-    public partial class PageOrientationInfo :  IEquatable<PageOrientationInfo>, IValidatableObject
+    public partial class PageOrientationInfo :  IEquatable<PageOrientationInfo>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PageOrientationInfo" /> class.
         /// </summary>
-        /// <param name="pageNumber">Specifies the number of the page..</param>
-        /// <param name="rotationAngle">Specifies, clockwise in degrees, the rotation angle of the page..</param>
-        public PageOrientationInfo(int? pageNumber = default(int?), int? rotationAngle = default(int?))
+        public PageOrientationInfo()
         {
-            this.PageNumber = pageNumber;
-            this.RotationAngle = rotationAngle;
         }
-        
+
         /// <summary>
         /// Specifies the number of the page.
         /// </summary>
-        /// <value>Specifies the number of the page.</value>
-        [DataMember(Name="PageNumber", EmitDefaultValue=false)]
-        public int? PageNumber { get; set; }
+        [DataMember(Name="PageNumber")]
+        public int PageNumber { get; set; }
 
         /// <summary>
         /// Specifies, clockwise in degrees, the rotation angle of the page.
         /// </summary>
-        /// <value>Specifies, clockwise in degrees, the rotation angle of the page.</value>
-        [DataMember(Name="RotationAngle", EmitDefaultValue=false)]
-        public int? RotationAngle { get; set; }
+        [DataMember(Name="RotationAngle")]
+        public int RotationAngle { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PageOrientationInfo {\n");
-            sb.Append("  PageNumber: ").Append(PageNumber).Append("\n");
-            sb.Append("  RotationAngle: ").Append(RotationAngle).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -82,7 +72,7 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PageOrientationInfo);
+            return Equals(input as PageOrientationInfo);
         }
 
         /// <summary>
@@ -97,14 +87,12 @@ namespace PassportPDF.Model
 
             return 
                 (
-                    this.PageNumber == input.PageNumber ||
-                    (this.PageNumber != null &&
-                    this.PageNumber.Equals(input.PageNumber))
+                    PageNumber == input.PageNumber ||
+                    PageNumber.Equals(input.PageNumber)
                 ) && 
                 (
-                    this.RotationAngle == input.RotationAngle ||
-                    (this.RotationAngle != null &&
-                    this.RotationAngle.Equals(input.RotationAngle))
+                    RotationAngle == input.RotationAngle ||
+                    RotationAngle.Equals(input.RotationAngle)
                 );
         }
 
@@ -117,22 +105,10 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PageNumber != null)
-                    hashCode = hashCode * 59 + this.PageNumber.GetHashCode();
-                if (this.RotationAngle != null)
-                    hashCode = hashCode * 59 + this.RotationAngle.GetHashCode();
+                hashCode = hashCode * 59 + PageNumber.GetHashCode();
+                hashCode = hashCode * 59 + RotationAngle.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

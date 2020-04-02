@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,251 +26,164 @@ namespace PassportPDF.Model
     /// Represents the parameters for a load document action request.
     /// </summary>
     [DataContract]
-    public partial class PDFLoadDocumentFromByteArrayParameters :  IEquatable<PDFLoadDocumentFromByteArrayParameters>, IValidatableObject
+    public partial class PdfLoadDocumentFromByteArrayParameters :  IEquatable<PdfLoadDocumentFromByteArrayParameters>
     {
         /// <summary>
-        /// Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.
-        /// </summary>
-        /// <value>Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ConformanceEnum
-        {
-            /// <summary>
-            /// Enum Unknown for value: Unknown
-            /// </summary>
-            [EnumMember(Value = "Unknown")]
-            Unknown = 1,
-
-            /// <summary>
-            /// Enum PDF10 for value: PDF1_0
-            /// </summary>
-            [EnumMember(Value = "PDF1_0")]
-            PDF10 = 2,
-
-            /// <summary>
-            /// Enum PDF11 for value: PDF1_1
-            /// </summary>
-            [EnumMember(Value = "PDF1_1")]
-            PDF11 = 3,
-
-            /// <summary>
-            /// Enum PDF12 for value: PDF1_2
-            /// </summary>
-            [EnumMember(Value = "PDF1_2")]
-            PDF12 = 4,
-
-            /// <summary>
-            /// Enum PDF13 for value: PDF1_3
-            /// </summary>
-            [EnumMember(Value = "PDF1_3")]
-            PDF13 = 5,
-
-            /// <summary>
-            /// Enum PDF14 for value: PDF1_4
-            /// </summary>
-            [EnumMember(Value = "PDF1_4")]
-            PDF14 = 6,
-
-            /// <summary>
-            /// Enum PDF15 for value: PDF1_5
-            /// </summary>
-            [EnumMember(Value = "PDF1_5")]
-            PDF15 = 7,
-
-            /// <summary>
-            /// Enum PDF16 for value: PDF1_6
-            /// </summary>
-            [EnumMember(Value = "PDF1_6")]
-            PDF16 = 8,
-
-            /// <summary>
-            /// Enum PDF17 for value: PDF1_7
-            /// </summary>
-            [EnumMember(Value = "PDF1_7")]
-            PDF17 = 9,
-
-            /// <summary>
-            /// Enum PDF20 for value: PDF2_0
-            /// </summary>
-            [EnumMember(Value = "PDF2_0")]
-            PDF20 = 10,
-
-            /// <summary>
-            /// Enum PDFA1a for value: PDF_A_1a
-            /// </summary>
-            [EnumMember(Value = "PDF_A_1a")]
-            PDFA1a = 11,
-
-            /// <summary>
-            /// Enum PDFA1b for value: PDF_A_1b
-            /// </summary>
-            [EnumMember(Value = "PDF_A_1b")]
-            PDFA1b = 12,
-
-            /// <summary>
-            /// Enum PDFA2a for value: PDF_A_2a
-            /// </summary>
-            [EnumMember(Value = "PDF_A_2a")]
-            PDFA2a = 13,
-
-            /// <summary>
-            /// Enum PDFA2u for value: PDF_A_2u
-            /// </summary>
-            [EnumMember(Value = "PDF_A_2u")]
-            PDFA2u = 14,
-
-            /// <summary>
-            /// Enum PDFA2b for value: PDF_A_2b
-            /// </summary>
-            [EnumMember(Value = "PDF_A_2b")]
-            PDFA2b = 15,
-
-            /// <summary>
-            /// Enum PDFA3a for value: PDF_A_3a
-            /// </summary>
-            [EnumMember(Value = "PDF_A_3a")]
-            PDFA3a = 16,
-
-            /// <summary>
-            /// Enum PDFA3u for value: PDF_A_3u
-            /// </summary>
-            [EnumMember(Value = "PDF_A_3u")]
-            PDFA3u = 17,
-
-            /// <summary>
-            /// Enum PDFA3b for value: PDF_A_3b
-            /// </summary>
-            [EnumMember(Value = "PDF_A_3b")]
-            PDFA3b = 18,
-
-            /// <summary>
-            /// Enum PDFUA1 for value: PDF_UA_1
-            /// </summary>
-            [EnumMember(Value = "PDF_UA_1")]
-            PDFUA1 = 19
-
-        }
-
-        /// <summary>
-        /// Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.
-        /// </summary>
-        /// <value>Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed.</value>
-        [DataMember(Name="Conformance", EmitDefaultValue=false)]
-        public ConformanceEnum? Conformance { get; set; }
-        /// <summary>
-        /// Specifies the encoding of the document data.
-        /// </summary>
-        /// <value>Specifies the encoding of the document data.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ContentEncodingEnum
-        {
-            /// <summary>
-            /// Enum Identity for value: Identity
-            /// </summary>
-            [EnumMember(Value = "Identity")]
-            Identity = 1,
-
-            /// <summary>
-            /// Enum Gzip for value: Gzip
-            /// </summary>
-            [EnumMember(Value = "Gzip")]
-            Gzip = 2
-
-        }
-
-        /// <summary>
-        /// Specifies the encoding of the document data.
-        /// </summary>
-        /// <value>Specifies the encoding of the document data.</value>
-        [DataMember(Name="ContentEncoding", EmitDefaultValue=false)]
-        public ContentEncodingEnum? ContentEncoding { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PDFLoadDocumentFromByteArrayParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfLoadDocumentFromByteArrayParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFLoadDocumentFromByteArrayParameters() { }
+        protected PdfLoadDocumentFromByteArrayParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFLoadDocumentFromByteArrayParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfLoadDocumentFromByteArrayParameters" /> class.
         /// </summary>
         /// <param name="content">Specifies the data of the document. (required).</param>
-        /// <param name="fileName">Specifies the name of the document..</param>
-        /// <param name="password">Specifies the password of the document..</param>
-        /// <param name="conformance">Specifies the level of PDF conformance to be used for converting the input document as PDF.  If the input document is a PDF its conformance is not changed. (default to ConformanceEnum.PDF15).</param>
-        /// <param name="contentEncoding">Specifies the encoding of the document data. (default to ContentEncodingEnum.Identity).</param>
-        public PDFLoadDocumentFromByteArrayParameters(byte[] content = default(byte[]), string fileName = default(string), string password = default(string), ConformanceEnum? conformance = ConformanceEnum.PDF15, ContentEncodingEnum? contentEncoding = ContentEncodingEnum.Identity)
+        public PdfLoadDocumentFromByteArrayParameters(byte[] content)
         {
-            // to ensure "content" is required (not null)
-            if (content == null)
-            {
-                throw new InvalidDataException("content is a required property for PDFLoadDocumentFromByteArrayParameters and cannot be null");
-            }
-            else
-            {
-                this.Content = content;
-            }
-            
-            this.FileName = fileName;
-            this.Password = password;
-            // use default value if no "conformance" provided
-            if (conformance == null)
-            {
-                this.Conformance = ConformanceEnum.PDF15;
-            }
-            else
-            {
-                this.Conformance = conformance;
-            }
-            // use default value if no "contentEncoding" provided
-            if (contentEncoding == null)
-            {
-                this.ContentEncoding = ContentEncodingEnum.Identity;
-            }
-            else
-            {
-                this.ContentEncoding = contentEncoding;
-            }
+            Content = content;
         }
-        
+
         /// <summary>
         /// Specifies the data of the document.
         /// </summary>
-        /// <value>Specifies the data of the document.</value>
-        [DataMember(Name="Content", EmitDefaultValue=false)]
+        [DataMember(Name="Content")]
         public byte[] Content { get; set; }
 
         /// <summary>
         /// Specifies the name of the document.
         /// </summary>
-        /// <value>Specifies the name of the document.</value>
-        [DataMember(Name="FileName", EmitDefaultValue=false)]
+        [DataMember(Name="FileName")]
         public string FileName { get; set; }
 
         /// <summary>
         /// Specifies the password of the document.
         /// </summary>
-        /// <value>Specifies the password of the document.</value>
-        [DataMember(Name="Password", EmitDefaultValue=false)]
+        [DataMember(Name="Password")]
         public string Password { get; set; }
 
-
+        /// <summary>
+        /// Gets or Sets Conformance
+        /// </summary>
+        [DataMember(Name="Conformance")]
+        public PdfConformance Conformance { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Gets or Sets ContentEncoding
+        /// </summary>
+        [DataMember(Name="ContentEncoding")]
+        public ContentEncoding ContentEncoding { get; set; }
+
+        /// <summary>
+        /// Specifies whether color detection must be used while importing a raster format to PDF.
+        /// </summary>
+        [DataMember(Name="EnableColorDetection")]
+        public bool EnableColorDetection { get; set; } = false;
+
+        /// <summary>
+        /// Specifies whether the response must contain a thumbnail of the first page of the document.
+        /// </summary>
+        [DataMember(Name="GetPreview")]
+        public bool GetPreview { get; set; } = false;
+
+        /// <summary>
+        /// Specifies, in pixels, the width of the thumbnail to be retrieved. Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailWidth")]
+        public int ThumbnailWidth { get; set; } = 140;
+
+        /// <summary>
+        /// Specifies, in pixels, the height of the thumbnail to be retrieved.  Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailHeight")]
+        public int ThumbnailHeight { get; set; } = 220;
+
+        /// <summary>
+        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").   Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailBackgroundColor")]
+        public string ThumbnailBackgroundColor { get; set; } = "rgba(0,0,0,0)";
+
+        /// <summary>
+        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.  Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailFitToPageSize")]
+        public bool ThumbnailFitToPageSize { get; set; } = true;
+
+        /// <summary>
+        /// Specifies the page width, in points, of produced documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtPageWidth")]
+        public float TxtPageWidth { get; set; } = 595F;
+
+        /// <summary>
+        /// Specifies the page height, in points, of produced documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtPageHeight")]
+        public float TxtPageHeight { get; set; } = 842F;
+
+        /// <summary>
+        /// Specifies the page margin left, in points, of produced documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtPageMarginLeft")]
+        public float TxtPageMarginLeft { get; set; } = 10F;
+
+        /// <summary>
+        /// Specifies the page margin top, in points, of produced documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtPageMarginTop")]
+        public float TxtPageMarginTop { get; set; } = 10F;
+
+        /// <summary>
+        /// Specifies the page margin right, in points, of produced documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtPageMarginRight")]
+        public float TxtPageMarginRight { get; set; } = 10F;
+
+        /// <summary>
+        /// Specifies the page margin bottom, in points, of produced documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtPageMarginBottom")]
+        public float TxtPageMarginBottom { get; set; } = 10F;
+
+        /// <summary>
+        /// Gets or Sets TxtHorizontalTextAlignment
+        /// </summary>
+        [DataMember(Name="TxtHorizontalTextAlignment")]
+        public TextAlignment TxtHorizontalTextAlignment { get; set; }
+
+        /// <summary>
+        /// Specifies the text size, in points, to be used for producing documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtFontSize")]
+        public float TxtFontSize { get; set; } = 12F;
+
+        /// <summary>
+        /// Specifies the name of the font to be used for producing documents from txt files.
+        /// </summary>
+        [DataMember(Name="TxtFontFamily")]
+        public string TxtFontFamily { get; set; } = "Arial Unicode MS";
+
+        /// <summary>
+        /// Specifies whether the font to be used for producing documents from txt files must have a bold style.
+        /// </summary>
+        [DataMember(Name="TxtFontBold")]
+        public bool TxtFontBold { get; set; } = false;
+
+        /// <summary>
+        /// Specifies whether the font to be used for producing documents from txt files must have an italic style.
+        /// </summary>
+        [DataMember(Name="TxtFontItalic")]
+        public bool TxtFontItalic { get; set; } = false;
+
+        /// <summary>
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFLoadDocumentFromByteArrayParameters {\n");
-            sb.Append("  Content: ").Append(Content).Append("\n");
-            sb.Append("  FileName: ").Append(FileName).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
-            sb.Append("  Conformance: ").Append(Conformance).Append("\n");
-            sb.Append("  ContentEncoding: ").Append(ContentEncoding).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -286,44 +200,112 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFLoadDocumentFromByteArrayParameters);
+            return Equals(input as PdfLoadDocumentFromByteArrayParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFLoadDocumentFromByteArrayParameters instances are equal
+        /// Returns true if PdfLoadDocumentFromByteArrayParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFLoadDocumentFromByteArrayParameters to be compared</param>
+        /// <param name="input">Instance of PdfLoadDocumentFromByteArrayParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFLoadDocumentFromByteArrayParameters input)
+        public bool Equals(PdfLoadDocumentFromByteArrayParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
+                    Content == input.Content ||
+                    (Content != null &&
+                    Content.Equals(input.Content))
                 ) && 
                 (
-                    this.FileName == input.FileName ||
-                    (this.FileName != null &&
-                    this.FileName.Equals(input.FileName))
+                    FileName == input.FileName ||
+                    (FileName != null &&
+                    FileName.Equals(input.FileName))
                 ) && 
                 (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
+                    Password == input.Password ||
+                    (Password != null &&
+                    Password.Equals(input.Password))
                 ) && 
                 (
-                    this.Conformance == input.Conformance ||
-                    (this.Conformance != null &&
-                    this.Conformance.Equals(input.Conformance))
+                    Conformance == input.Conformance ||
+                    Conformance.Equals(input.Conformance)
                 ) && 
                 (
-                    this.ContentEncoding == input.ContentEncoding ||
-                    (this.ContentEncoding != null &&
-                    this.ContentEncoding.Equals(input.ContentEncoding))
+                    ContentEncoding == input.ContentEncoding ||
+                    ContentEncoding.Equals(input.ContentEncoding)
+                ) && 
+                (
+                    EnableColorDetection == input.EnableColorDetection ||
+                    EnableColorDetection.Equals(input.EnableColorDetection)
+                ) && 
+                (
+                    GetPreview == input.GetPreview ||
+                    GetPreview.Equals(input.GetPreview)
+                ) && 
+                (
+                    ThumbnailWidth == input.ThumbnailWidth ||
+                    ThumbnailWidth.Equals(input.ThumbnailWidth)
+                ) && 
+                (
+                    ThumbnailHeight == input.ThumbnailHeight ||
+                    ThumbnailHeight.Equals(input.ThumbnailHeight)
+                ) && 
+                (
+                    ThumbnailBackgroundColor == input.ThumbnailBackgroundColor ||
+                    (ThumbnailBackgroundColor != null &&
+                    ThumbnailBackgroundColor.Equals(input.ThumbnailBackgroundColor))
+                ) && 
+                (
+                    ThumbnailFitToPageSize == input.ThumbnailFitToPageSize ||
+                    ThumbnailFitToPageSize.Equals(input.ThumbnailFitToPageSize)
+                ) && 
+                (
+                    TxtPageWidth == input.TxtPageWidth ||
+                    TxtPageWidth.Equals(input.TxtPageWidth)
+                ) && 
+                (
+                    TxtPageHeight == input.TxtPageHeight ||
+                    TxtPageHeight.Equals(input.TxtPageHeight)
+                ) && 
+                (
+                    TxtPageMarginLeft == input.TxtPageMarginLeft ||
+                    TxtPageMarginLeft.Equals(input.TxtPageMarginLeft)
+                ) && 
+                (
+                    TxtPageMarginTop == input.TxtPageMarginTop ||
+                    TxtPageMarginTop.Equals(input.TxtPageMarginTop)
+                ) && 
+                (
+                    TxtPageMarginRight == input.TxtPageMarginRight ||
+                    TxtPageMarginRight.Equals(input.TxtPageMarginRight)
+                ) && 
+                (
+                    TxtPageMarginBottom == input.TxtPageMarginBottom ||
+                    TxtPageMarginBottom.Equals(input.TxtPageMarginBottom)
+                ) && 
+                (
+                    TxtHorizontalTextAlignment == input.TxtHorizontalTextAlignment ||
+                    TxtHorizontalTextAlignment.Equals(input.TxtHorizontalTextAlignment)
+                ) && 
+                (
+                    TxtFontSize == input.TxtFontSize ||
+                    TxtFontSize.Equals(input.TxtFontSize)
+                ) && 
+                (
+                    TxtFontFamily == input.TxtFontFamily ||
+                    (TxtFontFamily != null &&
+                    TxtFontFamily.Equals(input.TxtFontFamily))
+                ) && 
+                (
+                    TxtFontBold == input.TxtFontBold ||
+                    TxtFontBold.Equals(input.TxtFontBold)
+                ) && 
+                (
+                    TxtFontItalic == input.TxtFontItalic ||
+                    TxtFontItalic.Equals(input.TxtFontItalic)
                 );
         }
 
@@ -336,28 +318,35 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
-                if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
-                if (this.Password != null)
-                    hashCode = hashCode * 59 + this.Password.GetHashCode();
-                if (this.Conformance != null)
-                    hashCode = hashCode * 59 + this.Conformance.GetHashCode();
-                if (this.ContentEncoding != null)
-                    hashCode = hashCode * 59 + this.ContentEncoding.GetHashCode();
+                if (Content != null)
+                    hashCode = hashCode * 59 + Content.GetHashCode();
+                if (FileName != null)
+                    hashCode = hashCode * 59 + FileName.GetHashCode();
+                if (Password != null)
+                    hashCode = hashCode * 59 + Password.GetHashCode();
+                hashCode = hashCode * 59 + Conformance.GetHashCode();
+                hashCode = hashCode * 59 + ContentEncoding.GetHashCode();
+                hashCode = hashCode * 59 + EnableColorDetection.GetHashCode();
+                hashCode = hashCode * 59 + GetPreview.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailWidth.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailHeight.GetHashCode();
+                if (ThumbnailBackgroundColor != null)
+                    hashCode = hashCode * 59 + ThumbnailBackgroundColor.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailFitToPageSize.GetHashCode();
+                hashCode = hashCode * 59 + TxtPageWidth.GetHashCode();
+                hashCode = hashCode * 59 + TxtPageHeight.GetHashCode();
+                hashCode = hashCode * 59 + TxtPageMarginLeft.GetHashCode();
+                hashCode = hashCode * 59 + TxtPageMarginTop.GetHashCode();
+                hashCode = hashCode * 59 + TxtPageMarginRight.GetHashCode();
+                hashCode = hashCode * 59 + TxtPageMarginBottom.GetHashCode();
+                hashCode = hashCode * 59 + TxtHorizontalTextAlignment.GetHashCode();
+                hashCode = hashCode * 59 + TxtFontSize.GetHashCode();
+                if (TxtFontFamily != null)
+                    hashCode = hashCode * 59 + TxtFontFamily.GetHashCode();
+                hashCode = hashCode * 59 + TxtFontBold.GetHashCode();
+                hashCode = hashCode * 59 + TxtFontItalic.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

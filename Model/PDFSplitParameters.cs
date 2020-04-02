@@ -1,9 +1,10 @@
-/* 
+/*
  * PassportPDF API
  *
  * Copyright © 2019 PassportPDF - https://www.passportpdf.com
  *
  */
+
 
 using System;
 using System.Linq;
@@ -17,7 +18,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = PassportPDF.Client.OpenAPIDateConverter;
+
 
 namespace PassportPDF.Model
 {
@@ -25,117 +26,60 @@ namespace PassportPDF.Model
     /// Represents the parameters for a split action.
     /// </summary>
     [DataContract]
-    public partial class PDFSplitParameters :  IEquatable<PDFSplitParameters>, IValidatableObject
+    public partial class PdfSplitParameters :  IEquatable<PdfSplitParameters>
     {
         /// <summary>
-        /// Specifies the split method to be used.
-        /// </summary>
-        /// <value>Specifies the split method to be used.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SplitMethodEnum
-        {
-            /// <summary>
-            /// Enum SplitByNumberOfPages for value: SplitByNumberOfPages
-            /// </summary>
-            [EnumMember(Value = "SplitByNumberOfPages")]
-            SplitByNumberOfPages = 1,
-
-            /// <summary>
-            /// Enum SplitByFileSize for value: SplitByFileSize
-            /// </summary>
-            [EnumMember(Value = "SplitByFileSize")]
-            SplitByFileSize = 2,
-
-            /// <summary>
-            /// Enum SplitByTopLevelBookmarks for value: SplitByTopLevelBookmarks
-            /// </summary>
-            [EnumMember(Value = "SplitByTopLevelBookmarks")]
-            SplitByTopLevelBookmarks = 3
-
-        }
-
-        /// <summary>
-        /// Specifies the split method to be used.
-        /// </summary>
-        /// <value>Specifies the split method to be used.</value>
-        [DataMember(Name="SplitMethod", EmitDefaultValue=false)]
-        public SplitMethodEnum SplitMethod { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSplitParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfSplitParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PDFSplitParameters() { }
+        protected PdfSplitParameters() { }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PDFSplitParameters" /> class.
+        /// Initializes a new instance of the <see cref="PdfSplitParameters" /> class.
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
-        /// <param name="splitMethod">Specifies the split method to be used. (required) (default to SplitMethodEnum.SplitByNumberOfPages).</param>
-        /// <param name="splitValue">Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files..</param>
-        /// <param name="immediateDownload">Specifies whether the file(s) created as a result of the action shall be available for immediate download..</param>
-        public PDFSplitParameters(string fileId = default(string), SplitMethodEnum splitMethod = SplitMethodEnum.SplitByNumberOfPages, int? splitValue = default(int?), bool? immediateDownload = default(bool?))
+        /// <param name="splitMethod">splitMethod (required).</param>
+        /// <param name="splitValue">Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files. (required).</param>
+        public PdfSplitParameters(string fileId, PdfSplitMethod splitMethod, int splitValue)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new InvalidDataException("fileId is a required property for PDFSplitParameters and cannot be null");
-            }
-            else
-            {
-                this.FileId = fileId;
-            }
-            
-            // to ensure "splitMethod" is required (not null)
-            if (splitMethod == null)
-            {
-                throw new InvalidDataException("splitMethod is a required property for PDFSplitParameters and cannot be null");
-            }
-            else
-            {
-                this.SplitMethod = splitMethod;
-            }
-            
-            this.SplitValue = splitValue;
-            this.ImmediateDownload = immediateDownload;
+            FileId = fileId;
+            SplitMethod = splitMethod;
+            SplitValue = splitValue;
         }
-        
+
         /// <summary>
         /// The identifier of the previously uploaded file to be processed.
         /// </summary>
-        /// <value>The identifier of the previously uploaded file to be processed.</value>
-        [DataMember(Name="FileId", EmitDefaultValue=false)]
+        [DataMember(Name="FileId")]
         public string FileId { get; set; }
 
+        /// <summary>
+        /// Gets or Sets SplitMethod
+        /// </summary>
+        [DataMember(Name="SplitMethod")]
+        public PdfSplitMethod SplitMethod { get; set; }
 
         /// <summary>
         /// Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files.
         /// </summary>
-        /// <value>Specifies, respectively for the SplitByPageCount and SplitByFileSize split methods, the number of pages or the maximum size, in kilobytes, of the produced files.</value>
-        [DataMember(Name="SplitValue", EmitDefaultValue=false)]
-        public int? SplitValue { get; set; }
+        [DataMember(Name="SplitValue")]
+        public int SplitValue { get; set; }
 
         /// <summary>
         /// Specifies whether the file(s) created as a result of the action shall be available for immediate download.
         /// </summary>
-        /// <value>Specifies whether the file(s) created as a result of the action shall be available for immediate download.</value>
-        [DataMember(Name="ImmediateDownload", EmitDefaultValue=false)]
-        public bool? ImmediateDownload { get; set; }
+        [DataMember(Name="ImmediateDownload")]
+        public bool ImmediateDownload { get; set; } = false;
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PDFSplitParameters {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  SplitMethod: ").Append(SplitMethod).Append("\n");
-            sb.Append("  SplitValue: ").Append(SplitValue).Append("\n");
-            sb.Append("  ImmediateDownload: ").Append(ImmediateDownload).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return ToJson();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -152,39 +96,36 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PDFSplitParameters);
+            return Equals(input as PdfSplitParameters);
         }
 
         /// <summary>
-        /// Returns true if PDFSplitParameters instances are equal
+        /// Returns true if PdfSplitParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of PDFSplitParameters to be compared</param>
+        /// <param name="input">Instance of PdfSplitParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PDFSplitParameters input)
+        public bool Equals(PdfSplitParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
+                    FileId == input.FileId ||
+                    (FileId != null &&
+                    FileId.Equals(input.FileId))
                 ) && 
                 (
-                    this.SplitMethod == input.SplitMethod ||
-                    (this.SplitMethod != null &&
-                    this.SplitMethod.Equals(input.SplitMethod))
+                    SplitMethod == input.SplitMethod ||
+                    SplitMethod.Equals(input.SplitMethod)
                 ) && 
                 (
-                    this.SplitValue == input.SplitValue ||
-                    (this.SplitValue != null &&
-                    this.SplitValue.Equals(input.SplitValue))
+                    SplitValue == input.SplitValue ||
+                    SplitValue.Equals(input.SplitValue)
                 ) && 
                 (
-                    this.ImmediateDownload == input.ImmediateDownload ||
-                    (this.ImmediateDownload != null &&
-                    this.ImmediateDownload.Equals(input.ImmediateDownload))
+                    ImmediateDownload == input.ImmediateDownload ||
+                    ImmediateDownload.Equals(input.ImmediateDownload)
                 );
         }
 
@@ -197,26 +138,13 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
-                if (this.SplitMethod != null)
-                    hashCode = hashCode * 59 + this.SplitMethod.GetHashCode();
-                if (this.SplitValue != null)
-                    hashCode = hashCode * 59 + this.SplitValue.GetHashCode();
-                if (this.ImmediateDownload != null)
-                    hashCode = hashCode * 59 + this.ImmediateDownload.GetHashCode();
+                if (FileId != null)
+                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                hashCode = hashCode * 59 + SplitMethod.GetHashCode();
+                hashCode = hashCode * 59 + SplitValue.GetHashCode();
+                hashCode = hashCode * 59 + ImmediateDownload.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 
