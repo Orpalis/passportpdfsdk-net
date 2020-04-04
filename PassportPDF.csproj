@@ -4,7 +4,7 @@
   <PropertyGroup>
     <PackageId>PassportPDF</PackageId>
     <Title>PassportPDF</Title>
-    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
     <Authors>PassportPDF</Authors>
     <Company>ORPALIS</Company>
@@ -15,9 +15,9 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>PassportPDF</RootNamespace>
-    <Version>1.0.67</Version>
-    <AssemblyVersion>1.0.67</AssemblyVersion>
-    <FileVersion>1.0.67</FileVersion>
+    <Version>1.0.68</Version>
+    <AssemblyVersion>1.0.68</AssemblyVersion>
+    <FileVersion>1.0.68</FileVersion>
     <PackageIconUrl>http://www.orpalis.com/images/ORPALIS/logos/PP-symbol-128.png</PackageIconUrl>
     <PackageProjectUrl>https://passportpdf.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Orpalis/passportpdfsdk-net</RepositoryUrl>
@@ -27,29 +27,21 @@
     <EmbeddedResource Remove="lib\**" />
     <None Remove="lib\**" />
   </ItemGroup>
+  
   <ItemGroup>
     <None Remove="generate_nuget.bat" />
   </ItemGroup>
 
-  <!-- common NuGet package refs -->
   <ItemGroup>
     <PackageReference Include="CompareNETObjects" Version="4.64.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.6.10" />
-  </ItemGroup>
-
-  <!-- .NET Standard 2.0 specific package refs -->
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
     <PackageReference Include="CompareNETObjects" Version="4.63.0" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>lib\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <OutputPath>D:\gdpicture\nuget</OutputPath>
   </PropertyGroup>
 
 </Project>
