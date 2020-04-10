@@ -48,10 +48,22 @@ namespace PassportPDF.Model
         public int PlanId { get; set; }
 
         /// <summary>
+        /// Gets or Sets OptionalLinkedSubscriptionId
+        /// </summary>
+        [DataMember(Name="OptionalLinkedSubscriptionId")]
+        public string OptionalLinkedSubscriptionId { get; set; }
+
+        /// <summary>
         /// Gets or Sets SubscriptionDate
         /// </summary>
         [DataMember(Name="SubscriptionDate")]
         public DateTime SubscriptionDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExpirationDate
+        /// </summary>
+        [DataMember(Name="ExpirationDate")]
+        public DateTime ExpirationDate { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentTokensUsed
@@ -156,9 +168,19 @@ namespace PassportPDF.Model
                     PlanId.Equals(input.PlanId)
                 ) && 
                 (
+                    OptionalLinkedSubscriptionId == input.OptionalLinkedSubscriptionId ||
+                    (OptionalLinkedSubscriptionId != null &&
+                    OptionalLinkedSubscriptionId.Equals(input.OptionalLinkedSubscriptionId))
+                ) && 
+                (
                     SubscriptionDate == input.SubscriptionDate ||
                     (SubscriptionDate != null &&
                     SubscriptionDate.Equals(input.SubscriptionDate))
+                ) && 
+                (
+                    ExpirationDate == input.ExpirationDate ||
+                    (ExpirationDate != null &&
+                    ExpirationDate.Equals(input.ExpirationDate))
                 ) && 
                 (
                     CurrentTokensUsed == input.CurrentTokensUsed ||
@@ -212,8 +234,12 @@ namespace PassportPDF.Model
                 if (PassportId != null)
                     hashCode = hashCode * 59 + PassportId.GetHashCode();
                 hashCode = hashCode * 59 + PlanId.GetHashCode();
+                if (OptionalLinkedSubscriptionId != null)
+                    hashCode = hashCode * 59 + OptionalLinkedSubscriptionId.GetHashCode();
                 if (SubscriptionDate != null)
                     hashCode = hashCode * 59 + SubscriptionDate.GetHashCode();
+                if (ExpirationDate != null)
+                    hashCode = hashCode * 59 + ExpirationDate.GetHashCode();
                 hashCode = hashCode * 59 + CurrentTokensUsed.GetHashCode();
                 hashCode = hashCode * 59 + ExtraTokens.GetHashCode();
                 if (ExtraTokensEndDate != null)
