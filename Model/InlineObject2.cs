@@ -23,22 +23,22 @@ using System.ComponentModel.DataAnnotations;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// InlineObject1
+    /// InlineObject2
     /// </summary>
     [DataContract]
-    public partial class InlineObject1 :  IEquatable<InlineObject1>
+    public partial class InlineObject2 :  IEquatable<InlineObject2>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
+        /// Initializes a new instance of the <see cref="InlineObject2" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineObject1() { }
+        protected InlineObject2() { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
+        /// Initializes a new instance of the <see cref="InlineObject2" /> class.
         /// </summary>
         /// <param name="fileData">The data of the document. (required).</param>
-        public InlineObject1(System.IO.Stream fileData)
+        public InlineObject2(System.IO.Stream fileData)
         {
             fileData = fileData;
         }
@@ -50,10 +50,10 @@ namespace PassportPDF.Model
         public System.IO.Stream fileData { get; set; }
 
         /// <summary>
-        /// Gets or Sets loadImageParameters
+        /// Gets or Sets loadDocumentParameters
         /// </summary>
-        [DataMember(Name="loadImageParameters")]
-        public LoadImageParameters loadImageParameters { get; set; }
+        [DataMember(Name="loadDocumentParameters")]
+        public PdfLoadDocumentParameters loadDocumentParameters { get; set; }
 
         /// <summary>
         /// Returns the String presentation of the object
@@ -80,15 +80,15 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return Equals(input as InlineObject1);
+            return Equals(input as InlineObject2);
         }
 
         /// <summary>
-        /// Returns true if InlineObject1 instances are equal
+        /// Returns true if InlineObject2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineObject1 to be compared</param>
+        /// <param name="input">Instance of InlineObject2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineObject1 input)
+        public bool Equals(InlineObject2 input)
         {
             if (input == null)
                 return false;
@@ -100,9 +100,9 @@ namespace PassportPDF.Model
                     fileData.Equals(input.fileData))
                 ) && 
                 (
-                    loadImageParameters == input.loadImageParameters ||
-                    (loadImageParameters != null &&
-                    loadImageParameters.Equals(input.loadImageParameters))
+                    loadDocumentParameters == input.loadDocumentParameters ||
+                    (loadDocumentParameters != null &&
+                    loadDocumentParameters.Equals(input.loadDocumentParameters))
                 );
         }
 
@@ -117,8 +117,8 @@ namespace PassportPDF.Model
                 int hashCode = 41;
                 if (fileData != null)
                     hashCode = hashCode * 59 + fileData.GetHashCode();
-                if (loadImageParameters != null)
-                    hashCode = hashCode * 59 + loadImageParameters.GetHashCode();
+                if (loadDocumentParameters != null)
+                    hashCode = hashCode * 59 + loadDocumentParameters.GetHashCode();
                 return hashCode;
             }
         }

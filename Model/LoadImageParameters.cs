@@ -48,6 +48,36 @@ namespace PassportPDF.Model
         public ContentEncoding ContentEncoding { get; set; }
 
         /// <summary>
+        /// Specifies whether the response must contain a thumbnail of the first page of the document.
+        /// </summary>
+        [DataMember(Name="GetPreview")]
+        public bool GetPreview { get; set; } = false;
+
+        /// <summary>
+        /// Specifies, in pixels, the width of the thumbnail to be retrieved. Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailWidth")]
+        public int ThumbnailWidth { get; set; } = 140;
+
+        /// <summary>
+        /// Specifies, in pixels, the height of the thumbnail to be retrieved.  Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailHeight")]
+        public int ThumbnailHeight { get; set; } = 220;
+
+        /// <summary>
+        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").   Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailBackgroundColor")]
+        public string ThumbnailBackgroundColor { get; set; } = "rgba(0,0,0,0)";
+
+        /// <summary>
+        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.  Only applicable if GetPreview has been set to true.
+        /// </summary>
+        [DataMember(Name="ThumbnailFitToPageSize")]
+        public bool ThumbnailFitToPageSize { get; set; } = true;
+
+        /// <summary>
         /// Returns the String presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +124,27 @@ namespace PassportPDF.Model
                 (
                     ContentEncoding == input.ContentEncoding ||
                     ContentEncoding.Equals(input.ContentEncoding)
+                ) && 
+                (
+                    GetPreview == input.GetPreview ||
+                    GetPreview.Equals(input.GetPreview)
+                ) && 
+                (
+                    ThumbnailWidth == input.ThumbnailWidth ||
+                    ThumbnailWidth.Equals(input.ThumbnailWidth)
+                ) && 
+                (
+                    ThumbnailHeight == input.ThumbnailHeight ||
+                    ThumbnailHeight.Equals(input.ThumbnailHeight)
+                ) && 
+                (
+                    ThumbnailBackgroundColor == input.ThumbnailBackgroundColor ||
+                    (ThumbnailBackgroundColor != null &&
+                    ThumbnailBackgroundColor.Equals(input.ThumbnailBackgroundColor))
+                ) && 
+                (
+                    ThumbnailFitToPageSize == input.ThumbnailFitToPageSize ||
+                    ThumbnailFitToPageSize.Equals(input.ThumbnailFitToPageSize)
                 );
         }
 
@@ -109,6 +160,12 @@ namespace PassportPDF.Model
                 if (FileName != null)
                     hashCode = hashCode * 59 + FileName.GetHashCode();
                 hashCode = hashCode * 59 + ContentEncoding.GetHashCode();
+                hashCode = hashCode * 59 + GetPreview.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailWidth.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailHeight.GetHashCode();
+                if (ThumbnailBackgroundColor != null)
+                    hashCode = hashCode * 59 + ThumbnailBackgroundColor.GetHashCode();
+                hashCode = hashCode * 59 + ThumbnailFitToPageSize.GetHashCode();
                 return hashCode;
             }
         }

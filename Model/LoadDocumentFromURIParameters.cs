@@ -23,52 +23,70 @@ using System.ComponentModel.DataAnnotations;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for a get document preview action.
+    /// Represents the parameters for an image loading request.
     /// </summary>
     [DataContract]
-    public partial class GetDocumentPreviewParameters :  IEquatable<GetDocumentPreviewParameters>
+    public partial class LoadDocumentFromURIParameters :  IEquatable<LoadDocumentFromURIParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
+        /// Initializes a new instance of the <see cref="LoadDocumentFromURIParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GetDocumentPreviewParameters() { }
+        protected LoadDocumentFromURIParameters() { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
+        /// Initializes a new instance of the <see cref="LoadDocumentFromURIParameters" /> class.
         /// </summary>
-        /// <param name="fileId">Specifies the identifier of the file to be previewed. (required).</param>
-        public GetDocumentPreviewParameters(string fileId)
+        /// <param name="uRI">Specifies the uri of the document. (required).</param>
+        public LoadDocumentFromURIParameters(string uRI)
         {
-            FileId = fileId;
+            URI = uRI;
         }
 
         /// <summary>
-        /// Specifies the identifier of the file to be previewed.
+        /// Specifies the uri of the document.
         /// </summary>
-        [DataMember(Name="FileId")]
-        public string FileId { get; set; }
+        [DataMember(Name="URI")]
+        public string URI { get; set; }
 
         /// <summary>
-        /// Specifies, in pixels, the width of the thumbnail to be retrieved.
+        /// Specifies the name of the document.
+        /// </summary>
+        [DataMember(Name="FileName")]
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContentEncoding
+        /// </summary>
+        [DataMember(Name="ContentEncoding")]
+        public ContentEncoding ContentEncoding { get; set; }
+
+        /// <summary>
+        /// Specifies whether the response must contain a thumbnail of the first page of the document.
+        /// </summary>
+        [DataMember(Name="GetPreview")]
+        public bool GetPreview { get; set; } = false;
+
+        /// <summary>
+        /// Specifies, in pixels, the width of the thumbnail to be retrieved. Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailWidth")]
         public int ThumbnailWidth { get; set; } = 140;
 
         /// <summary>
-        /// Specifies, in pixels, the height of the thumbnail to be retrieved.
+        /// Specifies, in pixels, the height of the thumbnail to be retrieved.  Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailHeight")]
         public int ThumbnailHeight { get; set; } = 220;
 
         /// <summary>
-        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").
+        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").   Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailBackgroundColor")]
         public string ThumbnailBackgroundColor { get; set; } = "rgba(0,0,0,0)";
 
         /// <summary>
-        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.
+        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.  Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailFitToPageSize")]
         public bool ThumbnailFitToPageSize { get; set; } = true;
@@ -98,24 +116,37 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return Equals(input as GetDocumentPreviewParameters);
+            return Equals(input as LoadDocumentFromURIParameters);
         }
 
         /// <summary>
-        /// Returns true if GetDocumentPreviewParameters instances are equal
+        /// Returns true if LoadDocumentFromURIParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetDocumentPreviewParameters to be compared</param>
+        /// <param name="input">Instance of LoadDocumentFromURIParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetDocumentPreviewParameters input)
+        public bool Equals(LoadDocumentFromURIParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    FileId == input.FileId ||
-                    (FileId != null &&
-                    FileId.Equals(input.FileId))
+                    URI == input.URI ||
+                    (URI != null &&
+                    URI.Equals(input.URI))
+                ) && 
+                (
+                    FileName == input.FileName ||
+                    (FileName != null &&
+                    FileName.Equals(input.FileName))
+                ) && 
+                (
+                    ContentEncoding == input.ContentEncoding ||
+                    ContentEncoding.Equals(input.ContentEncoding)
+                ) && 
+                (
+                    GetPreview == input.GetPreview ||
+                    GetPreview.Equals(input.GetPreview)
                 ) && 
                 (
                     ThumbnailWidth == input.ThumbnailWidth ||
@@ -145,8 +176,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (FileId != null)
-                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (URI != null)
+                    hashCode = hashCode * 59 + URI.GetHashCode();
+                if (FileName != null)
+                    hashCode = hashCode * 59 + FileName.GetHashCode();
+                hashCode = hashCode * 59 + ContentEncoding.GetHashCode();
+                hashCode = hashCode * 59 + GetPreview.GetHashCode();
                 hashCode = hashCode * 59 + ThumbnailWidth.GetHashCode();
                 hashCode = hashCode * 59 + ThumbnailHeight.GetHashCode();
                 if (ThumbnailBackgroundColor != null)

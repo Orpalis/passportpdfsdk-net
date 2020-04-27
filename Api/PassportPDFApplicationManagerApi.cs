@@ -15,7 +15,6 @@ using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -25,9 +24,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
@@ -36,9 +32,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
@@ -47,9 +40,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>StringResponse</returns>
@@ -58,9 +48,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the maximum number of threads to be used simultaneously by a client application.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>IntegerResponse</returns>
@@ -76,9 +63,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
@@ -87,9 +71,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
@@ -98,9 +79,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of StringResponse</returns>
@@ -109,9 +87,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the maximum number of threads to be used simultaneously by a client application.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <returns>Task of IntegerResponse</returns>

@@ -108,6 +108,12 @@ namespace PassportPDF.Model
         public bool TokensPercentUsageAlertSent { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsManaged
+        /// </summary>
+        [DataMember(Name="IsManaged")]
+        public bool IsManaged { get; set; }
+
+        /// <summary>
         /// Gets or Sets NextMonthlyTerm
         /// </summary>
         [DataMember(Name="NextMonthlyTerm")]
@@ -212,6 +218,10 @@ namespace PassportPDF.Model
                     TokensPercentUsageAlertSent.Equals(input.TokensPercentUsageAlertSent)
                 ) && 
                 (
+                    IsManaged == input.IsManaged ||
+                    IsManaged.Equals(input.IsManaged)
+                ) && 
+                (
                     NextMonthlyTerm == input.NextMonthlyTerm ||
                     (NextMonthlyTerm != null &&
                     NextMonthlyTerm.Equals(input.NextMonthlyTerm))
@@ -248,6 +258,7 @@ namespace PassportPDF.Model
                 hashCode = hashCode * 59 + IsActive.GetHashCode();
                 hashCode = hashCode * 59 + TokensPercentUsageAlert.GetHashCode();
                 hashCode = hashCode * 59 + TokensPercentUsageAlertSent.GetHashCode();
+                hashCode = hashCode * 59 + IsManaged.GetHashCode();
                 if (NextMonthlyTerm != null)
                     hashCode = hashCode * 59 + NextMonthlyTerm.GetHashCode();
                 hashCode = hashCode * 59 + RemainingTokens.GetHashCode();

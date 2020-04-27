@@ -15,7 +15,6 @@ using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -25,9 +24,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Annotates a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfAnnotateParameters">A PdfAnnotateParameters object specifying the parameters of the action.</param>
         /// <returns>PdfAnnotateResponse</returns>
@@ -36,9 +32,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs auto deskew on a page range of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfAutoDeskewParameters">A PdfAutoDeskewParameters object specifying the parameters of the action.</param>
         /// <returns>PdfAutoDeskewResponse</returns>
@@ -47,9 +40,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Clears a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfClearPageParameters">A PdfClearPageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfClearPageResponse</returns>
@@ -58,9 +48,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Clones specific pages from a previously uploaded document to another previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfClonePageParameters">A PdfClonePageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfClonePageResponse</returns>
@@ -69,9 +56,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Closes a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfCloseDocumentParameters">A PdfCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>PdfCloseDocumentResponse</returns>
@@ -80,9 +64,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Converts a previously uploaded document to PDF/A.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfConvertToPDFAParameters">A PdfConvertToPDFAParameters object specifying the parameters of the action.</param>
         /// <returns>PdfConvertToPDFAResponse</returns>
@@ -91,9 +72,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Deletes a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDeletePageParameters">A PdfDeletePageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfDeletePageResponse</returns>
@@ -102,9 +80,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Detects the orientation of the page(s) of a previously uploaded document and offers to automatically rotate them.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDetectPageOrientationParameters">A PdfDetectPageOrientationParameters object specifying the parameters of the action.</param>
         /// <returns>PdfDetectPageOrientationResponse</returns>
@@ -113,9 +88,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Signs a previously uploaded document digitally.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDigiSignParameters">A PdfDigiSignParameters object specifying the parameters of the action.</param>
         /// <returns>PdfDigiSignResponse</returns>
@@ -124,9 +96,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Draws an image on a page range of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDrawImageParameters">A PdfDrawImageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfDrawImageResponse</returns>
@@ -135,9 +104,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Extracts a page range from a previously uploaded document into one or several new documents.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfExtractPageParameters">A PdfExtractPageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfExtractPageResponse</returns>
@@ -146,9 +112,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Extracts text from the document pages.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfExtractTextParameters">A PdfExtractTextParameters object specifying the parameters of the action.</param>
         /// <returns>PdfExtractTextResponse</returns>
@@ -157,9 +120,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Flattens the form-fields, annotations, and/or the layers of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfFlattenParameters">A PdfFlatten object specifying the parameters of the action.</param>
         /// <returns>PdfFlattenResponse</returns>
@@ -168,9 +128,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets information about a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfGetInfoParameters">A PdfGetInfoParameters object specifying the parameters of the action.</param>
         /// <returns>PdfGetInfoResponse</returns>
@@ -179,9 +136,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the supported file extensions by the LoadDocumentAsPDF action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringArrayResponse</returns>
         StringArrayResponse GetPDFImportSupportedFileExtensions();
@@ -189,9 +143,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfGetPageThumbnailParameters">A PdfGetPageThumbnailParameters object specifying the parameters of the action.</param>
         /// <returns>PdfGetPageThumbnailResponse</returns>
@@ -200,9 +151,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts an image on a new page of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertImageParameters">A PdfInsertImageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfInsertImageResponse</returns>
@@ -211,9 +159,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts one or more new blank pages to a specific position in a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertNewPageParameters">A PdfInsertNewPageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfInsertNewPageResponse</returns>
@@ -222,9 +167,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts page number(s) on a document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertPageNumberParameters">A PdfInsertPageNumberParameters object specifying the parameters of the action.</param>
         /// <returns>PdfInsertPageNumberResponse</returns>
@@ -233,9 +175,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts text on a document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertTextParameters">A PdfInsertTextParameters object specifying the parameters of the action.</param>
         /// <returns>PdfInsertTextResponse</returns>
@@ -244,9 +183,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfLinearizeParameters">A PdfLinearizeParameters object specifying the parameters of the action.</param>
         /// <returns>PdfLinearizeResponse</returns>
@@ -255,9 +191,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfLoadDocumentFromByteArrayParameters">A PdfLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>PdfLoadDocumentResponse</returns>
@@ -266,9 +199,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">The data of the document.</param>
         /// <param name="loadDocumentParameters"> (optional)</param>
@@ -278,9 +208,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Merges several previously uploaded documents into a new PDF.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfMergeParameters">A PdfMergeParameters object specifying the parameters of the action.</param>
         /// <returns>PdfMergeResponse</returns>
@@ -289,9 +216,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Merges multiple pages, vertically, within a previously uploaded document into one single page.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfMergePagesParameters">A PdfMergePages object specifying the parameters of the action.</param>
         /// <returns>PdfMergePagesResponse</returns>
@@ -300,9 +224,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Moves a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfMovePageParameters">A PdfMovePageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfMovePageResponse</returns>
@@ -311,9 +232,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfOCRParameters">A PdfOCRParameters object specifying the parameters of the action.</param>
         /// <returns>PdfOCRResponse</returns>
@@ -322,9 +240,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Protects a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfProtectParameters">A PdfProtectParameters object specifying the parameters of the action.</param>
         /// <returns>PdfProtectResponse</returns>
@@ -333,9 +248,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Reads barcodes from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfReadBarcodesParameters">A PdfReadBarcodesParameters object specifying the parameters of the action.</param>
         /// <returns>ReadBarcodesResponse</returns>
@@ -344,9 +256,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Reduces the size of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfReduceParameters">A PdfReduceParameters object specifying the parameters of the action.</param>
         /// <returns>PdfReduceResponse</returns>
@@ -355,20 +264,22 @@ namespace PassportPDF.Api
         /// <summary>
         /// Removes the form fields from a page range of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfRemovePageFormFieldsParameters">A PdfRemovePageFormFieldsParameters object specifying the parameters of the action.</param>
         /// <returns>PdfRemovePageFormFieldsResponse</returns>
         PdfRemovePageFormFieldsResponse RemovePageFormFields(PdfRemovePageFormFieldsParameters pdfRemovePageFormFieldsParameters);
 
         /// <summary>
+        /// Removes text (all text or only invisible one) from a previously uploaded PDF.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pdfRemoveTextParameters">A PdfRemoveTextParameters object specifying the parameters of the action.</param>
+        /// <returns>PdfRemoveTextResponse</returns>
+        PdfRemoveTextResponse RemoveText(PdfRemoveTextParameters pdfRemoveTextParameters);
+
+        /// <summary>
         /// Reorders pages of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfReorderPagesParameters">A PdfReorderPagesParameters object specifying the parameters of the action.</param>
         /// <returns>PdfReorderPagesResponse</returns>
@@ -377,9 +288,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Repairs a previously uploaded PDF document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfRepairDocumentParameters">A PdfRepairDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>PdfRepairDocumentResponse</returns>
@@ -388,115 +296,82 @@ namespace PassportPDF.Api
         /// <summary>
         /// Rotates (standardly) a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfRotatePageStandardParameters">A PdfRotatePageStandardParameters object specifying the parameters of the action.</param>
         /// <returns>PdfRotatePageStandardResponse</returns>
         PdfRotatePageStandardResponse RotatePageStandard(PdfRotatePageStandardParameters pdfRotatePageStandardParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG.
+        /// Saves a previously uploaded document as JPEG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSaveAsJPEGResponse</returns>
         PdfSaveAsJPEGResponse SaveAsJPEG(PdfSaveAsJPEGParameters pdfSaveAsJPEGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG.
+        /// Saves a previously uploaded document as JPEG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
         void SaveAsJPEGFile(PdfSaveAsJPEGParameters pdfSaveAsJPEGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG.
+        /// Saves a previously uploaded document as PNG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSaveAsPNGResponse</returns>
         PdfSaveAsPNGResponse SaveAsPNG(PdfSaveAsPNGParameters pdfSaveAsPNGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG.
+        /// Saves a previously uploaded document as PNG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
         void SaveAsPNGFile(PdfSaveAsPNGParameters pdfSaveAsPNGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF.
+        /// Saves a previously uploaded document as TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSaveAsTIFFResponse</returns>
         PdfSaveAsTIFFResponse SaveAsTIFF(PdfSaveAsTIFFParameters pdfSaveAsTIFFParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF.
+        /// Saves a previously uploaded document as TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
         void SaveAsTIFFFile(PdfSaveAsTIFFParameters pdfSaveAsTIFFParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF.
+        /// Saves a previously uploaded document as multipage TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSaveAsTIFFMultipageResponse</returns>
         PdfSaveAsTIFFMultipageResponse SaveAsTIFFMultipage(PdfSaveAsTIFFMultipageParameters pdfSaveAsTIFFMultipageParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF.
+        /// Saves a previously uploaded document as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         void SaveAsTIFFMultipageFile(PdfSaveAsTIFFMultipageParameters pdfSaveAsTIFFMultipageParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF.
+        /// Saves a previously uploaded document as PDF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSaveDocumentResponse</returns>
         PdfSaveDocumentResponse SaveDocument(PdfSaveDocumentParameters pdfSaveDocumentParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF.
+        /// Saves a previously uploaded document as PDF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
         void SaveDocumentToFile(PdfSaveDocumentParameters pdfSaveDocumentParameters, System.IO.Stream destinationStream);
@@ -504,9 +379,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Scales a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfScalePageParameters">A PdfScalePage object specifying the parameters of the action.</param>
         /// <returns>PdfScalePageResponse</returns>
@@ -515,9 +387,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Sets information to a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetInfoParameters">A PdfSetInfoParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSetInfoResponse</returns>
@@ -526,9 +395,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Sets various document level initial view options to a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetInitialViewParameters">A PdfsetInitialViewParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSetInitialViewResponse</returns>
@@ -537,9 +403,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Sets pagebox to a page range from previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetPageBoxParameters">A PdfSetPageBoxParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSetPageBoxResponse</returns>
@@ -548,9 +411,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Unprotects a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetPasswordParameters">A PdfSetPasswordParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSetPasswordResponse</returns>
@@ -559,9 +419,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Splits a previously uploaded document into new ones.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSplitParameters">A PdfSplitParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSplitResponse</returns>
@@ -570,9 +427,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Swaps two pages from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSwapPagesParameters">A PdfSwapPagesParameters object specifying the parameters of the action.</param>
         /// <returns>PdfSwapPagesResponse</returns>
@@ -581,9 +435,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Unprotects a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfUnprotectParameters">A PdfUnprotectParameters object specifying the parameters of the action.</param>
         /// <returns>PdfUnprotectResponse</returns>
@@ -599,9 +450,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Annotates a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfAnnotateParameters">A PdfAnnotateParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfAnnotateResponse</returns>
@@ -610,9 +458,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs auto deskew on a page range of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfAutoDeskewParameters">A PdfAutoDeskewParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfAutoDeskewResponse</returns>
@@ -621,9 +466,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Clears a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfClearPageParameters">A PdfClearPageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfClearPageResponse</returns>
@@ -632,9 +474,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Clones specific pages from a previously uploaded document to another previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfClonePageParameters">A PdfClonePageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfClonePageResponse</returns>
@@ -643,9 +482,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Closes a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfCloseDocumentParameters">A PdfCloseDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfCloseDocumentResponse</returns>
@@ -654,9 +490,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Converts a previously uploaded document to PDF/A.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfConvertToPDFAParameters">A PdfConvertToPDFAParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfConvertToPDFAResponse</returns>
@@ -665,9 +498,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Deletes a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDeletePageParameters">A PdfDeletePageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfDeletePageResponse</returns>
@@ -676,9 +506,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Detects the orientation of the page(s) of a previously uploaded document and offers to automatically rotate them.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDetectPageOrientationParameters">A PdfDetectPageOrientationParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfDetectPageOrientationResponse</returns>
@@ -687,9 +514,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Signs a previously uploaded document digitally.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDigiSignParameters">A PdfDigiSignParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfDigiSignResponse</returns>
@@ -698,9 +522,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Draws an image on a page range of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfDrawImageParameters">A PdfDrawImageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfDrawImageResponse</returns>
@@ -709,9 +530,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Extracts a page range from a previously uploaded document into one or several new documents.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfExtractPageParameters">A PdfExtractPageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfExtractPageResponse</returns>
@@ -720,9 +538,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Extracts text from the document pages.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfExtractTextParameters">A PdfExtractTextParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfExtractTextResponse</returns>
@@ -731,9 +546,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Flattens the form-fields, annotations, and/or the layers of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfFlattenParameters">A PdfFlatten object specifying the parameters of the action.</param>
         /// <returns>Task of PdfFlattenResponse</returns>
@@ -742,9 +554,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets information about a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfGetInfoParameters">A PdfGetInfoParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfGetInfoResponse</returns>
@@ -753,9 +562,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the supported file extensions by the LoadDocumentAsPDF action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringArrayResponse</returns>
         Task<StringArrayResponse> GetPDFImportSupportedFileExtensionsAsync();
@@ -763,9 +569,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfGetPageThumbnailParameters">A PdfGetPageThumbnailParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfGetPageThumbnailResponse</returns>
@@ -774,9 +577,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts an image on a new page of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertImageParameters">A PdfInsertImageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfInsertImageResponse</returns>
@@ -785,9 +585,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts one or more new blank pages to a specific position in a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertNewPageParameters">A PdfInsertNewPageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfInsertNewPageResponse</returns>
@@ -796,9 +593,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts page number(s) on a document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertPageNumberParameters">A PdfInsertPageNumberParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfInsertPageNumberResponse</returns>
@@ -807,9 +601,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Inserts text on a document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfInsertTextParameters">A PdfInsertTextParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfInsertTextResponse</returns>
@@ -818,9 +609,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Linearizes a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfLinearizeParameters">A PdfLinearizeParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfLinearizeResponse</returns>
@@ -829,9 +617,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Imports the provided document as PDF.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfLoadDocumentFromByteArrayParameters">A PdfLoadDocumentFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfLoadDocumentResponse</returns>
@@ -840,9 +625,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Imports the provided document as PDF using Multipart Upload.  Supported document formats can be retrieved by the GetPDFImportSupportedFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">The data of the document.</param>
         /// <param name="loadDocumentParameters"> (optional)</param>
@@ -852,9 +634,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Merges several previously uploaded documents into a new PDF.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfMergeParameters">A PdfMergeParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfMergeResponse</returns>
@@ -863,9 +642,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Merges multiple pages, vertically, within a previously uploaded document into one single page.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfMergePagesParameters">A PdfMergePages object specifying the parameters of the action.</param>
         /// <returns>Task of PdfMergePagesResponse</returns>
@@ -874,9 +650,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Moves a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfMovePageParameters">A PdfMovePageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfMovePageResponse</returns>
@@ -885,9 +658,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs optical character recognition on a page range of a previously uploaded document.  The recognized text is added as invisible text on each processed page.  No token is charged for blank pages.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfOCRParameters">A PdfOCRParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfOCRResponse</returns>
@@ -896,9 +666,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Protects a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfProtectParameters">A PdfProtectParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfProtectResponse</returns>
@@ -907,9 +674,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Reads barcodes from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfReadBarcodesParameters">A PdfReadBarcodesParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ReadBarcodesResponse</returns>
@@ -918,9 +682,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Reduces the size of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfReduceParameters">A PdfReduceParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfReduceResponse</returns>
@@ -929,20 +690,22 @@ namespace PassportPDF.Api
         /// <summary>
         /// Removes the form fields from a page range of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfRemovePageFormFieldsParameters">A PdfRemovePageFormFieldsParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfRemovePageFormFieldsResponse</returns>
         Task<PdfRemovePageFormFieldsResponse> RemovePageFormFieldsAsync(PdfRemovePageFormFieldsParameters pdfRemovePageFormFieldsParameters);
 
         /// <summary>
+        /// Removes text (all text or only invisible one) from a previously uploaded PDF.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pdfRemoveTextParameters">A PdfRemoveTextParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of PdfRemoveTextResponse</returns>
+        Task<PdfRemoveTextResponse> RemoveTextAsync(PdfRemoveTextParameters pdfRemoveTextParameters);
+
+        /// <summary>
         /// Reorders pages of a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfReorderPagesParameters">A PdfReorderPagesParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfReorderPagesResponse</returns>
@@ -951,9 +714,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Repairs a previously uploaded PDF document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfRepairDocumentParameters">A PdfRepairDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfRepairDocumentResponse</returns>
@@ -962,115 +722,82 @@ namespace PassportPDF.Api
         /// <summary>
         /// Rotates (standardly) a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfRotatePageStandardParameters">A PdfRotatePageStandardParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfRotatePageStandardResponse</returns>
         Task<PdfRotatePageStandardResponse> RotatePageStandardAsync(PdfRotatePageStandardParameters pdfRotatePageStandardParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG.
+        /// Saves a previously uploaded document as JPEG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSaveAsJPEGResponse</returns>
         Task<PdfSaveAsJPEGResponse> SaveAsJPEGAsync(PdfSaveAsJPEGParameters pdfSaveAsJPEGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG.
+        /// Saves a previously uploaded document as JPEG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
         Task SaveAsJPEGFileAsync(PdfSaveAsJPEGParameters pdfSaveAsJPEGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG.
+        /// Saves a previously uploaded document as PNG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSaveAsPNGResponse</returns>
         Task<PdfSaveAsPNGResponse> SaveAsPNGAsync(PdfSaveAsPNGParameters pdfSaveAsPNGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG.
+        /// Saves a previously uploaded document as PNG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
         Task SaveAsPNGFileAsync(PdfSaveAsPNGParameters pdfSaveAsPNGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF.
+        /// Saves a previously uploaded document as TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSaveAsTIFFResponse</returns>
         Task<PdfSaveAsTIFFResponse> SaveAsTIFFAsync(PdfSaveAsTIFFParameters pdfSaveAsTIFFParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF.
+        /// Saves a previously uploaded document as TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
         Task SaveAsTIFFFileAsync(PdfSaveAsTIFFParameters pdfSaveAsTIFFParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF.
+        /// Saves a previously uploaded document as multipage TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSaveAsTIFFMultipageResponse</returns>
         Task<PdfSaveAsTIFFMultipageResponse> SaveAsTIFFMultipageAsync(PdfSaveAsTIFFMultipageParameters pdfSaveAsTIFFMultipageParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF.
+        /// Saves a previously uploaded document as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         Task SaveAsTIFFMultipageFileAsync(PdfSaveAsTIFFMultipageParameters pdfSaveAsTIFFMultipageParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF.
+        /// Saves a previously uploaded document as PDF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSaveDocumentResponse</returns>
         Task<PdfSaveDocumentResponse> SaveDocumentAsync(PdfSaveDocumentParameters pdfSaveDocumentParameters);
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF.
+        /// Saves a previously uploaded document as PDF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
         Task SaveDocumentToFileAsync(PdfSaveDocumentParameters pdfSaveDocumentParameters, System.IO.Stream destinationStream);
@@ -1078,9 +805,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Scales a page range from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfScalePageParameters">A PdfScalePage object specifying the parameters of the action.</param>
         /// <returns>Task of PdfScalePageResponse</returns>
@@ -1089,9 +813,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Sets information to a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetInfoParameters">A PdfSetInfoParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSetInfoResponse</returns>
@@ -1100,9 +821,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Sets various document level initial view options to a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetInitialViewParameters">A PdfsetInitialViewParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSetInitialViewResponse</returns>
@@ -1111,9 +829,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Sets pagebox to a page range from previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetPageBoxParameters">A PdfSetPageBoxParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSetPageBoxResponse</returns>
@@ -1122,9 +837,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Unprotects a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSetPasswordParameters">A PdfSetPasswordParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSetPasswordResponse</returns>
@@ -1133,9 +845,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Splits a previously uploaded document into new ones.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSplitParameters">A PdfSplitParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSplitResponse</returns>
@@ -1144,9 +853,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Swaps two pages from a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSwapPagesParameters">A PdfSwapPagesParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfSwapPagesResponse</returns>
@@ -1155,9 +861,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Unprotects a previously uploaded document.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfUnprotectParameters">A PdfUnprotectParameters object specifying the parameters of the action.</param>
         /// <returns>Task of PdfUnprotectResponse</returns>
@@ -3650,6 +3353,85 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
+        /// Removes text (all text or only invisible one) from a previously uploaded PDF. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pdfRemoveTextParameters">A PdfRemoveTextParameters object specifying the parameters of the action.</param>
+        /// <returns>IRestResponse of PdfRemoveTextResponse</returns>
+        public PdfRemoveTextResponse RemoveText(PdfRemoveTextParameters pdfRemoveTextParameters)
+        {
+            // verify the required parameter 'pdfRemoveTextParameters' is set
+            if (pdfRemoveTextParameters == null)
+                throw new ArgumentNullException("Missing required parameter 'pdfRemoveTextParameters' when calling PDFApi->RemoveText");
+
+            RequestOptions requestOptions = new RequestOptions();
+
+            string[] contentTypes = new string[] { "application/json-patch+json", "application/json", "text/json", "application/_*+json" };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null)
+              requestOptions.AddHeaderParameter("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null)
+              requestOptions.AddHeaderParameter("Accept", localVarAccept);
+
+            requestOptions.Data = pdfRemoveTextParameters;
+            IRestResponse response = ApiClient.CallApi(Method.POST,
+             !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+             "/api/pdf/RemoveText",
+              !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+               requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/pdf/RemoveText failed: {0}", response.ErrorMessage, response.ErrorException));
+            }
+
+            return (PdfRemoveTextResponse)ApiClient.DeserializeResponse(response, typeof(PdfRemoveTextResponse));
+        }
+
+        /// <summary>
+        /// Removes text (all text or only invisible one) from a previously uploaded PDF. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pdfRemoveTextParameters">A PdfRemoveTextParameters object specifying the parameters of the action.</param>
+        /// <returns>Task of IRestResponse (PdfRemoveTextResponse)</returns>
+        public async Task<PdfRemoveTextResponse> RemoveTextAsync(PdfRemoveTextParameters pdfRemoveTextParameters)
+        {
+            // verify the required parameter 'pdfRemoveTextParameters' is set
+            if (pdfRemoveTextParameters == null)
+                throw new ArgumentNullException("Missing required parameter 'pdfRemoveTextParameters' when calling PDFApi->RemoveText");
+
+            RequestOptions requestOptions = new RequestOptions();
+
+            string[] contentTypes = new string[] { "application/json-patch+json", "application/json", "text/json", "application/_*+json" };
+            string[] accepts = new string[] { "text/plain","application/json","text/json" };
+
+            foreach (var contentType in contentTypes)
+                requestOptions.AddHeaderParameter("Content-Type", contentType);
+
+            foreach (var accept in accepts)
+                requestOptions.AddHeaderParameter("Accept", accept);
+
+            requestOptions.Data = pdfRemoveTextParameters;
+
+            IRestResponse response = await ApiClient.CallApiAsync(Method.POST,
+            !string.IsNullOrEmpty(BasePath) ? BasePath : GlobalConfiguration.BasePath,
+            "/api/pdf/RemoveText",
+            !string.IsNullOrEmpty(ApiKey) ? ApiKey : GlobalConfiguration.ApiKey,
+            requestOptions);
+
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException(response.StatusCode, string.Format("API call to /api/pdf/RemoveText failed: {0}", response.ErrorMessage, response.ErrorException));
+            }
+
+            return (PdfRemoveTextResponse)ApiClient.DeserializeResponse(response, typeof(PdfRemoveTextResponse));
+        }
+
+        /// <summary>
         /// Reorders pages of a previously uploaded document. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -3887,7 +3669,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG. 
+        /// Saves a previously uploaded document as JPEG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -3927,7 +3709,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG. 
+        /// Saves a previously uploaded document as JPEG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -3966,7 +3748,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG. 
+        /// Saves a previously uploaded document as JPEG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -4012,7 +3794,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as JPEG. 
+        /// Saves a previously uploaded document as JPEG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsJPEGParameters">A PdfSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -4058,7 +3840,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG. 
+        /// Saves a previously uploaded document as PNG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -4098,7 +3880,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG. 
+        /// Saves a previously uploaded document as PNG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -4137,7 +3919,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG. 
+        /// Saves a previously uploaded document as PNG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -4183,7 +3965,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PNG. 
+        /// Saves a previously uploaded document as PNG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsPNGParameters">A PdfSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -4229,7 +4011,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF. 
+        /// Saves a previously uploaded document as TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -4269,7 +4051,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF. 
+        /// Saves a previously uploaded document as TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -4308,7 +4090,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF. 
+        /// Saves a previously uploaded document as TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -4354,7 +4136,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as TIFF. 
+        /// Saves a previously uploaded document as TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFParameters">A PdfSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -4400,7 +4182,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF. 
+        /// Saves a previously uploaded document as multipage TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -4440,7 +4222,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF. 
+        /// Saves a previously uploaded document as multipage TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -4479,7 +4261,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF. 
+        /// Saves a previously uploaded document as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -4525,7 +4307,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as multipage TIFF. 
+        /// Saves a previously uploaded document as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveAsTIFFMultipageParameters">A PdfSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -4571,7 +4353,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF. 
+        /// Saves a previously uploaded document as PDF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
@@ -4611,7 +4393,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF. 
+        /// Saves a previously uploaded document as PDF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
@@ -4650,7 +4432,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF. 
+        /// Saves a previously uploaded document as PDF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>
@@ -4696,7 +4478,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded document as PDF. 
+        /// Saves a previously uploaded document as PDF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="pdfSaveDocumentParameters">A PdfSaveDocumentParameters object specifying the parameters of the action.</param>

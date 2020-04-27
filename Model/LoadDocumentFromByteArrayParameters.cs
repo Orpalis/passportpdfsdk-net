@@ -23,52 +23,70 @@ using System.ComponentModel.DataAnnotations;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// Represents the parameters for a get document preview action.
+    /// Represents the parameters for an image loading request.
     /// </summary>
     [DataContract]
-    public partial class GetDocumentPreviewParameters :  IEquatable<GetDocumentPreviewParameters>
+    public partial class LoadDocumentFromByteArrayParameters :  IEquatable<LoadDocumentFromByteArrayParameters>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
+        /// Initializes a new instance of the <see cref="LoadDocumentFromByteArrayParameters" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GetDocumentPreviewParameters() { }
+        protected LoadDocumentFromByteArrayParameters() { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetDocumentPreviewParameters" /> class.
+        /// Initializes a new instance of the <see cref="LoadDocumentFromByteArrayParameters" /> class.
         /// </summary>
-        /// <param name="fileId">Specifies the identifier of the file to be previewed. (required).</param>
-        public GetDocumentPreviewParameters(string fileId)
+        /// <param name="content">Specifies the data of the document. (required).</param>
+        public LoadDocumentFromByteArrayParameters(byte[] content)
         {
-            FileId = fileId;
+            Content = content;
         }
 
         /// <summary>
-        /// Specifies the identifier of the file to be previewed.
+        /// Specifies the data of the document.
         /// </summary>
-        [DataMember(Name="FileId")]
-        public string FileId { get; set; }
+        [DataMember(Name="Content")]
+        public byte[] Content { get; set; }
 
         /// <summary>
-        /// Specifies, in pixels, the width of the thumbnail to be retrieved.
+        /// Specifies the name of the document.
+        /// </summary>
+        [DataMember(Name="FileName")]
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContentEncoding
+        /// </summary>
+        [DataMember(Name="ContentEncoding")]
+        public ContentEncoding ContentEncoding { get; set; }
+
+        /// <summary>
+        /// Specifies whether the response must contain a thumbnail of the first page of the document.
+        /// </summary>
+        [DataMember(Name="GetPreview")]
+        public bool GetPreview { get; set; } = false;
+
+        /// <summary>
+        /// Specifies, in pixels, the width of the thumbnail to be retrieved. Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailWidth")]
         public int ThumbnailWidth { get; set; } = 140;
 
         /// <summary>
-        /// Specifies, in pixels, the height of the thumbnail to be retrieved.
+        /// Specifies, in pixels, the height of the thumbnail to be retrieved.  Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailHeight")]
         public int ThumbnailHeight { get; set; } = 220;
 
         /// <summary>
-        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").
+        /// Specifies the background color of the thumbnail, using the color name (ie: \"red\") or its RGBa code (ie: \"rgba(255,0,0,1)\").   Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailBackgroundColor")]
         public string ThumbnailBackgroundColor { get; set; } = "rgba(0,0,0,0)";
 
         /// <summary>
-        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.
+        /// Specifies if the size of the produced thumbnail is automatically adjusted to don't have any margin.  Only applicable if GetPreview has been set to true.
         /// </summary>
         [DataMember(Name="ThumbnailFitToPageSize")]
         public bool ThumbnailFitToPageSize { get; set; } = true;
@@ -98,24 +116,37 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return Equals(input as GetDocumentPreviewParameters);
+            return Equals(input as LoadDocumentFromByteArrayParameters);
         }
 
         /// <summary>
-        /// Returns true if GetDocumentPreviewParameters instances are equal
+        /// Returns true if LoadDocumentFromByteArrayParameters instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetDocumentPreviewParameters to be compared</param>
+        /// <param name="input">Instance of LoadDocumentFromByteArrayParameters to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetDocumentPreviewParameters input)
+        public bool Equals(LoadDocumentFromByteArrayParameters input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    FileId == input.FileId ||
-                    (FileId != null &&
-                    FileId.Equals(input.FileId))
+                    Content == input.Content ||
+                    (Content != null &&
+                    Content.Equals(input.Content))
+                ) && 
+                (
+                    FileName == input.FileName ||
+                    (FileName != null &&
+                    FileName.Equals(input.FileName))
+                ) && 
+                (
+                    ContentEncoding == input.ContentEncoding ||
+                    ContentEncoding.Equals(input.ContentEncoding)
+                ) && 
+                (
+                    GetPreview == input.GetPreview ||
+                    GetPreview.Equals(input.GetPreview)
                 ) && 
                 (
                     ThumbnailWidth == input.ThumbnailWidth ||
@@ -145,8 +176,12 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (FileId != null)
-                    hashCode = hashCode * 59 + FileId.GetHashCode();
+                if (Content != null)
+                    hashCode = hashCode * 59 + Content.GetHashCode();
+                if (FileName != null)
+                    hashCode = hashCode * 59 + FileName.GetHashCode();
+                hashCode = hashCode * 59 + ContentEncoding.GetHashCode();
+                hashCode = hashCode * 59 + GetPreview.GetHashCode();
                 hashCode = hashCode * 59 + ThumbnailWidth.GetHashCode();
                 hashCode = hashCode * 59 + ThumbnailHeight.GetHashCode();
                 if (ThumbnailBackgroundColor != null)

@@ -15,7 +15,6 @@ using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -25,9 +24,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="passportId"></param>
         /// <returns>PassportPDFPassport</returns>
@@ -43,9 +39,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="passportId"></param>
         /// <returns>Task of PassportPDFPassport</returns>

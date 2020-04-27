@@ -15,7 +15,6 @@ using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -23,34 +22,25 @@ namespace PassportPDF.Api
     {
 
         /// <summary>
-        /// 
+        /// Gets the HTML dom of a DocuVieware control.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareGetControlParameters"></param>
+        /// <param name="docuViewareGetControlParameters">A DocuViewareGetControlParameters object specifying the parameters of the action.</param>
         /// <returns>DocuViewareGetControlResponse</returns>
         DocuViewareGetControlResponse DocuViewareGetControl(DocuViewareGetControlParameters docuViewareGetControlParameters);
 
         /// <summary>
-        /// 
+        /// Get the DocuVieware engine version.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringResponse</returns>
         StringResponse DocuViewareGetVersion();
 
         /// <summary>
-        /// 
+        /// Saves the document being handled by a specific DocuVieware control, in its current state.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareSaveParameters"></param>
+        /// <param name="docuViewareSaveParameters">A DocuViewareSaveParameters object specifying the parameters of the action.</param>
         /// <returns>DocuViewareSaveResponse</returns>
         DocuViewareSaveResponse DocuViewareSave(DocuViewareSaveParameters docuViewareSaveParameters);
     }
@@ -62,34 +52,25 @@ namespace PassportPDF.Api
     {
 
         /// <summary>
-        /// 
+        /// Gets the HTML dom of a DocuVieware control.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareGetControlParameters"></param>
+        /// <param name="docuViewareGetControlParameters">A DocuViewareGetControlParameters object specifying the parameters of the action.</param>
         /// <returns>Task of DocuViewareGetControlResponse</returns>
         Task<DocuViewareGetControlResponse> DocuViewareGetControlAsync(DocuViewareGetControlParameters docuViewareGetControlParameters);
 
         /// <summary>
-        /// 
+        /// Get the DocuVieware engine version.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringResponse</returns>
         Task<StringResponse> DocuViewareGetVersionAsync();
 
         /// <summary>
-        /// 
+        /// Saves the document being handled by a specific DocuVieware control, in its current state.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareSaveParameters"></param>
+        /// <param name="docuViewareSaveParameters">A DocuViewareSaveParameters object specifying the parameters of the action.</param>
         /// <returns>Task of DocuViewareSaveResponse</returns>
         Task<DocuViewareSaveResponse> DocuViewareSaveAsync(DocuViewareSaveParameters docuViewareSaveParameters);
     }
@@ -127,10 +108,10 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        ///  
+        /// Gets the HTML dom of a DocuVieware control. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareGetControlParameters"></param>
+        /// <param name="docuViewareGetControlParameters">A DocuViewareGetControlParameters object specifying the parameters of the action.</param>
         /// <returns>IRestResponse of DocuViewareGetControlResponse</returns>
         public DocuViewareGetControlResponse DocuViewareGetControl(DocuViewareGetControlParameters docuViewareGetControlParameters)
         {
@@ -167,10 +148,10 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        ///  
+        /// Gets the HTML dom of a DocuVieware control. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareGetControlParameters"></param>
+        /// <param name="docuViewareGetControlParameters">A DocuViewareGetControlParameters object specifying the parameters of the action.</param>
         /// <returns>Task of IRestResponse (DocuViewareGetControlResponse)</returns>
         public async Task<DocuViewareGetControlResponse> DocuViewareGetControlAsync(DocuViewareGetControlParameters docuViewareGetControlParameters)
         {
@@ -206,7 +187,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        ///  
+        /// Get the DocuVieware engine version. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>IRestResponse of StringResponse</returns>
@@ -240,7 +221,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        ///  
+        /// Get the DocuVieware engine version. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of IRestResponse (StringResponse)</returns>
@@ -273,10 +254,10 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        ///  
+        /// Saves the document being handled by a specific DocuVieware control, in its current state. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareSaveParameters"></param>
+        /// <param name="docuViewareSaveParameters">A DocuViewareSaveParameters object specifying the parameters of the action.</param>
         /// <returns>IRestResponse of DocuViewareSaveResponse</returns>
         public DocuViewareSaveResponse DocuViewareSave(DocuViewareSaveParameters docuViewareSaveParameters)
         {
@@ -313,10 +294,10 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        ///  
+        /// Saves the document being handled by a specific DocuVieware control, in its current state. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docuViewareSaveParameters"></param>
+        /// <param name="docuViewareSaveParameters">A DocuViewareSaveParameters object specifying the parameters of the action.</param>
         /// <returns>Task of IRestResponse (DocuViewareSaveResponse)</returns>
         public async Task<DocuViewareSaveResponse> DocuViewareSaveAsync(DocuViewareSaveParameters docuViewareSaveParameters)
         {

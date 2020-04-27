@@ -23,37 +23,29 @@ using System.ComponentModel.DataAnnotations;
 namespace PassportPDF.Model
 {
     /// <summary>
-    /// InlineObject1
+    /// Represents the response to a remove text action request.
     /// </summary>
     [DataContract]
-    public partial class InlineObject1 :  IEquatable<InlineObject1>
+    public partial class PdfRemoveTextResponse :  IEquatable<PdfRemoveTextResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
+        /// Initializes a new instance of the <see cref="PdfRemoveTextResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineObject1() { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
-        /// </summary>
-        /// <param name="fileData">The data of the document. (required).</param>
-        public InlineObject1(System.IO.Stream fileData)
+        public PdfRemoveTextResponse()
         {
-            fileData = fileData;
         }
 
         /// <summary>
-        /// The data of the document.
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="fileData")]
-        public System.IO.Stream fileData { get; set; }
+        [DataMember(Name="Error")]
+        public Error Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets loadImageParameters
+        /// Specifies the number of remaining tokens.
         /// </summary>
-        [DataMember(Name="loadImageParameters")]
-        public LoadImageParameters loadImageParameters { get; set; }
+        [DataMember(Name="RemainingTokens")]
+        public long RemainingTokens { get; set; }
 
         /// <summary>
         /// Returns the String presentation of the object
@@ -80,29 +72,28 @@ namespace PassportPDF.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return Equals(input as InlineObject1);
+            return Equals(input as PdfRemoveTextResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineObject1 instances are equal
+        /// Returns true if PdfRemoveTextResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineObject1 to be compared</param>
+        /// <param name="input">Instance of PdfRemoveTextResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineObject1 input)
+        public bool Equals(PdfRemoveTextResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    fileData == input.fileData ||
-                    (fileData != null &&
-                    fileData.Equals(input.fileData))
+                    Error == input.Error ||
+                    (Error != null &&
+                    Error.Equals(input.Error))
                 ) && 
                 (
-                    loadImageParameters == input.loadImageParameters ||
-                    (loadImageParameters != null &&
-                    loadImageParameters.Equals(input.loadImageParameters))
+                    RemainingTokens == input.RemainingTokens ||
+                    RemainingTokens.Equals(input.RemainingTokens)
                 );
         }
 
@@ -115,10 +106,9 @@ namespace PassportPDF.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (fileData != null)
-                    hashCode = hashCode * 59 + fileData.GetHashCode();
-                if (loadImageParameters != null)
-                    hashCode = hashCode * 59 + loadImageParameters.GetHashCode();
+                if (Error != null)
+                    hashCode = hashCode * 59 + Error.GetHashCode();
+                hashCode = hashCode * 59 + RemainingTokens.GetHashCode();
                 return hashCode;
             }
         }

@@ -50,10 +50,10 @@ namespace PassportPDF.Model
         public System.IO.Stream fileData { get; set; }
 
         /// <summary>
-        /// Gets or Sets loadImageParameters
+        /// Gets or Sets loadDocumentParameters
         /// </summary>
-        [DataMember(Name="loadImageParameters")]
-        public LoadImageParameters loadImageParameters { get; set; }
+        [DataMember(Name="loadDocumentParameters")]
+        public LoadDocumentParameters loadDocumentParameters { get; set; }
 
         /// <summary>
         /// Returns the String presentation of the object
@@ -100,9 +100,9 @@ namespace PassportPDF.Model
                     fileData.Equals(input.fileData))
                 ) && 
                 (
-                    loadImageParameters == input.loadImageParameters ||
-                    (loadImageParameters != null &&
-                    loadImageParameters.Equals(input.loadImageParameters))
+                    loadDocumentParameters == input.loadDocumentParameters ||
+                    (loadDocumentParameters != null &&
+                    loadDocumentParameters.Equals(input.loadDocumentParameters))
                 );
         }
 
@@ -117,8 +117,8 @@ namespace PassportPDF.Model
                 int hashCode = 41;
                 if (fileData != null)
                     hashCode = hashCode * 59 + fileData.GetHashCode();
-                if (loadImageParameters != null)
-                    hashCode = hashCode * 59 + loadImageParameters.GetHashCode();
+                if (loadDocumentParameters != null)
+                    hashCode = hashCode * 59 + loadDocumentParameters.GetHashCode();
                 return hashCode;
             }
         }

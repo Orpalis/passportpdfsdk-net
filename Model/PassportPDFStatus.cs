@@ -533,7 +533,31 @@ namespace PassportPDF.Model
         /// Enum CanNotMergePages for value: CanNotMergePages
         /// </summary>
         [EnumMember(Value = "CanNotMergePages")]
-        CanNotMergePages = 84
+        CanNotMergePages = 84,
+
+        /// <summary>
+        /// Enum CanNotGetMetaData for value: CanNotGetMetaData
+        /// </summary>
+        [EnumMember(Value = "CanNotGetMetaData")]
+        CanNotGetMetaData = 85,
+
+        /// <summary>
+        /// Enum CanNotSetMetadata for value: CanNotSetMetadata
+        /// </summary>
+        [EnumMember(Value = "CanNotSetMetadata")]
+        CanNotSetMetadata = 86,
+
+        /// <summary>
+        /// Enum CanNotRemoveText for value: CanNotRemoveText
+        /// </summary>
+        [EnumMember(Value = "CanNotRemoveText")]
+        CanNotRemoveText = 87,
+
+        /// <summary>
+        /// Enum CanNotDownloadDocument for value: CanNotDownloadDocument
+        /// </summary>
+        [EnumMember(Value = "CanNotDownloadDocument")]
+        CanNotDownloadDocument = 88
 
     }
 

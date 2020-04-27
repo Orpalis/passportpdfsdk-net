@@ -15,7 +15,6 @@ using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -25,9 +24,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>string</returns>
         string ConfigGetAPIVersion();
@@ -35,9 +31,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the maximal length of a request content, in bytes.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>LongResponse</returns>
         LongResponse ConfigGetMaxAllowedContentLength();
@@ -45,9 +38,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the suggested client API timeout, in milliseconds.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>IntegerResponse</returns>
         IntegerResponse ConfigGetSuggestedClientTimeout();
@@ -55,9 +45,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the suggested maximum number of threads to be used simultaneously by a client application.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>IntegerResponse</returns>
         IntegerResponse ConfigGetSuggestedMaxClientThreads();
@@ -65,9 +52,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the list of supported fonts for text drawing operations.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Font&gt;</returns>
         List<Font> ConfigGetSupportedFonts();
@@ -75,9 +59,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the list of supported languages for OCR.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringArrayResponse</returns>
         StringArrayResponse ConfigGetSupportedOCRLanguages();
@@ -92,9 +73,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of string</returns>
         Task<string> ConfigGetAPIVersionAsync();
@@ -102,9 +80,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the maximal length of a request content, in bytes.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of LongResponse</returns>
         Task<LongResponse> ConfigGetMaxAllowedContentLengthAsync();
@@ -112,9 +87,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the suggested client API timeout, in milliseconds.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of IntegerResponse</returns>
         Task<IntegerResponse> ConfigGetSuggestedClientTimeoutAsync();
@@ -122,9 +94,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the suggested maximum number of threads to be used simultaneously by a client application.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of IntegerResponse</returns>
         Task<IntegerResponse> ConfigGetSuggestedMaxClientThreadsAsync();
@@ -132,9 +101,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the list of supported fonts for text drawing operations.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Font&gt;</returns>
         Task<List<Font>> ConfigGetSupportedFontsAsync();
@@ -142,9 +108,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the list of supported languages for OCR.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringArrayResponse</returns>
         Task<StringArrayResponse> ConfigGetSupportedOCRLanguagesAsync();

@@ -39,10 +39,12 @@ namespace PassportPDF.Model
         /// </summary>
         /// <param name="fileId">The identifier of the previously uploaded file to be processed. (required).</param>
         /// <param name="pageRange">Specifies the number of the page, or the range of pages to rotate. (required).</param>
-        public ImageRotateParameters(string fileId, string pageRange)
+        /// <param name="rotationAngle">Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90. (required).</param>
+        public ImageRotateParameters(string fileId, string pageRange, float rotationAngle)
         {
             FileId = fileId;
             PageRange = pageRange;
+            RotationAngle = rotationAngle;
         }
 
         /// <summary>
@@ -61,7 +63,7 @@ namespace PassportPDF.Model
         /// Specifies the rotation angle, clockwise in degrees, which can be either positive and negative and any multiple of 90.
         /// </summary>
         [DataMember(Name="RotationAngle")]
-        public float RotationAngle { get; set; } = 0F;
+        public float RotationAngle { get; set; }
 
         /// <summary>
         /// Specifies whether the page(s) shall be flipped horizontally.

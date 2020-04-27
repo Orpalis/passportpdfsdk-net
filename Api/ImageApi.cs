@@ -15,7 +15,6 @@ using PassportPDF.Model;
 
 namespace PassportPDF.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -25,9 +24,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Adjusts a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
         /// <returns>ImageAdjustResponse</returns>
@@ -36,9 +32,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Automatically crops a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageAutoCropParameters">An ImageAutoCropParameters object specifying the parameters for the action.</param>
         /// <returns>ImageAutoCropResponse</returns>
@@ -47,9 +40,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Cleanup a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
         /// <returns>ImageCleanupDocumentResponse</returns>
@@ -58,9 +48,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Clones regions from a previously uploaded image into new images.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCloneRegionsParameters">An ImageCloneRegionsParameters object specifying the parameters of the action.</param>
         /// <returns>ImageCloneRegionsResponse</returns>
@@ -69,9 +56,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Closes a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCloseParameters">An ImageCloseParameters object specifying the parameters of the action.</param>
         /// <returns>ImageCloseResponse</returns>
@@ -80,9 +64,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Converts the color depth of a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageConvertColorDepthParameters">An ImageConvertColorDepthParameters object specifying the parameters for the action.</param>
         /// <returns>ImageConvertColorDepthResponse</returns>
@@ -91,9 +72,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Crops a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
         /// <returns>ImageCropResponse</returns>
@@ -102,9 +80,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Deletes a page range from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDeletePageParameters">An ImageDeletePageParameters object specifying the parameters of the action.</param>
         /// <returns>ImageDeletePageResponse</returns>
@@ -113,9 +88,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Detects the blank page(s) from a previously uploaded image and offers to remove them.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDetectBlankPagesParameters">An ImageDetectBlankPagesParameters object specifying the parameters of the action.</param>
         /// <returns>ImageDetectBlankPagesResponse</returns>
@@ -124,9 +96,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs color detection  on a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
         /// <returns>ImageDetectColorResponse</returns>
@@ -135,9 +104,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Detects the orientation of the page(s) of a previously uploaded image and offers to automatically rotate them.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDetectPageOrientationParameters">An ImagedetectPageOrientationParameters object specifying the parameters of the action.</param>
         /// <returns>ImageDetectPageOrientationResponse</returns>
@@ -146,9 +112,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Applies filters to a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageFilterParameters">An ImageFilterParameters object specifying the parameters for the action.</param>
         /// <returns>ImageFilterResponse</returns>
@@ -157,9 +120,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageGetPageThumbnailParameters">A PDFGetPageThumbnailParameters object specifying the parameters of the action.</param>
         /// <returns>ImageGetPageThumbnailResponse</returns>
@@ -168,9 +128,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the supported file extensions by the image loading actions.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>StringArrayResponse</returns>
         StringArrayResponse ImageGetSupportedFileExtensions();
@@ -178,9 +135,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Loads the provided image file.  Supported image formats can be retrieved by the GetSupportedImageFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadImageFromByteArrayParameters">A LoadImageFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>ImageLoadResponse</returns>
@@ -189,9 +143,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Loads the provided image file using Multipart Upload.  Supported image formats can be retrieved by the GetSupportedImageFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">The data of the document.</param>
         /// <param name="loadImageParameters"> (optional)</param>
@@ -201,9 +152,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs MICR (Magnetic Ink Character Recognition) on a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageMICRParameters">An ImageMICRParameters object specifying the parameters of the action.</param>
         /// <returns>ImageMICRResponse</returns>
@@ -212,9 +160,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Reads barcodes from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageReadBarcodesParameters">An ImageReadBarcodesParameters object specifying the parameters of the action.</param>
         /// <returns>ReadBarcodesResponse</returns>
@@ -223,9 +168,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Resizes a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
         /// <returns>ImageResizeResponse</returns>
@@ -234,136 +176,97 @@ namespace PassportPDF.Api
         /// <summary>
         /// Rotates and/or flips a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
         /// <returns>ImageRotateResponse</returns>
         ImageRotateResponse ImageRotate(ImageRotateParameters imageRotateParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG.
+        /// Saves a previously uploaded image as JPEG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSaveAsJPEGResponse</returns>
         ImageSaveAsJPEGResponse ImageSaveAsJPEG(ImageSaveAsJPEGParameters imageSaveAsJPEGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG.
+        /// Saves a previously uploaded image as JPEG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
         void ImageSaveAsJPEGFile(ImageSaveAsJPEGParameters imageSaveAsJPEGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF.
+        /// Saves a previously uploaded image as PDF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSaveAsPDFResponse</returns>
         ImageSaveAsPDFResponse ImageSaveAsPDF(ImageSaveAsPDFParameters imageSaveAsPDFParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF.
+        /// Saves a previously uploaded image as PDF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
         void ImageSaveAsPDFFile(ImageSaveAsPDFParameters imageSaveAsPDFParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression.
+        /// Saves a previously uploaded image as PDF using MRC compression, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSaveAsPDFMRCResponse</returns>
         ImageSaveAsPDFMRCResponse ImageSaveAsPDFMRC(ImageSaveAsPDFMRCParameters imageSaveAsPDFMRCParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression.
+        /// Saves a previously uploaded image as PDF using MRC compression, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
         void ImageSaveAsPDFMRCFile(ImageSaveAsPDFMRCParameters imageSaveAsPDFMRCParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG.
+        /// Saves a previously uploaded image as PNG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSaveAsPNGResponse</returns>
         ImageSaveAsPNGResponse ImageSaveAsPNG(ImageSaveAsPNGParameters imageSaveAsPNGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG.
+        /// Saves a previously uploaded image as PNG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
         void ImageSaveAsPNGFile(ImageSaveAsPNGParameters imageSaveAsPNGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF.
+        /// Saves a previously uploaded image as TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSaveAsTIFFResponse</returns>
         ImageSaveAsTIFFResponse ImageSaveAsTIFF(ImageSaveAsTIFFParameters imageSaveAsTIFFParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF.
+        /// Saves a previously uploaded image as TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
         void ImageSaveAsTIFFFile(ImageSaveAsTIFFParameters imageSaveAsTIFFParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF.
+        /// Saves a previously uploaded image as multipage TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSaveAsTIFFMultipageResponse</returns>
         ImageSaveAsTIFFMultipageResponse ImageSaveAsTIFFMultipage(ImageSaveAsTIFFMultipageParameters imageSaveAsTIFFMultipageParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF.
+        /// Saves a previously uploaded image as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         void ImageSaveAsTIFFMultipageFile(ImageSaveAsTIFFMultipageParameters imageSaveAsTIFFMultipageParameters, System.IO.Stream destinationStream);
@@ -371,9 +274,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Swaps two pages from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSwapPagesParameters">An ImageSwapPagesParameters object specifying the parameters of the action.</param>
         /// <returns>ImageSwapPagesResponse</returns>
@@ -389,9 +289,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Adjusts a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageAdjustParameters">An ImageAdjustParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageAdjustResponse</returns>
@@ -400,9 +297,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Automatically crops a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageAutoCropParameters">An ImageAutoCropParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageAutoCropResponse</returns>
@@ -411,9 +305,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Cleanup a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCleanupDocumentParameters">An ImageCleanupDocumentParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageCleanupDocumentResponse</returns>
@@ -422,9 +313,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Clones regions from a previously uploaded image into new images.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCloneRegionsParameters">An ImageCloneRegionsParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageCloneRegionsResponse</returns>
@@ -433,9 +321,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Closes a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCloseParameters">An ImageCloseParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageCloseResponse</returns>
@@ -444,9 +329,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Converts the color depth of a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageConvertColorDepthParameters">An ImageConvertColorDepthParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageConvertColorDepthResponse</returns>
@@ -455,9 +337,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Crops a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageCropParameters">An ImageCropParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageCropResponse</returns>
@@ -466,9 +345,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Deletes a page range from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDeletePageParameters">An ImageDeletePageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageDeletePageResponse</returns>
@@ -477,9 +353,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Detects the blank page(s) from a previously uploaded image and offers to remove them.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDetectBlankPagesParameters">An ImageDetectBlankPagesParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageDetectBlankPagesResponse</returns>
@@ -488,9 +361,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs color detection  on a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDetectColorParameters">An ImageDetectColorParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageDetectColorResponse</returns>
@@ -499,9 +369,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Detects the orientation of the page(s) of a previously uploaded image and offers to automatically rotate them.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageDetectPageOrientationParameters">An ImagedetectPageOrientationParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageDetectPageOrientationResponse</returns>
@@ -510,9 +377,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Applies filters to a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageFilterParameters">An ImageFilterParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageFilterResponse</returns>
@@ -521,9 +385,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets a thumbnail of each page within the provided page range from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageGetPageThumbnailParameters">A PDFGetPageThumbnailParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageGetPageThumbnailResponse</returns>
@@ -532,9 +393,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Gets the supported file extensions by the image loading actions.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of StringArrayResponse</returns>
         Task<StringArrayResponse> ImageGetSupportedFileExtensionsAsync();
@@ -542,9 +400,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Loads the provided image file.  Supported image formats can be retrieved by the GetSupportedImageFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="loadImageFromByteArrayParameters">A LoadImageFromByteArrayParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageLoadResponse</returns>
@@ -553,9 +408,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Loads the provided image file using Multipart Upload.  Supported image formats can be retrieved by the GetSupportedImageFileExtensions action.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileData">The data of the document.</param>
         /// <param name="loadImageParameters"> (optional)</param>
@@ -565,9 +417,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Performs MICR (Magnetic Ink Character Recognition) on a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageMICRParameters">An ImageMICRParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageMICRResponse</returns>
@@ -576,9 +425,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Reads barcodes from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageReadBarcodesParameters">An ImageReadBarcodesParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ReadBarcodesResponse</returns>
@@ -587,9 +433,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Resizes a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageResizeParameters">An ImageResizeParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageResizeResponse</returns>
@@ -598,136 +441,97 @@ namespace PassportPDF.Api
         /// <summary>
         /// Rotates and/or flips a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageRotateParameters">An ImageRotateParameters object specifying the parameters for the action.</param>
         /// <returns>Task of ImageRotateResponse</returns>
         Task<ImageRotateResponse> ImageRotateAsync(ImageRotateParameters imageRotateParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG.
+        /// Saves a previously uploaded image as JPEG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSaveAsJPEGResponse</returns>
         Task<ImageSaveAsJPEGResponse> ImageSaveAsJPEGAsync(ImageSaveAsJPEGParameters imageSaveAsJPEGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG.
+        /// Saves a previously uploaded image as JPEG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
         Task ImageSaveAsJPEGFileAsync(ImageSaveAsJPEGParameters imageSaveAsJPEGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF.
+        /// Saves a previously uploaded image as PDF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSaveAsPDFResponse</returns>
         Task<ImageSaveAsPDFResponse> ImageSaveAsPDFAsync(ImageSaveAsPDFParameters imageSaveAsPDFParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF.
+        /// Saves a previously uploaded image as PDF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
         Task ImageSaveAsPDFFileAsync(ImageSaveAsPDFParameters imageSaveAsPDFParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression.
+        /// Saves a previously uploaded image as PDF using MRC compression, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSaveAsPDFMRCResponse</returns>
         Task<ImageSaveAsPDFMRCResponse> ImageSaveAsPDFMRCAsync(ImageSaveAsPDFMRCParameters imageSaveAsPDFMRCParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression.
+        /// Saves a previously uploaded image as PDF using MRC compression, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
         Task ImageSaveAsPDFMRCFileAsync(ImageSaveAsPDFMRCParameters imageSaveAsPDFMRCParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG.
+        /// Saves a previously uploaded image as PNG, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSaveAsPNGResponse</returns>
         Task<ImageSaveAsPNGResponse> ImageSaveAsPNGAsync(ImageSaveAsPNGParameters imageSaveAsPNGParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG.
+        /// Saves a previously uploaded image as PNG, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
         Task ImageSaveAsPNGFileAsync(ImageSaveAsPNGParameters imageSaveAsPNGParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF.
+        /// Saves a previously uploaded image as TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSaveAsTIFFResponse</returns>
         Task<ImageSaveAsTIFFResponse> ImageSaveAsTIFFAsync(ImageSaveAsTIFFParameters imageSaveAsTIFFParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF.
+        /// Saves a previously uploaded image as TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
         Task ImageSaveAsTIFFFileAsync(ImageSaveAsTIFFParameters imageSaveAsTIFFParameters, System.IO.Stream destinationStream);
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF.
+        /// Saves a previously uploaded image as multipage TIFF, and sends the file data in a JSON-serialized object.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSaveAsTIFFMultipageResponse</returns>
         Task<ImageSaveAsTIFFMultipageResponse> ImageSaveAsTIFFMultipageAsync(ImageSaveAsTIFFMultipageParameters imageSaveAsTIFFMultipageParameters);
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF.
+        /// Saves a previously uploaded image as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method).
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
         Task ImageSaveAsTIFFMultipageFileAsync(ImageSaveAsTIFFMultipageParameters imageSaveAsTIFFMultipageParameters, System.IO.Stream destinationStream);
@@ -735,9 +539,6 @@ namespace PassportPDF.Api
         /// <summary>
         /// Swaps two pages from a previously uploaded image.
         /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSwapPagesParameters">An ImageSwapPagesParameters object specifying the parameters of the action.</param>
         /// <returns>Task of ImageSwapPagesResponse</returns>
@@ -2361,7 +2162,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG. 
+        /// Saves a previously uploaded image as JPEG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -2401,7 +2202,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG. 
+        /// Saves a previously uploaded image as JPEG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -2440,7 +2241,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG. 
+        /// Saves a previously uploaded image as JPEG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -2486,7 +2287,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as JPEG. 
+        /// Saves a previously uploaded image as JPEG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsJPEGParameters">An ImageSaveAsJPEGParameters object specifying the parameters of the action.</param>
@@ -2532,7 +2333,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF. 
+        /// Saves a previously uploaded image as PDF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
@@ -2572,7 +2373,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF. 
+        /// Saves a previously uploaded image as PDF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
@@ -2611,7 +2412,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF. 
+        /// Saves a previously uploaded image as PDF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
@@ -2657,7 +2458,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF. 
+        /// Saves a previously uploaded image as PDF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFParameters">An ImagesaveAsPDFParameters object specifying the parameters of the action.</param>
@@ -2703,7 +2504,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression. 
+        /// Saves a previously uploaded image as PDF using MRC compression, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
@@ -2743,7 +2544,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression. 
+        /// Saves a previously uploaded image as PDF using MRC compression, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
@@ -2782,7 +2583,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression. 
+        /// Saves a previously uploaded image as PDF using MRC compression, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
@@ -2828,7 +2629,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PDF using MRC compression. 
+        /// Saves a previously uploaded image as PDF using MRC compression, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPDFMRCParameters">An ImagesaveAsPDFMRCParameters object specifying the parameters of the action.</param>
@@ -2874,7 +2675,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG. 
+        /// Saves a previously uploaded image as PNG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -2914,7 +2715,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG. 
+        /// Saves a previously uploaded image as PNG, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -2953,7 +2754,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG. 
+        /// Saves a previously uploaded image as PNG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -2999,7 +2800,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as PNG. 
+        /// Saves a previously uploaded image as PNG, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsPNGParameters">An ImageSaveAsPNGParameters object specifying the parameters of the action.</param>
@@ -3045,7 +2846,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF. 
+        /// Saves a previously uploaded image as TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -3085,7 +2886,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF. 
+        /// Saves a previously uploaded image as TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -3124,7 +2925,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF. 
+        /// Saves a previously uploaded image as TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -3170,7 +2971,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as TIFF. 
+        /// Saves a previously uploaded image as TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFParameters">An ImageSaveAsTIFFParameters object specifying the parameters of the action.</param>
@@ -3216,7 +3017,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF. 
+        /// Saves a previously uploaded image as multipage TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -3256,7 +3057,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF. 
+        /// Saves a previously uploaded image as multipage TIFF, and sends the file data in a JSON-serialized object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -3295,7 +3096,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF. 
+        /// Saves a previously uploaded image as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
@@ -3341,7 +3142,7 @@ namespace PassportPDF.Api
         }
 
         /// <summary>
-        /// Saves a previously uploaded image as multipage TIFF. 
+        /// Saves a previously uploaded image as multipage TIFF, and streams the file binary data to the response (this is the most efficient download method). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="imageSaveAsTIFFMultipageParameters">An ImageSaveAsTIFFMultipageParameters object specifying the parameters of the action.</param>
